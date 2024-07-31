@@ -1,0 +1,43 @@
+@import "../../../components/styles/variables.scss";
+
+.newsletters {
+  width: 350px;
+
+  .content {
+    display: flex;
+
+    .input {
+      padding: 15px;
+      color: $text;
+      background-color: #fff;
+      border: 1px solid rgba($main, 0.1);
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+      font-size: 14px;
+      line-height: 16px;
+      width: 100%;
+      box-sizing: border-box;
+
+      &:focus {
+        border-color: rgba($main, 0.3);
+        outline: none;
+      }
+    }
+  }
+
+  .title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: $text;
+    line-height: 16px;
+  }
+
+  .descr {
+    font-size: 14px;
+    line-height: 22px;
+    color: $descr;
+    font-weight: 400;
+    margin-top: 20px;
+  }
+}

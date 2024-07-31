@@ -1,0 +1,35 @@
+@import "../../styles/variables.scss";
+
+.login {
+  padding: 10px 20px;
+  background-color: $main;
+  border-radius: 6px;
+
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 20px;
+
+  #login {
+    margin-right: 5px;
+  }
+}
+
+.join {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 16px;
+  padding: 10px 25px;
+  background-color: $main;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+
+  &:hover {
+    background-color: #2d763c;
+  }
+}
