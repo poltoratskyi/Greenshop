@@ -10,9 +10,11 @@ export const Footer = () => {
   return (
     <footer className={Style.footer}>
       <div className="container">
-        <Service />
-        <Contacts />
-        <Feedback />
+        <div className={Style.content}>
+          <Service />
+          <Contacts />
+          <Feedback />
+        </div>
       </div>
     </footer>
   );

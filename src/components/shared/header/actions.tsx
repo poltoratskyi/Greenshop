@@ -66,7 +66,7 @@ export const Actions = () => {
         />
       </svg>
 
-      <Button className="login" value="Login" svg={svg} />
+      <Button className="login" value="Login" svgLeft={svg} />
     </div>
   );
 };

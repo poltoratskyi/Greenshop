@@ -1,0 +1,44 @@
+@import "../../styles/variables.scss";
+
+.adv {
+  margin: 100px 0px 140px;
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    .info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      background-color: $background;
+
+      img {
+        width: 100%;
+      }
+
+      .wrapper {
+        text-align: right;
+        padding: 40px 30px 45px 0px;
+        width: 350px;
+
+        .title {
+          font-size: 18px;
+          line-height: 24px;
+          color: $text;
+          font-weight: 900;
+          margin-bottom: 10px;
+          text-transform: uppercase;
+        }
+
+        .descr {
+          font-size: 14px;
+          line-height: 24px;
+          font-weight: 400;
+          margin-bottom: 25px;
+          color: $descr;
+        }
+      }
+    }
+  }
+}

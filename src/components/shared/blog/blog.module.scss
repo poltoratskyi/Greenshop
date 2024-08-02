@@ -1,0 +1,74 @@
+@import "../../../components/styles/variables.scss";
+
+.blog {
+  margin-bottom: 100px;
+  .title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 16px;
+    color: $text;
+    margin-bottom: 15px;
+  }
+
+  .descr {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $descr;
+    margin-bottom: 35px;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 45px;
+
+    img {
+      width: 100%;
+    }
+
+    .info {
+      text-align: left;
+      padding: 10px;
+      background-color: $background;
+
+      span {
+        display: block;
+        font-size: 14px;
+        line-height: 16px;
+        color: $main;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+
+      h3 {
+        font-weight: 700;
+        line-height: 26px;
+        font-size: 20px;
+        color: $text;
+        margin-bottom: 5px;
+      }
+
+      p {
+        font-size: 14px;
+        color: $descr;
+        font-weight: 400;
+        margin-bottom: 10px;
+        line-height: 22px;
+      }
+
+      a {
+        line-height: 16px;
+        font-size: 14px;
+        font-weight: 500;
+        color: $text;
+
+        &:hover {
+          color: $main;
+        }
+      }
+    }
+  }
+}
