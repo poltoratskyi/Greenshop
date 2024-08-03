@@ -20,7 +20,11 @@ export const Banner = () => {
             <Button className="banner" value="shop now" />
           </div>
 
-          <img src="Catalog/Lily-min.png" alt="Main-banner.jpg" />
+          <img
+            loading="lazy"
+            src="catalog/Lily-min.png"
+            alt="Main-banner.jpg"
+          />
         </div>
       </div>
     </div>

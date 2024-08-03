@@ -49,12 +49,12 @@ const AdvData = [
 
 export const Adv = () => {
   return (
-    <div className={Style.adv}>
+    <section className={Style.adv}>
       <div className="container">
         <div className={Style.content}>
           {AdvData.map((item) => (
             <div className={Style.info} key={item.id}>
-              <img src={item.imgUrl} alt={item.title} />
+              <img loading="lazy" src={item.imgUrl} alt={item.title} />
 
               <div className={Style.wrapper}>
                 <h3 className={Style.title}>
@@ -69,6 +69,6 @@ export const Adv = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };

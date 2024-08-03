@@ -37,7 +37,7 @@ const blogData = [
 
 export const Blog = () => {
   return (
-    <div className={Style.blog}>
+    <section className={Style.blog}>
       <div className="container">
         <h2 className={Style.title}>Our Blog Posts</h2>
         <p className={Style.descr}>
@@ -48,7 +48,7 @@ export const Blog = () => {
         <div className={Style.content}>
           {blogData.map((item) => (
             <div style={{ textAlign: "center" }} key={item.id}>
-              <img src={item.imgUrl} alt={item.title} />
+              <img loading="lazy" src={item.imgUrl} alt={item.title} />
               <div className={Style.info}>
                 <span>{item.heading}</span>
                 <h3>{item.title}</h3>
@@ -59,6 +59,6 @@ export const Blog = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };

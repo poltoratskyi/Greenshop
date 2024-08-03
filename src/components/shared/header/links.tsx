@@ -5,17 +5,17 @@ import React, { useState } from "react";
 import Style from "./header.module.scss";
 
 const pages = [
-  { name: "Home", href: "#" },
-  { name: "Shop", href: "#" },
-  { name: "Plant Care", href: "#" },
-  { name: "Blogs", href: "#" },
+  { menu: "Home", href: "#" },
+  { menu: "Shop", href: "#" },
+  { menu: "Plant Care", href: "#" },
+  { menu: "Blogs", href: "#" },
 ];
 
 export const Links: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState("Home");
 
-  const selectActiveMenu = (name: string) => {
-    setActiveMenu(name);
+  const selectActiveMenu = (menu: string) => {
+    setActiveMenu(menu);
   };
 
   return (
@@ -24,14 +24,14 @@ export const Links: React.FC = () => {
         <li className={Style.list} key={index}>
           <a
             className={
-              activeMenu === item.name
+              activeMenu === item.menu
                 ? `${Style.link} ${Style.active}`
                 : Style.link
             }
-            onClick={() => selectActiveMenu(item.name)}
+            onClick={() => selectActiveMenu(item.menu)}
             href={item.href}
           >
-            {item.name}
+            {item.menu}
           </a>
         </li>
       ))}
