@@ -20,7 +20,7 @@ export const Banner = () => {
             <Button className="banner" value="shop now" />
           </div>
 
-          <img src="Main-banner-min.png" alt="Main-banner.jpg" />
+          <img src="Catalog/Lily-min.png" alt="Main-banner.jpg" />
         </div>
       </div>
     </div>

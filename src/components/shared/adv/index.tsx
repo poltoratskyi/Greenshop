@@ -30,7 +30,7 @@ const svg = (
 const AdvData = [
   {
     id: 1,
-    imgUrl: "adv_1-min.png",
+    imgUrl: "adv/adv_1-min.png",
     title: "Summer cactus",
     subTitle: "succulents",
     descr:
@@ -39,7 +39,7 @@ const AdvData = [
 
   {
     id: 2,
-    imgUrl: "adv_2-min.png",
+    imgUrl: "adv/adv_2-min.png",
     title: "Styling Trends",
     subTitle: "much more",
     descr:
