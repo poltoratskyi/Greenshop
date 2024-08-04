@@ -72,3 +72,19 @@
     background-color: #2d763c;
   }
 }
+
+.filter {
+  padding: 10px 25px;
+  background-color: $main;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 20px;
+  text-transform: uppercase;
+  margin-left: 12px;
+
+  &:hover {
+    background-color: #2d763c;
+  }
+}

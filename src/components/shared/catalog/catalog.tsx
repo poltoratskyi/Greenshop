@@ -1,5 +1,6 @@
 import Style from "./catalog.module.scss";
 
+import { Categories } from "./categories";
 import { Filter } from "./filter";
 import { ProductList } from "./productList";
 
@@ -7,9 +8,16 @@ export const Catalog = () => {
   return (
     <section className={Style.catalog}>
       <div className="container">
-        <Filter />
+        <div className={Style.content}>
+          <aside className={Style.wrapper}>
+            <Categories />
+          </aside>
 
-        <ProductList />
+          <div style={{ width: "100%" }}>
+            <Filter />
+            <ProductList />
+          </div>
+        </div>
       </div>
     </section>
   );
