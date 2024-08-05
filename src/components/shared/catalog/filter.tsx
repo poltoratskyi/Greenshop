@@ -24,7 +24,7 @@ const filterSort = [
   { value: "-price", label: "from high to low" },
 ];
 
-export const Filter = () => {
+export const Filter: React.FC = () => {
   const [shopSortMenu, setShopSortMenu] = useState(false);
   const [activeFilterMenu, setActiveFilterMenu] = useState("All Plants");
   const [activeSortMenu, setActiveSortMenu] = useState("name");

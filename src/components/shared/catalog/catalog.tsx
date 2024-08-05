@@ -4,7 +4,7 @@ import { Categories } from "./categories";
 import { Filter } from "./filter";
 import { ProductList } from "./productList";
 
-export const Catalog = () => {
+export const Catalog: React.FC = () => {
   return (
     <section className={Style.catalog}>
       <div className="container">

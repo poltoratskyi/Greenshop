@@ -47,7 +47,7 @@ const AdvData = [
   },
 ];
 
-export const Adv = () => {
+export const Adv: React.FC = () => {
   return (
     <section className={Style.adv}>
       <div className="container">

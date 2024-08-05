@@ -1,0 +1,51 @@
+// Prisma Client Config
+generator client {
+    // Prisma Client -> JavaScript / TypeScript
+    provider = "prisma-client-ts"
+}
+
+// Database Connection Config
+datasource db {
+    // Data Type -> PostgreSQL
+    provider = "postgresql"
+
+    // url - Multi Connection (Recomented) 
+    // directUrl - Single Connection (Not Recomented)
+
+    // Url link -> Database
+    url = env("POSTGRES_URL")
+    directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+// User Info
+model User {
+    // id = Int (Num)
+    // @id (Original)
+    // @default(autoincrement()) - Adding An ID And Auto Incr It By +1 
+    id Int @id @default(autoincrement())
+
+    fullName String
+    email    String
+    password String
+
+    // User Created 
+    createdAt DateTime @default(now())
+    // User Was Updated
+    updatedAt DateTime @updatedAt
+}
+
+// Product Info
+model Product {
+    // id = Int (Num)
+    // @id (Original)
+    // @default(autoincrement()) - Adding An ID And Auto Incr It By +1 
+    id Int @id @default(autoincrement())
+
+    name   String
+    imgUrl String
+
+    // Product Created 
+    createdAt DateTime @default(now())
+    // Product Was Updated
+    updatedAt DateTime @updatedAt
+}

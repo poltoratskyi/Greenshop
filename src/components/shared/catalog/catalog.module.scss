@@ -28,7 +28,7 @@
           color: $text;
           line-height: 40px;
           font-size: 15px;
-          font-weight: 400;
+          font-weight: 500;
           cursor: pointer;
           padding: 0px 12px;
 
@@ -38,7 +38,6 @@
 
           &.active {
             color: $main;
-            font-weight: 700;
           }
         }
       }
@@ -164,16 +163,13 @@
 
       .lists {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 320px;
+        justify-content: center;
 
         .list {
-          min-width: 75px;
+          margin-right: 40px;
 
           .text {
             padding: 0px 0px 10px 0px;
-            min-width: 100px;
             font-size: 15px;
             color: $text;
             line-height: 16px;
@@ -186,9 +182,12 @@
 
             &.active {
               color: $main;
-              font-weight: 700;
               border-bottom: 3px $main solid;
             }
+          }
+
+          &:last-child {
+            margin-right: 0px;
           }
         }
       }
@@ -242,7 +241,6 @@
             }
 
             &.active {
-              color: $text;
               font-weight: 700;
             }
           }

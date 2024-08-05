@@ -1,8 +1,8 @@
 import Style from "./catalog.module.scss";
 
-import { catalog } from "../../data/catalog";
+import { catalog } from "../../../data/catalog";
 
-export const ProductList = () => {
+export const ProductList: React.FC = () => {
   const percentValue = (price: number, sailPrice: number) => {
     const discount = ((price - sailPrice) / price) * 100;
     return discount.toFixed(0);

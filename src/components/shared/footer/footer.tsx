@@ -6,7 +6,7 @@ import { Service } from "./service";
 import { Contacts } from "./contacts";
 import { Feedback } from "./feedback";
 
-export const Footer = () => {
+export const Footer: React.FC = () => {
   return (
     <footer className={Style.footer}>
       <div className="container">

@@ -98,3 +98,15 @@ a {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+/* noSpin in Chrome, Safari, Edge и Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* noSpin in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

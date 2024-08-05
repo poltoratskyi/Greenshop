@@ -35,7 +35,7 @@ const blogData = [
   },
 ];
 
-export const Blog = () => {
+export const Blog: React.FC = () => {
   return (
     <section className={Style.blog}>
       <div className="container">

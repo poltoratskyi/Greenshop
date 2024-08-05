@@ -1,7 +1,7 @@
 import { Button } from "../../ui/button";
 import Style from "./banner.module.scss";
 
-export const Banner = () => {
+export const Banner: React.FC = () => {
   return (
     <div className={Style.banner}>
       <div className="container">

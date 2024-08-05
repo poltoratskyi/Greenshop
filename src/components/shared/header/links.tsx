@@ -19,22 +19,24 @@ export const Links: React.FC = () => {
   };
 
   return (
-    <ul className={Style.lists}>
-      {pages.map((item, index) => (
-        <li className={Style.list} key={index}>
-          <a
-            className={
-              activeMenu === item.menu
-                ? `${Style.link} ${Style.active}`
-                : Style.link
-            }
-            onClick={() => selectActiveMenu(item.menu)}
-            href={item.href}
-          >
-            {item.menu}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <nav>
+      <ul className={Style.lists}>
+        {pages.map((item, index) => (
+          <li className={Style.list} key={index}>
+            <a
+              className={
+                activeMenu === item.menu
+                  ? `${Style.link} ${Style.active}`
+                  : Style.link
+              }
+              onClick={() => selectActiveMenu(item.menu)}
+              href={item.href}
+            >
+              {item.menu}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };

@@ -4,7 +4,7 @@ import Style from "./header.module.scss";
 
 import { Button } from "../../ui/button";
 
-export const Actions = () => {
+export const Actions: React.FC = () => {
   const svg = (
     <svg
       id="login"
