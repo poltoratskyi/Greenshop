@@ -3,9 +3,11 @@
 </p>
 
 <p align="center">
+      <img src="https://img.shields.io/badge/Next-v.14.2.5-black" alt="Next">
       <img src="https://img.shields.io/badge/React-v18-blue" alt="React">
       <img src="https://img.shields.io/badge/TypeScript-v5-blue" alt=TypeScript>
       <img src="https://img.shields.io/badge/Sass-v1.77.8-%23FF69B4" alt="Sass">
+      <img src="https://img.shields.io/badge/Prisma%2FClient-v.5.17-blue" alt="Prisma/Client">
       <img src="https://img.shields.io/badge/License-MIT-%233Ea638" alt="License">
 </p>
 
@@ -21,7 +23,7 @@ This project is a web application of a store selling flowers.
 ## Requirements 
 
 - Node.js, npm
-- React and other dependencies (installed automatically with `npm install`)
+- React and other dependencies (installed auto with `npm install`)
 
 ## Installation
 
