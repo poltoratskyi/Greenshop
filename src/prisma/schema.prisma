@@ -1,6 +1,6 @@
 // Prisma Client Config
 generator client {
-    // Prisma Client -> JavaScript / TypeScript
+    // Prisma Client -> JavaScript | TypeScript
     provider = "prisma-client-ts"
 }
 
@@ -9,43 +9,143 @@ datasource db {
     // Data Type -> PostgreSQL
     provider = "postgresql"
 
-    // url - Multi Connection (Recomented) 
-    // directUrl - Single Connection (Not Recomented)
+    // url - Multi Connection (Recommended) 
+    // directUrl - Single Connection (Not Recommended)
 
     // Url link -> Database
-    url = env("POSTGRES_URL")
+    url       = env("POSTGRES_URL")
     directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-// User Info
-model User {
+model Category {
     // id = Int (Num)
     // @id (Original)
-    // @default(autoincrement()) - Adding An ID And Auto Incr It By +1 
+    // @default(autoincrement()) - Adding an id and auto incr ut by +1 
     id Int @id @default(autoincrement())
 
-    fullName String
-    email    String
-    password String
+    // Name of Category is Original 
+    title String @unique
+
+    // One to many (One category -> Many items)
+    items Item[]
 
     // User Created 
     createdAt DateTime @default(now())
-    // User Was Updated
+    // User was Updated
     updatedAt DateTime @updatedAt
 }
 
-// Product Info
-model Product {
-    // id = Int (Num)
-    // @id (Original)
-    // @default(autoincrement()) - Adding An ID And Auto Incr It By +1 
+model Item {
     id Int @id @default(autoincrement())
 
-    name   String
-    imgUrl String
+    imgUrl      String
+    title       String
+    description String
+    price       Int
 
-    // Product Created 
+    variations Variation[]
+
+    // category -> JavaScript | TypeScript
+    // Find the categoryId "fields: [categoryId]" in the db and look for it "references: [id]" in the Category model
+    category   Category @relation(fields: [categoryId], references: [id])
+    // Id -> db
+    categoryId Int
+
     createdAt DateTime @default(now())
-    // Product Was Updated
     updatedAt DateTime @updatedAt
+}
+
+model Variation {
+    id Int @id @default(autoincrement())
+
+    price Int
+    size  Int?
+
+    item   Item @relation(fields: [itemId], references: [id])
+    itemId Int
+}
+
+model User {
+    id Int @id @default(autoincrement())
+
+    userName String
+    email    String @unique
+    password String
+
+    verificationCode VerificationCode?
+    cart             Cart?
+    orders           Order[]
+    user             UserRole          @default(USER)
+
+    // Google | Facebook Authorization
+    provider   String?
+    // Id -> Google | Facebook
+    providerId String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model VerificationCode {
+    id Int @id @default(autoincrement())
+
+    user   User @relation(fields: [userId], references: [id])
+    userId Int  @unique
+
+    code String @unique
+
+    createdAt DateTime @default(now())
+}
+
+model Cart {
+    id Int @id @default(autoincrement())
+
+    totalAmount Int    @default(0)
+    token       String
+
+    user   User? @relation(fields: [userId], references: [id])
+    userId Int?  @unique
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model Order {
+    id Int @id @default(autoincrement())
+
+    // Ckeckout
+    userName String
+    lastName String
+    country  String
+    city     String
+    address  String
+    email    String
+    phone    String
+    token    String
+    notes    String?
+
+    // List of Items in the Cart   
+    items Json
+
+    // Registered ?
+    user   User? @relation(fields: [userId], references: [id])
+    userId Int?
+
+    starus    OrderStatus
+    // Id Paymant Service
+    paymantId String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+enum UserRole {
+    USER
+    ADMIN
+}
+
+enum OrderStatus {
+    PENDING
+    SUCCEEDED
+    CANCELLED
 }
