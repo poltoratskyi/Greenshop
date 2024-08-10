@@ -12,7 +12,7 @@ export const ProductList: React.FC = () => {
     <div className={Style.productList}>
       <ul className={Style.lists}>
         {catalog.map((item) => (
-          <li className={Style.list} key={item.id}>
+          <li className={Style.list} key={item.itemId}>
             <img loading="lazy" src={item.imgUrl} alt={item.title} />
 
             <h3 className={Style.title}>{item.title}</h3>

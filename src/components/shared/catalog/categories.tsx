@@ -2,25 +2,26 @@
 
 import { useState } from "react";
 
-import Style from "./catalog.module.scss";
 import { Button } from "../../ui/button";
 
+import Style from "./catalog.module.scss";
+
 const categoriesMenu = [
-  { value: 33, label: "House Plants" },
-  { value: 12, label: "Potter Plants" },
-  { value: 65, label: "Seeds" },
-  { value: 39, label: "Small Plants" },
-  { value: 23, label: "Big Plants" },
-  { value: 17, label: "Succulents" },
-  { value: 19, label: "Trerrariums" },
-  { value: 13, label: "Gardening" },
-  { value: 18, label: "Accessories" },
+  { value: 33, title: "House Plants" },
+  { value: 12, title: "Potter Plants" },
+  { value: 65, title: "Seeds" },
+  { value: 39, title: "Small Plants" },
+  { value: 23, title: "Big Plants" },
+  { value: 17, title: "Succulents" },
+  { value: 19, title: "Terrariums" },
+  { value: 13, title: "Gardening" },
+  { value: 18, title: "Accessories" },
 ];
 
 const sizeMenu = [
-  { value: 119, label: "Small" },
-  { value: 86, label: "Medium" },
-  { value: 78, label: "Large" },
+  { value: 119, title: "Small" },
+  { value: 86, title: "Medium" },
+  { value: 78, title: "Large" },
 ];
 
 export const Categories = () => {
@@ -37,14 +38,14 @@ export const Categories = () => {
           {categoriesMenu.map((item, index) => (
             <li
               className={
-                activeCategoriesMenu === item.label
+                activeCategoriesMenu === item.title
                   ? `${Style.list} ${Style.active}`
                   : Style.list
               }
-              onClick={() => setActiveCategoriesMenu(item.label)}
+              onClick={() => setActiveCategoriesMenu(item.title)}
               key={index}
             >
-              {item.label} <span>({item.value})</span>
+              {item.title} <span>({item.value})</span>
             </li>
           ))}
         </ul>
@@ -75,14 +76,14 @@ export const Categories = () => {
           {sizeMenu.map((item, index) => (
             <li
               className={
-                activeSizeMenu === item.label
+                activeSizeMenu === item.title
                   ? `${Style.list} ${Style.active}`
                   : Style.list
               }
-              onClick={() => setActiveSizeMenu(item.label)}
+              onClick={() => setActiveSizeMenu(item.title)}
               key={index}
             >
-              {item.label} <span>({item.value})</span>
+              {item.title} <span>({item.value})</span>
             </li>
           ))}
         </ul>
