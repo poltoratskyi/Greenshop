@@ -102,20 +102,18 @@ const info = [
 
 export const Contacts: React.FC = () => {
   return (
-    <>
-      <div className={Style.contacts}>
-        <ul className={Style.lists}>
-          <Logo />
+    <div className={Style.contacts}>
+      <ul className={Style.lists}>
+        <Logo />
 
-          {info.map((item, index) => (
-            <li className={Style.list} key={index}>
-              <div className={Style.icon}>{item.svg}</div>
+        {info.map((item, index) => (
+          <li className={Style.list} key={index}>
+            <div className={Style.icon}>{item.svg}</div>
 
-              <p className={Style.descr}>{item.descr}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
+            <p className={Style.descr}>{item.descr}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };

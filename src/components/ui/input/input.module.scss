@@ -41,3 +41,57 @@
     margin-top: 20px;
   }
 }
+
+.search {
+  position: fixed;
+  top: 0;
+  width: 1200px;
+  z-index: 3;
+  margin-top: 15px;
+
+  .content {
+    .svg_search {
+      position: absolute;
+      left: 0%;
+      top: 50%;
+      transform: translate(0%, -50%);
+
+      svg {
+        margin: 0px 0px 0px 25px;
+      }
+    }
+
+    .svg_close {
+      position: absolute;
+      right: 0%;
+      top: 50%;
+      transform: translate(0%, -50%);
+
+      svg {
+        margin: 0px 25px 0px 0px;
+
+        &:hover {
+          fill: #000;
+        }
+      }
+    }
+
+    .input {
+      padding: 15px 60px 15px 60px;
+      color: $text;
+      background-color: #fff;
+      border: 1px solid rgba($main, 0.1);
+      font-size: 14px;
+      line-height: 16px;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      height: 70px;
+
+      &:focus {
+        border-color: rgba($main, 0.3);
+        outline: none;
+      }
+    }
+  }
+}

@@ -5,26 +5,51 @@ import { Button } from "../button";
 import Style from "./input.module.scss";
 
 interface Props {
+  location: string;
+  className: string;
   inputTitle?: string;
   inputDescr?: string;
-  btnText: string;
+  btnText?: string;
+  inputPlaceholder: string;
+  svgSearch?: JSX.Element;
+  svgClose?: JSX.Element;
+  toggleSearch: (openSearch: boolean) => void;
 }
 
-const inputPlaceholder = "enter your email address...";
+export const Input: React.FC<Props> = ({
+  location,
+  className,
+  inputTitle,
+  inputDescr,
+  btnText,
+  inputPlaceholder,
+  svgSearch,
+  svgClose,
+  toggleSearch,
+}) => {
+  const inputLocation = Style[location];
+  const inputClass = Style[className];
 
-export const Input: React.FC<Props> = ({ inputTitle, inputDescr, btnText }) => {
   return (
-    <div className={Style.newsletters}>
+    <div className={inputLocation}>
       {inputTitle && <h3 className={Style.title}>{inputTitle}</h3>}
 
       <div className={Style.content}>
+        {svgSearch && <span className={Style.svg_search}>{svgSearch}</span>}
+
         <input
           type="text"
           placeholder={inputPlaceholder}
-          className={Style.input}
+          className={inputClass}
         />
 
-        <Button className="join" value={btnText} />
+        {svgClose && (
+          <span onClick={() => toggleSearch(false)} className={Style.svg_close}>
+            {svgClose}
+          </span>
+        )}
+
+        {btnText && <Button className="join" value={btnText} />}
       </div>
 
       {inputDescr && <p className={Style.descr}>{inputDescr}</p>}

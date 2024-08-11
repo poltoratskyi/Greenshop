@@ -1135,9 +1135,12 @@ export const Service: React.FC = () => {
         ))}
 
         <Input
+          location="newsletters"
+          className="input"
           inputTitle={inputTitle}
           inputDescr={inputDescr}
           btnText={btnText}
+          inputPlaceholder="enter your email address..."
         />
       </ul>
     </div>
