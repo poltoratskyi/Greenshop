@@ -1,4 +1,4 @@
-import { Input } from "@/components/ui/input";
+import { Input } from "../../ui/input";
 
 import Style from "./footer.module.scss";
 

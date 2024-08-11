@@ -13,7 +13,7 @@ interface Props {
   inputPlaceholder: string;
   svgSearch?: JSX.Element;
   svgClose?: JSX.Element;
-  toggleSearch: (openSearch: boolean) => void;
+  toggleSearch?: (openSearch: boolean) => void;
 }
 
 export const Input: React.FC<Props> = ({
@@ -44,7 +44,10 @@ export const Input: React.FC<Props> = ({
         />
 
         {svgClose && (
-          <span onClick={() => toggleSearch(false)} className={Style.svg_close}>
+          <span
+            onClick={() => toggleSearch && toggleSearch(false)}
+            className={Style.svg_close}
+          >
             {svgClose}
           </span>
         )}
