@@ -2,7 +2,7 @@ import Style from "./catalog.module.scss";
 
 import { Categories } from "./categories";
 import { Filter } from "./filter";
-import { ProductList } from "./productList";
+import { ItemsWrapper } from "../items-list";
 
 export const Catalog: React.FC = () => {
   return (
@@ -15,7 +15,8 @@ export const Catalog: React.FC = () => {
 
           <div style={{ width: "100%" }}>
             <Filter />
-            <ProductList />
+
+            <ItemsWrapper />
           </div>
         </div>
       </div>

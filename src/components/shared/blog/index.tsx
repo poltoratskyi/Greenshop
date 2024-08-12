@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Style from "./blog.module.scss";
 
 const blogData = [
@@ -48,12 +49,12 @@ export const Blog: React.FC = () => {
         <div className={Style.content}>
           {blogData.map((item) => (
             <div style={{ textAlign: "center" }} key={item.id}>
-              <img loading="lazy" src={item.imgUrl} alt={item.title} />
+              <img src={item.imgUrl} alt={item.title} />
               <div className={Style.info}>
                 <span>{item.heading}</span>
                 <h3>{item.title}</h3>
                 <p>{item.descr}</p>
-                <a href={item.link}>
+                <Link href={item.link}>
                   Read More
                   <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
                     <path
@@ -61,7 +62,7 @@ export const Blog: React.FC = () => {
                       fill="#46a358"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

@@ -38,7 +38,7 @@ export const Adv: React.FC = () => {
         <div className={Style.content}>
           {AdvData.map((item) => (
             <div className={Style.info} key={item.id}>
-              <img loading="lazy" src={item.imgUrl} alt={item.title} />
+              <img src={item.imgUrl} alt={item.title} />
 
               <div className={Style.wrapper}>
                 <h3 className={Style.title}>

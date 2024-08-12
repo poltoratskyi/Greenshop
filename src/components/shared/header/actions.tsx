@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+
+import { useClickAway } from "react-use";
 
 import Style from "./header.module.scss";
 
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
+import { Overlay } from "../../ui/overlay";
 
 const svgLeft = (
   <svg id="login" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -51,7 +54,7 @@ const svgClose = (
     y="0px"
     viewBox="0 0 513.552 513.552"
     enableBackground=":new 0 0 513.552 513.552;"
-    fill="#acacac"
+    fill="#cbcbcb"
   >
     <g>
       <g>
@@ -63,20 +66,21 @@ const svgClose = (
 
 export const Actions: React.FC = () => {
   const [openSearch, setOpenSearch] = useState(false);
+  const ref = useRef(null);
+
+  useClickAway(ref, () => {
+    setOpenSearch(false);
+    document.body.style.overflow = "";
+  });
 
   return (
     <>
-      {openSearch && (
-        <div
-          className={
-            openSearch ? `${Style.overlay} ${Style.active}` : Style.overlay
-          }
-        ></div>
-      )}
+      {openSearch && <Overlay visible={openSearch} />}
 
-      <div className={Style.actions}>
+      <div ref={ref} className={Style.actions}>
         {openSearch && (
           <Input
+            openSearch={openSearch}
             toggleSearch={setOpenSearch}
             location="search"
             className="input"
@@ -88,7 +92,10 @@ export const Actions: React.FC = () => {
 
         <svg
           data-type="cart"
-          onClick={() => setOpenSearch(true)}
+          onClick={() => {
+            setOpenSearch(true);
+            document.body.style.overflow = "hidden";
+          }}
           width="20"
           height="20"
           viewBox="0 0 20 20"

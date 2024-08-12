@@ -16,7 +16,6 @@
       font-size: 14px;
       line-height: 16px;
       width: 100%;
-      box-sizing: border-box;
 
       &:focus {
         border-color: rgba($main, 0.3);
@@ -50,6 +49,7 @@
   margin-top: 15px;
 
   .content {
+    position: relative;
     .svg_search {
       position: absolute;
       left: 0%;
@@ -80,18 +80,11 @@
       padding: 15px 60px 15px 60px;
       color: $text;
       background-color: #fff;
-      border: 1px solid rgba($main, 0.1);
-      font-size: 14px;
-      line-height: 16px;
+      font-size: 16px;
+      line-height: 18px;
       width: 100%;
-      box-sizing: border-box;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       height: 70px;
-
-      &:focus {
-        border-color: rgba($main, 0.3);
-        outline: none;
-      }
+      border-bottom: 1px solid #cbcbcb66;
     }
   }
 }

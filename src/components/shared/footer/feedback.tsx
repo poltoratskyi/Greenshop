@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Style from "./footer.module.scss";
 
 const account = [
@@ -509,9 +510,9 @@ export const Feedback: React.FC = () => {
 
           {account.map((item, index) => (
             <li className={Style.list} key={index}>
-              <a className={Style.link} href={item.link}>
+              <Link className={Style.link} href={item.link}>
                 {item.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -521,9 +522,9 @@ export const Feedback: React.FC = () => {
 
           {help.map((item, index) => (
             <li className={Style.list} key={index}>
-              <a className={Style.link} href={item.link}>
+              <Link className={Style.link} href={item.link}>
                 {item.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -533,9 +534,9 @@ export const Feedback: React.FC = () => {
 
           {categories.map((item, index) => (
             <li className={Style.list} key={index}>
-              <a className={Style.link} href={item.link}>
+              <Link className={Style.link} href={item.link}>
                 {item.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -546,7 +547,7 @@ export const Feedback: React.FC = () => {
           <ul className={Style.lists}>
             {media.map((item, index) => (
               <li className={Style.list} key={index}>
-                <a href={item.link}>{item.svg}</a>
+                <Link href={item.link}>{item.svg}</Link>
               </li>
             ))}
           </ul>
@@ -556,7 +557,7 @@ export const Feedback: React.FC = () => {
           <ul className={Style.lists}>
             {order.map((item, index) => (
               <li key={index}>
-                <a href={item.link}>{item.svg}</a>
+                <Link href={item.link}>{item.svg}</Link>
               </li>
             ))}
           </ul>

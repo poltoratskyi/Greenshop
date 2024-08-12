@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 
 import Style from "./header.module.scss";
+import Link from "next/link";
 
 const pages = [
   { menu: "Home", href: "#" },
@@ -23,7 +24,7 @@ export const Links: React.FC = () => {
       <ul className={Style.lists}>
         {pages.map((item, index) => (
           <li className={Style.list} key={index}>
-            <a
+            <Link
               className={
                 activeMenu === item.menu
                   ? `${Style.link} ${Style.active}`
@@ -33,7 +34,7 @@ export const Links: React.FC = () => {
               href={item.href}
             >
               {item.menu}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

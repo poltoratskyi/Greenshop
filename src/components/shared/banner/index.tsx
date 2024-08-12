@@ -20,11 +20,7 @@ export const Banner: React.FC = () => {
             <Button className="banner" value="shop now" />
           </div>
 
-          <img
-            loading="lazy"
-            src="catalog/Lily-min.png"
-            alt="Main-banner.jpg"
-          />
+          <img src="catalog/Lily-min.png" alt="Main-banner.jpg" />
         </div>
       </div>
     </div>

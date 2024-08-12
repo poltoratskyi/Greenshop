@@ -4,15 +4,18 @@ import { Button } from "../button";
 
 import Style from "./input.module.scss";
 
+import { Result } from "../../shared/search-result";
+
 interface Props {
   location: string;
   className: string;
+  inputPlaceholder: string;
   inputTitle?: string;
   inputDescr?: string;
   btnText?: string;
-  inputPlaceholder: string;
   svgSearch?: JSX.Element;
   svgClose?: JSX.Element;
+  openSearch?: boolean;
   toggleSearch?: (openSearch: boolean) => void;
 }
 
@@ -25,6 +28,7 @@ export const Input: React.FC<Props> = ({
   inputPlaceholder,
   svgSearch,
   svgClose,
+  openSearch,
   toggleSearch,
 }) => {
   const inputLocation = Style[location];
@@ -45,7 +49,10 @@ export const Input: React.FC<Props> = ({
 
         {svgClose && (
           <span
-            onClick={() => toggleSearch && toggleSearch(false)}
+            onClick={() => {
+              toggleSearch && toggleSearch(false);
+              document.body.style.overflow = "";
+            }}
             className={Style.svg_close}
           >
             {svgClose}
@@ -56,6 +63,8 @@ export const Input: React.FC<Props> = ({
       </div>
 
       {inputDescr && <p className={Style.descr}>{inputDescr}</p>}
+
+      {openSearch && <Result />}
     </div>
   );
 };

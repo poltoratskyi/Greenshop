@@ -29,7 +29,7 @@ export const catalog = [
   {
     itemId: 4,
     imgUrl: "catalog/Lily-min.png",
-    title: "Beach SpitemIder Lily",
+    title: "Beach Spider Lily",
     onSale: false,
     sailPrice: 0,
     price: 129,
@@ -47,7 +47,7 @@ export const catalog = [
   {
     itemId: 6,
     imgUrl: "catalog/Cactus-min.png",
-    title: "Summber Cactus",
+    title: "Summer Cactus",
     onSale: false,
     sailPrice: 0,
     price: 179,
