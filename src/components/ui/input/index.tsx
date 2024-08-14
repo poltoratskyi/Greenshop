@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 import { Button } from "../button";
 
@@ -15,7 +17,6 @@ interface Props {
   btnText?: string;
   svgSearch?: JSX.Element;
   svgClose?: JSX.Element;
-  openSearch?: boolean;
   toggleSearch?: (openSearch: boolean) => void;
 }
 
@@ -28,11 +29,18 @@ export const Input: React.FC<Props> = ({
   inputPlaceholder,
   svgSearch,
   svgClose,
-  openSearch,
   toggleSearch,
 }) => {
+  const [inputValue, setInputValue] = useState("");
+
   const inputLocation = Style[location];
   const inputClass = Style[className];
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.trimStart();
+
+    setInputValue(value);
+  };
 
   return (
     <div className={inputLocation}>
@@ -45,6 +53,8 @@ export const Input: React.FC<Props> = ({
           type="text"
           placeholder={inputPlaceholder}
           className={inputClass}
+          onChange={handleSearch}
+          value={inputValue}
         />
 
         {svgClose && (
@@ -64,7 +74,7 @@ export const Input: React.FC<Props> = ({
 
       {inputDescr && <p className={Style.descr}>{inputDescr}</p>}
 
-      {openSearch && <Result />}
+      {inputValue !== "" && <Result />}
     </div>
   );
 };

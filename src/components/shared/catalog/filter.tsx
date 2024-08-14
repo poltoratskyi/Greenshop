@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+
+import { useClickAway } from "react-use";
 
 import Style from "./catalog.module.scss";
 
@@ -28,9 +30,14 @@ export const Filter: React.FC = () => {
   const [shopSortMenu, setShopSortMenu] = useState(false);
   const [activeFilterMenu, setActiveFilterMenu] = useState("All Plants");
   const [activeSortMenu, setActiveSortMenu] = useState("name");
+  const ref = useRef<HTMLFormElement>(null);
+
+  useClickAway(ref, () => {
+    setShopSortMenu(false);
+  });
 
   return (
-    <form className={Style.filter}>
+    <form ref={ref} className={Style.filter}>
       <ul className={Style.lists}>
         {filterMenu.map((item, index) => (
           <li className={Style.list} key={index}>

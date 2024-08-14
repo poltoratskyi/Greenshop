@@ -26,6 +26,8 @@ export const Items: React.FC<Props> = ({
 
   return (
     <li className={Style.list} key={itemId}>
+      <div className={Style.line}></div>
+
       <Link href="#">
         <img src={imgUrl} alt={title} />
 
@@ -37,15 +39,12 @@ export const Items: React.FC<Props> = ({
               {percentValue(price, sailPrice)}% OFF
             </span>
 
-            <p className={Style.price}>
-              $
-              {typeof sailPrice === "number" ? sailPrice.toFixed(2) : sailPrice}
-            </p>
+            <span className={Style.price}>${sailPrice.toFixed(2)}</span>
 
-            <p className={Style.sailPrice}>${price.toFixed(2)}</p>
+            <span className={Style.sailPrice}>${price.toFixed(2)}</span>
           </div>
         ) : (
-          <p className={Style.price}>${price.toFixed(2)}</p>
+          <span className={Style.price}>${price.toFixed(2)}</span>
         )}
 
         <div className={Style.control}>

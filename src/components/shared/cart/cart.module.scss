@@ -1,0 +1,248 @@
+@import "../../../components/styles/variables.scss";
+
+.cart {
+  margin: 35px 0px 130px 0px;
+
+  .lists {
+    display: -webkit-inline-box;
+    margin-bottom: 40px;
+
+    .list {
+      a {
+        margin-right: 5px;
+
+        .link {
+          font-size: 15px;
+          line-height: 16px;
+          color: $text;
+          font-weight: 400;
+          margin-right: 5px;
+
+          &.active {
+            font-weight: 700;
+          }
+
+          &:hover {
+            color: $main;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cart_lists {
+  .header {
+    font-size: 16px;
+    line-height: 16px;
+    color: $text;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(203, 203, 203, 0.4);
+  }
+
+  .list {
+    margin-bottom: 20px;
+
+    .layout {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: center;
+      transition: 0.3s ease;
+      padding: 10px;
+      .img {
+        display: flex;
+        align-items: center;
+        width: 200px;
+
+        img {
+          object-fit: cover;
+          width: 70px;
+          height: 70px;
+          margin-right: 10px;
+        }
+
+        .title {
+          font-size: 16px;
+          line-height: 16px;
+          color: $text;
+          font-weight: 500;
+          margin-bottom: 10px;
+
+          &:hover {
+            color: $main;
+          }
+        }
+
+        .sku {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+          color: $descr;
+
+          span {
+            color: #a5a5a5;
+            margin-right: 5px;
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+
+      &:hover {
+        background-color: $background;
+      }
+    }
+
+    .price,
+    .total {
+      text-align: center;
+      font-size: 16px;
+      line-height: 16px;
+      color: $descr;
+      font-weight: 500;
+    }
+
+    .total {
+      color: $main;
+      font-weight: 700;
+    }
+
+    .quantity {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+
+      button {
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: 500;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 25px;
+        width: 25px;
+        background-color: #fff;
+        border: 1px rgba($main, 0.5) solid;
+
+        &:hover {
+          border: 1px rgba($main, 1) solid;
+        }
+      }
+
+      span {
+        font-size: 17px;
+        line-height: 10px;
+        font-weight: 400;
+        color: $text;
+        text-align: center;
+        width: 50px;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.cart_totals {
+  .title {
+    font-size: 16px;
+    line-height: 16px;
+    color: $text;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(203, 203, 203, 0.4);
+  }
+
+  .subTitle {
+    display: block;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: $text;
+    margin-bottom: 10px;
+  }
+
+  .result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    p {
+      font-size: 15px;
+      line-height: 16px;
+      color: $text;
+      font-weight: 400;
+    }
+
+    mark {
+      color: $text;
+      font-size: 16px;
+      line-height: 16px;
+      font-weight: 700;
+      background-color: transparent;
+    }
+
+    span {
+      color: $text;
+      font-size: 18px;
+      line-height: 16px;
+      font-weight: 500;
+
+      a {
+        font-size: 12px;
+        line-height: 16px;
+        color: #46a358;
+        margin-top: 10px;
+
+        &:hover {
+          text-decoration: underline;
+          color: #2d763c;
+        }
+      }
+    }
+
+    b {
+      color: $main;
+      font-size: 18px;
+      line-height: 16px;
+      font-weight: 700;
+    }
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    color: $main;
+    font-size: 15px;
+    line-height: 16px;
+    font-weight: 400;
+    text-emphasis: center;
+
+    &:hover {
+      text-decoration: underline;
+      color: #2d763c;
+    }
+  }
+}
+
+.slider {
+  .title {
+    font-size: 17px;
+    line-height: 16px;
+    color: $main;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(203, 203, 203, 0.4);
+  }
+}

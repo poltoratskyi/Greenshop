@@ -6,7 +6,7 @@ import Style from "./header.module.scss";
 import Link from "next/link";
 
 const pages = [
-  { menu: "Home", href: "#" },
+  { menu: "Home", href: "/" },
   { menu: "Shop", href: "#" },
   { menu: "Plant Care", href: "#" },
   { menu: "Blogs", href: "#" },

@@ -14,11 +14,6 @@ const svgRight = (
 );
 
 export const Result: React.FC = () => {
-  const percentValue = (price: number, sailPrice: number) => {
-    const discount = ((price - sailPrice) / price) * 100;
-    return discount.toFixed(0);
-  };
-
   return (
     <div className={Style.result}>
       <div className={Style.content}>

@@ -6,6 +6,11 @@ export const catalog = [
     onSale: false,
     sailPrice: 0,
     price: 119,
+    sku: "BD12345",
+    description:
+      "Barberton Daisy is a vibrant and cheerful flower with bright yellow petals. It’s a perfect addition to any garden, providing a splash of color and a touch of summer.",
+    category: "House Plants",
+    tags: "Home, Garden, Plants",
   },
 
   {
@@ -15,6 +20,11 @@ export const catalog = [
     onSale: false,
     sailPrice: 0,
     price: 169,
+    sku: "AWB67890",
+    description:
+      "Angel Wing Begonia features beautiful, wing-shaped leaves with intricate patterns and delicate flowers. Ideal for indoor or shaded outdoor spaces.",
+    category: "Potter Plants",
+    tags: "Home, Garden, Plants",
   },
 
   {
@@ -24,6 +34,11 @@ export const catalog = [
     onSale: true,
     sailPrice: 199,
     price: 229,
+    sku: "AV11223",
+    description:
+      "African Violet is a popular houseplant known for its velvety leaves and lovely purple flowers. It thrives in indoor environments and adds a touch of elegance to any room.",
+    category: "Small Plants",
+    tags: "Home, Plants",
   },
 
   {
@@ -33,6 +48,11 @@ export const catalog = [
     onSale: false,
     sailPrice: 0,
     price: 129,
+    sku: "BSL33445",
+    description:
+      "Beach Spider Lily boasts long, slender petals that create a striking appearance. It’s perfect for coastal gardens or adding a tropical feel to your outdoor space.",
+    category: "Big Plants",
+    tags: "Garden, Plants",
   },
 
   {
@@ -42,6 +62,11 @@ export const catalog = [
     onSale: true,
     sailPrice: 79,
     price: 139,
+    sku: "BB55667",
+    description:
+      "Blushing Bromeliad features vibrant pink and red bracts that give it a unique and exotic look. This plant is a great choice for adding color and interest to your home.",
+    category: "Succulents",
+    tags: "Home, Garden, Plants",
   },
 
   {
@@ -51,6 +76,11 @@ export const catalog = [
     onSale: false,
     sailPrice: 0,
     price: 179,
+    sku: "SC77889",
+    description:
+      "Summer Cactus is a hardy plant with a striking appearance. Its unique spines and resilient nature make it a great addition to any desert or rock garden.",
+    category: "Terrariums",
+    tags: "Garden, Plants",
   },
 
   {
@@ -60,6 +90,11 @@ export const catalog = [
     onSale: true,
     sailPrice: 69,
     price: 99,
+    sku: "AP99000",
+    description:
+      "Aluminum Plant is known for its stunning silver and green foliage. It’s an excellent choice for low-light areas and adds a modern touch to your plant collection.",
+    category: "Gardening",
+    tags: "Home, Garden, Plants",
   },
 
   {
@@ -69,6 +104,11 @@ export const catalog = [
     onSale: false,
     sailPrice: 0,
     price: 59,
+    sku: "BLP11122",
+    description:
+      "Broadleaf Lady Palm is a graceful plant with broad, arching leaves. It’s perfect for indoor spaces, adding a touch of elegance and tropical charm.",
+    category: "Accessories",
+    tags: ["Home", "Plants"],
   },
 
   {
@@ -78,5 +118,10 @@ export const catalog = [
     onSale: false,
     sailPrice: 0,
     price: 39,
+    sku: "CE22334",
+    description:
+      "Chinese Evergreen is a low-maintenance plant known for its attractive foliage and tolerance to low light. It’s ideal for indoor environments and easy to care for.",
+    category: "House Plants",
+    tags: "Home, Plants",
   },
 ];

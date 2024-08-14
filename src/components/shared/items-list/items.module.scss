@@ -13,6 +13,7 @@
       img {
         width: 100%;
         padding-bottom: 50px;
+        transition: 0.3s ease;
       }
 
       .title {
@@ -52,11 +53,13 @@
       }
 
       .control {
-        display: none;
         position: absolute;
         top: 70%;
         left: 50%;
         transform: translate(-50%, -50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
 
         svg {
           cursor: pointer;
@@ -68,15 +71,30 @@
         }
       }
 
+      .line {
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        border-bottom: 1px solid $main;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+      }
+
       &:hover {
         img {
           background-color: $background;
         }
 
-        box-shadow: 0px -1px 0px 0px $main;
+        .line {
+          opacity: 1;
+          visibility: visible;
+        }
 
         .control {
-          display: block;
+          opacity: 1;
+          visibility: visible;
         }
       }
     }

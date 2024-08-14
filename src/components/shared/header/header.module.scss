@@ -45,9 +45,14 @@
       align-items: center;
       justify-content: flex-end;
 
-      & > [data-type="cart"],
       & > [data-type="search"] {
         margin-right: 30px;
+      }
+
+      a {
+        & > [data-type="cart"] {
+          margin-right: 30px;
+        }
       }
 
       svg {
