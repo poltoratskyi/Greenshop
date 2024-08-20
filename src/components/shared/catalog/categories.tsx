@@ -6,10 +6,36 @@ import { Button } from "../../ui/button";
 
 import Style from "./catalog.module.scss";
 
-import { Category, Size, Variation } from "@prisma/client";
 import { axiosCategories } from "../../../service/categories";
 import { axiosSize } from "../../../service/size";
 import { axiosVariation } from "../../../service/variation";
+
+type Category = {
+  id: number;
+  name: string;
+  value: number;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+type Variation = {
+  id: number;
+  price: number;
+  sailPrice: number;
+  value: number;
+  onSale: boolean;
+  sizeId: number;
+  itemId: number;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+type Size = {
+  id: number;
+  name: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 export const Categories = () => {
   const [categories, setCategories] = useState<Category[]>([]);
