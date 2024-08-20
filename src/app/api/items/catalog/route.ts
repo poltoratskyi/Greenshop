@@ -1,29 +1,12 @@
 import { prisma } from "../../../../prisma/prisma-client";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
-// Get the request -> URL
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
-    const query = request.nextUrl.searchParams.get("query") || "";
-
-    // Search items
     const items = await prisma.item.findMany({
-      where: {
-        // item name
-        name: {
-          // 'query' === 'name'
-          contains: query,
-          // Search unregistered
-          mode: "insensitive",
-        },
-      },
-
       include: {
         variations: true,
       },
-
-      // Limiting the items -> 5
-      take: 5,
     });
 
     const itemsWithFirstVariation = items.map((item) => {

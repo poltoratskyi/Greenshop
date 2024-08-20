@@ -1,13 +1,13 @@
 export const categoriesMenu = [
-  { name: "House Plants" },
-  { name: "Potter Plants" },
-  { name: "Seeds" },
-  { name: "Small Plants" },
-  { name: "Big Plants" },
-  { name: "Succulents" },
-  { name: "Terrariums" },
-  { name: "Gardening" },
-  { name: "Accessories" },
+  { value: 33, name: "House Plants" },
+  { value: 12, name: "Potter Plants" },
+  { value: 65, name: "Seeds" },
+  { value: 39, name: "Small Plants" },
+  { value: 23, name: "Big Plants" },
+  { value: 17, name: "Succulents" },
+  { value: 19, name: "Terrariums" },
+  { value: 13, name: "Gardening" },
+  { value: 18, name: "Accessories" },
 ];
 
 export const catalog = [
@@ -17,6 +17,8 @@ export const catalog = [
     name: "Barberton Daisy",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
+    tags: "Home, Garden, Plants",
+    sku: "BD12345",
   },
 
   {
@@ -25,6 +27,8 @@ export const catalog = [
     name: "Angel Wing Begonia",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
+    tags: "Home, Garden, Plants",
+    sku: "AWB67890",
   },
 
   {
@@ -33,14 +37,18 @@ export const catalog = [
     name: "African Violet",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
+    tags: "Home, Plants",
+    sku: "AV11223",
   },
 
   {
     categoryId: 4,
     imgUrl: "catalog/Lily-min.png",
-    name: "Beach SpcategoryIder Lily",
+    name: "Beach Spider Lily",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
+    tags: "Garden, Plants",
+    sku: "BSL33445",
   },
 
   {
@@ -49,14 +57,18 @@ export const catalog = [
     name: "Blushing Bromeliad",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
+    tags: "Home, Garden, Plants",
+    sku: "BB55667",
   },
 
   {
     categoryId: 6,
     imgUrl: "catalog/Cactus-min.png",
-    name: "Summber Cactus",
+    name: "Summer Cactus",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
+    tags: "Garden, Plants",
+    sku: "SC77889",
   },
 
   {
@@ -65,6 +77,8 @@ export const catalog = [
     name: "Aluminum Plant",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
+    tags: "Home, Garden, Plants",
+    sku: "AP99000",
   },
 
   {
@@ -73,6 +87,8 @@ export const catalog = [
     name: "Broadleaf Lady Palm",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
+    tags: "Home, Plants",
+    sku: "BLP11122",
   },
 
   {
@@ -81,14 +97,16 @@ export const catalog = [
     name: "Chinese Evergreen",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
+    tags: "Home, Plants",
+    sku: "CE22334",
   },
 ];
 
 export const sizes = [
-  { name: "S" },
-  { name: "M" },
-  { name: "L" },
-  { name: "XL" },
+  { name: "Small" },
+  { name: "Medium" },
+  { name: "Large" },
+  { name: "Extra Large" },
 ];
 
 export const variation = [
@@ -98,6 +116,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 1,
+    value: 20,
     itemId: 1,
   },
   {
@@ -105,6 +124,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 2,
+    value: 40,
     itemId: 1,
   },
   {
@@ -112,6 +132,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 3,
+    value: 60,
     itemId: 1,
   },
   {
@@ -119,6 +140,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 3,
+    value: 80,
     itemId: 1,
   },
 
@@ -128,6 +150,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 1,
+    value: 10,
     itemId: 2,
   },
   {
@@ -135,6 +158,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 2,
+    value: 20,
     itemId: 2,
   },
   {
@@ -142,6 +166,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 3,
+    value: 30,
     itemId: 2,
   },
   {
@@ -149,6 +174,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 4,
+    value: 40,
     itemId: 2,
   },
 
@@ -158,6 +184,7 @@ export const variation = [
     sailPrice: 199,
     onSale: true,
     sizeId: 1,
+    value: 40,
     itemId: 3,
   },
   {
@@ -165,6 +192,7 @@ export const variation = [
     sailPrice: 229,
     onSale: true,
     sizeId: 2,
+    value: 50,
     itemId: 3,
   },
   {
@@ -172,6 +200,7 @@ export const variation = [
     sailPrice: 249,
     onSale: true,
     sizeId: 3,
+    value: 60,
     itemId: 3,
   },
   {
@@ -179,6 +208,7 @@ export const variation = [
     sailPrice: 269,
     onSale: true,
     sizeId: 4,
+    value: 70,
     itemId: 3,
   },
 
@@ -188,6 +218,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 1,
+    value: 10,
     itemId: 4,
   },
   {
@@ -195,6 +226,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 2,
+    value: 5,
     itemId: 4,
   },
   {
@@ -202,6 +234,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 3,
+    value: 10,
     itemId: 4,
   },
   {
@@ -209,6 +242,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 4,
+    value: 5,
     itemId: 4,
   },
 
@@ -218,6 +252,7 @@ export const variation = [
     sailPrice: 129,
     onSale: true,
     sizeId: 1,
+    value: 6,
     itemId: 5,
   },
   {
@@ -225,6 +260,7 @@ export const variation = [
     sailPrice: 139,
     onSale: true,
     sizeId: 2,
+    value: 4,
     itemId: 5,
   },
   {
@@ -232,6 +268,7 @@ export const variation = [
     sailPrice: 159,
     onSale: true,
     sizeId: 3,
+    value: 15,
     itemId: 5,
   },
   {
@@ -239,6 +276,7 @@ export const variation = [
     sailPrice: 179,
     onSale: true,
     sizeId: 4,
+    value: 30,
     itemId: 5,
   },
 
@@ -248,6 +286,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 1,
+    value: 44,
     itemId: 6,
   },
   {
@@ -255,6 +294,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 2,
+    value: 31,
     itemId: 6,
   },
   {
@@ -262,6 +302,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 3,
+    value: 17,
     itemId: 6,
   },
   {
@@ -269,6 +310,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 4,
+    value: 13,
     itemId: 6,
   },
 
@@ -278,6 +320,7 @@ export const variation = [
     onSale: true,
     sailPrice: 79,
     sizeId: 1,
+    value: 12,
     itemId: 7,
   },
   {
@@ -285,6 +328,7 @@ export const variation = [
     onSale: true,
     sailPrice: 99,
     sizeId: 2,
+    value: 13,
     itemId: 7,
   },
   {
@@ -292,6 +336,7 @@ export const variation = [
     onSale: true,
     sailPrice: 119,
     sizeId: 3,
+    value: 15,
     itemId: 7,
   },
   {
@@ -299,6 +344,7 @@ export const variation = [
     onSale: true,
     sailPrice: 139,
     sizeId: 4,
+    value: 18,
     itemId: 7,
   },
 
@@ -308,6 +354,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 1,
+    value: 2,
     itemId: 8,
   },
   {
@@ -315,6 +362,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 2,
+    value: 5,
     itemId: 8,
   },
   {
@@ -322,6 +370,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 3,
+    value: 1,
     itemId: 8,
   },
   {
@@ -329,6 +378,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 4,
+    value: 1,
     itemId: 8,
   },
 
@@ -338,6 +388,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 1,
+    value: 8,
     itemId: 9,
   },
   {
@@ -345,6 +396,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 2,
+    value: 9,
     itemId: 9,
   },
   {
@@ -352,6 +404,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 3,
+    value: 10,
     itemId: 9,
   },
   {
@@ -359,6 +412,7 @@ export const variation = [
     sailPrice: 0,
     onSale: false,
     sizeId: 4,
+    value: 11,
     itemId: 9,
   },
 ];

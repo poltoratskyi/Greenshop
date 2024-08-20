@@ -2,7 +2,7 @@ import Style from "./catalog.module.scss";
 
 import { Categories } from "./categories";
 import { Filter } from "./filter";
-import { ItemsWrapper } from "../items-list";
+import { ItemsWrapper } from "../item/item-wrapper.";
 
 export const Catalog: React.FC = () => {
   return (

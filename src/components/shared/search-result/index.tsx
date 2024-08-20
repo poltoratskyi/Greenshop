@@ -1,8 +1,9 @@
 import Link from "next/link";
 
 import Style from "./result.module.scss";
+import StyleCatalog from "../../shared/item/item.module.scss";
 
-import { ItemsWrapper } from "../items-list";
+import { Item } from "../item";
 
 const svgRight = (
   <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
@@ -13,7 +14,26 @@ const svgRight = (
   </svg>
 );
 
-export const Result: React.FC = () => {
+interface Props {
+  searchResults?: {
+    id: number;
+    imgUrl: string;
+    name: string;
+    description: string;
+    tags: string;
+    sku: string;
+    categoryId: number;
+    createdAt: Date;
+    updatedAt: Date;
+    firstVariation?: {
+      price: number;
+      sailPrice: number;
+      onSale: boolean;
+    };
+  }[];
+}
+
+export const Result: React.FC<Props> = ({ searchResults }) => {
   return (
     <div className={Style.result}>
       <div className={Style.content}>
@@ -40,7 +60,12 @@ export const Result: React.FC = () => {
           <h2 className={Style.title}>Result</h2>
 
           <div style={{ height: "500px", overflowY: "auto" }}>
-            <ItemsWrapper />
+            <div className={StyleCatalog.items}>
+              <ul className={StyleCatalog.lists}>
+                {searchResults &&
+                  searchResults.map((item) => <Item key={item.id} {...item} />)}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

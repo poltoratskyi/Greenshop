@@ -81,6 +81,7 @@ export const Actions: React.FC = () => {
       <div ref={ref} className={Style.actions}>
         {openSearch && (
           <Input
+            openSearch={openSearch}
             toggleSearch={setOpenSearch}
             location="search"
             className="input"

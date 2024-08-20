@@ -1,8 +1,8 @@
 export const catalog = [
   {
-    itemId: 1,
+    id: 1,
     imgUrl: "catalog/Daisy-min.png",
-    title: "Barberton Daisy",
+    name: "Barberton Daisy",
     onSale: false,
     sailPrice: 0,
     price: 119,
@@ -14,9 +14,9 @@ export const catalog = [
   },
 
   {
-    itemId: 2,
+    id: 2,
     imgUrl: "catalog/Begonia-min.png",
-    title: "Angel Wing Begonia",
+    name: "Angel Wing Begonia",
     onSale: false,
     sailPrice: 0,
     price: 169,
@@ -28,9 +28,9 @@ export const catalog = [
   },
 
   {
-    itemId: 3,
+    id: 3,
     imgUrl: "catalog/Violet-min.png",
-    title: "African Violet",
+    name: "African Violet",
     onSale: true,
     sailPrice: 199,
     price: 229,
@@ -42,9 +42,9 @@ export const catalog = [
   },
 
   {
-    itemId: 4,
+    id: 4,
     imgUrl: "catalog/Lily-min.png",
-    title: "Beach Spider Lily",
+    name: "Beach Spider Lily",
     onSale: false,
     sailPrice: 0,
     price: 129,
@@ -56,9 +56,9 @@ export const catalog = [
   },
 
   {
-    itemId: 5,
+    id: 5,
     imgUrl: "catalog/Bromeliad-min.png",
-    title: "Blushing Bromeliad",
+    name: "Blushing Bromeliad",
     onSale: true,
     sailPrice: 79,
     price: 139,
@@ -70,9 +70,9 @@ export const catalog = [
   },
 
   {
-    itemId: 6,
+    id: 6,
     imgUrl: "catalog/Cactus-min.png",
-    title: "Summer Cactus",
+    name: "Summer Cactus",
     onSale: false,
     sailPrice: 0,
     price: 179,
@@ -84,9 +84,9 @@ export const catalog = [
   },
 
   {
-    itemId: 7,
+    id: 7,
     imgUrl: "catalog/Plant-min.png",
-    title: "Aluminum Plant",
+    name: "Aluminum Plant",
     onSale: true,
     sailPrice: 69,
     price: 99,
@@ -98,9 +98,9 @@ export const catalog = [
   },
 
   {
-    itemId: 8,
+    id: 8,
     imgUrl: "catalog/Palm-min.png",
-    title: "Broadleaf Lady Palm",
+    name: "Broadleaf Lady Palm",
     onSale: false,
     sailPrice: 0,
     price: 59,
@@ -108,13 +108,13 @@ export const catalog = [
     description:
       "Broadleaf Lady Palm is a graceful plant with broad, arching leaves. It’s perfect for indoor spaces, adding a touch of elegance and tropical charm.",
     category: "Accessories",
-    tags: ["Home", "Plants"],
+    tags: "Home, Plants",
   },
 
   {
-    itemId: 9,
+    id: 9,
     imgUrl: "catalog/Evergreen-min.png",
-    title: "Chinese Evergreen",
+    name: "Chinese Evergreen",
     onSale: false,
     sailPrice: 0,
     price: 39,

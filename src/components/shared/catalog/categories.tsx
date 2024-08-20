@@ -1,33 +1,73 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Button } from "../../ui/button";
 
 import Style from "./catalog.module.scss";
 
-const categoriesMenu = [
-  { value: 33, title: "House Plants" },
-  { value: 12, title: "Potter Plants" },
-  { value: 65, title: "Seeds" },
-  { value: 39, title: "Small Plants" },
-  { value: 23, title: "Big Plants" },
-  { value: 17, title: "Succulents" },
-  { value: 19, title: "Terrariums" },
-  { value: 13, title: "Gardening" },
-  { value: 18, title: "Accessories" },
-];
-
-const sizeMenu = [
-  { value: 119, title: "Small" },
-  { value: 86, title: "Medium" },
-  { value: 78, title: "Large" },
-];
+import { Category, Size, Variation } from "@prisma/client";
+import { axiosCategories } from "../../../service/categories";
+import { axiosSize } from "../../../service/size";
+import { axiosVariation } from "../../../service/variation";
 
 export const Categories = () => {
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [sizeMenu, setSizeMenu] = useState<Size[]>([]);
+  const [variation, setVariation] = useState<Variation[]>([]);
+
   const [activeCategoriesMenu, setActiveCategoriesMenu] =
     useState("House Plants");
   const [activeSizeMenu, setActiveSizeMenu] = useState("");
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axiosCategories();
+        setCategories(response);
+      } catch (err) {
+        console.error("Error fetching categories:", err);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    const fetchSize = async () => {
+      try {
+        const response = await axiosSize();
+        setSizeMenu(response);
+      } catch (err) {
+        console.error("Error fetching size:", err);
+      }
+    };
+
+    fetchSize();
+  }, []);
+
+  useEffect(() => {
+    const fetchVariation = async () => {
+      try {
+        const response = await axiosVariation();
+        setVariation(response);
+      } catch (err) {
+        console.error("Error fetching variation:", err);
+      }
+    };
+
+    fetchVariation();
+  }, []);
+
+  const quantitySizes = (value: number) => {
+    const result = variation.filter((item) => item.itemId === value);
+
+    const total = result.reduce((acc, item) => {
+      return acc + item.value;
+    }, 0);
+
+    return total;
+  };
 
   return (
     <form className={Style.categories}>
@@ -35,17 +75,17 @@ export const Categories = () => {
         <h3 className={Style.title}>Categories</h3>
 
         <ul className={Style.lists}>
-          {categoriesMenu.map((item, index) => (
+          {categories.map((item: Category) => (
             <li
               className={
-                activeCategoriesMenu === item.title
+                activeCategoriesMenu === item.name
                   ? `${Style.list} ${Style.active}`
                   : Style.list
               }
-              onClick={() => setActiveCategoriesMenu(item.title)}
-              key={index}
+              onClick={() => setActiveCategoriesMenu(item.name)}
+              key={item.id}
             >
-              {item.title} <span>({item.value})</span>
+              {item.name} <span>({item.value})</span>
             </li>
           ))}
         </ul>
@@ -76,14 +116,20 @@ export const Categories = () => {
           {sizeMenu.map((item, index) => (
             <li
               className={
-                activeSizeMenu === item.title
+                activeSizeMenu === item.name
                   ? `${Style.list} ${Style.active}`
                   : Style.list
               }
-              onClick={() => setActiveSizeMenu(item.title)}
+              onClick={() => setActiveSizeMenu(item.name)}
               key={index}
             >
-              {item.title} <span>({item.value})</span>
+              {item.name}
+              <span>
+                {item.name === "Small" && quantitySizes(1)}
+                {item.name === "Medium" && quantitySizes(2)}
+                {item.name === "Large" && quantitySizes(3)}
+                {item.name === "Extra Large" && quantitySizes(4)}
+              </span>
             </li>
           ))}
         </ul>

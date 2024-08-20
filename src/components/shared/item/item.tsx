@@ -1,50 +1,57 @@
-import Style from "./items.module.scss";
-
 import Link from "next/link";
 
-interface Props {
-  itemId: number;
-  imgUrl: string;
-  title: string;
-  onSale: boolean;
-  sailPrice: number;
-  price: number;
-}
+import Style from "./item.module.scss";
 
-export const Items: React.FC<Props> = ({
-  itemId,
-  imgUrl,
-  title,
-  onSale,
-  sailPrice,
-  price,
-}) => {
+interface Props {
+  id: number;
+  imgUrl: string;
+  name: string;
+  description: string;
+  tags: string;
+  sku: string;
+  categoryId: number;
+  createdAt: Date;
+  updatedAt: Date;
+  firstVariation?: {
+    price: number;
+    sailPrice: number;
+    onSale: boolean;
+  };
+}
+export const Item: React.FC<Props> = ({ id, imgUrl, name, firstVariation }) => {
   const percentValue = (price: number, sailPrice: number) => {
     const discount = ((price - sailPrice) / price) * 100;
     return discount.toFixed(0);
   };
 
   return (
-    <li className={Style.list} key={itemId}>
+    <li className={Style.list} key={id}>
       <div className={Style.line}></div>
 
       <Link href="#">
-        <img src={imgUrl} alt={title} />
+        <img src={imgUrl} alt={name} />
 
-        <h3 className={Style.title}>{title}</h3>
+        <h3 className={Style.title}>{name}</h3>
 
-        {onSale ? (
+        {firstVariation?.onSale ? (
           <div style={{ display: "flex", alignItems: "center" }}>
             <span className={Style.percent}>
-              {percentValue(price, sailPrice)}% OFF
+              {percentValue(firstVariation.price, firstVariation.sailPrice)}%
+              OFF
             </span>
 
-            <span className={Style.price}>${sailPrice.toFixed(2)}</span>
+            <span className={Style.price}>
+              ${firstVariation.sailPrice.toFixed(2)}
+            </span>
 
-            <span className={Style.sailPrice}>${price.toFixed(2)}</span>
+            <span className={Style.sailPrice}>
+              ${firstVariation.price.toFixed(2)}
+            </span>
           </div>
         ) : (
-          <span className={Style.price}>${price.toFixed(2)}</span>
+          <span className={Style.price}>
+            ${firstVariation?.price.toFixed(2)}
+          </span>
         )}
 
         <div className={Style.control}>
