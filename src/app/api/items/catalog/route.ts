@@ -1,3 +1,4 @@
+import { Item } from "@prisma/client";
 import { prisma } from "../../../../prisma/prisma-client";
 import { NextResponse } from "next/server";
 
@@ -9,7 +10,7 @@ export async function GET() {
       },
     });
 
-    const itemsWithFirstVariation = items.map((item) => {
+    const itemsWithFirstVariation = items.map<Item>((item) => {
       return {
         ...item,
         // First variation
