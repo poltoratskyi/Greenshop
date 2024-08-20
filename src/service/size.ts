@@ -1,5 +1,11 @@
-import { Category, Size } from "@prisma/client";
 import { AxiosInstance } from "./axios";
+
+type Size = {
+  id: number;
+  name: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 export const axiosSize = async () => {
   try {
