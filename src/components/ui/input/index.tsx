@@ -11,7 +11,7 @@ import { axiosItem } from "../../../service/search";
 import { useDebounce } from "react-use";
 
 interface Props {
-  openSearch: boolean;
+  openSearch?: boolean;
   location: string;
   className: string;
   inputPlaceholder: string;

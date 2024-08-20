@@ -24,7 +24,10 @@ export const Categories = () => {
     const fetchCategories = async () => {
       try {
         const response = await axiosCategories();
-        setCategories(response);
+
+        if (response) {
+          setCategories(response);
+        }
       } catch (err) {
         console.error("Error fetching categories:", err);
       }
@@ -37,7 +40,9 @@ export const Categories = () => {
     const fetchSize = async () => {
       try {
         const response = await axiosSize();
-        setSizeMenu(response);
+        if (response) {
+          setSizeMenu(response);
+        }
       } catch (err) {
         console.error("Error fetching size:", err);
       }
@@ -50,7 +55,9 @@ export const Categories = () => {
     const fetchVariation = async () => {
       try {
         const response = await axiosVariation();
-        setVariation(response);
+        if (response) {
+          setVariation(response);
+        }
       } catch (err) {
         console.error("Error fetching variation:", err);
       }

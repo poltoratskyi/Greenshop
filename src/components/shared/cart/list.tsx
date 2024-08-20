@@ -77,14 +77,14 @@ export const CartList = () => {
       <h2 className={Style.header}>Products</h2>
 
       {catalog.slice(0, 1).map((item) => (
-        <li className={Style.list} key={item.itemId}>
+        <li className={Style.list} key={item.id}>
           <div className={Style.layout}>
             <div className={Style.img}>
-              <img src={item.imgUrl} alt={item.title} />
+              <img src={item.imgUrl} alt={item.name} />
 
               <div>
                 <Link href="#">
-                  <h2 className={Style.title}>{item.title}</h2>
+                  <h2 className={Style.title}>{item.name}</h2>
                 </Link>
 
                 <p className={Style.sku}>
