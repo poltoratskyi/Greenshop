@@ -1,6 +1,23 @@
-import { Item } from "@prisma/client";
 import { prisma } from "../../../../prisma/prisma-client";
 import { NextResponse } from "next/server";
+
+interface Props {
+  id: number;
+  imgUrl: string;
+  name: string;
+  description: string;
+  tags: string;
+  sku: string;
+  categoryId: number;
+  createdAt: Date;
+  updatedAt: Date;
+  firstVariation?: {
+    price: number;
+    sailPrice: number;
+    onSale: boolean;
+  };
+}
+[];
 
 export async function GET() {
   try {
@@ -10,7 +27,7 @@ export async function GET() {
       },
     });
 
-    const itemsWithFirstVariation = items.map<Item>((item) => {
+    const itemsWithFirstVariation = items.map<Props>((item) => {
       return {
         ...item,
         // First variation
