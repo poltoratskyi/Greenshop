@@ -1,24 +1,6 @@
+import { Item } from "../../../../types";
 import { prisma } from "../../../../prisma/prisma-client";
 import { NextResponse } from "next/server";
-
-type Variation = {
-  price: number;
-  sailPrice: number;
-  onSale: boolean;
-};
-
-type Item = {
-  id: number;
-  imgUrl: string;
-  name: string;
-  description: string;
-  tags: string;
-  sku: string;
-  categoryId: number;
-  createdAt: Date;
-  updatedAt: Date;
-  variations: Variation[];
-};
 
 export async function GET() {
   try {

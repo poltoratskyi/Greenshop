@@ -20,7 +20,8 @@
   }
 }
 
-.join {
+.join,
+.coupon {
   display: flex;
   align-items: center;
   font-size: 18px;
@@ -100,6 +101,18 @@
   color: #fff;
   line-height: 16px;
   margin-bottom: 15px;
+
+  &:hover {
+    background-color: #2d763c;
+  }
+}
+
+.filter_mobile {
+  height: 45px;
+  min-width: 45px;
+  border-radius: 14px;
+  background-color: $main;
+  margin-left: 10px;
 
   &:hover {
     background-color: #2d763c;

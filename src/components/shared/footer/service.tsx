@@ -1115,11 +1115,6 @@ const serviceText = [
   },
 ];
 
-const inputTitle = "Would you like to join newsletters?";
-const inputDescr =
-  "We usually post offers and challenges in newsletter. We’re your online houseplant destination. We offer a wide range of houseplants and accessories shipped directly from our (green)house to yours! ";
-const btnText = "Join";
-
 export const Service: React.FC = () => {
   return (
     <div className={Style.service}>
@@ -1134,14 +1129,22 @@ export const Service: React.FC = () => {
           </li>
         ))}
 
-        <Input
-          location="newsletters"
-          className="input"
-          inputTitle={inputTitle}
-          inputDescr={inputDescr}
-          btnText={btnText}
-          inputPlaceholder="enter your email address..."
-        />
+        <div className={Style.newsletters}>
+          <h3 className={Style.title}>Would you like to join newsletters?</h3>
+
+          <Input
+            location="newsletters"
+            btnText="Join"
+            btnClassName="join"
+            inputPlaceholder="Enter your email address"
+          />
+
+          <p className={Style.descr}>
+            "We usually post offers and challenges in newsletter. We’re your
+            online houseplant destination. We offer a wide range of houseplants
+            and accessories shipped directly from our (green)house to yours!"
+          </p>
+        </div>
       </ul>
     </div>
   );

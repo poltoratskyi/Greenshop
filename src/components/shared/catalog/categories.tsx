@@ -9,38 +9,14 @@ import Style from "./catalog.module.scss";
 import { axiosCategories } from "../../../service/categories";
 import { axiosSize } from "../../../service/size";
 import { axiosVariation } from "../../../service/variation";
-
-type Category = {
-  id: number;
-  name: string;
-  value: number;
-  createdAt: Date;
-  updatedAt: Date;
-};
-
-type Variation = {
-  id: number;
-  price: number;
-  sailPrice: number;
-  value: number;
-  onSale: boolean;
-  sizeId: number;
-  itemId: number;
-  createdAt: Date;
-  updatedAt: Date;
-};
-
-type Size = {
-  id: number;
-  name: string;
-  createdAt: Date;
-  updatedAt: Date;
-};
+import { axiosCatalog } from "../../../service/catalog";
+import { Category, Item, Size, Variation } from "../../../types";
 
 export const Categories = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [sizeMenu, setSizeMenu] = useState<Size[]>([]);
   const [variation, setVariation] = useState<Variation[]>([]);
+  const [catalog, setCatalog] = useState<Item[]>([]);
 
   const [activeCategoriesMenu, setActiveCategoriesMenu] =
     useState("House Plants");
@@ -67,7 +43,7 @@ export const Categories = () => {
       try {
         const response = await axiosSize();
         if (response) {
-          setSizeMenu(response);
+          setSizeMenu(response as Size[]);
         }
       } catch (err) {
         console.error("Error fetching size:", err);
@@ -75,6 +51,22 @@ export const Categories = () => {
     };
 
     fetchSize();
+  }, []);
+
+  useEffect(() => {
+    const fetchCatalog = async () => {
+      try {
+        const response = await axiosCatalog();
+
+        if (response) {
+          setCatalog(response as Item[]);
+        }
+      } catch (err) {
+        console.error("Error fetching Catalog:", err);
+      }
+    };
+
+    fetchCatalog();
   }, []);
 
   useEffect(() => {
@@ -92,14 +84,20 @@ export const Categories = () => {
     fetchVariation();
   }, []);
 
-  const quantitySizes = (value: number) => {
-    const result = variation.filter((item) => item.itemId === value);
+  const calculateQuantity = (arr: Item[] | Variation[], value: number) => {
+    if (arr === catalog) {
+      const result = arr.filter((item) => item.categoryId === value);
 
-    const total = result.reduce((acc, item) => {
-      return acc + item.value;
-    }, 0);
+      return result.length;
+    } else if (arr === variation) {
+      const result = arr.filter((item) => item.itemId === value);
 
-    return total;
+      const total = result.reduce((acc, item) => {
+        return acc + item.value;
+      }, 0);
+
+      return total;
+    }
   };
 
   return (
@@ -118,7 +116,10 @@ export const Categories = () => {
               onClick={() => setActiveCategoriesMenu(item.name)}
               key={item.id}
             >
-              {item.name} <span>({item.value})</span>
+              {item.name}
+              <span>
+                <span>{calculateQuantity(catalog, item.id)}</span>
+              </span>
             </li>
           ))}
         </ul>
@@ -158,10 +159,7 @@ export const Categories = () => {
             >
               {item.name}
               <span>
-                {item.name === "Small" && quantitySizes(1)}
-                {item.name === "Medium" && quantitySizes(2)}
-                {item.name === "Large" && quantitySizes(3)}
-                {item.name === "Extra Large" && quantitySizes(4)}
+                <span>{calculateQuantity(variation, item.id)}</span>
               </span>
             </li>
           ))}

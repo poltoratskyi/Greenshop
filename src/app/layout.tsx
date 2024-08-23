@@ -23,7 +23,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta name="viewport" content="width=1250" />
       <body className={montserrat.className}>
         <Header />
 

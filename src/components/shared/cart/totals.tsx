@@ -13,9 +13,9 @@ export const CartTotals = () => {
       <span className={Style.subTitle}>Coupon Apply</span>
 
       <Input
+        btnClassName="coupon"
         location="coupon"
-        className="input"
-        inputPlaceholder="Enter coupon code here..."
+        inputPlaceholder="Enter coupon code here"
         btnText="Apply"
       />
 

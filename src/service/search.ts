@@ -1,16 +1,5 @@
+import { Item } from "../types";
 import { AxiosInstance } from "./axios";
-
-type Item = {
-  id: number;
-  imgUrl: string;
-  name: string;
-  description: string;
-  tags: string;
-  sku: string;
-  categoryId: number;
-  createdAt: Date;
-  updatedAt: Date;
-};
 
 export const axiosItem = async (query: string) => {
   try {

@@ -34,6 +34,26 @@
             border-right: none;
           }
         }
+
+        .newsletters {
+          width: 350px;
+
+          .title {
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            color: $text;
+            line-height: 16px;
+          }
+
+          .descr {
+            font-size: 14px;
+            line-height: 22px;
+            color: $descr;
+            font-weight: 400;
+            margin-top: 20px;
+          }
+        }
       }
     }
 

@@ -3,8 +3,8 @@ import React from "react";
 import Style from "./button.module.scss";
 
 interface Props {
-  className: string;
-  value: string;
+  className?: string;
+  value: string | JSX.Element;
   svgLeft?: JSX.Element;
   svgRight?: JSX.Element;
 }
@@ -15,7 +15,7 @@ export const Button: React.FC<Props> = ({
   svgLeft,
   svgRight,
 }) => {
-  const buttonClass = Style[className];
+  const buttonClass = Style[className || ""];
 
   return (
     <button className={buttonClass}>

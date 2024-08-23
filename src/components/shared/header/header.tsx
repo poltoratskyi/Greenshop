@@ -5,6 +5,7 @@ import Style from "./header.module.scss";
 import { Logo } from "./logo";
 import { Links } from "./links";
 import { Actions } from "./actions";
+import { Mobile } from "./mobile";
 
 export const Header: React.FC = () => {
   return (
@@ -15,6 +16,9 @@ export const Header: React.FC = () => {
           <Links />
           <Actions />
         </div>
+
+        {/* Mobile */}
+        <Mobile />
       </div>
     </header>
   );

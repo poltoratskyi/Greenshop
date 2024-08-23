@@ -1,12 +1,6 @@
 import { AxiosInstance } from "./axios";
 
-type Category = {
-  id: number;
-  name: string;
-  value: number;
-  createdAt: Date;
-  updatedAt: Date;
-};
+import { Category } from "../types";
 
 export const axiosCategories = async () => {
   try {

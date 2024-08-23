@@ -1,11 +1,5 @@
+import { Size } from "../types";
 import { AxiosInstance } from "./axios";
-
-type Size = {
-  id: number;
-  name: string;
-  createdAt: Date;
-  updatedAt: Date;
-};
 
 export const axiosSize = async () => {
   try {

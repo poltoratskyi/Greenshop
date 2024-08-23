@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { Variation } from "../../../types";
+
 import Style from "./result.module.scss";
 import StyleCatalog from "../../shared/item/item.module.scss";
 
@@ -25,11 +27,8 @@ interface Props {
     categoryId: number;
     createdAt: Date;
     updatedAt: Date;
-    firstVariation?: {
-      price: number;
-      sailPrice: number;
-      onSale: boolean;
-    };
+    firstVariation?: Variation;
+    variations: Variation[];
   }[];
 }
 

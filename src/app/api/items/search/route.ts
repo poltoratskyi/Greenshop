@@ -1,24 +1,6 @@
+import { Item } from "../../../../types";
 import { prisma } from "../../../../prisma/prisma-client";
 import { NextResponse, NextRequest } from "next/server";
-
-type Variation = {
-  price: number;
-  sailPrice: number;
-  onSale: boolean;
-};
-
-type Item = {
-  id: number;
-  imgUrl: string;
-  name: string;
-  description: string;
-  tags: string;
-  sku: string;
-  categoryId: number;
-  createdAt: Date;
-  updatedAt: Date;
-  variations: Variation[];
-};
 
 // Get the request -> URL
 export async function GET(request: NextRequest) {
@@ -42,7 +24,7 @@ export async function GET(request: NextRequest) {
       },
 
       // Limiting the items -> 5
-      take: 5,
+      take: 6,
     });
 
     const itemsWithFirstVariation = items.map((item: Item) => {

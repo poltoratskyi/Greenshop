@@ -1,16 +1,17 @@
 export const categoriesMenu = [
-  { value: 33, name: "House Plants" },
-  { value: 12, name: "Potter Plants" },
-  { value: 65, name: "Seeds" },
-  { value: 39, name: "Small Plants" },
-  { value: 23, name: "Big Plants" },
-  { value: 17, name: "Succulents" },
-  { value: 19, name: "Terrariums" },
-  { value: 13, name: "Gardening" },
-  { value: 18, name: "Accessories" },
+  { name: "House Plants" },
+  { name: "Potter Plants" },
+  { name: "Seeds" },
+  { name: "Small Plants" },
+  { name: "Big Plants" },
+  { name: "Succulents" },
+  { name: "Terrariums" },
+  { name: "Gardening" },
+  { name: "Accessories" },
 ];
 
 export const catalog = [
+  // House Plants
   {
     categoryId: 1,
     imgUrl: "catalog/Daisy-min.png",
@@ -22,7 +23,7 @@ export const catalog = [
   },
 
   {
-    categoryId: 2,
+    categoryId: 1,
     imgUrl: "catalog/Begonia-min.png",
     name: "Angel Wing Begonia",
     description:
@@ -32,7 +33,7 @@ export const catalog = [
   },
 
   {
-    categoryId: 3,
+    categoryId: 1,
     imgUrl: "catalog/Violet-min.png",
     name: "African Violet",
     description:
@@ -42,7 +43,7 @@ export const catalog = [
   },
 
   {
-    categoryId: 4,
+    categoryId: 1,
     imgUrl: "catalog/Lily-min.png",
     name: "Beach Spider Lily",
     description:
@@ -52,7 +53,7 @@ export const catalog = [
   },
 
   {
-    categoryId: 5,
+    categoryId: 1,
     imgUrl: "catalog/Bromeliad-min.png",
     name: "Blushing Bromeliad",
     description:
@@ -62,7 +63,7 @@ export const catalog = [
   },
 
   {
-    categoryId: 6,
+    categoryId: 1,
     imgUrl: "catalog/Cactus-min.png",
     name: "Summer Cactus",
     description:
@@ -72,7 +73,7 @@ export const catalog = [
   },
 
   {
-    categoryId: 7,
+    categoryId: 1,
     imgUrl: "catalog/Plant-min.png",
     name: "Aluminum Plant",
     description:
@@ -82,7 +83,7 @@ export const catalog = [
   },
 
   {
-    categoryId: 8,
+    categoryId: 1,
     imgUrl: "catalog/Palm-min.png",
     name: "Broadleaf Lady Palm",
     description:
@@ -92,7 +93,7 @@ export const catalog = [
   },
 
   {
-    categoryId: 9,
+    categoryId: 1,
     imgUrl: "catalog/Evergreen-min.png",
     name: "Chinese Evergreen",
     description:
@@ -110,6 +111,7 @@ export const sizes = [
 ];
 
 export const variation = [
+  // House Plants
   // item 1
   {
     price: 119,

@@ -25,7 +25,7 @@ model Category {
 
     // Name of Category is Original 
     name String @unique
-    value Int
+   
 
     // One to many (One category -> Many items)
     items Item[]
