@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 
-import { Item } from "./item";
+import { axiosCatalog } from "../../../service/catalog";
+
+import { Variation } from "../../../types";
 
 import Style from "./item.module.scss";
 
-import { axiosCatalog } from "../../../service/catalog";
+import { Item } from "./item";
 
 interface Props {
   id: number;
@@ -18,11 +20,8 @@ interface Props {
   categoryId: number;
   createdAt: Date;
   updatedAt: Date;
-  firstVariation?: {
-    price: number;
-    sailPrice: number;
-    onSale: boolean;
-  };
+  variations: Variation[];
+  firstVariation?: Variation;
 }
 [];
 
