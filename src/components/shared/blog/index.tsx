@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+
 import Style from "./blog.module.scss";
 
 const blogData = [
@@ -49,7 +51,7 @@ export const Blog: React.FC = () => {
         <div className={Style.content}>
           {blogData.map((item) => (
             <div style={{ textAlign: "center" }} key={item.id}>
-              <img src={item.imgUrl} alt={item.title} />
+              <Image src={item.imgUrl} alt={item.title} />
               <div className={Style.info}>
                 <span>{item.heading}</span>
                 <h3>{item.title}</h3>

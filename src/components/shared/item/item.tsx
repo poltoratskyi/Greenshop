@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import Style from "./item.module.scss";
+import { Variation } from "../../../types";
 
 interface Props {
   id: number;
@@ -12,11 +14,8 @@ interface Props {
   categoryId: number;
   createdAt: Date;
   updatedAt: Date;
-  firstVariation?: {
-    price: number;
-    sailPrice: number;
-    onSale: boolean;
-  };
+  variations: Variation[];
+  firstVariation?: Variation;
 }
 export const Item: React.FC<Props> = ({ id, imgUrl, name, firstVariation }) => {
   const percentValue = (price: number, sailPrice: number) => {
@@ -29,15 +28,15 @@ export const Item: React.FC<Props> = ({ id, imgUrl, name, firstVariation }) => {
       <div className={Style.line}></div>
 
       <Link href="#">
-        <img src={imgUrl} alt={name} />
+        <Image src={imgUrl} alt={name} />
 
         <h3 className={Style.title}>{name}</h3>
 
         {firstVariation?.onSale ? (
           <div style={{ display: "flex", alignItems: "center" }}>
             <span className={Style.percent}>
-              {percentValue(firstVariation.price, firstVariation.sailPrice)}%
-              OFF
+              {percentValue(firstVariation.price, firstVariation.sailPrice)}
+              {"% OFF"}
             </span>
 
             <span className={Style.price}>

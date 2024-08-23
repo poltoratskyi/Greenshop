@@ -1,5 +1,8 @@
-import { Button } from "../../ui/button";
+import Image from "next/image";
+
 import Style from "./banner.module.scss";
+
+import { Button } from "../../ui/button";
 
 export const Banner: React.FC = () => {
   return (
@@ -20,7 +23,7 @@ export const Banner: React.FC = () => {
             <Button className="banner" value="shop now" />
           </div>
 
-          <img src="catalog/Lily-min.png" alt="Main-banner.jpg" />
+          <Image src="catalog/Lily-min.png" alt="Main-banner.jpg" />
         </div>
       </div>
     </div>

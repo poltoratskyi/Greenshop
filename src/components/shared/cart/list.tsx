@@ -1,6 +1,9 @@
 "use client";
 
+import Image from "next/image";
+
 import Link from "next/link";
+
 import Style from "./cart.module.scss";
 
 import { catalog } from "../../../data/catalog";
@@ -80,7 +83,7 @@ export const CartList = () => {
         <li className={Style.list} key={item.id}>
           <div className={Style.layout}>
             <div className={Style.img}>
-              <img src={item.imgUrl} alt={item.name} />
+              <Image src={item.imgUrl} alt={item.name} />
 
               <div>
                 <Link href="#">
