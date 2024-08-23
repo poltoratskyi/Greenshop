@@ -1140,9 +1140,10 @@ export const Service: React.FC = () => {
           />
 
           <p className={Style.descr}>
-            "We usually post offers and challenges in newsletter. We’re your
-            online houseplant destination. We offer a wide range of houseplants
-            and accessories shipped directly from our (green)house to yours!"
+            &quot;We usually post offers and challenges in newsletter.
+            We&rsquo;re your online houseplant destination. We offer a wide
+            range of houseplants and accessories shipped directly from our
+            (green)house to yours!&quot;
           </p>
         </div>
       </ul>

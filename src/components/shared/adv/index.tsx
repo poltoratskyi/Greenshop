@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import Style from "./adv.module.scss";
 
 import { Button } from "../../ui/button";
@@ -38,7 +40,7 @@ export const Adv: React.FC = () => {
         <div className={Style.content}>
           {AdvData.map((item) => (
             <div className={Style.info} key={item.id}>
-              <img src={item.imgUrl} alt={item.title} />
+              <Image src={item.imgUrl} alt={item.title} />
 
               <div className={Style.wrapper}>
                 <h3 className={Style.title}>
