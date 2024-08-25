@@ -14,7 +14,7 @@ export const catalog = [
   // House Plants
   {
     categoryId: 1,
-    imgUrl: "catalog/Daisy-min.png",
+    imgUrl: "/catalog/Daisy-min.png",
     name: "Barberton Daisy",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
@@ -24,7 +24,7 @@ export const catalog = [
 
   {
     categoryId: 1,
-    imgUrl: "catalog/Begonia-min.png",
+    imgUrl: "/catalog/Begonia-min.png",
     name: "Angel Wing Begonia",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
@@ -34,7 +34,7 @@ export const catalog = [
 
   {
     categoryId: 1,
-    imgUrl: "catalog/Violet-min.png",
+    imgUrl: "/catalog/Violet-min.png",
     name: "African Violet",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
@@ -44,7 +44,7 @@ export const catalog = [
 
   {
     categoryId: 1,
-    imgUrl: "catalog/Lily-min.png",
+    imgUrl: "/catalog/Lily-min.png",
     name: "Beach Spider Lily",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
@@ -54,7 +54,7 @@ export const catalog = [
 
   {
     categoryId: 1,
-    imgUrl: "catalog/Bromeliad-min.png",
+    imgUrl: "/catalog/Bromeliad-min.png",
     name: "Blushing Bromeliad",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
@@ -64,7 +64,7 @@ export const catalog = [
 
   {
     categoryId: 1,
-    imgUrl: "catalog/Cactus-min.png",
+    imgUrl: "/catalog/Cactus-min.png",
     name: "Summer Cactus",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
@@ -74,7 +74,7 @@ export const catalog = [
 
   {
     categoryId: 1,
-    imgUrl: "catalog/Plant-min.png",
+    imgUrl: "/catalog/Plant-min.png",
     name: "Aluminum Plant",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
@@ -84,7 +84,7 @@ export const catalog = [
 
   {
     categoryId: 1,
-    imgUrl: "catalog/Palm-min.png",
+    imgUrl: "/catalog/Palm-min.png",
     name: "Broadleaf Lady Palm",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",
@@ -94,7 +94,7 @@ export const catalog = [
 
   {
     categoryId: 1,
-    imgUrl: "catalog/Evergreen-min.png",
+    imgUrl: "/catalog/Evergreen-min.png",
     name: "Chinese Evergreen",
     description:
       "The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground.",

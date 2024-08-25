@@ -10,7 +10,6 @@ import { Button } from "../button";
 interface Props {
   location: string;
   inputPlaceholder: string;
-  openSearch?: boolean;
   btnText?: string | JSX.Element;
   btnClassName?: string;
   svgSearch?: JSX.Element;
@@ -22,7 +21,6 @@ interface Props {
 }
 
 export const Input: React.FC<Props> = ({
-  openSearch,
   location,
   btnText,
   btnClassName,
@@ -63,7 +61,9 @@ export const Input: React.FC<Props> = ({
         {btnText && <Button className={btnClassName} value={btnText} />}
       </div>
 
-      {openSearch && <Result searchResults={searchResults} />}
+      {searchResults && searchResults.length > 0 && (
+        <Result searchResults={searchResults} />
+      )}
     </div>
   );
 };

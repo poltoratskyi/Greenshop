@@ -2,11 +2,11 @@
 
 .result {
   background-color: #fff;
-  width: 100%;
   padding: 50px 25px;
 
   .content {
-    display: inline-flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 60px;
 
     .categories {
@@ -53,6 +53,7 @@
     }
 
     .result_items {
+      min-width: 850px;
       .title {
         color: $text;
         font-weight: 700;

@@ -10,12 +10,9 @@
 
     .info {
       display: grid;
+      align-items: center;
       grid-template-columns: repeat(2, 1fr);
       background-color: $background;
-
-      img {
-        width: 100%;
-      }
 
       .wrapper {
         text-align: right;

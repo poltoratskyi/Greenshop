@@ -1,7 +1,7 @@
 export const catalog = [
   {
     id: 1,
-    imgUrl: "catalog/Daisy-min.png",
+    imgUrl: "/catalog/Daisy-min.png",
     name: "Barberton Daisy",
     onSale: false,
     sailPrice: 0,
@@ -15,7 +15,7 @@ export const catalog = [
 
   {
     id: 2,
-    imgUrl: "catalog/Begonia-min.png",
+    imgUrl: "/catalog/Begonia-min.png",
     name: "Angel Wing Begonia",
     onSale: false,
     sailPrice: 0,
@@ -29,7 +29,7 @@ export const catalog = [
 
   {
     id: 3,
-    imgUrl: "catalog/Violet-min.png",
+    imgUrl: "/catalog/Violet-min.png",
     name: "African Violet",
     onSale: true,
     sailPrice: 199,
@@ -43,7 +43,7 @@ export const catalog = [
 
   {
     id: 4,
-    imgUrl: "catalog/Lily-min.png",
+    imgUrl: "/catalog/Lily-min.png",
     name: "Beach Spider Lily",
     onSale: false,
     sailPrice: 0,
@@ -57,7 +57,7 @@ export const catalog = [
 
   {
     id: 5,
-    imgUrl: "catalog/Bromeliad-min.png",
+    imgUrl: "/catalog/Bromeliad-min.png",
     name: "Blushing Bromeliad",
     onSale: true,
     sailPrice: 79,
@@ -71,7 +71,7 @@ export const catalog = [
 
   {
     id: 6,
-    imgUrl: "catalog/Cactus-min.png",
+    imgUrl: "/catalog/Cactus-min.png",
     name: "Summer Cactus",
     onSale: false,
     sailPrice: 0,
@@ -85,7 +85,7 @@ export const catalog = [
 
   {
     id: 7,
-    imgUrl: "catalog/Plant-min.png",
+    imgUrl: "/catalog/Plant-min.png",
     name: "Aluminum Plant",
     onSale: true,
     sailPrice: 69,
@@ -99,7 +99,7 @@ export const catalog = [
 
   {
     id: 8,
-    imgUrl: "catalog/Palm-min.png",
+    imgUrl: "/catalog/Palm-min.png",
     name: "Broadleaf Lady Palm",
     onSale: false,
     sailPrice: 0,
@@ -113,7 +113,7 @@ export const catalog = [
 
   {
     id: 9,
-    imgUrl: "catalog/Evergreen-min.png",
+    imgUrl: "/catalog/Evergreen-min.png",
     name: "Chinese Evergreen",
     onSale: false,
     sailPrice: 0,

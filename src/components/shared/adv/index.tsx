@@ -16,7 +16,7 @@ const svg = (
 const AdvData = [
   {
     id: 1,
-    imgUrl: "adv/adv_1-min.png",
+    imgUrl: "/adv/adv_1-min.png",
     title: "Summer cactus",
     subTitle: "succulents",
     descr:
@@ -25,7 +25,7 @@ const AdvData = [
 
   {
     id: 2,
-    imgUrl: "adv/adv_2-min.png",
+    imgUrl: "/adv/adv_2-min.png",
     title: "Styling Trends",
     subTitle: "much more",
     descr:
@@ -40,7 +40,12 @@ export const Adv: React.FC = () => {
         <div className={Style.content}>
           {AdvData.map((item) => (
             <div className={Style.info} key={item.id}>
-              <Image src={item.imgUrl} alt={item.title} />
+              <Image
+                src={item.imgUrl}
+                width={235}
+                height={235}
+                alt={item.title}
+              />
 
               <div className={Style.wrapper}>
                 <h3 className={Style.title}>

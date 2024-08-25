@@ -23,7 +23,13 @@ export const Banner: React.FC = () => {
             <Button className="banner" value="shop now" />
           </div>
 
-          <Image src="catalog/Lily-min.png" alt="Main-banner.jpg" />
+          <Image
+            src="/catalog/Lily-min.png"
+            width={500}
+            height={500}
+            priority={true}
+            alt="Main-banner.jpg"
+          />
         </div>
       </div>
     </div>

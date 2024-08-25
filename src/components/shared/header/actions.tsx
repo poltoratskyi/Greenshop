@@ -113,7 +113,6 @@ export const Actions: React.FC = () => {
             inputPlaceholder="Find your plants"
             searchResults={searchResults}
             inputValue={inputValue}
-            openSearch={openSearch}
             svgSearch={svgSearch}
             svgClose={svgClose}
             handleSearch={handleSearch}

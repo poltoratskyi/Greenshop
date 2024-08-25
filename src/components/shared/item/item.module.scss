@@ -10,18 +10,65 @@
     .list {
       position: relative;
 
-      img {
-        width: 100%;
+      .img_link {
+        display: block;
         padding-bottom: 50px;
-        transition: 0.3s ease;
+
+        &:hover {
+          background-color: $background;
+          transition: 0.3s ease;
+
+          .line {
+            opacity: 1;
+            visibility: visible;
+          }
+
+          .control {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
       }
 
-      .title {
-        font-size: 16px;
-        line-height: 16px;
-        color: $text;
+      .title_link {
+        display: block;
         margin: 30px 0px 15px;
-        font-weight: 500;
+
+        .title {
+          font-size: 16px;
+          line-height: 16px;
+          color: $text;
+          font-weight: 500;
+
+          &:hover {
+            color: $main;
+          }
+        }
+      }
+
+      .control {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+
+        & > [data-type="heart"] {
+          cursor: pointer;
+          margin-right: 30px;
+
+          &:hover {
+            fill: red;
+          }
+        }
+
+        & > [data-type="cart"] {
+          &:hover {
+            fill: $main;
+          }
+        }
       }
 
       .percent {
@@ -52,25 +99,6 @@
         line-height: 18px;
       }
 
-      .control {
-        position: absolute;
-        top: 70%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.3s ease;
-
-        svg {
-          cursor: pointer;
-          margin-right: 30px;
-
-          &:last-child {
-            margin-right: 0px;
-          }
-        }
-      }
-
       .line {
         height: 1px;
         width: 100%;
@@ -80,22 +108,6 @@
         opacity: 0;
         visibility: hidden;
         transition: 0.3s ease;
-      }
-
-      &:hover {
-        img {
-          background-color: $background;
-        }
-
-        .line {
-          opacity: 1;
-          visibility: visible;
-        }
-
-        .control {
-          opacity: 1;
-          visibility: visible;
-        }
       }
     }
   }

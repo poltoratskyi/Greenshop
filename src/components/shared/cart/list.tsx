@@ -82,10 +82,10 @@ export const CartList = () => {
       {catalog.slice(0, 1).map((item) => (
         <li className={Style.list} key={item.id}>
           <div className={Style.layout}>
-            <div className={Style.img}>
-              <Image src={item.imgUrl} alt={item.name} />
+            <div className={Style.info}>
+              <Image src={item.imgUrl} width={70} height={70} alt={item.name} />
 
-              <div>
+              <div style={{ marginLeft: "10px" }}>
                 <Link href="#">
                   <h2 className={Style.title}>{item.name}</h2>
                 </Link>
