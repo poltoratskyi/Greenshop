@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
           <Actions />
         </div>
 
-        {/* Mobile */}
+        {/* Media */}
         <Mobile />
       </div>
     </header>

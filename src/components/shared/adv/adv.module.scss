@@ -39,3 +39,23 @@
     }
   }
 }
+
+@media (max-width: 575px) {
+  .adv {
+    .content {
+      grid-template-columns: repeat(1, 1fr);
+
+      .info {
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+        border-radius: 20px;
+
+        .wrapper {
+          text-align: left;
+          width: auto;
+          padding: 25px 20px;
+        }
+      }
+    }
+  }
+}

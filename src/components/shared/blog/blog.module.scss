@@ -25,60 +25,85 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 45px;
 
-    .info {
-      text-align: left;
-      padding: 10px;
-      background-color: $background;
+    .wrapper {
+      text-align: center;
 
-      span {
-        display: block;
-        font-size: 14px;
-        line-height: 16px;
-        color: $main;
-        font-weight: 500;
-        margin-bottom: 5px;
-      }
+      .info {
+        text-align: left;
+        padding: 10px;
+        background-color: $background;
 
-      h3 {
-        font-weight: 700;
-        line-height: 26px;
-        font-size: 20px;
-        color: $text;
-        margin-bottom: 5px;
-      }
-
-      p {
-        font-size: 14px;
-        color: $descr;
-        font-weight: 400;
-        margin-bottom: 10px;
-        line-height: 22px;
-      }
-
-      a {
-        position: relative;
-        line-height: 16px;
-        font-size: 14px;
-        font-weight: 500;
-        color: $text;
-
-        svg {
-          position: absolute;
-          top: 0;
-          left: 85px;
-          margin-top: 15px;
-          transition: 0.2s ease;
-          opacity: 0;
-          visibility: hidden;
+        span {
+          display: block;
+          font-size: 14px;
+          line-height: 16px;
+          color: $main;
+          font-weight: 500;
+          margin-bottom: 5px;
         }
 
-        &:hover {
-          color: $main;
+        h3 {
+          font-weight: 700;
+          line-height: 26px;
+          font-size: 20px;
+          color: $text;
+          margin-bottom: 5px;
+        }
+
+        p {
+          font-size: 14px;
+          color: $descr;
+          font-weight: 400;
+          margin-bottom: 10px;
+          line-height: 22px;
+        }
+
+        a {
+          position: relative;
+          line-height: 16px;
+          font-size: 14px;
+          font-weight: 500;
+          color: $text;
+
           svg {
-            opacity: 1;
-            visibility: visible;
-            margin-top: 0px;
+            position: absolute;
+            top: 0;
+            left: 85px;
+            margin-top: 15px;
+            transition: 0.2s ease;
+            opacity: 0;
+            visibility: hidden;
           }
+
+          &:hover {
+            color: $main;
+            svg {
+              opacity: 1;
+              visibility: visible;
+              margin-top: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .blog {
+    .content {
+      grid-template-columns: repeat(1, 1fr);
+
+      .wrapper {
+        img {
+          border-top-right-radius: 20px;
+          border-top-left-radius: 20px;
+        }
+
+        .info {
+          padding: 20px;
+          border-bottom-right-radius: 20px;
+          border-bottom-left-radius: 20px;
         }
       }
     }

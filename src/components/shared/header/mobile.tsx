@@ -1,7 +1,8 @@
-import React from "react";
-import { svgSearch } from "../../shared/header/actions";
 import Style from "./header.module.scss";
-import { Input } from "@/components/ui/input";
+
+import { svgSearch } from "../../shared/header/actions";
+import { Input } from "../../ui/input";
+import { Menu } from "./menu-mobile";
 
 const filterSvg = (
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -50,6 +51,8 @@ export const Mobile: React.FC = () => {
         location="mobile"
         inputPlaceholder="Find your plants"
       />
+
+      <Menu />
     </div>
   );
 };

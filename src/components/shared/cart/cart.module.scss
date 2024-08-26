@@ -51,6 +51,7 @@
       align-items: center;
       transition: 0.3s ease;
       padding: 10px;
+
       .info {
         display: flex;
         align-items: center;
@@ -104,6 +105,16 @@
       font-weight: 700;
     }
 
+    span {
+      svg {
+        cursor: pointer;
+
+        &:hover {
+          fill: $text;
+        }
+      }
+    }
+
     .quantity {
       display: flex;
       justify-content: center;
@@ -146,7 +157,9 @@
 
 .cart_totals {
   min-width: 330px;
+  text-align: center;
   .title {
+    text-align: left;
     font-size: 16px;
     line-height: 16px;
     color: $text;
@@ -157,6 +170,7 @@
   }
 
   .subTitle {
+    text-align: left;
     display: block;
     font-size: 14px;
     line-height: 16px;
@@ -214,8 +228,7 @@
   }
 
   a {
-    display: block;
-    text-align: center;
+    display: inline-block;
     color: $main;
     font-size: 15px;
     line-height: 16px;

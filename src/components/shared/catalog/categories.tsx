@@ -140,7 +140,7 @@ export const Categories = () => {
           </div>
         </div>
 
-        <Button className="filter" value="Filter" />
+        <Button button={true} className="filter" value="Filter" />
       </section>
 
       <section>

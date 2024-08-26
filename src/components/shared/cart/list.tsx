@@ -36,32 +36,6 @@ const svgIncr = (
   </svg>
 );
 
-const svgDed = (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M18.8892 9.55408C18.8892 17.5731 20.0435 21.1979 12.2797 21.1979C4.5149 21.1979 5.693 17.5731 5.693 9.55408"
-      stroke="#727272"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M20.3651 6.47979H4.2146"
-      stroke="#727272"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M15.7148 6.47979C15.7148 6.47979 16.2434 2.71408 12.2891 2.71408C8.33578 2.71408 8.86435 6.47979 8.86435 6.47979"
-      stroke="#727272"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
 export const CartList = () => {
   const [quantity, setQuantity] = useState(1);
 
@@ -82,20 +56,25 @@ export const CartList = () => {
       {catalog.slice(0, 1).map((item) => (
         <li className={Style.list} key={item.id}>
           <div className={Style.layout}>
-            <div className={Style.info}>
-              <Image src={item.imgUrl} width={70} height={70} alt={item.name} />
+            <Link href="#">
+              <div className={Style.info}>
+                <Image
+                  src={item.imgUrl}
+                  width={70}
+                  height={70}
+                  alt={item.name}
+                />
 
-              <div style={{ marginLeft: "10px" }}>
-                <Link href="#">
+                <div style={{ marginLeft: "10px" }}>
                   <h2 className={Style.title}>{item.name}</h2>
-                </Link>
 
-                <p className={Style.sku}>
-                  <span>SKU:</span>
-                  {item.sku}
-                </p>
+                  <p className={Style.sku}>
+                    <span>SKU:</span>
+                    {item.sku}
+                  </p>
+                </div>
               </div>
-            </div>
+            </Link>
 
             {item.onSale ? (
               <span className={Style.price}>${item.sailPrice.toFixed(2)}</span>
@@ -117,8 +96,30 @@ export const CartList = () => {
               <span className={Style.total}>${item.price.toFixed(2)}</span>
             )}
 
-            <span style={{ textAlign: "center", cursor: "pointer" }}>
-              {svgDed}
+            <span style={{ textAlign: "center" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M18.8892 9.55408C18.8892 17.5731 20.0435 21.1979 12.2797 21.1979C4.5149 21.1979 5.693 17.5731 5.693 9.55408"
+                  stroke="#3d3d3d"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M20.3651 6.47979H4.2146"
+                  stroke="#3d3d3d"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M15.7148 6.47979C15.7148 6.47979 16.2434 2.71408 12.2891 2.71408C8.33578 2.71408 8.86435 6.47979 8.86435 6.47979"
+                  stroke="#3d3d3d"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </span>
           </div>
         </li>

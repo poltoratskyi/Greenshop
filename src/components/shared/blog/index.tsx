@@ -50,13 +50,16 @@ export const Blog: React.FC = () => {
 
         <div className={Style.content}>
           {blogData.map((item) => (
-            <div style={{ textAlign: "center" }} key={item.id}>
+            <div className={Style.wrapper} key={item.id}>
               <Image
-                width={265}
-                height={265}
+                width={300}
+                height={300}
                 src={item.imgUrl}
                 alt={item.title}
+                style={{ width: "100%", height: "auto" }}
+                sizes="(max-width: 575px) 100vw"
               />
+
               <div className={Style.info}>
                 <span>{item.heading}</span>
                 <h3>{item.title}</h3>

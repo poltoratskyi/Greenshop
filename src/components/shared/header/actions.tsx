@@ -146,7 +146,12 @@ export const Actions: React.FC = () => {
           </svg>
         </Link>
 
-        <Button className="login" value="Login" svgLeft={svgLeft} />
+        <Button
+          button={true}
+          className="login"
+          value="Login"
+          svgLeft={svgLeft}
+        />
       </div>
     </>
   );

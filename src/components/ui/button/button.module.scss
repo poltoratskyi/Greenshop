@@ -54,7 +54,7 @@
 }
 
 .adv {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   padding: 15px 30px;
   background-color: $main;
@@ -63,7 +63,6 @@
   font-weight: 500;
   color: #fff;
   line-height: 20px;
-  margin-left: auto;
 
   svg {
     margin-left: 5px;
@@ -116,5 +115,25 @@
 
   &:hover {
     background-color: #2d763c;
+  }
+}
+
+.banner_mobile {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 700;
+  display: inline-flex;
+  text-transform: uppercase;
+  align-items: center;
+  color: $main;
+
+  svg {
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 575px) {
+  .adv {
+    border-radius: 40px;
   }
 }

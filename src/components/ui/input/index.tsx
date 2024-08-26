@@ -58,7 +58,9 @@ export const Input: React.FC<Props> = ({
           </span>
         )}
 
-        {btnText && <Button className={btnClassName} value={btnText} />}
+        {btnText && (
+          <Button button={true} className={btnClassName} value={btnText} />
+        )}
       </div>
 
       {searchResults && searchResults.length > 0 && (

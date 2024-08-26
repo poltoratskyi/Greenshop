@@ -48,7 +48,7 @@ export const CartTotals = () => {
         <b>$2,699.00</b>
       </div>
 
-      <Button className="checkout" value="Proceed To Checkout" />
+      <Button button={true} className="checkout" value="Proceed To Checkout" />
 
       <Link href="/">Continue Shopping</Link>
     </div>
