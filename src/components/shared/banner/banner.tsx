@@ -8,7 +8,7 @@ const descr =
 
 export const Banner: React.FC = () => {
   return (
-    <div className={Style.banner}>
+    <section className={Style.banner}>
       <div className="container">
         <Info
           descr={descr}
@@ -21,6 +21,6 @@ export const Banner: React.FC = () => {
         {/* Media */}
         <Mobile />
       </div>
-    </div>
+    </section>
   );
 };

@@ -1118,18 +1118,20 @@ const serviceText = [
 export const Service: React.FC = () => {
   return (
     <div className={Style.service}>
-      <ul className={Style.lists}>
-        {serviceText.map((item, index) => (
-          <li className={Style.list} key={index}>
-            <>{item.svg}</>
+      <div className={Style.label}>
+        <div className={Style.info}>
+          {serviceText.map((item, index) => (
+            <div className={Style.inner} key={index}>
+              <>{item.svg}</>
 
-            <h3 className={Style.title}>{item.title}</h3>
+              <h3 className={Style.title}>{item.title}</h3>
 
-            <p className={Style.descr}>{item.subtitle}</p>
-          </li>
-        ))}
+              <p className={Style.descr}>{item.subtitle}</p>
+            </div>
+          ))}
+        </div>
 
-        <div className={Style.newsletters}>
+        <form className={Style.newsletters}>
           <h3 className={Style.title}>Would you like to join newsletters?</h3>
 
           <Input
@@ -1145,8 +1147,8 @@ export const Service: React.FC = () => {
             range of houseplants and accessories shipped directly from our
             (green)house to yours!&quot;
           </p>
-        </div>
-      </ul>
+        </form>
+      </div>
     </div>
   );
 };

@@ -6,37 +6,41 @@
     .service {
       padding: 25px;
 
-      .lists {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
+      .label {
+        display: flex;
+        align-items: center;
+        .info {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
 
-        .list {
-          padding-right: 35px;
-          border-right: 1px rgba($main, 0.1) solid;
+          .inner {
+            padding-right: 35px;
+            border-right: 1px rgba($main, 0.1) solid;
 
-          .title {
-            margin: 20px 0px 10px;
-            font-size: 17px;
-            font-weight: 700;
-            color: $text;
-            line-height: 16px;
-          }
+            .title {
+              margin: 20px 0px 10px;
+              font-size: 17px;
+              font-weight: 700;
+              color: $text;
+              line-height: 16px;
+            }
 
-          .descr {
-            font-size: 14px;
-            font-weight: 400;
-            color: $descr;
-            line-height: 22px;
-          }
+            .descr {
+              font-size: 14px;
+              font-weight: 400;
+              color: $descr;
+              line-height: 22px;
+            }
 
-          &:nth-child(3n) {
-            border-right: none;
+            &:nth-child(3n) {
+              border-right: none;
+            }
           }
         }
 
         .newsletters {
-          width: 350px;
+          max-width: 350px;
 
           .title {
             margin-bottom: 20px;
@@ -60,26 +64,31 @@
     .contacts {
       border-top: 1px rgba($main, 0.1) solid;
       border-bottom: 1px rgba($main, 0.1) solid;
-      background-color: rgba($main, 0.1);
-      padding: 25px;
 
-      .lists {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+      .wrapper {
+        display: flex;
+        gap: 60px;
+        padding: 25px;
+        background-color: rgba($main, 0.1);
 
-        .list {
-          display: flex;
-          align-items: center;
+        .lists {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          justify-items: center;
+          .list {
+            display: flex;
+            align-items: center;
 
-          .icon {
-            margin-right: 10px;
-          }
+            .icon {
+              margin-right: 10px;
+            }
 
-          .descr {
-            font-size: 14px;
-            line-height: 22px;
-            color: $text;
-            font-size: 400;
+            .descr {
+              font-size: 14px;
+              line-height: 22px;
+              color: $text;
+              font-weight: 400;
+            }
           }
         }
       }
@@ -92,15 +101,15 @@
       padding: 30px 25px;
       border-bottom: 1px rgba($main, 0.2) solid;
 
-      .lists {
-        .title {
-          font-size: 18px;
-          font-weight: 700;
-          line-height: 16px;
-          color: $text;
-          margin-bottom: 10px;
-        }
+      .title {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 16px;
+        color: $text;
+        margin-bottom: 10px;
+      }
 
+      .lists {
         .list {
           .link {
             font-size: 14px;
@@ -127,7 +136,6 @@
         .lists {
           display: flex;
           align-items: center;
-          margin-bottom: 35px;
           .list {
             display: flex;
             justify-content: center;
@@ -162,7 +170,6 @@
 
           &:last-child {
             height: 30px;
-            margin-bottom: 0px;
           }
         }
       }
@@ -175,6 +182,88 @@
       line-height: 30px;
       font-weight: 400;
       padding: 10px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .footer {
+    padding-bottom: 30px;
+    .content {
+      .contacts {
+        .wrapper {
+          flex-direction: column;
+          gap: 10px;
+          padding: 20px;
+          .lists {
+            grid-template-columns: repeat(1, 1fr);
+            justify-items: normal;
+
+            .list {
+              margin-bottom: 10px;
+              &:last-child {
+                margin-bottom: 0px;
+              }
+            }
+          }
+        }
+      }
+
+      .service {
+        padding: 20px;
+        .label {
+          flex-direction: column;
+          .info {
+            grid-template-columns: repeat(1, 1fr);
+
+            .inner {
+              padding: 0px 0px 25px 0px;
+              border-right: none;
+              border-bottom: 1px rgba($main, 0.1) solid;
+
+              svg {
+                display: block;
+                margin: 0 auto;
+              }
+
+              .title,
+              .descr {
+                text-align: center;
+              }
+
+              &:last-child {
+                border-bottom: none;
+              }
+            }
+          }
+
+          .newsletters {
+            max-width: 100%;
+
+            .title {
+              text-align: center;
+              line-height: 22px;
+            }
+
+            .descr {
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      .feedback {
+        padding: 20px;
+        grid-template-columns: repeat(1, 1fr);
+
+        .accept {
+          width: auto;
+
+          .lists {
+            justify-content: space-between;
+          }
+        }
+      }
     }
   }
 }

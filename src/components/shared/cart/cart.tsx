@@ -18,7 +18,7 @@ const ways = [
 
 export const Cart = () => {
   return (
-    <div className={Style.cart}>
+    <section className={Style.cart}>
       <div className="container">
         <ul className={Style.lists}>
           {ways.map((item) => (
@@ -44,6 +44,6 @@ export const Cart = () => {
         </div>
         <Slider />
       </div>
-    </div>
+    </section>
   );
 };

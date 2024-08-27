@@ -505,62 +505,72 @@ export const Feedback: React.FC = () => {
   return (
     <>
       <div className={Style.feedback}>
-        <ul className={Style.lists}>
+        <nav>
           <h3 className={Style.title}>My Account</h3>
 
-          {account.map((item, index) => (
-            <li className={Style.list} key={index}>
-              <Link className={Style.link} href={item.link}>
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <ul className={Style.lists}>
+            {account.map((item, index) => (
+              <li className={Style.list} key={index}>
+                <Link className={Style.link} href={item.link}>
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-        <ul className={Style.lists}>
+        <nav>
           <h3 className={Style.title}>Help & Guide</h3>
 
-          {help.map((item, index) => (
-            <li className={Style.list} key={index}>
-              <Link className={Style.link} href={item.link}>
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <ul className={Style.lists}>
+            {help.map((item, index) => (
+              <li className={Style.list} key={index}>
+                <Link className={Style.link} href={item.link}>
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-        <ul className={Style.lists}>
+        <nav>
           <h3 className={Style.title}>Categories</h3>
 
-          {categories.map((item, index) => (
-            <li className={Style.list} key={index}>
-              <Link className={Style.link} href={item.link}>
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <ul className={Style.lists}>
+            {categories.map((item, index) => (
+              <li className={Style.list} key={index}>
+                <Link className={Style.link} href={item.link}>
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className={Style.accept}>
-          <h3 className={Style.title}>Social Media</h3>
+          <nav style={{ marginBottom: "30px" }}>
+            <h3 className={Style.title}>Social Media</h3>
 
-          <ul className={Style.lists}>
-            {media.map((item, index) => (
-              <li className={Style.list} key={index}>
-                <Link href={item.link}>{item.svg}</Link>
-              </li>
-            ))}
-          </ul>
+            <ul className={Style.lists}>
+              {media.map((item, index) => (
+                <li className={Style.list} key={index}>
+                  <Link href={item.link}>{item.svg}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-          <h3 className={Style.title}>We accept</h3>
+          <nav>
+            <h3 className={Style.title}>We accept</h3>
 
-          <ul className={Style.lists}>
-            {order.map((item, index) => (
-              <li key={index}>
-                <Link href={item.link}>{item.svg}</Link>
-              </li>
-            ))}
-          </ul>
+            <ul className={Style.lists}>
+              {order.map((item, index) => (
+                <li key={index}>
+                  <Link href={item.link}>{item.svg}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
 

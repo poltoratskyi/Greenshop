@@ -34,7 +34,7 @@ interface Props {
 
 export const Result: React.FC<Props> = ({ searchResults }) => {
   return (
-    <div className={Style.result}>
+    <section className={Style.result}>
       <div className={Style.content}>
         <div className={Style.categories}>
           <h2 className={Style.title}>Trending searches</h2>
@@ -68,6 +68,6 @@ export const Result: React.FC<Props> = ({ searchResults }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
