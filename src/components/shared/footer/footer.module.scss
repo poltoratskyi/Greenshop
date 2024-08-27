@@ -125,13 +125,6 @@
 
       .accept {
         width: 350px;
-        .title {
-          font-size: 18px;
-          font-weight: 700;
-          line-height: 16px;
-          color: $text;
-          margin-bottom: 15px;
-        }
 
         .lists {
           display: flex;
@@ -188,7 +181,7 @@
 
 @media (max-width: 575px) {
   .footer {
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     .content {
       .contacts {
         .wrapper {
@@ -201,6 +194,11 @@
 
             .list {
               margin-bottom: 10px;
+
+              .descr {
+                font-size: 12px;
+              }
+
               &:last-child {
                 margin-bottom: 0px;
               }
@@ -211,6 +209,11 @@
 
       .service {
         padding: 20px;
+
+        .title {
+          font-size: 17px;
+        }
+
         .label {
           flex-direction: column;
           .info {
@@ -224,6 +227,14 @@
               svg {
                 display: block;
                 margin: 0 auto;
+              }
+
+              .title {
+                font-size: 17px;
+              }
+
+              .descr {
+                font-size: 12px;
               }
 
               .title,
@@ -240,13 +251,17 @@
           .newsletters {
             max-width: 100%;
 
+            .descr,
             .title {
               text-align: center;
+            }
+            .title {
+              font-size: 17px;
               line-height: 22px;
             }
 
             .descr {
-              text-align: center;
+              font-size: 12px;
             }
           }
         }
@@ -255,6 +270,18 @@
       .feedback {
         padding: 20px;
         grid-template-columns: repeat(1, 1fr);
+
+        .title {
+          font-size: 17px;
+        }
+
+        .lists {
+          .list {
+            .link {
+              font-size: 12px;
+            }
+          }
+        }
 
         .accept {
           width: auto;

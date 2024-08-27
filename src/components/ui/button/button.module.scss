@@ -119,7 +119,7 @@
 }
 
 .banner_mobile {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 14px;
   font-weight: 700;
   display: inline-flex;
@@ -135,5 +135,12 @@
 @media (max-width: 575px) {
   .adv {
     border-radius: 40px;
+  }
+
+  .join,
+  .adv,
+  .coupon,
+  .checkout {
+    font-size: 14px;
   }
 }

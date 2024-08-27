@@ -504,7 +504,7 @@ const order = [
 export const Feedback: React.FC = () => {
   return (
     <>
-      <div className={Style.feedback}>
+      <section className={Style.feedback}>
         <nav>
           <h3 className={Style.title}>My Account</h3>
 
@@ -572,7 +572,7 @@ export const Feedback: React.FC = () => {
             </ul>
           </nav>
         </div>
-      </div>
+      </section>
 
       <p className={Style.privacy}>© 2024 GreenShop. All Rights Reserved.</p>
     </>

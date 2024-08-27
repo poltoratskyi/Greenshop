@@ -37,7 +37,7 @@ export const Cart = () => {
           ))}
         </ul>
 
-        <div style={{ display: "flex", gap: "90px", marginBottom: "90px" }}>
+        <div className={Style.inner}>
           <CartList />
 
           <CartTotals />

@@ -101,36 +101,46 @@
   }
 }
 
-.mobile {
-  .content {
-    position: relative;
-    display: flex;
+@media (max-width: 575px) {
+  .mobile {
+    .content {
+      position: relative;
+      display: flex;
 
-    input {
-      padding: 15px 10px 15px 40px;
-      color: $text;
-      background-color: #fff;
-      border: 1px solid rgba($main, 0.5);
-      border-radius: 10px;
-      font-size: 14px;
-      line-height: 16px;
-      width: 100%;
-      font-weight: 400;
+      input {
+        padding: 15px 10px 15px 40px;
+        color: $text;
+        background-color: #fff;
+        border: 1px solid rgba($main, 0.5);
+        border-radius: 10px;
+        font-size: 14px;
+        line-height: 16px;
+        width: 100%;
+        font-weight: 400;
 
-      &:focus {
-        border-color: rgba($main, 1);
-        outline: none;
+        &:focus {
+          border-color: rgba($main, 1);
+          outline: none;
+        }
+      }
+
+      .svg_search {
+        position: absolute;
+        left: 0%;
+        top: 50%;
+        transform: translate(0%, -50%);
+
+        svg {
+          margin: 0px 0px 0px 10px;
+        }
       }
     }
+  }
 
-    .svg_search {
-      position: absolute;
-      left: 0%;
-      top: 50%;
-      transform: translate(0%, -50%);
-
-      svg {
-        margin: 0px 0px 0px 10px;
+  .newsletters {
+    .content {
+      input {
+        font-size: 12px;
       }
     }
   }

@@ -91,6 +91,14 @@
 
 @media (max-width: 575px) {
   .blog {
+    .title {
+      font-size: 20px;
+    }
+
+    .descr {
+      font-size: 12px;
+    }
+
     .content {
       grid-template-columns: repeat(1, 1fr);
 
@@ -104,6 +112,18 @@
           padding: 20px;
           border-bottom-right-radius: 20px;
           border-bottom-left-radius: 20px;
+
+          span {
+            font-size: 11px;
+          }
+
+          h3 {
+            font-size: 17px;
+          }
+
+          p {
+            font-size: 12px;
+          }
         }
       }
     }
