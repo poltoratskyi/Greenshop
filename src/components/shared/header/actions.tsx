@@ -1,7 +1,3 @@
-"use client";
-
-import React, { useRef } from "react";
-import { useClickAway } from "react-use";
 import Link from "next/link";
 
 import Style from "./header.module.scss";
@@ -46,16 +42,9 @@ export interface Props {
 }
 
 export const Actions: React.FC<Props> = ({ setOpenModal, setOpenSearch }) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useClickAway(ref, () => {
-    setOpenSearch && setOpenSearch(false);
-    document.body.style.overflow = "";
-  });
-
   return (
     <>
-      <div ref={ref} className={Style.actions}>
+      <div className={Style.actions}>
         <svg
           onClick={() => {
             setOpenSearch && setOpenSearch(true);

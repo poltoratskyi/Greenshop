@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { useDebounce } from "react-use";
+import React, { useRef, useState } from "react";
+import { useClickAway, useDebounce } from "react-use";
 
 import { axiosItem } from "../../../service/search";
 
@@ -45,6 +45,7 @@ export const Header: React.FC = () => {
   const [openSearch, setOpenSearch] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [searchResults, setSearchResults] = useState<Item[]>([]);
+  const ref = useRef<HTMLDivElement>(null);
 
   useDebounce(
     () => {
@@ -69,6 +70,11 @@ export const Header: React.FC = () => {
     [inputValue]
   );
 
+  useClickAway(ref, () => {
+    setOpenSearch && setOpenSearch(false);
+    document.body.style.overflow = "";
+  });
+
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trimStart();
 
@@ -89,6 +95,7 @@ export const Header: React.FC = () => {
         )}
 
         <div
+          ref={ref}
           className={`${
             openSearch ? `${Style.block} ${Style.visible}` : Style.block
           }`}
