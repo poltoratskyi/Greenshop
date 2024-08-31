@@ -16,7 +16,7 @@
 
         &:hover {
           background-color: $background;
-          transition: 0.3s ease;
+          transition: 0.5s ease;
 
           .line {
             opacity: 1;
@@ -39,6 +39,7 @@
           line-height: 16px;
           color: $text;
           font-weight: 500;
+          transition: 0.5s ease;
 
           &:hover {
             color: $main;
@@ -53,7 +54,7 @@
         transform: translate(-50%, -50%);
         opacity: 0;
         visibility: hidden;
-        transition: 0.3s ease;
+        transition: 0.5s ease;
 
         & > [data-type="heart"] {
           cursor: pointer;
@@ -107,7 +108,7 @@
         border-bottom: 1px solid $main;
         opacity: 0;
         visibility: hidden;
-        transition: 0.3s ease;
+        transition: 0.5s ease;
       }
     }
   }

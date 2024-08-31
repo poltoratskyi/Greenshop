@@ -101,8 +101,8 @@ export const Categories = () => {
   };
 
   return (
-    <form className={Style.categories}>
-      <section style={{ marginBottom: "35px" }}>
+    <form action="#" method="post" className={Style.categories}>
+      <div style={{ marginBottom: "35px" }}>
         <h3 className={Style.title}>Categories</h3>
 
         <ul className={Style.lists}>
@@ -123,27 +123,38 @@ export const Categories = () => {
             </li>
           ))}
         </ul>
-      </section>
+      </div>
 
-      <section style={{ marginBottom: "35px" }}>
+      <div style={{ marginBottom: "35px" }}>
         <h3 className={Style.title}>Price Range</h3>
 
         <div className={Style.price}>
           <div className={Style.column}>
             <label htmlFor="price-from">From</label>
-            <input id="price-from" placeholder="1" type="text" />
+            <input
+              id="price-from"
+              name="price-form"
+              placeholder="1"
+              type="text"
+              autoComplete="off"
+            />
           </div>
 
           <div className={Style.column}>
             <label htmlFor="price-to">To</label>
-            <input id="price-to" placeholder="999" type="text" /> $
+            <input
+              id="price-to"
+              name="price-form"
+              placeholder="999"
+              type="text"
+              autoComplete="off"
+            />
+            $
           </div>
         </div>
+      </div>
 
-        <Button button={true} className="filter" value="Filter" />
-      </section>
-
-      <section>
+      <div>
         <h3 className={Style.title}>Size</h3>
 
         <ul className={Style.lists}>
@@ -164,7 +175,9 @@ export const Categories = () => {
             </li>
           ))}
         </ul>
-      </section>
+      </div>
+
+      <Button button={true} className="filter" value="Filter" />
     </form>
   );
 };

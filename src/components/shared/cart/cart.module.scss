@@ -17,6 +17,7 @@
           color: $text;
           font-weight: 400;
           margin-right: 5px;
+          transition: 0.5s ease;
 
           &.active {
             font-weight: 700;
@@ -53,8 +54,9 @@
           display: grid;
           grid-template-columns: repeat(5, 1fr);
           align-items: center;
-          transition: 0.3s ease;
+          transition: 0.5s ease;
           padding: 10px;
+          transition: 0.5s ease;
 
           .info {
             display: flex;
@@ -67,6 +69,7 @@
               color: $text;
               font-weight: 500;
               margin-bottom: 10px;
+              transition: 0.5s ease;
 
               &:hover {
                 color: $main;
@@ -137,6 +140,7 @@
             width: 25px;
             background-color: #fff;
             border: 1px rgba($main, 0.5) solid;
+            transition: 0.5s ease;
 
             &:hover {
               border: 1px rgba($main, 1) solid;
@@ -231,7 +235,7 @@
         }
       }
 
-      a {
+      .continue {
         display: inline-block;
         color: $main;
         font-size: 15px;

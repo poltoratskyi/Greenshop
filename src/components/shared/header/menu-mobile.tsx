@@ -1,11 +1,12 @@
 "use client";
+import Link from "next/link";
+import { useState } from "react";
 
-import { useRef, useState } from "react";
+import { Props } from "./actions";
 
 import Style from "./header.module.scss";
-import Link from "next/link";
 
-export const Menu: React.FC = () => {
+export const Menu: React.FC<Props> = ({ setOpenModal }) => {
   const [showMenu, setShowMenu] = useState(true);
 
   return (
@@ -47,7 +48,10 @@ export const Menu: React.FC = () => {
             </Link>
           </li>
 
-          <li className={Style.list}>
+          <li
+            onClick={() => setOpenModal && setOpenModal(true)}
+            className={Style.list}
+          >
             <svg width="20" height="20" viewBox="0 0 14 18" fill="#D9D9D9">
               <path
                 d="M6.99967 8.82998C9.26546 8.82998 11.1022 7.00257 11.1022 4.74835C11.1022 2.49413 9.26546 0.666718 6.99967 0.666718C4.73389 0.666718 2.89711 2.49413 2.89711 4.74835C2.89711 7.00257 4.73389 8.82998 6.99967 8.82998Z"

@@ -50,6 +50,10 @@
             line-height: 16px;
           }
 
+          form {
+            display: flex;
+          }
+
           .descr {
             font-size: 14px;
             line-height: 22px;
@@ -139,6 +143,7 @@
             border: 1px rgba($main, 0.2) solid;
             cursor: pointer;
             margin-right: 10px;
+            transition: 0.5s ease;
 
             &:hover {
               border: 1px rgba($main, 0.6) solid;
@@ -285,10 +290,6 @@
 
         .accept {
           width: auto;
-
-          .lists {
-            justify-content: space-between;
-          }
         }
       }
     }

@@ -1,0 +1,134 @@
+@import "../../../components/styles/variables.scss";
+
+.modal {
+  position: fixed;
+  top: 125%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: #fff;
+  padding: 50px 100px 70px 100px;
+  transition: 0.5s ease;
+  opacity: 0;
+  visibility: hidden;
+  width: 500px;
+
+  .content {
+    width: 100%;
+    text-align: center;
+
+    .close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 15px 15px 0px 0px;
+      cursor: pointer;
+
+      svg {
+        transition: 0.5s ease;
+        &:hover {
+          fill: red;
+        }
+      }
+    }
+
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 55px;
+
+      span {
+        display: block;
+        font-size: 18px;
+        line-height: 16px;
+        font-weight: 300;
+        padding: 0px 10px;
+      }
+
+      .login,
+      .register {
+        line-height: 16px;
+        font-weight: 500;
+        font-size: 20px;
+      }
+
+      .login {
+        color: $main;
+      }
+
+      .register {
+        color: $text;
+      }
+    }
+
+    h3 {
+      font-size: 13px;
+      line-height: 16px;
+      color: $text;
+      margin-bottom: 15px;
+      font-weight: 400;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      margin-bottom: 50px;
+
+      .reset {
+        display: inline-block;
+        text-align: right;
+        margin-bottom: 30px;
+
+        a {
+          color: $main;
+          line-height: 16px;
+          font-size: 14px;
+          font-weight: 400;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .extra {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+
+      .line {
+        display: block;
+        background-color: $line;
+        height: 1px;
+        width: 100%;
+      }
+
+      p {
+        color: $text;
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: 400;
+        width: 100%;
+        padding: 0px 10px;
+      }
+    }
+  }
+
+  &.visible {
+    z-index: 3;
+    top: 50%;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .bottom_line {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 10px;
+    background-color: $main;
+  }
+}

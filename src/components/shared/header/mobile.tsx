@@ -1,10 +1,11 @@
+import { Props, svgSearch } from "../../shared/header/actions";
+
 import Style from "./header.module.scss";
 
-import { svgSearch } from "../../shared/header/actions";
 import { Input } from "../../ui/input";
 import { Menu } from "./menu-mobile";
 
-const filterSvg = (
+const svgFilter = (
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
     <path
       d="M10.2144 16.3926H4.28125"
@@ -41,18 +42,21 @@ const filterSvg = (
   </svg>
 );
 
-export const Mobile: React.FC = () => {
+export const Mobile: React.FC<Props> = ({ setOpenModal }) => {
   return (
     <div className={Style.mobile}>
       <Input
-        btnClassName="filter_mobile"
-        btnText={filterSvg}
+        id="mobileSearchInput"
+        name="query"
+        type="text"
+        svg={true}
         svgSearch={svgSearch}
-        location="mobile"
+        svgFilter={svgFilter}
+        className="mobile"
         inputPlaceholder="Find your plants"
       />
 
-      <Menu />
+      <Menu setOpenModal={setOpenModal} />
     </div>
   );
 };

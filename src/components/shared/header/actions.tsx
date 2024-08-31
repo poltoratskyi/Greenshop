@@ -1,18 +1,12 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { useClickAway, useDebounce } from "react-use";
+import React, { useRef } from "react";
+import { useClickAway } from "react-use";
 import Link from "next/link";
-
-import { axiosItem } from "../../../service/search";
-
-import { Item } from "../../../types";
 
 import Style from "./header.module.scss";
 
 import { Button } from "../../ui/button";
-import { Input } from "../../ui/input";
-import { Overlay } from "../../ui/overlay";
 
 const svgLeft = (
   <svg id="login" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -46,83 +40,25 @@ export const svgSearch = (
   </svg>
 );
 
-const svgClose = (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 513.552 513.552"
-    enableBackground=":new 0 0 513.552 513.552;"
-    fill="#cbcbcb"
-  >
-    <g>
-      <g>
-        <path d="M510.132,489.755c-0.476-0.556-0.995-1.075-1.552-1.552L276.9,256.382l231.822-231.68c5.577-5.577,5.577-14.619,0-20.196 c-5.577-5.577-14.619-5.577-20.196,0l-231.68,231.822L25.167,4.506c-5.577-5.577-14.619-5.577-20.196,0s-5.577,14.619,0,20.196 l231.822,231.68L4.972,488.062c-5.966,5.109-6.661,14.087-1.552,20.053c5.109,5.966,14.087,6.661,20.053,1.552 c0.556-0.476,1.075-0.995,1.552-1.552l231.822-231.68l231.68,231.822c5.109,5.966,14.087,6.661,20.053,1.552 C514.546,504.699,515.241,495.721,510.132,489.755z"></path>
-      </g>
-    </g>
-  </svg>
-);
+export interface Props {
+  setOpenModal?: (openSearch: boolean) => void;
+  setOpenSearch?: (openSearch: boolean) => void;
+}
 
-export const Actions: React.FC = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [searchResults, setSearchResults] = useState<Item[]>([]);
-  const [openSearch, setOpenSearch] = useState(false);
+export const Actions: React.FC<Props> = ({ setOpenModal, setOpenSearch }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useClickAway(ref, () => {
-    setOpenSearch(false);
+    setOpenSearch && setOpenSearch(false);
     document.body.style.overflow = "";
   });
 
-  useDebounce(
-    () => {
-      const fetchItems = async () => {
-        if (inputValue !== "") {
-          try {
-            const response = await axiosItem(inputValue);
-            if (response) {
-              setSearchResults(response as Item[]);
-            }
-          } catch (err) {
-            console.error("Error fetching items:", err);
-          }
-        } else {
-          setSearchResults([]);
-        }
-      };
-
-      fetchItems();
-    },
-    350,
-    [inputValue]
-  );
-
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.trimStart();
-
-    setInputValue(value);
-  };
-
   return (
     <>
-      {openSearch && <Overlay visible={openSearch} />}
-
       <div ref={ref} className={Style.actions}>
-        {openSearch && (
-          <Input
-            location="search"
-            inputPlaceholder="Find your plants"
-            searchResults={searchResults}
-            inputValue={inputValue}
-            svgSearch={svgSearch}
-            svgClose={svgClose}
-            handleSearch={handleSearch}
-            setOpenSearch={setOpenSearch}
-          />
-        )}
-
         <svg
           onClick={() => {
-            setOpenSearch(true);
+            setOpenSearch && setOpenSearch(true);
             document.body.style.overflow = "hidden";
           }}
           data-type="search"
@@ -147,10 +83,11 @@ export const Actions: React.FC = () => {
         </Link>
 
         <Button
-          button={true}
-          className="login"
           value="Login"
+          className="login"
+          button={true}
           svgLeft={svgLeft}
+          setOpenModal={setOpenModal}
         />
       </div>
     </>

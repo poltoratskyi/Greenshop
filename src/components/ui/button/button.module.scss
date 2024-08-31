@@ -3,13 +3,14 @@
 .login {
   padding: 10px 20px;
   background-color: $main;
-  border-radius: 6px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   font-size: 16px;
   font-weight: 500;
   color: #fff;
   line-height: 20px;
+  transition: 0.5s ease;
 
   svg {
     margin-right: 5px;
@@ -30,8 +31,9 @@
   line-height: 16px;
   padding: 10px 25px;
   background-color: $main;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: 0.5s ease;
 
   &:hover {
     background-color: #2d763c;
@@ -41,12 +43,13 @@
 .banner {
   padding: 15px 30px;
   background-color: $main;
-  border-radius: 6px;
+  border-radius: 5px;
   font-size: 16px;
   font-weight: 700;
   color: #fff;
   line-height: 20px;
   text-transform: uppercase;
+  transition: 0.5s ease;
 
   &:hover {
     background-color: #2d763c;
@@ -58,11 +61,12 @@
   align-items: center;
   padding: 15px 30px;
   background-color: $main;
-  border-radius: 6px;
+  border-radius: 5px;
   font-size: 14px;
   font-weight: 500;
   color: #fff;
   line-height: 20px;
+  transition: 0.5s ease;
 
   svg {
     margin-left: 5px;
@@ -74,15 +78,17 @@
 }
 
 .filter {
-  padding: 10px 25px;
+  width: 100%;
+  padding: 15px 25px;
   background-color: $main;
-  border-radius: 6px;
+  border-radius: 5px;
   font-size: 16px;
   font-weight: 700;
   color: #fff;
   line-height: 20px;
   text-transform: uppercase;
-  margin-left: 12px;
+  margin-top: 35px;
+  transition: 0.5s ease;
 
   &:hover {
     background-color: #2d763c;
@@ -90,6 +96,7 @@
 }
 
 .checkout {
+  display: block;
   text-align: center;
   width: 100%;
   padding: 15px 30px;
@@ -100,6 +107,7 @@
   color: #fff;
   line-height: 16px;
   margin-bottom: 15px;
+  transition: 0.5s ease;
 
   &:hover {
     background-color: #2d763c;
@@ -112,6 +120,7 @@
   border-radius: 14px;
   background-color: $main;
   margin-left: 10px;
+  transition: 0.5s ease;
 
   &:hover {
     background-color: #2d763c;
@@ -129,6 +138,51 @@
 
   svg {
     margin-left: 5px;
+  }
+}
+
+.enter {
+  padding: 15px 30px;
+  background-color: $main;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 20px;
+  transition: 0.5s ease;
+
+  &:hover {
+    background-color: #2d763c;
+  }
+}
+
+.google,
+.facebook {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $descr;
+  font-size: 13px;
+  line-height: 16px;
+  padding: 15px 30px;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid $line;
+  background-color: #fff;
+  margin-bottom: 15px;
+  transition: 0.5s ease;
+
+  svg {
+    margin-right: 10px;
+  }
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+
+  &:hover {
+    border: 1px solid $main;
   }
 }
 

@@ -10,14 +10,23 @@ export const CartTotals = () => {
     <div className={Style.cart_totals}>
       <h2 className={Style.title}>Cart Totals</h2>
 
-      <span className={Style.subTitle}>Coupon Apply</span>
+      <form action="#" method="post">
+        <label className={Style.subTitle} htmlFor="couponCode">
+          Coupon Apply
+        </label>
 
-      <Input
-        btnClassName="coupon"
-        location="coupon"
-        inputPlaceholder="Enter coupon code here"
-        btnText="Apply"
-      />
+        <div style={{ display: "flex", marginBottom: "30px" }}>
+          <Input
+            id="couponCode"
+            name="couponCode"
+            type="text"
+            className="coupon"
+            inputPlaceholder="Enter coupon code here"
+          />
+
+          <Button button={true} className="coupon" value="Apply" />
+        </div>
+      </form>
 
       <div className={Style.result}>
         <p>Subtotal</p>
@@ -48,9 +57,11 @@ export const CartTotals = () => {
         <b>$2,699.00</b>
       </div>
 
-      <Button button={true} className="checkout" value="Proceed To Checkout" />
+      <Button link={true} className="checkout" value="Proceed To Checkout" />
 
-      <Link href="/">Continue Shopping</Link>
+      <Link className={Style.continue} href="/">
+        Continue Shopping
+      </Link>
     </div>
   );
 };

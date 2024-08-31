@@ -1,71 +1,90 @@
+"use client";
+
 import React from "react";
 
-import { Item } from "../../../types";
-
 import Style from "./input.module.scss";
-
-import { Result } from "../../shared/search-result";
 import { Button } from "../button";
 
 interface Props {
-  location: string;
+  id: string;
+  name: string;
+  type: string;
+  className: string;
   inputPlaceholder: string;
-  btnText?: string | JSX.Element;
-  btnClassName?: string;
+  svg?: boolean;
   svgSearch?: JSX.Element;
   svgClose?: JSX.Element;
+  svgFilter?: JSX.Element;
   inputValue?: string;
-  searchResults?: Item[];
   setOpenSearch?: (openSearch: boolean) => void;
   handleSearch?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input: React.FC<Props> = ({
-  location,
-  btnText,
-  btnClassName,
+  id,
+  name,
+  type,
+  className,
   inputPlaceholder,
+  svg,
   svgSearch,
   svgClose,
+  svgFilter,
   inputValue,
-  searchResults,
   setOpenSearch,
   handleSearch,
 }) => {
-  const inputLocation = Style[location];
+  const inputClass = Style[className];
 
-  return (
-    <div className={inputLocation}>
-      <div className={Style.content}>
-        {svgSearch && <span className={Style.svg_search}>{svgSearch}</span>}
+  return svg ? (
+    <div style={{ display: "flex", position: "relative" }}>
+      <span className={Style.svg_search}>{svgSearch}</span>
 
-        <input
-          type="text"
-          placeholder={inputPlaceholder}
-          onChange={handleSearch}
-          value={inputValue}
-        />
+      <input
+        id={id}
+        name={name}
+        type={type}
+        className={inputClass}
+        placeholder={inputPlaceholder}
+        onChange={handleSearch}
+        value={inputValue}
+        autoComplete="off"
+        required
+      />
 
-        {svgClose && (
-          <span
-            onClick={() => {
-              setOpenSearch && setOpenSearch(false);
-              document.body.style.overflow = "";
-            }}
-            className={Style.svg_close}
-          >
-            {svgClose}
-          </span>
-        )}
+      {svgClose && (
+        <span
+          onClick={() => {
+            if (setOpenSearch) {
+              setOpenSearch(false);
+            }
+            document.body.style.overflow = "";
+          }}
+          className={Style.svg_close}
+        >
+          {svgClose}
+        </span>
+      )}
 
-        {btnText && (
-          <Button button={true} className={btnClassName} value={btnText} />
-        )}
-      </div>
-
-      {searchResults && searchResults.length > 0 && (
-        <Result searchResults={searchResults} />
+      {svgFilter && (
+        <Button
+          value={svgFilter}
+          button={true}
+          className="filter_mobile"
+        ></Button>
       )}
     </div>
+  ) : (
+    <input
+      id={id}
+      name={name}
+      type={type}
+      className={inputClass}
+      placeholder={inputPlaceholder}
+      onChange={handleSearch}
+      value={inputValue}
+      autoComplete="off"
+      required
+    />
   );
 };

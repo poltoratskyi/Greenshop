@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 import Style from "./button.module.scss";
@@ -9,6 +11,7 @@ interface Props {
   value: string | JSX.Element;
   svgLeft?: JSX.Element;
   svgRight?: JSX.Element;
+  setOpenModal?: (openModal: boolean) => void;
 }
 
 export const Button: React.FC<Props> = ({
@@ -18,13 +21,19 @@ export const Button: React.FC<Props> = ({
   svgRight,
   button,
   link,
+  setOpenModal,
 }) => {
   const buttonClass = Style[className || ""];
 
   return (
     <>
       {button && (
-        <button className={buttonClass}>
+        <button
+          onClick={() => {
+            setOpenModal && setOpenModal(true);
+          }}
+          className={buttonClass}
+        >
           {svgLeft}
           {value}
           {svgRight}

@@ -1,3 +1,4 @@
+import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
 
 import Style from "./footer.module.scss";
@@ -1131,15 +1132,20 @@ export const Service: React.FC = () => {
           ))}
         </div>
 
-        <form className={Style.newsletters}>
+        <div className={Style.newsletters}>
           <h3 className={Style.title}>Would you like to join newsletters?</h3>
 
-          <Input
-            location="newsletters"
-            btnText="Join"
-            btnClassName="join"
-            inputPlaceholder="Enter your email address"
-          />
+          <form action="#" method="post">
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              className="newsletters"
+              inputPlaceholder="Enter your email address"
+            />
+
+            <Button button={true} className="join" value="Join" />
+          </form>
 
           <p className={Style.descr}>
             &quot;We usually post offers and challenges in newsletter.
@@ -1147,7 +1153,7 @@ export const Service: React.FC = () => {
             range of houseplants and accessories shipped directly from our
             (green)house to yours!&quot;
           </p>
-        </form>
+        </div>
       </div>
     </div>
   );
