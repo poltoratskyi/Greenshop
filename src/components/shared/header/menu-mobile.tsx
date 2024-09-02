@@ -1,14 +1,14 @@
-"use client";
 import Link from "next/link";
-import { useState } from "react";
 
-import { Props } from "./actions";
+import { MobileProps } from "../header/mobile";
 
 import Style from "./header.module.scss";
 
-export const Menu: React.FC<Props> = ({ setOpenModal }) => {
-  const [showMenu, setShowMenu] = useState(true);
-
+export const Menu: React.FC<MobileProps> = ({
+  showMenu,
+  setShowMenu,
+  setOpenModal,
+}) => {
   return (
     <>
       <nav className={!showMenu ? `${Style.menu} ${Style.active}` : Style.menu}>
@@ -49,7 +49,11 @@ export const Menu: React.FC<Props> = ({ setOpenModal }) => {
           </li>
 
           <li
-            onClick={() => setOpenModal && setOpenModal(true)}
+            onClick={() => {
+              setShowMenu(false);
+              setOpenModal && setOpenModal(true);
+              document.body.style.overflow = "hidden";
+            }}
             className={Style.list}
           >
             <svg width="20" height="20" viewBox="0 0 14 18" fill="#D9D9D9">
@@ -65,7 +69,10 @@ export const Menu: React.FC<Props> = ({ setOpenModal }) => {
           </li>
         </ul>
 
-        <div onClick={() => setShowMenu(!showMenu)} className={Style.btn}>
+        <div
+          onClick={() => setShowMenu(!showMenu)}
+          className={!showMenu ? `${Style.btn} ${Style.active}` : Style.btn}
+        >
           <svg width="25" height="25" viewBox="0 0 27 24" fill="none">
             <path
               d="M13.3819 12.8915C9.28498 12.8915 5.18803 12.8915 1.09108 12.8908C0.961448 12.8908 0.827342 12.8945 0.702176 12.8669C0.25441 12.7686 -0.0480741 12.3372 0.00631347 11.8932C0.060701 11.4484 0.439924 11.1116 0.913021 11.1094C1.98364 11.1034 3.055 11.1064 4.12561 11.1064C11.3234 11.1064 18.5212 11.1072 25.719 11.1087C25.8575 11.1087 26.0013 11.1049 26.1347 11.1362C26.5743 11.2398 26.8641 11.6555 26.8179 12.0921C26.7702 12.5391 26.3947 12.8871 25.9246 12.8893C24.7139 12.8967 23.504 12.893 22.2933 12.893C19.3228 12.893 16.3524 12.893 13.3827 12.893C13.3819 12.893 13.3819 12.8923 13.3819 12.8915Z"

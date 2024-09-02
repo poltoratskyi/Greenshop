@@ -80,9 +80,14 @@ const google = (
 interface Props {
   openModal: boolean;
   setOpenModal: (openModal: boolean) => void;
+  setShowMenu: (openModal: boolean) => void;
 }
 
-export const Modal: React.FC<Props> = ({ openModal, setOpenModal }) => {
+export const Modal: React.FC<Props> = ({
+  openModal,
+  setOpenModal,
+  setShowMenu,
+}) => {
   return (
     <div
       className={`${
@@ -90,7 +95,14 @@ export const Modal: React.FC<Props> = ({ openModal, setOpenModal }) => {
       }`}
     >
       <div className={Style.content}>
-        <div onClick={() => setOpenModal(false)} className={Style.close}>
+        <div
+          onClick={() => {
+            document.body.style.overflow = "auto";
+            setOpenModal(false);
+            setShowMenu(true);
+          }}
+          className={Style.close}
+        >
           {svgClose}
         </div>
 
@@ -100,51 +112,53 @@ export const Modal: React.FC<Props> = ({ openModal, setOpenModal }) => {
           <h2 className={Style.register}>Register</h2>
         </div>
 
-        <h3>Enter your username and password to login.</h3>
+        <div className={Style.info}>
+          <h3>Enter your username and password to login.</h3>
 
-        <form action="#" method="post">
-          <Input
-            className="login"
-            id="username"
-            name="username"
-            type="text"
-            inputPlaceholder="Enter your username"
-          />
+          <form action="#" method="post">
+            <Input
+              className="login"
+              id="username"
+              name="username"
+              type="text"
+              inputPlaceholder="Enter your username"
+            />
 
-          <Input
-            className="password"
-            id="password"
-            name="password"
-            type="password"
-            inputPlaceholder="Enter your password to login"
-          />
+            <Input
+              className="password"
+              id="password"
+              name="password"
+              type="password"
+              inputPlaceholder="Enter your password to login"
+            />
 
-          <div className={Style.reset}>
-            <Link href="#">Forgot Password?</Link>
+            <div className={Style.reset}>
+              <Link href="#">Forgot Password?</Link>
+            </div>
+
+            <Button button={true} className="enter" value="Login" />
+          </form>
+
+          <div className={Style.extra}>
+            <span className={Style.line}></span>
+            <p>Or login with</p>
+            <span className={Style.line}></span>
           </div>
 
-          <Button button={true} className="enter" value="Login" />
-        </form>
+          <Button
+            svgLeft={google}
+            button={true}
+            className="google"
+            value="Login with Google"
+          />
 
-        <div className={Style.extra}>
-          <span className={Style.line}></span>
-          <p>Or login with</p>
-          <span className={Style.line}></span>
+          <Button
+            svgLeft={facebook}
+            button={true}
+            className="facebook"
+            value="Login with Facebook"
+          />
         </div>
-
-        <Button
-          svgLeft={google}
-          button={true}
-          className="google"
-          value="Login with Google"
-        />
-
-        <Button
-          svgLeft={facebook}
-          button={true}
-          className="facebook"
-          value="Login with Facebook"
-        />
       </div>
 
       <div className={Style.bottom_line}></div>

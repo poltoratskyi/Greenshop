@@ -48,7 +48,6 @@ export const Actions: React.FC<Props> = ({ setOpenModal, setOpenSearch }) => {
         <svg
           onClick={() => {
             setOpenSearch && setOpenSearch(true);
-            document.body.style.overflow = "hidden";
           }}
           data-type="search"
           width="20"

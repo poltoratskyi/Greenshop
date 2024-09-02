@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useClickAway, useDebounce } from "react-use";
 
 import { axiosItem } from "../../../service/search";
@@ -44,6 +44,7 @@ export const Header: React.FC = () => {
   const [inputValue, setInputValue] = useState("");
   const [openSearch, setOpenSearch] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
   const [searchResults, setSearchResults] = useState<Item[]>([]);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -70,9 +71,18 @@ export const Header: React.FC = () => {
     [inputValue]
   );
 
+  useEffect(() => {
+    if (inputValue !== "" || searchResults.length > 0) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [inputValue, searchResults]);
+
   useClickAway(ref, () => {
     setOpenSearch && setOpenSearch(false);
-    document.body.style.overflow = "";
+    setInputValue("");
+    setSearchResults([]);
   });
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -117,10 +127,18 @@ export const Header: React.FC = () => {
           {searchResults.length > 0 && <Result searchResults={searchResults} />}
         </div>
 
-        <Modal openModal={openModal} setOpenModal={setOpenModal} />
+        <Modal
+          openModal={openModal}
+          setShowMenu={setShowMenu}
+          setOpenModal={setOpenModal}
+        />
 
         {/* Media */}
-        <Mobile setOpenModal={setOpenModal} />
+        <Mobile
+          setOpenModal={setOpenModal}
+          setShowMenu={setShowMenu}
+          showMenu={showMenu}
+        />
       </div>
     </header>
   );

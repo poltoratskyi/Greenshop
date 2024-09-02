@@ -5,7 +5,7 @@
 
   .block {
     width: 1200px;
-    position: absolute;
+    position: fixed;
     right: 50%;
     top: -25%;
     transform: translate(50%, 0%);
@@ -146,6 +146,12 @@
           width: 65px;
           height: 65px;
           cursor: pointer;
+          transition: 0.5s ease;
+
+          &.active {
+            top: -100%;
+            left: 80%;
+          }
         }
 
         .lists {
@@ -161,7 +167,7 @@
         }
 
         &.active {
-          bottom: -10%;
+          bottom: -20%;
         }
       }
     }

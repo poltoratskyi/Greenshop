@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 import Style from "./input.module.scss";
@@ -37,7 +35,7 @@ export const Input: React.FC<Props> = ({
   const inputClass = Style[className];
 
   return svg ? (
-    <div style={{ display: "flex", position: "relative" }}>
+    <div className={Style.wrapper}>
       <span className={Style.svg_search}>{svgSearch}</span>
 
       <input
@@ -56,9 +54,9 @@ export const Input: React.FC<Props> = ({
         <span
           onClick={() => {
             if (setOpenSearch) {
+              document.body.style.overflow = "auto";
               setOpenSearch(false);
             }
-            document.body.style.overflow = "";
           }}
           className={Style.svg_close}
         >

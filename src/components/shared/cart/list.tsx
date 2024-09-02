@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
-
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import Style from "./cart.module.scss";
 
 import { catalog } from "../../../data/catalog";
-import { useState } from "react";
 
 const svgDecr = (
   <svg
