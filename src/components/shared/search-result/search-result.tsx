@@ -1,11 +1,15 @@
+"use client";
+
 import Link from "next/link";
 
-import { Variation } from "../../../types";
+import { Item } from "../../../types";
 
 import Style from "./result.module.scss";
-import StyleCatalog from "../../shared/item/item.module.scss";
+import CatalogStyle from "../catalog/catalog.module.scss";
 
-import { Item } from "../item";
+import { List } from "../catalog/list";
+
+import { useSearchStore } from "../../../utils/store";
 
 const svgRight = (
   <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
@@ -16,23 +20,9 @@ const svgRight = (
   </svg>
 );
 
-interface Props {
-  searchResults?: {
-    id: number;
-    imgUrl: string;
-    name: string;
-    description: string;
-    tags: string;
-    sku: string;
-    categoryId: number;
-    createdAt: Date;
-    updatedAt: Date;
-    firstVariation?: Variation;
-    variations: Variation[];
-  }[];
-}
+export const Result: React.FC = () => {
+  const result = useSearchStore((state) => state.result);
 
-export const Result: React.FC<Props> = ({ searchResults }) => {
   return (
     <div className={Style.result}>
       <div className={Style.content}>
@@ -59,10 +49,13 @@ export const Result: React.FC<Props> = ({ searchResults }) => {
           <h2 className={Style.title}>Result</h2>
 
           <div style={{ height: "500px", overflowY: "auto" }}>
-            <div className={StyleCatalog.items}>
-              <ul className={StyleCatalog.lists}>
-                {searchResults &&
-                  searchResults.map((item) => <Item key={item.id} {...item} />)}
+            <div className={CatalogStyle.items}>
+              <ul className={CatalogStyle.lists}>
+                {result.map((item: Item) => (
+                  <li key={item.id} className={CatalogStyle.list}>
+                    <List {...item} />
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

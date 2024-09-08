@@ -1,22 +1,18 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useClickAway, useDebounce } from "react-use";
 
-import { axiosItem } from "../../../service/search";
-
 import Style from "./header.module.scss";
-
-import { Item } from "../../../types";
 
 import { Logo } from "./logo";
 import { Links } from "./links";
 import { Actions } from "./actions";
 import { Mobile } from "./mobile";
-import { Modal } from "../modal";
 import { Input } from "../../ui/input";
 import { Result } from "../search-result";
-import { Overlay } from "../../ui/overlay";
+
+import { useSearchStore, useUIStore } from "../../../utils/store";
 
 const svgClose = (
   <svg
@@ -41,55 +37,38 @@ export const svgSearch = (
 );
 
 export const Header: React.FC = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [openSearch, setOpenSearch] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
-  const [showMenu, setShowMenu] = useState(true);
-  const [searchResults, setSearchResults] = useState<Item[]>([]);
+  const openSearch = useUIStore((state) => state.openSearch);
+  const setOpenSearch = useUIStore((state) => state.setOpenSearch);
+
+  const inputValue = useSearchStore((state) => state.inputValue);
+  const result = useSearchStore((state) => state.result);
+  const setInputValue = useSearchStore((state) => state.setInputValue);
+  const fetchSearch = useSearchStore((state) => state.fetchSearch);
+  const clearResult = useSearchStore((state) => state.clearResult);
+
   const ref = useRef<HTMLDivElement>(null);
 
   useDebounce(
     () => {
-      const fetchItems = async () => {
-        if (inputValue !== "") {
-          try {
-            const response = await axiosItem(inputValue);
-            if (response) {
-              setSearchResults(response as Item[]);
-            }
-          } catch (err) {
-            console.error("Error fetching items:", err);
-          }
-        } else {
-          setSearchResults([]);
-        }
-      };
-
-      fetchItems();
+      fetchSearch();
     },
     350,
     [inputValue]
   );
 
   useEffect(() => {
-    if (inputValue !== "" || searchResults.length > 0) {
+    if (inputValue !== "" || result.length > 0) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  }, [inputValue, searchResults]);
+  }, [inputValue, result]);
 
   useClickAway(ref, () => {
     setOpenSearch && setOpenSearch(false);
     setInputValue("");
-    setSearchResults([]);
+    clearResult();
   });
-
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.trimStart();
-
-    setInputValue(value);
-  };
 
   return (
     <header className={Style.header}>
@@ -97,14 +76,11 @@ export const Header: React.FC = () => {
         <div className={Style.content}>
           <Logo />
           <Links />
-          <Actions setOpenModal={setOpenModal} setOpenSearch={setOpenSearch} />
+          <Actions />
         </div>
 
-        {(openSearch || openModal) && (
-          <Overlay visible={openSearch || openModal} />
-        )}
-
         <div
+          style={{ height: "70px" }}
           ref={ref}
           className={`${
             openSearch ? `${Style.block} ${Style.visible}` : Style.block
@@ -120,25 +96,13 @@ export const Header: React.FC = () => {
             svg={true}
             svgClose={svgClose}
             svgSearch={svgSearch}
-            setOpenSearch={setOpenSearch}
-            handleSearch={handleSearch}
           />
 
-          {searchResults.length > 0 && <Result searchResults={searchResults} />}
+          {result.length > 0 && <Result />}
         </div>
 
-        <Modal
-          openModal={openModal}
-          setShowMenu={setShowMenu}
-          setOpenModal={setOpenModal}
-        />
-
         {/* Media */}
-        <Mobile
-          setOpenModal={setOpenModal}
-          setShowMenu={setShowMenu}
-          showMenu={showMenu}
-        />
+        <Mobile />
       </div>
     </header>
   );

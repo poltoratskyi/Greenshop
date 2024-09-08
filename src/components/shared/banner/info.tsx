@@ -5,7 +5,6 @@ import Style from "./banner.module.scss";
 import { Button } from "../../ui/button";
 
 interface Props {
-  round?: boolean;
   className?: string;
   value: string;
   width?: number;
@@ -15,7 +14,6 @@ interface Props {
 }
 
 export const Info: React.FC<Props> = ({
-  round,
   className,
   value,
   width,
@@ -38,14 +36,6 @@ export const Info: React.FC<Props> = ({
           className={className}
           value={value}
         />
-
-        {round && (
-          <div className={Style.btn}>
-            <div className={Style.round}></div>
-            <div className={`${Style.round} && ${Style.active}`}></div>
-            <div className={Style.round}></div>
-          </div>
-        )}
       </div>
 
       {width && (

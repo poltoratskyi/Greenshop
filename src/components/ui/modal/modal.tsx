@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link";
 
 import Style from "./modal.module.scss";
 
-import { Input } from "../../ui/input";
-import { Button } from "../../ui/button";
+import { Input } from "../input";
+import { Button } from "../button";
+
+import { useUIStore } from "../../../utils/store";
 
 const svgClose = (
   <svg
@@ -77,17 +81,11 @@ const google = (
   </svg>
 );
 
-interface Props {
-  openModal: boolean;
-  setOpenModal: (openModal: boolean) => void;
-  setShowMenu: (openModal: boolean) => void;
-}
+export const Modal: React.FC = () => {
+  const openModal = useUIStore((state) => state.openModal);
+  const setOpenModal = useUIStore((state) => state.setOpenModal);
+  const setShowMenu = useUIStore((state) => state.setShowMenu);
 
-export const Modal: React.FC<Props> = ({
-  openModal,
-  setOpenModal,
-  setShowMenu,
-}) => {
   return (
     <div
       className={`${

@@ -120,9 +120,6 @@
       .menu {
         width: 100%;
         position: fixed;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         padding: 35px;
         background-color: #fff;
         bottom: 0;
@@ -157,11 +154,13 @@
         .lists {
           display: flex;
           align-items: center;
-          .list {
-            margin-right: 50px;
+          justify-content: space-between;
 
-            &:last-child {
-              margin-right: 0px;
+          .list {
+            &.active {
+              svg {
+                fill: $main;
+              }
             }
           }
         }

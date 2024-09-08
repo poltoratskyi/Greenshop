@@ -501,6 +501,18 @@ const order = [
   },
 ];
 
+interface Item {
+  title: string;
+  link: string;
+}
+[];
+
+interface Element {
+  svg: JSX.Element;
+  link: string;
+}
+[];
+
 export const Feedback: React.FC = () => {
   return (
     <>
@@ -509,7 +521,7 @@ export const Feedback: React.FC = () => {
           <h3 className={Style.title}>My Account</h3>
 
           <ul className={Style.lists}>
-            {account.map((item, index) => (
+            {account.map((item: Item, index: number) => (
               <li className={Style.list} key={index}>
                 <Link className={Style.link} href={item.link}>
                   {item.title}
@@ -523,7 +535,7 @@ export const Feedback: React.FC = () => {
           <h3 className={Style.title}>Help & Guide</h3>
 
           <ul className={Style.lists}>
-            {help.map((item, index) => (
+            {help.map((item: Item, index: number) => (
               <li className={Style.list} key={index}>
                 <Link className={Style.link} href={item.link}>
                   {item.title}
@@ -537,7 +549,7 @@ export const Feedback: React.FC = () => {
           <h3 className={Style.title}>Categories</h3>
 
           <ul className={Style.lists}>
-            {categories.map((item, index) => (
+            {categories.map((item: Item, index: number) => (
               <li className={Style.list} key={index}>
                 <Link className={Style.link} href={item.link}>
                   {item.title}
@@ -552,7 +564,7 @@ export const Feedback: React.FC = () => {
             <h3 className={Style.title}>Social Media</h3>
 
             <ul className={Style.lists}>
-              {media.map((item, index) => (
+              {media.map((item: Element, index: number) => (
                 <li className={Style.list} key={index}>
                   <Link href={item.link}>{item.svg}</Link>
                 </li>
@@ -564,7 +576,7 @@ export const Feedback: React.FC = () => {
             <h3 className={Style.title}>We accept</h3>
 
             <ul className={Style.lists}>
-              {order.map((item, index) => (
+              {order.map((item: Element, index: number) => (
                 <li key={index}>
                   <Link href={item.link}>{item.svg}</Link>
                 </li>

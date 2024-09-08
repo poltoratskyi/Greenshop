@@ -27,8 +27,7 @@
   position: relative;
   align-items: center;
   background-color: #fff;
-  border-bottom: 1px solid #cbcbcb66;
-  height: 70px;
+  height: 100%;
 }
 
 .search {
@@ -39,6 +38,7 @@
   line-height: 18px;
   width: 100%;
   font-weight: 400;
+  height: 100%;
 
   &::placeholder {
     color: $sailPrice;

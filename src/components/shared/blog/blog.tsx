@@ -39,6 +39,16 @@ const blogData = [
   },
 ];
 
+interface Item {
+  id: number;
+  imgUrl: string;
+  heading: string;
+  title: string;
+  descr: string;
+  link: string;
+}
+[];
+
 export const Blog: React.FC = () => {
   return (
     <section className={Style.blog}>
@@ -50,7 +60,7 @@ export const Blog: React.FC = () => {
         </p>
 
         <div className={Style.content}>
-          {blogData.map((item) => (
+          {blogData.map((item: Item) => (
             <div className={Style.wrapper} key={item.id}>
               <Image
                 width={300}

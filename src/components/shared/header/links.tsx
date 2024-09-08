@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-
+import { usePathname } from "next/navigation";
 import Style from "./header.module.scss";
 import Link from "next/link";
 
@@ -12,25 +11,26 @@ const pages = [
   { menu: "Blogs", href: "#" },
 ];
 
-export const Links: React.FC = () => {
-  const [activeMenu, setActiveMenu] = useState("Home");
+interface Item {
+  menu: string;
+  href: string;
+}
+[];
 
-  const selectActiveMenu = (menu: string) => {
-    setActiveMenu(menu);
-  };
+export const Links: React.FC = () => {
+  const pathname = usePathname();
 
   return (
     <nav>
       <ul className={Style.lists}>
-        {pages.map((item, index) => (
+        {pages.map((item: Item, index: number) => (
           <li className={Style.list} key={index}>
             <Link
               className={
-                activeMenu === item.menu
+                pathname === item.href
                   ? `${Style.link} ${Style.active}`
                   : Style.link
               }
-              onClick={() => selectActiveMenu(item.menu)}
               href={item.href}
             >
               {item.menu}

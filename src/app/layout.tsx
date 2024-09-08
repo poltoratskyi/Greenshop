@@ -5,6 +5,8 @@ import "../components/styles/globals.scss";
 
 import { Header } from "../components/shared/header";
 import { Footer } from "../components/shared/footer";
+import { Overlay } from "../components/ui/overlay";
+import { Modal } from "../components/ui/modal";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -24,7 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
+        <Overlay />
+
         <Header />
+
+        <Modal />
 
         {children}
 

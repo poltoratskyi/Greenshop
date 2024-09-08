@@ -1,8 +1,11 @@
+"use client";
+
 import React from "react";
 
 import Style from "./input.module.scss";
 import { Button } from "../button";
 
+import { useUIStore, useSearchStore } from "@/utils/store";
 interface Props {
   id: string;
   name: string;
@@ -14,8 +17,6 @@ interface Props {
   svgClose?: JSX.Element;
   svgFilter?: JSX.Element;
   inputValue?: string;
-  setOpenSearch?: (openSearch: boolean) => void;
-  handleSearch?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input: React.FC<Props> = ({
@@ -29,10 +30,22 @@ export const Input: React.FC<Props> = ({
   svgClose,
   svgFilter,
   inputValue,
-  setOpenSearch,
-  handleSearch,
 }) => {
   const inputClass = Style[className];
+
+  const openSearch = useUIStore((state) => state.openSearch);
+  const setOpenSearch = useUIStore((state) => state.setOpenSearch);
+  const setInputValue = useSearchStore((state) => state.setInputValue);
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (openSearch) {
+      const value = e.target.value.trimStart();
+
+      setInputValue(value);
+    }
+
+    return;
+  };
 
   return svg ? (
     <div className={Style.wrapper}>

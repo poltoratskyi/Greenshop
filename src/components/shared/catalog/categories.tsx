@@ -4,83 +4,43 @@ import { useEffect, useState } from "react";
 
 import { Button } from "../../ui/button";
 
-import Style from "./catalog.module.scss";
-
-import { axiosCategories } from "../../../service/categories";
-import { axiosSize } from "../../../service/size";
-import { axiosVariation } from "../../../service/variation";
-import { axiosCatalog } from "../../../service/catalog";
 import { Category, Item, Size, Variation } from "../../../types";
 
-export const Categories = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [sizeMenu, setSizeMenu] = useState<Size[]>([]);
-  const [variation, setVariation] = useState<Variation[]>([]);
-  const [catalog, setCatalog] = useState<Item[]>([]);
+import Style from "./catalog.module.scss";
+
+import {
+  useCatalogStore,
+  useCategoriesStore,
+  useSizeStore,
+  useVariationStore,
+} from "../../../utils/store";
+
+export const Categories: React.FC = () => {
+  const catalog = useCatalogStore((state) => state.catalog);
+
+  const categories = useCategoriesStore((state) => state.categories);
+  const isLoading = useCategoriesStore((state) => state.isLoading);
+  const fetchCategories = useCategoriesStore((state) => state.fetchCategories);
+
+  const sizeMenu = useSizeStore((state) => state.sizeMenu);
+  const fetchSize = useSizeStore((state) => state.fetchSize);
+
+  const variation = useVariationStore((state) => state.variation);
+  const fetchVariation = useVariationStore((state) => state.fetchVariation);
 
   const [activeCategoriesMenu, setActiveCategoriesMenu] =
     useState("House Plants");
   const [activeSizeMenu, setActiveSizeMenu] = useState("");
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await axiosCategories();
-
-        if (response) {
-          setCategories(response);
-        }
-      } catch (err) {
-        console.error("Error fetching categories:", err);
-      }
-    };
-
     fetchCategories();
   }, []);
 
   useEffect(() => {
-    const fetchSize = async () => {
-      try {
-        const response = await axiosSize();
-        if (response) {
-          setSizeMenu(response as Size[]);
-        }
-      } catch (err) {
-        console.error("Error fetching size:", err);
-      }
-    };
-
     fetchSize();
   }, []);
 
   useEffect(() => {
-    const fetchCatalog = async () => {
-      try {
-        const response = await axiosCatalog();
-
-        if (response) {
-          setCatalog(response as Item[]);
-        }
-      } catch (err) {
-        console.error("Error fetching Catalog:", err);
-      }
-    };
-
-    fetchCatalog();
-  }, []);
-
-  useEffect(() => {
-    const fetchVariation = async () => {
-      try {
-        const response = await axiosVariation();
-        if (response) {
-          setVariation(response);
-        }
-      } catch (err) {
-        console.error("Error fetching variation:", err);
-      }
-    };
-
     fetchVariation();
   }, []);
 
@@ -158,7 +118,7 @@ export const Categories = () => {
         <h3 className={Style.title}>Size</h3>
 
         <ul className={Style.lists}>
-          {sizeMenu.map((item, index) => (
+          {sizeMenu.map((item: Size, index: number) => (
             <li
               className={
                 activeSizeMenu === item.name

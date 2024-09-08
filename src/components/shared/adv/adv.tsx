@@ -33,12 +33,21 @@ const AdvData = [
   },
 ];
 
+interface Item {
+  id: number;
+  imgUrl: string;
+  title: string;
+  subTitle: string;
+  descr: string;
+}
+[];
+
 export const Adv: React.FC = () => {
   return (
     <section className={Style.adv}>
       <div className="container">
         <div className={Style.content}>
-          {AdvData.map((item) => (
+          {AdvData.map((item: Item) => (
             <div className={Style.info} key={item.id}>
               <Image
                 src={item.imgUrl}

@@ -4,12 +4,10 @@
   margin: 10px 0px 45px;
 
   .content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
     background-color: $background;
 
     .info {
-      width: 700px;
       padding: 70px 0px 85px 40px;
 
       span {
@@ -58,6 +56,7 @@
 
     .mobile {
       display: block;
+
       .content {
         display: block;
         border-radius: 30px;
@@ -65,8 +64,7 @@
           (center / cover) no-repeat;
 
         .info {
-          width: auto;
-          padding: 40px 20px 10px 20px;
+          padding: 40px 20px;
 
           span {
             font-size: 11px;
@@ -79,8 +77,8 @@
 
           p {
             font-size: 12px;
-            width: 200px;
             margin-bottom: 10px;
+            width: 200px;
           }
         }
       }
@@ -90,25 +88,6 @@
         justify-content: center;
         align-items: center;
         margin-top: 30px;
-
-        .round {
-          background-color: rgba($main, 0.5);
-          border: none;
-          border-radius: 50%;
-          cursor: pointer;
-          height: 10px;
-          margin-right: 10px;
-          transition: 0.5s ease;
-          width: 10px;
-
-          &.active {
-            background-color: rgba($main, 1);
-          }
-
-          &:last-child {
-            margin-right: 0px;
-          }
-        }
       }
     }
   }

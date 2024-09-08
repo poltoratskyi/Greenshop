@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 import Style from "./cart.module.scss";
 
 import { catalog } from "../../../data/catalog";
+
+import { useCountStore } from "../../../utils/store";
 
 const svgDecr = (
   <svg
@@ -35,24 +36,28 @@ const svgIncr = (
   </svg>
 );
 
+interface Item {
+  id: number;
+  imgUrl: string;
+  name: string;
+  onSale: boolean;
+  sailPrice: number;
+  price: number;
+  sku: string;
+  description: string;
+  category: string;
+  tags: string;
+}
+[];
+
 export const CartList = () => {
-  const [quantity, setQuantity] = useState(1);
-
-  const setQuantityHandler = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const deductQuantityHandler = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
+  const { count, increase, decrease } = useCountStore();
 
   return (
     <ul className={Style.cart_lists}>
       <h2 className={Style.header}>Products</h2>
 
-      {catalog.slice(0, 1).map((item) => (
+      {catalog.slice(0, 1).map((item: Item) => (
         <li className={Style.list} key={item.id}>
           <div className={Style.layout}>
             <Link href="#">
@@ -82,11 +87,11 @@ export const CartList = () => {
             )}
 
             <div className={Style.quantity}>
-              <button onClick={() => deductQuantityHandler()}>{svgDecr}</button>
+              <button onClick={() => decrease(item.id)}>{svgDecr}</button>
 
-              <span>{quantity}</span>
+              <span>{count}</span>
 
-              <button onClick={() => setQuantityHandler()}>{svgIncr}</button>
+              <button onClick={() => increase(item.id)}>{svgIncr}</button>
             </div>
 
             {item.onSale ? (

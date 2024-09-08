@@ -42,17 +42,7 @@ const svgFilter = (
   </svg>
 );
 
-export interface MobileProps {
-  setShowMenu: (openModal: boolean) => void;
-  setOpenModal: (openModal: boolean) => void;
-  showMenu: boolean;
-}
-
-export const Mobile: React.FC<MobileProps> = ({
-  showMenu,
-  setOpenModal,
-  setShowMenu,
-}) => {
+export const Mobile: React.FC = () => {
   return (
     <div className={Style.mobile}>
       <Input
@@ -66,11 +56,7 @@ export const Mobile: React.FC<MobileProps> = ({
         inputPlaceholder="Find your plants"
       />
 
-      <Menu
-        showMenu={showMenu}
-        setShowMenu={setShowMenu}
-        setOpenModal={setOpenModal}
-      />
+      <Menu />
     </div>
   );
 };

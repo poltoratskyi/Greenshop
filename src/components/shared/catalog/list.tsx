@@ -1,30 +1,30 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import Style from "./item.module.scss";
-import { Variation } from "../../../types";
+import { Item } from "../../../types";
 
-interface Props {
-  id: number;
-  imgUrl: string;
-  name: string;
-  description: string;
-  tags: string;
-  sku: string;
-  categoryId: number;
-  createdAt: Date;
-  updatedAt: Date;
-  variations: Variation[];
-  firstVariation?: Variation;
-}
-export const Item: React.FC<Props> = ({ id, imgUrl, name, firstVariation }) => {
+import Style from "./catalog.module.scss";
+
+export const List: React.FC<Item> = ({
+  id,
+  imgUrl,
+  name,
+  description,
+  tags,
+  sku,
+  categoryId,
+  createdAt,
+  updatedAt,
+  firstVariation,
+  variations,
+}) => {
   const percentValue = (price: number, sailPrice: number) => {
     const discount = ((price - sailPrice) / price) * 100;
     return discount.toFixed(0);
   };
 
   return (
-    <li className={Style.list} key={id}>
+    <>
       <Link className={Style.img_link} href="#">
         <div className={Style.line}></div>
 
@@ -75,6 +75,6 @@ export const Item: React.FC<Props> = ({ id, imgUrl, name, firstVariation }) => {
       ) : (
         <span className={Style.price}>${firstVariation?.price.toFixed(2)}</span>
       )}
-    </li>
+    </>
   );
 };

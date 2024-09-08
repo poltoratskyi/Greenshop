@@ -100,6 +100,12 @@ const info = [
   },
 ];
 
+interface Element {
+  descr: string;
+  svg: JSX.Element;
+}
+[];
+
 export const Contacts: React.FC = () => {
   return (
     <div className={Style.contacts}>
@@ -107,7 +113,7 @@ export const Contacts: React.FC = () => {
         <Logo />
 
         <ul className={Style.lists}>
-          {info.map((item, index) => (
+          {info.map((item: Element, index: number) => (
             <li className={Style.list} key={index}>
               <div className={Style.icon}>{item.svg}</div>
 

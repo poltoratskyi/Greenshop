@@ -21,7 +21,6 @@ export const Mobile: React.FC = () => {
         className="banner_mobile"
         svgRight={svgRight}
         value="shop now"
-        round={true}
       />
     </div>
   );

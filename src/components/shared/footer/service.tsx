@@ -1116,12 +1116,19 @@ const serviceText = [
   },
 ];
 
+interface Element {
+  title: string;
+  subtitle: string;
+  svg: JSX.Element;
+}
+[];
+
 export const Service: React.FC = () => {
   return (
     <div className={Style.service}>
       <div className={Style.label}>
         <div className={Style.info}>
-          {serviceText.map((item, index) => (
+          {serviceText.map((item: Element, index: number) => (
             <div className={Style.inner} key={index}>
               <>{item.svg}</>
 

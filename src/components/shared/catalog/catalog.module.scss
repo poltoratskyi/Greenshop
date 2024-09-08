@@ -10,6 +10,45 @@
       min-width: 315px;
     }
 
+    .filter {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+
+      .lists {
+        display: flex;
+        justify-content: center;
+
+        .list {
+          margin-right: 40px;
+
+          .text {
+            padding: 0px 0px 10px 0px;
+            font-size: 15px;
+            color: $text;
+            line-height: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.5s ease;
+
+            &:hover {
+              color: $main;
+            }
+
+            &.active {
+              color: $main;
+              border-bottom: 3px $main solid;
+            }
+          }
+
+          &:last-child {
+            margin-right: 0px;
+          }
+        }
+      }
+    }
+
     .categories {
       min-height: 1200px;
       padding: 20px 25px 20px 20px;
@@ -73,103 +112,118 @@
         }
       }
     }
+  }
+}
 
-    .filter {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
+.items {
+  .lists {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 40px;
 
-      .lists {
-        display: flex;
-        justify-content: center;
+    .list {
+      position: relative;
 
-        .list {
-          margin-right: 40px;
+      .img_link {
+        display: block;
+        padding-bottom: 50px;
 
-          .text {
-            padding: 0px 0px 10px 0px;
-            font-size: 15px;
-            color: $text;
-            line-height: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.5s ease;
+        &:hover {
+          background-color: $background;
+          transition: 0.5s ease;
 
-            &:hover {
-              color: $main;
-            }
-
-            &.active {
-              color: $main;
-              border-bottom: 3px $main solid;
-            }
+          .line {
+            opacity: 1;
+            visibility: visible;
           }
 
-          &:last-child {
-            margin-right: 0px;
+          .control {
+            opacity: 1;
+            visibility: visible;
           }
         }
       }
 
-      .sort {
-        position: relative;
-        display: flex;
-        align-items: center;
+      .title_link {
+        display: block;
+        margin: 30px 0px 15px;
 
-        .descr {
-          font-size: 15px;
+        .title {
+          font-size: 16px;
           line-height: 16px;
           color: $text;
           font-weight: 500;
-          margin-right: 5px;
+          transition: 0.5s ease;
 
-          span {
-            font-weight: 700;
+          &:hover {
+            color: $main;
           }
         }
+      }
 
-        svg {
+      .control {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.5s ease;
+
+        & > [data-type="heart"] {
           cursor: pointer;
-        }
+          margin-right: 30px;
 
-        .sortLists {
-          display: none;
-          position: absolute;
-          z-index: 1;
-          background-color: #fff;
-          top: 30px;
-          right: 0;
-          padding: 14px 24px 24px 24px;
-          min-width: 200px;
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
-          .sortList {
-            font-size: 15px;
-            line-height: 16px;
-            color: $text;
-            font-weight: 400;
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: 0.5s ease;
-
-            &:last-child {
-              margin-bottom: 0px;
-            }
-
-            &:hover {
-              color: $main;
-            }
-
-            &.active {
-              font-weight: 700;
-            }
-          }
-
-          &.active {
-            display: block;
+          &:hover {
+            fill: red;
           }
         }
+
+        & > [data-type="cart"] {
+          &:hover {
+            fill: $main;
+          }
+        }
+      }
+
+      .percent {
+        position: absolute;
+        top: 2%;
+        left: 3%;
+        padding: 10px;
+        background-color: $main;
+        color: #fff;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+      }
+
+      .sailPrice {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 16px;
+        color: $sailPrice;
+        margin-left: 20px;
+        text-decoration: $sailPriceLine line-through;
+      }
+
+      .price {
+        color: $main;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 18px;
+      }
+
+      .line {
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        border-bottom: 1px solid $main;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.5s ease;
       }
     }
   }
