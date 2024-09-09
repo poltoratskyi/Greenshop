@@ -1,4 +1,4 @@
-export const catalog = [
+const catalog = [
   {
     id: 1,
     imgUrl: "/catalog/Daisy-min.png",
@@ -125,3 +125,5 @@ export const catalog = [
     tags: "Home, Plants",
   },
 ];
+
+export default catalog;

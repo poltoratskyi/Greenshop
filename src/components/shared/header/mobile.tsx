@@ -2,8 +2,8 @@ import { svgSearch } from "../../shared/header/actions";
 
 import Style from "./header.module.scss";
 
-import { Input } from "../../ui/input";
-import { Menu } from "./menu-mobile";
+import Input from "../../ui/input";
+import Menu from "./menu-mobile";
 
 const svgFilter = (
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -42,7 +42,7 @@ const svgFilter = (
   </svg>
 );
 
-export const Mobile: React.FC = () => {
+const Mobile: React.FC = () => {
   return (
     <div className={Style.mobile}>
       <Input
@@ -60,3 +60,5 @@ export const Mobile: React.FC = () => {
     </div>
   );
 };
+
+export default Mobile;

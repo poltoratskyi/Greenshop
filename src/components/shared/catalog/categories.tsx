@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { Button } from "../../ui/button";
+import Button from "../../ui/button";
 
 import { Category, Item, Size, Variation } from "../../../types";
 
@@ -15,11 +15,13 @@ import {
   useVariationStore,
 } from "../../../utils/store";
 
-export const Categories: React.FC = () => {
+import Skeleton from "../../ui/skeleton/catalog/categories";
+
+const Categories: React.FC = () => {
   const catalog = useCatalogStore((state) => state.catalog);
+  const isLoading = useCatalogStore((state) => state.isLoading);
 
   const categories = useCategoriesStore((state) => state.categories);
-  const isLoading = useCategoriesStore((state) => state.isLoading);
   const fetchCategories = useCategoriesStore((state) => state.fetchCategories);
 
   const sizeMenu = useSizeStore((state) => state.sizeMenu);
@@ -59,6 +61,75 @@ export const Categories: React.FC = () => {
       return total;
     }
   };
+
+  if (isLoading) {
+    return (
+      <form action="#" method="post" className={Style.categories}>
+        <div style={{ marginBottom: "35px" }}>
+          <h3 className={Style.title}>Categories</h3>
+
+          <ul className={Style.lists}>
+            {isLoading &&
+              [...new Array(9)].map((_, index: number) => (
+                <Skeleton
+                  key={index}
+                  width={"100%"}
+                  height={"20px"}
+                  viewBox={"0 0 270 20"}
+                  style={{ marginBottom: "20px" }}
+                  uniqueKey="2"
+                />
+              ))}
+          </ul>
+        </div>
+
+        <div style={{ marginBottom: "35px" }}>
+          <h3 className={Style.title}>Price Range</h3>
+
+          {isLoading &&
+            [...new Array(1)].map((_, index: number) => (
+              <Skeleton
+                key={index}
+                width={"100%"}
+                height={"40px"}
+                viewBox={"0 0 270 40"}
+                uniqueKey="3"
+              />
+            ))}
+        </div>
+
+        <div>
+          <h3 className={Style.title}>Size</h3>
+
+          <ul className={Style.lists}>
+            {isLoading &&
+              [...new Array(4)].map((_, index: number) => (
+                <Skeleton
+                  key={index}
+                  width={"100%"}
+                  height={"20px"}
+                  viewBox={"0 0 270 20"}
+                  style={{ marginBottom: "20px" }}
+                  uniqueKey="2"
+                />
+              ))}
+          </ul>
+        </div>
+
+        {isLoading &&
+          [...new Array(1)].map((_, index: number) => (
+            <Skeleton
+              key={index}
+              width={"100%"}
+              height={"50px"}
+              viewBox={"0 0 270 50"}
+              style={{ marginTop: "35px" }}
+              uniqueKey="4"
+            />
+          ))}
+      </form>
+    );
+  }
 
   return (
     <form action="#" method="post" className={Style.categories}>
@@ -141,3 +212,5 @@ export const Categories: React.FC = () => {
     </form>
   );
 };
+
+export default Categories;

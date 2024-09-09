@@ -1,6 +1,6 @@
 import Style from "./banner.module.scss";
 
-import { Info } from "./info";
+import Info from "./info";
 
 const svgRight = (
   <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
@@ -13,7 +13,7 @@ const svgRight = (
 
 const descr = "We are an online plant shop offering a wide range ";
 
-export const Mobile: React.FC = () => {
+const Mobile: React.FC = () => {
   return (
     <div className={Style.mobile}>
       <Info
@@ -25,3 +25,5 @@ export const Mobile: React.FC = () => {
     </div>
   );
 };
+
+export default Mobile;

@@ -4,7 +4,7 @@ import Style from "./overlay.module.scss";
 
 import { useUIStore } from "../../../utils/store";
 
-export const Overlay: React.FC = () => {
+const Overlay: React.FC = () => {
   const openSearch = useUIStore((state) => state.openSearch);
   const openModal = useUIStore((state) => state.openModal);
 
@@ -18,3 +18,5 @@ export const Overlay: React.FC = () => {
     ></div>
   );
 };
+
+export default Overlay;

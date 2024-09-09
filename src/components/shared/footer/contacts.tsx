@@ -1,4 +1,4 @@
-import { Logo } from "../header/logo";
+import Logo from "../header/logo";
 import Style from "./footer.module.scss";
 
 const info = [
@@ -106,7 +106,7 @@ interface Element {
 }
 [];
 
-export const Contacts: React.FC = () => {
+const Contacts: React.FC = () => {
   return (
     <div className={Style.contacts}>
       <div className={Style.wrapper}>
@@ -125,3 +125,5 @@ export const Contacts: React.FC = () => {
     </div>
   );
 };
+
+export default Contacts;

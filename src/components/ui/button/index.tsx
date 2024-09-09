@@ -14,7 +14,7 @@ interface Props {
   setOpenModal?: (openModal: boolean) => void;
 }
 
-export const Button: React.FC<Props> = ({
+const Button: React.FC<Props> = ({
   className,
   value,
   svgLeft,
@@ -50,3 +50,5 @@ export const Button: React.FC<Props> = ({
     </>
   );
 };
+
+export default Button;

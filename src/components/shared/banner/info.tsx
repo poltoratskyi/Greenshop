@@ -1,8 +1,8 @@
-import { Img } from "./image";
+import Img from "./image";
 
 import Style from "./banner.module.scss";
 
-import { Button } from "../../ui/button";
+import Button from "../../ui/button";
 
 interface Props {
   className?: string;
@@ -13,7 +13,7 @@ interface Props {
   descr: string;
 }
 
-export const Info: React.FC<Props> = ({
+const Info: React.FC<Props> = ({
   className,
   value,
   width,
@@ -44,3 +44,5 @@ export const Info: React.FC<Props> = ({
     </div>
   );
 };
+
+export default Info;

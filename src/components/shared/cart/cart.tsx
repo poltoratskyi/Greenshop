@@ -2,9 +2,9 @@ import Link from "next/link";
 
 import Style from "./cart.module.scss";
 
-import { CartList } from "./list";
-import { CartTotals } from "./totals";
-import { Slider } from "./slider";
+import CartList from "./list";
+import CartTotals from "./totals";
+import Slider from "./slider";
 
 const ways = [
   {
@@ -23,7 +23,7 @@ interface Item {
 }
 [];
 
-export const Cart = () => {
+const Cart: React.FC = () => {
   return (
     <section className={Style.cart}>
       <div className="container">
@@ -54,3 +54,5 @@ export const Cart = () => {
     </section>
   );
 };
+
+export default Cart;

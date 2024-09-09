@@ -1,5 +1,5 @@
-import { Button } from "../../ui/button";
-import { Input } from "../../ui/input";
+import Button from "../../ui/button";
+import Input from "../../ui/input";
 
 import Style from "./footer.module.scss";
 
@@ -1123,7 +1123,7 @@ interface Element {
 }
 [];
 
-export const Service: React.FC = () => {
+const Service: React.FC = () => {
   return (
     <div className={Style.service}>
       <div className={Style.label}>
@@ -1165,3 +1165,5 @@ export const Service: React.FC = () => {
     </div>
   );
 };
+
+export default Service;

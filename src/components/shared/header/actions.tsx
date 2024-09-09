@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import Style from "./header.module.scss";
 
-import { Button } from "../../ui/button";
+import Button from "../../ui/button";
 
 import { useUIStore } from "../../../utils/store";
 
@@ -38,7 +38,7 @@ export const svgSearch = (
   </svg>
 );
 
-export const Actions: React.FC = () => {
+const Actions: React.FC = () => {
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
   const setOpenModal = useUIStore((state) => state.setOpenModal);
 
@@ -79,3 +79,5 @@ export const Actions: React.FC = () => {
     </div>
   );
 };
+
+export default Actions;

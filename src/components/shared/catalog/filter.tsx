@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import Style from "./catalog.module.scss";
 
-import { Sort } from "../../../components/ui/sort";
+import Sort from "../../../components/ui/sort";
 
 const filterMenu = [
   {
@@ -23,7 +23,7 @@ interface Sort {
 }
 [];
 
-export const Filter: React.FC = () => {
+const Filter: React.FC = () => {
   const [activeFilterMenu, setActiveFilterMenu] = useState("All Plants");
 
   return (
@@ -49,3 +49,5 @@ export const Filter: React.FC = () => {
     </form>
   );
 };
+
+export default Filter;

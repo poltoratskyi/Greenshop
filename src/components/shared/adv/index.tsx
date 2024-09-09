@@ -1,3 +1,3 @@
-import { Adv } from "./adv";
+import Adv from "./adv";
 
-export { Adv };
+export default Adv;

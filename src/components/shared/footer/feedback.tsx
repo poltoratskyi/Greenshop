@@ -513,7 +513,7 @@ interface Element {
 }
 [];
 
-export const Feedback: React.FC = () => {
+const Feedback: React.FC = () => {
   return (
     <>
       <section className={Style.feedback}>
@@ -590,3 +590,5 @@ export const Feedback: React.FC = () => {
     </>
   );
 };
+
+export default Feedback;

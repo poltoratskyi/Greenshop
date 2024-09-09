@@ -49,7 +49,7 @@ interface Item {
 }
 [];
 
-export const Blog: React.FC = () => {
+const Blog: React.FC = () => {
   return (
     <section className={Style.blog}>
       <div className="container">
@@ -92,3 +92,5 @@ export const Blog: React.FC = () => {
     </section>
   );
 };
+
+export default Blog;

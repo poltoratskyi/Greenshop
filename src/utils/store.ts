@@ -2,11 +2,11 @@ import { create } from "zustand";
 
 import { Item, Category, Size, Variation } from "../types";
 
-import { axiosCategories } from "../service/categories";
-import { axiosCatalog } from "../service/catalog";
-import { axiosSize } from "../service/size";
-import { axiosVariation } from "../service/variation";
-import { axiosItem } from "../service/search";
+import axiosCategories from "../service/categories";
+import axiosCatalog from "../service/catalog";
+import axiosSize from "../service/size";
+import axiosVariation from "../service/variation";
+import axiosItem from "../service/search";
 
 interface CountState {
   count: number;
@@ -57,14 +57,12 @@ export const useCatalogStore = create<CatalogState>((set) => ({
 
 interface CategoriesState {
   categories: Category[];
-  isLoading: boolean;
 
   fetchCategories: () => Promise<void>;
 }
 
 export const useCategoriesStore = create<CategoriesState>((set) => ({
   categories: [],
-  isLoading: true,
 
   fetchCategories: async () => {
     try {
@@ -74,17 +72,14 @@ export const useCategoriesStore = create<CategoriesState>((set) => ({
         set({ categories: response });
       }
     } catch (err) {
-      set({ isLoading: true });
-
       console.error("Error fetching categories:", err);
-    } finally {
-      set({ isLoading: false });
     }
   },
 }));
 
 interface SizeState {
   sizeMenu: Size[];
+
   fetchSize: () => Promise<void>;
 }
 

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import Style from "./adv.module.scss";
 
-import { Button } from "../../ui/button";
+import Button from "../../ui/button";
 
 const svgRight = (
   <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
@@ -42,7 +42,7 @@ interface Item {
 }
 [];
 
-export const Adv: React.FC = () => {
+const Adv: React.FC = () => {
   return (
     <section className={Style.adv}>
       <div className="container">
@@ -79,3 +79,5 @@ export const Adv: React.FC = () => {
     </section>
   );
 };
+
+export default Adv;

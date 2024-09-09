@@ -4,8 +4,8 @@ import Link from "next/link";
 
 import Style from "./modal.module.scss";
 
-import { Input } from "../input";
-import { Button } from "../button";
+import Input from "../input";
+import Button from "../button";
 
 import { useUIStore } from "../../../utils/store";
 
@@ -81,7 +81,7 @@ const google = (
   </svg>
 );
 
-export const Modal: React.FC = () => {
+const Modal: React.FC = () => {
   const openModal = useUIStore((state) => state.openModal);
   const setOpenModal = useUIStore((state) => state.setOpenModal);
   const setShowMenu = useUIStore((state) => state.setShowMenu);
@@ -163,3 +163,5 @@ export const Modal: React.FC = () => {
     </div>
   );
 };
+
+export default Modal;

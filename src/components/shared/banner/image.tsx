@@ -6,7 +6,7 @@ interface Props {
   height?: number;
 }
 
-export const Img: React.FC<Props> = ({ imgUrl, width, height }) => {
+const Img: React.FC<Props> = ({ imgUrl, width, height }) => {
   return (
     <Image
       src={imgUrl}
@@ -17,3 +17,5 @@ export const Img: React.FC<Props> = ({ imgUrl, width, height }) => {
     />
   );
 };
+
+export default Img;

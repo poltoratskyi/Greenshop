@@ -22,7 +22,7 @@ interface Filter {
 }
 [];
 
-export const Sort = () => {
+const Sort: React.FC = () => {
   const sortMenu = useUIStore((state) => state.sortMenu);
   const setOpenSort = useUIStore((state) => state.setOpenSort);
 
@@ -82,3 +82,5 @@ export const Sort = () => {
     </div>
   );
 };
+
+export default Sort;

@@ -2,10 +2,10 @@ import Link from "next/link";
 
 import Style from "./cart.module.scss";
 
-import { Button } from "../../ui/button";
-import { Input } from "../../ui/input";
+import Button from "../../ui/button";
+import Input from "../../ui/input";
 
-export const CartTotals = () => {
+const CartTotals: React.FC = () => {
   return (
     <div className={Style.cart_totals}>
       <h2 className={Style.title}>Cart Totals</h2>
@@ -65,3 +65,5 @@ export const CartTotals = () => {
     </div>
   );
 };
+
+export default CartTotals;

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import Style from "./cart.module.scss";
 
-import { catalog } from "../../../data/catalog";
+import catalog from "../../../data/catalog";
 
 import { useCountStore } from "../../../utils/store";
 
@@ -50,7 +50,7 @@ interface Item {
 }
 [];
 
-export const CartList = () => {
+const CartList: React.FC = () => {
   const { count, increase, decrease } = useCountStore();
 
   return (
@@ -131,3 +131,5 @@ export const CartList = () => {
     </ul>
   );
 };
+
+export default CartList;

@@ -4,16 +4,16 @@ import { useEffect } from "react";
 
 import Style from "./catalog.module.scss";
 
-import { Categories } from "./categories";
-import { Filter } from "./filter";
-import { List } from "./list";
+import Categories from "./categories";
+import Filter from "./filter";
+import List from "./list";
 
 import { useCatalogStore } from "../../../utils/store";
 import { Item } from "../../../types";
 
-import Skeleton from "../../ui/skeleton/catalog/item";
+import Skeleton from "../../ui/skeleton/catalog/items";
 
-export const Catalog: React.FC = () => {
+const Catalog: React.FC = () => {
   const catalog = useCatalogStore((state) => state.catalog);
   const isLoading = useCatalogStore((state) => state.isLoading);
   const fetchCatalog = useCatalogStore((state) => state.fetchCatalog);
@@ -22,7 +22,7 @@ export const Catalog: React.FC = () => {
     fetchCatalog();
   }, []);
 
-  /* if (isLoading) {
+  if (isLoading) {
     return (
       <section className={Style.catalog}>
         <div className="container">
@@ -38,7 +38,7 @@ export const Catalog: React.FC = () => {
                 <ul className={Style.lists}>
                   {isLoading &&
                     [...new Array(9)].map((_, index: number) => (
-                      <Skeleton key={index} />
+                      <Skeleton key={index} uniqueKey="1" />
                     ))}
                 </ul>
               </div>
@@ -47,7 +47,7 @@ export const Catalog: React.FC = () => {
         </div>
       </section>
     );
-  } */
+  }
 
   return (
     <section className={Style.catalog}>
@@ -75,3 +75,5 @@ export const Catalog: React.FC = () => {
     </section>
   );
 };
+
+export default Catalog;

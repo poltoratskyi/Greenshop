@@ -7,7 +7,7 @@ import { Item } from "../../../types";
 import Style from "./result.module.scss";
 import CatalogStyle from "../catalog/catalog.module.scss";
 
-import { List } from "../catalog/list";
+import List from "../catalog/list";
 
 import { useSearchStore } from "../../../utils/store";
 
@@ -20,7 +20,7 @@ const svgRight = (
   </svg>
 );
 
-export const Result: React.FC = () => {
+const Result: React.FC = () => {
   const result = useSearchStore((state) => state.result);
 
   return (
@@ -64,3 +64,5 @@ export const Result: React.FC = () => {
     </div>
   );
 };
+
+export default Result;

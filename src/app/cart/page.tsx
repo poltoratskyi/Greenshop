@@ -1,6 +1,6 @@
-import { Cart } from "../../components/shared/cart";
+import Cart from "../../components/shared/cart";
 
-const CartPage = () => {
+const CartPage: React.FC = () => {
   return <Cart />;
 };
 

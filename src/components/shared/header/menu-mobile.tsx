@@ -71,7 +71,7 @@ interface Element {
 }
 [];
 
-export const Menu: React.FC = () => {
+const Menu: React.FC = () => {
   const showMenu = useUIStore((state) => state.showMenu);
   const setShowMenu = useUIStore((state) => state.setShowMenu);
   const setOpenModal = useUIStore((state) => state.setOpenModal);
@@ -115,3 +115,5 @@ export const Menu: React.FC = () => {
     </nav>
   );
 };
+
+export default Menu;

@@ -2,7 +2,7 @@ import React from "react";
 
 import Style from "./header.module.scss";
 
-export const Logo: React.FC = () => {
+const Logo: React.FC = () => {
   return (
     <div className={Style.logo}>
       <svg
@@ -22,3 +22,5 @@ export const Logo: React.FC = () => {
     </div>
   );
 };
+
+export default Logo;

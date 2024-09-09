@@ -8,6 +8,7 @@
     .wrapper {
       background-color: $background;
       min-width: 315px;
+      padding: 20px 25px 20px 20px;
     }
 
     .filter {
@@ -30,7 +31,6 @@
             line-height: 16px;
             font-weight: 500;
             cursor: pointer;
-            transition: 0.5s ease;
 
             &:hover {
               color: $main;
@@ -50,9 +50,6 @@
     }
 
     .categories {
-      min-height: 1200px;
-      padding: 20px 25px 20px 20px;
-
       .title {
         color: $text;
         font-weight: 700;

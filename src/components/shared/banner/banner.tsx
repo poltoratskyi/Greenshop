@@ -1,12 +1,12 @@
 import Style from "./banner.module.scss";
 
-import { Info } from "./info";
-import { Mobile } from "./mobile";
+import Info from "./info";
+import Mobile from "./mobile";
 
 const descr =
   "  We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!";
 
-export const Banner: React.FC = () => {
+const Banner: React.FC = () => {
   return (
     <section className={Style.banner}>
       <div className="container">
@@ -24,3 +24,5 @@ export const Banner: React.FC = () => {
     </section>
   );
 };
+
+export default Banner;

@@ -3,7 +3,7 @@
 import React from "react";
 
 import Style from "./input.module.scss";
-import { Button } from "../button";
+import Button from "../button";
 
 import { useUIStore, useSearchStore } from "@/utils/store";
 interface Props {
@@ -19,7 +19,7 @@ interface Props {
   inputValue?: string;
 }
 
-export const Input: React.FC<Props> = ({
+const Input: React.FC<Props> = ({
   id,
   name,
   type,
@@ -99,3 +99,5 @@ export const Input: React.FC<Props> = ({
     />
   );
 };
+
+export default Input;

@@ -17,7 +17,7 @@ interface Item {
 }
 [];
 
-export const Links: React.FC = () => {
+const Links: React.FC = () => {
   const pathname = usePathname();
 
   return (
@@ -41,3 +41,5 @@ export const Links: React.FC = () => {
     </nav>
   );
 };
+
+export default Links;

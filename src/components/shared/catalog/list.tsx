@@ -5,7 +5,7 @@ import { Item } from "../../../types";
 
 import Style from "./catalog.module.scss";
 
-export const List: React.FC<Item> = ({
+const List: React.FC<Item> = ({
   id,
   imgUrl,
   name,
@@ -25,7 +25,7 @@ export const List: React.FC<Item> = ({
 
   return (
     <>
-      <Link className={Style.img_link} href="#">
+      <Link className={Style.img_link} href={`/product/${id}`}>
         <div className={Style.line}></div>
 
         <Image src={imgUrl} width={250} height={250} alt={name} />
@@ -78,3 +78,5 @@ export const List: React.FC<Item> = ({
     </>
   );
 };
+
+export default List;
