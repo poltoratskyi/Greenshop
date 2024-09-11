@@ -11,6 +11,7 @@ import Actions from "./actions";
 import Mobile from "./mobile";
 import Input from "../../ui/input";
 import Results from "../results";
+import Loader from "../results/loader";
 
 import { useSearchStore, useUIStore } from "../../../utils/store";
 
@@ -42,6 +43,7 @@ const Header: React.FC = () => {
 
   const inputValue = useSearchStore((state) => state.inputValue);
   const results = useSearchStore((state) => state.results);
+  const isLoading = useSearchStore((state) => state.isLoading);
   const setInputValue = useSearchStore((state) => state.setInputValue);
   const fetchSearch = useSearchStore((state) => state.fetchSearch);
   const clearResults = useSearchStore((state) => state.clearResults);
@@ -69,6 +71,45 @@ const Header: React.FC = () => {
     setInputValue("");
     clearResults();
   });
+
+  if (isLoading) {
+    return (
+      <header className={Style.header}>
+        <div className="container">
+          <div className={Style.content}>
+            <Logo />
+            <Links />
+            <Actions />
+          </div>
+
+          <div
+            style={{ height: "70px" }}
+            ref={ref}
+            className={`${
+              openSearch ? `${Style.block} ${Style.visible}` : Style.block
+            }`}
+          >
+            <Input
+              id="searchInput"
+              name="query"
+              type="text"
+              className="search"
+              inputPlaceholder="Find your plants"
+              inputValue={inputValue}
+              svg={true}
+              svgClose={svgClose}
+              svgSearch={svgSearch}
+            />
+
+            <Loader />
+          </div>
+
+          {/* Media */}
+          <Mobile />
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className={Style.header}>

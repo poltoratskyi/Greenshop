@@ -1,7 +1,7 @@
 @import "../../../components/styles/variables.scss";
 
 .results {
-  border-top: 1px solid #cbcbcb66;
+  border-top: 1px solid $line;
   background-color: #fff;
   padding: 50px 25px;
 
@@ -58,6 +58,35 @@
         line-height: 16px;
         margin-bottom: 20px;
       }
+    }
+  }
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+  background-color: #fff;
+
+  .round {
+    padding: 50px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-top-color: $main;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
 }

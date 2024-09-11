@@ -40,6 +40,8 @@ export const useCatalogStore = create<CatalogState>((set) => ({
   isLoading: true,
 
   fetchCatalog: async () => {
+    set({ isLoading: true });
+
     try {
       const response = await axiosCatalog();
 
@@ -126,6 +128,7 @@ interface SearchState {
   trending: { name: string; svg: JSX.Element; rate: number }[];
   inputValue: string;
   results: Item[];
+  isLoading: boolean;
 
   setInputValue: (value: string) => void;
   fetchSearch: () => Promise<void>;
@@ -152,6 +155,7 @@ export const useSearchStore = create<SearchState>((set, get) => ({
   ],
   inputValue: "",
   results: [],
+  isLoading: false,
 
   setInputValue: (value: string) => {
     set({ inputValue: value });
@@ -163,6 +167,8 @@ export const useSearchStore = create<SearchState>((set, get) => ({
     const { inputValue, clearResults } = get();
 
     if (inputValue !== "") {
+      set({ isLoading: true });
+
       try {
         const response = await axiosItem(inputValue);
 
@@ -171,8 +177,10 @@ export const useSearchStore = create<SearchState>((set, get) => ({
         }
       } catch (err) {
         console.error("Error fetching items:", err);
+      } finally {
+        set({ isLoading: false });
       }
-    } else {
+    } else if (inputValue === "") {
       clearResults();
     }
   },
