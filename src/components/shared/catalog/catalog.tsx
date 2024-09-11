@@ -38,7 +38,11 @@ const Catalog: React.FC = () => {
                 <ul className={Style.lists}>
                   {isLoading &&
                     [...new Array(9)].map((_, index: number) => (
-                      <Skeleton key={index} uniqueKey="1" />
+                      <Skeleton
+                        className={Style.loader}
+                        key={index}
+                        uniqueKey="1"
+                      />
                     ))}
                 </ul>
               </div>

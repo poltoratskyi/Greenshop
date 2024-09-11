@@ -91,16 +91,14 @@
 
 @media (max-width: 575px) {
   .blog {
+    margin-bottom: 20px;
     .title {
       font-size: 20px;
     }
 
-    .descr {
-      font-size: 12px;
-    }
-
     .content {
       grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
 
       .wrapper {
         img {
@@ -114,15 +112,11 @@
           border-bottom-left-radius: 20px;
 
           span {
-            font-size: 11px;
+            font-size: 12px;
           }
 
           h3 {
             font-size: 17px;
-          }
-
-          p {
-            font-size: 12px;
           }
         }
       }

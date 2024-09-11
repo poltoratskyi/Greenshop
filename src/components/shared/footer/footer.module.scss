@@ -200,10 +200,6 @@
             .list {
               margin-bottom: 10px;
 
-              .descr {
-                font-size: 12px;
-              }
-
               &:last-child {
                 margin-bottom: 0px;
               }
@@ -238,10 +234,6 @@
                 font-size: 17px;
               }
 
-              .descr {
-                font-size: 12px;
-              }
-
               .title,
               .descr {
                 text-align: center;
@@ -264,10 +256,6 @@
               font-size: 17px;
               line-height: 22px;
             }
-
-            .descr {
-              font-size: 12px;
-            }
           }
         }
       }
@@ -283,7 +271,7 @@
         .lists {
           .list {
             .link {
-              font-size: 12px;
+              font-size: 14px;
             }
           }
         }

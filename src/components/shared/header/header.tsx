@@ -10,7 +10,7 @@ import Links from "./links";
 import Actions from "./actions";
 import Mobile from "./mobile";
 import Input from "../../ui/input";
-import Result from "../search-result";
+import Results from "../results";
 
 import { useSearchStore, useUIStore } from "../../../utils/store";
 
@@ -41,10 +41,10 @@ const Header: React.FC = () => {
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
 
   const inputValue = useSearchStore((state) => state.inputValue);
-  const result = useSearchStore((state) => state.result);
+  const results = useSearchStore((state) => state.results);
   const setInputValue = useSearchStore((state) => state.setInputValue);
   const fetchSearch = useSearchStore((state) => state.fetchSearch);
-  const clearResult = useSearchStore((state) => state.clearResult);
+  const clearResults = useSearchStore((state) => state.clearResults);
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -57,17 +57,17 @@ const Header: React.FC = () => {
   );
 
   useEffect(() => {
-    if (inputValue !== "" || result.length > 0) {
+    if (inputValue !== "" || results.length > 0) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  }, [inputValue, result]);
+  }, [inputValue, results]);
 
   useClickAway(ref, () => {
     setOpenSearch && setOpenSearch(false);
     setInputValue("");
-    clearResult();
+    clearResults();
   });
 
   return (
@@ -98,7 +98,7 @@ const Header: React.FC = () => {
             svgSearch={svgSearch}
           />
 
-          {result.length > 0 && <Result />}
+          {results.length > 0 && <Results />}
         </div>
 
         {/* Media */}

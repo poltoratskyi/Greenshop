@@ -1,15 +1,10 @@
-import React from "react";
-
+import Overview from "../../../components/shared/overview";
 interface ProductPageProps {
   params: { id: string };
 }
 
 const ProductPage: React.FC<ProductPageProps> = ({ params: { id } }) => {
-  return (
-    <div>
-      <h1>{id}</h1>
-    </div>
-  );
+  return <Overview id={id} />;
 };
 
 export default ProductPage;

@@ -1,6 +1,6 @@
 @import "../../../components/styles/variables.scss";
 
-.result {
+.results {
   border-top: 1px solid #cbcbcb66;
   background-color: #fff;
   padding: 50px 25px;
@@ -21,29 +21,25 @@
 
       .lists {
         .list {
-          min-width: 200px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
           padding: 0px 0px 0px 12px;
           height: 50px;
           margin-bottom: 10px;
+          color: $text;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 20px;
+          transition: 0.5s ease;
+          cursor: pointer;
 
-          a {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-            color: $text;
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 20px;
-            height: 100%;
+          svg {
+            rotate: 220deg;
+          }
 
-            svg {
-              rotate: 220deg;
-            }
-
-            &:hover {
-              color: $main;
-            }
+          &:hover {
+            color: $main;
           }
 
           &:last-child {

@@ -7,6 +7,7 @@ import axiosCatalog from "../service/catalog";
 import axiosSize from "../service/size";
 import axiosVariation from "../service/variation";
 import axiosItem from "../service/search";
+import { svgRight } from "../components/shared/results/results";
 
 interface CountState {
   count: number;
@@ -122,41 +123,59 @@ export const useVariationStore = create<VariationState>((set) => ({
 }));
 
 interface SearchState {
+  trending: { name: string; svg: JSX.Element; rate: number }[];
   inputValue: string;
-  result: Item[];
+  results: Item[];
 
   setInputValue: (value: string) => void;
   fetchSearch: () => Promise<void>;
-  clearResult: () => void;
+  clearResults: () => void;
 }
 
 export const useSearchStore = create<SearchState>((set, get) => ({
+  trending: [
+    {
+      name: "Beach Spider Lily",
+      svg: svgRight,
+      rate: 3,
+    },
+    {
+      name: "Chinese Evergreen",
+      svg: svgRight,
+      rate: 2,
+    },
+    {
+      name: "Angel Wing Begonia",
+      svg: svgRight,
+      rate: 1,
+    },
+  ],
   inputValue: "",
-  result: [],
+  results: [],
 
   setInputValue: (value: string) => {
     set({ inputValue: value });
   },
 
+  clearResults: () => set({ results: [] }),
+
   fetchSearch: async () => {
-    const { inputValue, clearResult } = get();
+    const { inputValue, clearResults } = get();
 
     if (inputValue !== "") {
       try {
         const response = await axiosItem(inputValue);
 
         if (response) {
-          set({ result: response });
+          set({ results: response });
         }
       } catch (err) {
         console.error("Error fetching items:", err);
       }
     } else {
-      clearResult();
+      clearResults();
     }
   },
-
-  clearResult: () => set({ result: [] }),
 }));
 
 interface UIState {

@@ -8,7 +8,7 @@ import Footer from "../components/shared/footer";
 import Overlay from "../components/ui/overlay";
 import Modal from "../components/ui/modal";
 
-const montserrat = Montserrat({
+const font = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "700", "900"],
 });
@@ -25,7 +25,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={montserrat.className}>
+      <body className={font.className}>
         <Overlay />
 
         <Header />

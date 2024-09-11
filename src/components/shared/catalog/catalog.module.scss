@@ -120,15 +120,19 @@
     gap: 40px;
 
     .list {
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 15px;
 
-      .img_link {
-        display: block;
-        padding-bottom: 50px;
+      .block {
+        position: relative;
 
         &:hover {
-          background-color: $background;
-          transition: 0.5s ease;
+          .img_link {
+            background-color: $background;
+            transition: 0.5s ease;
+          }
 
           .line {
             opacity: 1;
@@ -140,13 +144,15 @@
             visibility: visible;
           }
         }
-      }
 
-      .title_link {
-        display: block;
-        margin: 30px 0px 15px;
+        .img_link {
+          display: block;
+          padding-bottom: 50px;
+        }
 
         .title {
+          display: block;
+          margin-top: 30px;
           font-size: 16px;
           line-height: 16px;
           color: $text;
@@ -157,59 +163,65 @@
             color: $main;
           }
         }
-      }
 
-      .control {
-        position: absolute;
-        top: 70%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.5s ease;
+        .control {
+          position: absolute;
+          top: 80%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.5s ease;
 
-        & > [data-type="heart"] {
-          cursor: pointer;
-          margin-right: 30px;
+          & > [data-type="heart"] {
+            cursor: pointer;
+            margin-right: 30px;
 
-          &:hover {
-            fill: red;
+            &:hover {
+              fill: red;
+            }
           }
-        }
 
-        & > [data-type="cart"] {
-          &:hover {
-            fill: $main;
+          & > [data-type="cart"] {
+            cursor: pointer;
+            &:hover {
+              fill: $main;
+            }
           }
         }
       }
 
       .percent {
         position: absolute;
-        top: 2%;
-        left: 3%;
+        top: 0;
+        left: 0;
         padding: 10px;
         background-color: $main;
         color: #fff;
         font-weight: 500;
         font-size: 16px;
         line-height: 16px;
+        margin: 5px 0px 0px 5px;
       }
 
-      .sailPrice {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 16px;
-        color: $sailPrice;
-        margin-left: 20px;
-        text-decoration: $sailPriceLine line-through;
-      }
+      .info {
+        display: flex;
+        align-items: center;
+        .sailPrice {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 16px;
+          color: $sailPrice;
+          margin-left: 20px;
+          text-decoration: $sailPriceLine line-through;
+        }
 
-      .price {
-        color: $main;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 18px;
+        .price {
+          color: $main;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 18px;
+        }
       }
 
       .line {
@@ -222,6 +234,109 @@
         visibility: hidden;
         transition: 0.5s ease;
       }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .catalog {
+    .content {
+      .wrapper {
+        display: none;
+      }
+
+      .filter {
+        display: block;
+
+        .lists {
+          justify-content: center;
+          gap: 30px;
+
+          .list {
+            margin-right: 0;
+
+            .text {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .items {
+    .lists {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+
+      .loader {
+        width: 100%;
+        height: auto;
+      }
+
+      .list {
+        gap: 5px;
+
+        .block {
+          .img_link {
+            background-color: $background;
+            border-radius: 20px;
+            padding: 20px 5px;
+          }
+
+          .control {
+            top: 0;
+            left: auto;
+            right: 0;
+            transform: none;
+            opacity: 1;
+            visibility: visible;
+            background-color: #fff;
+            border-radius: 100%;
+            padding: 10px;
+            margin: 10px 10px 0px 0px;
+
+            & > [data-type="heart"] {
+              margin-right: 0px;
+              fill: $main;
+            }
+
+            & > [data-type="cart"] {
+              display: none;
+            }
+          }
+
+          .title {
+            font-size: 15px;
+            margin-top: 10px;
+            line-height: 24px;
+          }
+        }
+
+        .percent {
+          margin: 15px 0px 0px 0px;
+          font-size: 13px;
+          left: 0;
+        }
+
+        .info {
+          .sailPrice {
+            font-size: 16px;
+          }
+
+          .price {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .items {
+    .lists {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 }

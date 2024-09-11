@@ -50,6 +50,8 @@
 
 @media (max-width: 575px) {
   .banner {
+    margin: 20px 0px;
+
     .content {
       display: none;
     }
@@ -76,7 +78,6 @@
           }
 
           p {
-            font-size: 12px;
             margin-bottom: 10px;
             width: 200px;
           }
