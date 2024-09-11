@@ -87,7 +87,11 @@
 }
 
 .login,
-.password {
+.login-password,
+.register,
+.register-email,
+.register-password,
+.confirm-password {
   padding: 15px 10px;
   color: $text;
   background-color: #fff;

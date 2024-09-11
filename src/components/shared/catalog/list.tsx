@@ -30,11 +30,14 @@ const List: React.FC<Item> = ({
           <div className={Style.line}></div>
 
           <Image
+            width={500}
+            height={500}
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+            placeholder="empty"
             src={imgUrl}
-            width={250}
-            height={250}
-            style={{ width: "100%", height: "auto" }}
-            sizes="(max-width: 575px) 100vw"
             alt={name}
           />
         </Link>

@@ -55,7 +55,6 @@ const Adv: React.FC = () => {
                 height={235}
                 alt={item.title}
                 style={{ width: "100%", height: "auto" }}
-                sizes="(max-width: 575px) 100vw"
               />
 
               <div className={Style.wrapper}>

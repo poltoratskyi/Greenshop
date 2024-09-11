@@ -142,7 +142,8 @@
   }
 }
 
-.enter {
+.enter,
+.register {
   padding: 15px 30px;
   background-color: $main;
   border-radius: 5px;
@@ -158,7 +159,8 @@
 }
 
 .google,
-.facebook {
+.facebook,
+.github {
   display: flex;
   align-items: center;
   justify-content: center;

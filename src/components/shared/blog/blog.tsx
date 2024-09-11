@@ -68,7 +68,6 @@ const Blog: React.FC = () => {
                 src={item.imgUrl}
                 alt={item.title}
                 style={{ width: "100%", height: "auto" }}
-                sizes="(max-width: 575px) 100vw"
               />
 
               <div className={Style.info}>
