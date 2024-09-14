@@ -37,7 +37,27 @@ const Modal: React.FC = () => {
         openModal ? `${Style.modal} ${Style.visible}` : Style.modal
       }`}
     >
-      <div className={Style.content}>
+      <div className={Style.title}>
+        <h2
+          onClick={() => setToggleAction(true)}
+          className={
+            toggleAction ? `${Style.text} ${Style.active}` : Style.text
+          }
+        >
+          Login
+        </h2>
+
+        <span>I</span>
+
+        <h2
+          onClick={() => setToggleAction(false)}
+          className={
+            !toggleAction ? `${Style.text} ${Style.active}` : Style.text
+          }
+        >
+          Register
+        </h2>
+
         <div
           onClick={() => {
             document.body.style.overflow = "auto";
@@ -48,35 +68,13 @@ const Modal: React.FC = () => {
         >
           {svgClose}
         </div>
+      </div>
 
-        <div className={Style.title}>
-          <h2
-            onClick={() => setToggleAction(true)}
-            className={
-              toggleAction ? `${Style.login} ${Style.active}` : Style.login
-            }
-          >
-            Login
-          </h2>
-
-          <span>I</span>
-
-          <h2
-            onClick={() => setToggleAction(false)}
-            className={
-              !toggleAction
-                ? `${Style.register} ${Style.active}`
-                : Style.register
-            }
-          >
-            Register
-          </h2>
-        </div>
-
+      <div className={Style.content}>
         {toggleAction ? <Login /> : <Register />}
       </div>
 
-      <div className={Style.bottom_line}></div>
+      <span className={Style.bottom_line}></span>
     </div>
   );
 };

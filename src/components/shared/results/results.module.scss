@@ -51,6 +51,28 @@
 
     .result_items {
       min-width: 850px;
+
+      .scrollbar {
+        overflow-y: auto;
+        height: 385px;
+
+        &::-webkit-scrollbar {
+          width: 3px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: rgba($main, 0.5);
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: $line;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background-color: rgba($main, 1);
+          cursor: pointer;
+        }
+      }
       .title {
         color: $text;
         font-weight: 700;

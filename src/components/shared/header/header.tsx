@@ -67,9 +67,11 @@ const Header: React.FC = () => {
   }, [inputValue, results]);
 
   useClickAway(ref, () => {
-    setOpenSearch && setOpenSearch(false);
-    setInputValue("");
-    clearResults();
+    if (openSearch) {
+      setOpenSearch && setOpenSearch(false);
+      setInputValue("");
+      clearResults();
+    }
   });
 
   if (isLoading) {

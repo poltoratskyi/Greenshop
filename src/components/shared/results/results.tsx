@@ -50,7 +50,7 @@ const Results: React.FC = () => {
             {results.length > 1 ? "Results" : "Result"}
           </h2>
 
-          <div style={{ height: "500px", overflowY: "auto" }}>
+          <div className={Style.scrollbar}>
             <div className={CatalogStyle.items}>
               <ul className={CatalogStyle.lists}>
                 {results.map((item: Item) => (
