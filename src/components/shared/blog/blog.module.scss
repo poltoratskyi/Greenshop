@@ -48,14 +48,24 @@
           font-size: 20px;
           color: $text;
           margin-bottom: 5px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
         }
 
         p {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
           font-size: 14px;
           color: $descr;
           font-weight: 400;
           margin-bottom: 10px;
           line-height: 22px;
+          -webkit-line-clamp: 2;
         }
 
         a {
@@ -97,7 +107,7 @@
     }
 
     .content {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
 
       .wrapper {
@@ -120,6 +130,14 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 470px) {
+  .blog {
+    .content {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 }

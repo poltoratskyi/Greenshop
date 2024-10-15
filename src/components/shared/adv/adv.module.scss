@@ -26,6 +26,11 @@
           font-weight: 900;
           margin-bottom: 10px;
           text-transform: uppercase;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
         }
 
         .descr {
@@ -34,6 +39,11 @@
           font-weight: 400;
           margin-bottom: 25px;
           color: $descr;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 3;
         }
       }
     }
@@ -45,7 +55,6 @@
     margin: 20px 0px;
     .content {
       gap: 20px;
-      grid-template-columns: repeat(1, 1fr);
 
       .info {
         grid-template-columns: repeat(1, 1fr);
@@ -62,6 +71,14 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 470px) {
+  .adv {
+    .content {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 }

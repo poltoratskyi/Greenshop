@@ -157,7 +157,6 @@
           transform: translate(-50%, -50%);
           opacity: 0;
           visibility: hidden;
-          transition: 0.5s ease;
 
           & > [data-type="heart"] {
             cursor: pointer;
@@ -207,6 +206,7 @@
       .info {
         display: flex;
         align-items: center;
+
         .sailPrice {
           font-size: 18px;
           font-weight: 400;
@@ -281,7 +281,7 @@
           .img_link {
             background-color: $background;
             border-radius: 20px;
-            padding: 20px 5px;
+            padding-bottom: 0;
           }
 
           .control {
@@ -341,6 +341,14 @@
   .items {
     .lists {
       grid-template-columns: repeat(1, 1fr);
+
+      .list {
+        .block {
+          .control {
+            margin: 25px 25px 0px 0px;
+          }
+        }
+      }
     }
   }
 }

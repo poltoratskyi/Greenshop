@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import Style from "./adv.module.scss";
 
 import Button from "../../ui/button";
@@ -17,19 +15,19 @@ const AdvData = [
   {
     id: 1,
     imgUrl: "/adv/adv_1-min.png",
-    title: "Summer cactus",
-    subTitle: "succulents",
+    title: "Summer Cactus",
+    subTitle: "Succulents",
     descr:
-      "We are an online plant shop offering a wide range of cheap and trendy plants",
+      "Explore our online plant shop for a diverse selection of affordable and trendy plants.",
   },
 
   {
     id: 2,
     imgUrl: "/adv/adv_2-min.png",
     title: "Styling Trends",
-    subTitle: "much more",
+    subTitle: "Much More",
     descr:
-      "We are an online plant shop offering a wide range of cheap and trendy plants",
+      "Discover the latest trends in plant styling with our extensive range of budget-friendly options.",
   },
 ];
 
@@ -49,12 +47,13 @@ const Adv: React.FC = () => {
         <div className={Style.content}>
           {AdvData.map((item: Item) => (
             <div className={Style.info} key={item.id}>
-              <Image
+              <img
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
                 src={item.imgUrl}
-                width={235}
-                height={235}
                 alt={item.title}
-                style={{ width: "100%", height: "auto" }}
               />
 
               <div className={Style.wrapper}>

@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 interface Props {
   imgUrl: string;
   width?: number;
@@ -7,15 +5,7 @@ interface Props {
 }
 
 const Img: React.FC<Props> = ({ imgUrl, width, height }) => {
-  return (
-    <Image
-      src={imgUrl}
-      width={width}
-      height={height}
-      priority={true}
-      alt="Main-banner.jpg"
-    />
-  );
+  return <img src={imgUrl} width={width} height={height} alt="img" />;
 };
 
 export default Img;

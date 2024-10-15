@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 
 import Style from "./cart.module.scss";
 
@@ -62,10 +61,12 @@ const CartList: React.FC = () => {
           <div className={Style.layout}>
             <Link href="#">
               <div className={Style.info}>
-                <Image
+                <img
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                  }}
                   src={item.imgUrl}
-                  width={70}
-                  height={70}
                   alt={item.name}
                 />
 

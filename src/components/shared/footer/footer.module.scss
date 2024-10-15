@@ -213,17 +213,21 @@
 
         .title {
           font-size: 17px;
+          min-height: 35px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
         }
 
         .label {
           flex-direction: column;
           .info {
-            grid-template-columns: repeat(1, 1fr);
-
             .inner {
               padding: 0px 0px 25px 0px;
               border-right: none;
-              border-bottom: 1px rgba($main, 0.1) solid;
+              border-bottom: none;
 
               svg {
                 display: block;
@@ -262,7 +266,7 @@
 
       .feedback {
         padding: 20px;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
 
         .title {
           font-size: 17px;
@@ -278,6 +282,38 @@
 
         .accept {
           width: auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 470px) {
+  .footer {
+    .content {
+      .service {
+        .label {
+          .info {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+      }
+
+      .feedback {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .footer {
+    .content {
+      .service {
+        .label {
+          .info {
+            grid-template-columns: repeat(1, 1fr);
+          }
         }
       }
     }

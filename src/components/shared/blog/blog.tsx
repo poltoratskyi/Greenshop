@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import Link from "next/link";
 
 import Style from "./blog.module.scss";
@@ -10,7 +8,8 @@ const blogData = [
     imgUrl: "/blog/blog_1-min.png",
     heading: "September 12 I Read in 6 minutes",
     title: "Cactus & Succulent Care Tips",
-    descr: "Cacti are succulents are easy care plants for any home or patio.",
+    descr:
+      "Care tips for cacti and succulents: easy guidance for your home or patio.",
     link: "#",
   },
   {
@@ -18,7 +17,8 @@ const blogData = [
     imgUrl: "/blog/blog_2-min.png",
     heading: "September 13 I Read in 2 minutes",
     title: "Top 10 Succulents for Your Home",
-    descr: "Best in hanging baskets. Prefers medium to high light.",
+    descr:
+      "The best succulents for hanging baskets, thriving in medium to bright light.",
     link: "#",
   },
   {
@@ -26,7 +26,8 @@ const blogData = [
     imgUrl: "/blog/blog_3-min.png",
     heading: "September 15 I Read in 3 minutes",
     title: "Cacti & Succulent Care Tips",
-    descr: "Cacti and succulents thrive in containers and because most are..",
+    descr:
+      "Cacti and succulents thrive in containers, requiring minimal care for stunning results.",
     link: "#",
   },
   {
@@ -34,7 +35,8 @@ const blogData = [
     imgUrl: "/blog/blog_4-min.png",
     heading: "September 15 I Read in 2 minutes",
     title: "Best Houseplants Room by Room",
-    descr: "The benefits of houseplants are endless. In addition to..",
+    descr:
+      "The benefits of houseplants are endless, improving air quality and adding warmth to your home.",
     link: "#",
   },
 ];
@@ -62,12 +64,13 @@ const Blog: React.FC = () => {
         <div className={Style.content}>
           {blogData.map((item: Item) => (
             <div className={Style.wrapper} key={item.id}>
-              <Image
-                width={300}
-                height={300}
+              <img
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
                 src={item.imgUrl}
                 alt={item.title}
-                style={{ width: "100%", height: "auto" }}
               />
 
               <div className={Style.info}>
