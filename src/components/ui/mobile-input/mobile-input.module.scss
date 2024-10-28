@@ -1,0 +1,38 @@
+@import "../../../styles/variables.scss";
+
+.mobile_wrapper_input {
+  display: none;
+
+  .mobile_input {
+    padding: 15px 10px 15px 40px;
+    color: $text;
+    background-color: #fff;
+    border: 1px solid rgba($main, 0.5);
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 16px;
+    width: 100%;
+    font-weight: 400;
+
+    &:focus {
+      border-color: rgba($main, 1);
+      outline: none;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .mobile_wrapper_input {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .svg_search {
+      position: absolute;
+      top: 50%;
+      transform: translate(0%, -50%);
+      left: 0%;
+      margin-left: 10px;
+    }
+  }
+}

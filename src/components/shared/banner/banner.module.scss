@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import "../../../styles/variables.scss";
 
 .banner {
   margin: 10px 0px 45px;
@@ -62,7 +62,7 @@
       .content {
         display: block;
         border-radius: 30px;
-        background: url("../../../../public/Banner_mobile-min.jpg") center
+        background: url("../../../../public/banner-mobile-min.jpg") center
           (center / cover) no-repeat;
 
         .info {

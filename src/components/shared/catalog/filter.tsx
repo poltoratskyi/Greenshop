@@ -4,19 +4,9 @@ import { useState } from "react";
 
 import Style from "./catalog.module.scss";
 
-import Sort from "../../../components/ui/sort";
+import Sort from "../../../components/ui/sort-menu";
 
-const filterMenu = [
-  {
-    menu: "All Plants",
-  },
-  {
-    menu: "New Arrivals",
-  },
-  {
-    menu: "Available",
-  },
-];
+import { filterMenu } from "./static-data";
 
 interface Sort {
   menu: string;

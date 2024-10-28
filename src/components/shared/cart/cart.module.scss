@@ -1,96 +1,89 @@
-@import "../../../components/styles/variables.scss";
+@import "../../../styles/variables.scss";
 
 .cart {
-  margin: 35px 0px 130px 0px;
+  .backspace {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 35px;
 
-  .lists {
-    display: -webkit-inline-box;
-    margin-bottom: 40px;
-
-    .list {
-      a {
-        margin-right: 5px;
-
-        .link {
-          font-size: 15px;
-          line-height: 16px;
-          color: $text;
-          font-weight: 400;
-          margin-right: 5px;
-          transition: 0.5s ease;
-
-          &.active {
-            font-weight: 700;
-          }
-
-          &:hover {
-            color: $main;
-          }
-        }
-      }
+    h2 {
+      display: block;
+      margin: 0 auto;
+      font-size: 17px;
+      line-height: 16px;
+      color: $text;
+      font-weight: 700;
     }
   }
 
   .inner {
     display: flex;
-    gap: 90px;
-    margin-bottom: 90px;
+    justify-content: space-between;
+    align-items: flex-start;
 
-    .cart_lists {
-      .header {
-        font-size: 16px;
-        line-height: 16px;
-        color: $text;
-        font-weight: 700;
-        margin-bottom: 10px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid rgba(203, 203, 203, 0.4);
-      }
+    .products_title,
+    .check_title {
+      display: flex;
+      text-align: left;
+      font-size: 16px;
+      line-height: 16px;
+      color: $text;
+      font-weight: 700;
+      margin-bottom: 10px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(203, 203, 203, 0.4);
+    }
 
+    .lists {
       .list {
         margin-bottom: 20px;
 
         .layout {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
+          display: flex;
           align-items: center;
           transition: 0.5s ease;
           padding: 10px;
-          transition: 0.5s ease;
 
-          .info {
-            display: flex;
-            align-items: center;
-            width: 200px;
+          .img {
+            width: 100px;
+            margin-right: 10px;
+            cursor: pointer;
+          }
 
-            .title {
-              font-size: 16px;
-              line-height: 16px;
-              color: $text;
-              font-weight: 500;
-              margin-bottom: 10px;
-              transition: 0.5s ease;
+          .title {
+            font-size: 16px;
+            line-height: 16px;
+            color: $text;
+            font-weight: 500;
+            margin-bottom: 10px;
+            transition: 0.5s ease;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            cursor: pointer;
 
-              &:hover {
-                color: $main;
-              }
+            &:hover {
+              color: $main;
             }
+          }
 
-            .sku {
-              font-weight: 400;
-              font-size: 14px;
-              line-height: 16px;
-              color: $descr;
+          .sku {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            color: $descr;
 
-              span {
-                color: #a5a5a5;
-                margin-right: 5px;
-              }
+            span {
+              color: #a5a5a5;
+              margin-right: 5px;
             }
+          }
 
-            &:last-child {
-              margin-bottom: 0px;
-            }
+          &:last-child {
+            margin-bottom: 0px;
           }
 
           &:hover {
@@ -100,33 +93,38 @@
 
         .price,
         .total {
-          text-align: center;
           font-size: 16px;
           line-height: 16px;
           color: $descr;
           font-weight: 500;
         }
 
-        .total {
-          color: $main;
-          font-weight: 700;
+        .price {
+          text-align: left;
+          width: 100px;
         }
 
-        span {
-          svg {
-            cursor: pointer;
+        .total {
+          text-align: left;
+          color: $main;
+          font-weight: 700;
+          width: 130px;
+          margin-left: 130px;
+        }
 
-            &:hover {
-              fill: $text;
-            }
+        svg {
+          cursor: pointer;
+
+          &:hover {
+            fill: $text;
           }
         }
 
         .quantity {
           display: flex;
-          justify-content: center;
+          justify-content: space-between;
           align-items: center;
-          width: 200px;
+          width: 100px;
 
           button {
             font-size: 16px;
@@ -153,7 +151,6 @@
             font-weight: 400;
             color: $text;
             text-align: center;
-            width: 50px;
           }
         }
 
@@ -163,21 +160,11 @@
       }
     }
 
-    .cart_totals {
+    .check {
       min-width: 330px;
       text-align: center;
-      .title {
-        text-align: left;
-        font-size: 16px;
-        line-height: 16px;
-        color: $text;
-        font-weight: 700;
-        margin-bottom: 10px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid rgba(203, 203, 203, 0.4);
-      }
 
-      .subTitle {
+      .subtitle {
         text-align: left;
         display: block;
         font-size: 14px;

@@ -2,7 +2,7 @@ import Img from "./image";
 
 import Style from "./banner.module.scss";
 
-import Button from "../../ui/button";
+import Button from "../../shared/button";
 
 interface Props {
   className?: string;
@@ -39,7 +39,7 @@ const Info: React.FC<Props> = ({
       </div>
 
       {width && (
-        <Img imgUrl="/catalog/Lily-min.png" width={width} height={height} />
+        <Img imgUrl="/catalog/lily-min.png" width={width} height={height} />
       )}
     </div>
   );

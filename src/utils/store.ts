@@ -7,7 +7,8 @@ import axiosCatalog from "../service/catalog";
 import axiosSize from "../service/size";
 import axiosVariation from "../service/variation";
 import axiosItem from "../service/search";
-import { svgRight } from "../components/shared/results/results";
+
+import { svgTrend } from "../components/shared/results/static-data";
 
 interface CountState {
   count: number;
@@ -139,17 +140,17 @@ export const useSearchStore = create<SearchState>((set, get) => ({
   trending: [
     {
       name: "Beach Spider Lily",
-      svg: svgRight,
+      svg: svgTrend,
       rate: 3,
     },
     {
       name: "Chinese Evergreen",
-      svg: svgRight,
+      svg: svgTrend,
       rate: 2,
     },
     {
       name: "Angel Wing Begonia",
-      svg: svgRight,
+      svg: svgTrend,
       rate: 1,
     },
   ],

@@ -1,9 +1,9 @@
-@import "../../../components/styles/variables.scss";
+@import "../../../styles/variables.scss";
 
 .results {
-  border-top: 1px solid $line;
   background-color: #fff;
   padding: 50px 25px;
+  border-top: 1px solid $line;
 
   .content {
     display: grid;
@@ -35,7 +35,7 @@
           cursor: pointer;
 
           svg {
-            rotate: 220deg;
+            rotate: 230deg;
           }
 
           &:hover {
@@ -50,11 +50,11 @@
     }
 
     .result_items {
-      min-width: 850px;
+      min-width: 800px;
 
       .scrollbar {
         overflow-y: auto;
-        height: 385px;
+        height: 370px;
 
         &::-webkit-scrollbar {
           width: 3px;
@@ -73,6 +73,7 @@
           cursor: pointer;
         }
       }
+
       .title {
         color: $text;
         font-weight: 700;

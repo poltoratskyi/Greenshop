@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import Button from "../../ui/button";
+import Button from "../../shared/button";
 
 import { Category, Item, Size, Variation } from "../../../types";
 

@@ -1,15 +1,11 @@
 "use client";
-
-import { usePathname } from "next/navigation";
-import Style from "./header.module.scss";
 import Link from "next/link";
 
-const pages = [
-  { menu: "Home", href: "/" },
-  { menu: "Shop", href: "#" },
-  { menu: "Plant Care", href: "#" },
-  { menu: "Blogs", href: "#" },
-];
+import { usePathname } from "next/navigation";
+
+import Style from "./header.module.scss";
+
+import { pages } from "./static-data";
 
 interface Item {
   menu: string;
