@@ -9,7 +9,6 @@ const MobileLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  modal: React.ReactNode;
 }>) => {
   return <main>{children}</main>;
 };
