@@ -221,6 +221,7 @@
     margin: 0px 10px;
   }
 }
+
 @media (max-width: 575px) {
   .modal_wrapper {
     .modal {
@@ -244,25 +245,25 @@
         background-color: rgba($main, 1);
         cursor: pointer;
       }
+    }
+  }
 
-      .content {
-        padding: 40px 10px 20px 10px;
+  .content {
+    padding: 40px 10px 20px 10px;
 
-        .title {
-          margin-bottom: 25px;
-        }
+    .title {
+      margin-bottom: 25px;
+    }
 
-        .login,
-        .sign_up {
-          height: auto;
-          overflow: hidden;
-          padding: 0px 20px;
+    .log_in,
+    .sign_up {
+      height: auto;
+      overflow: hidden;
+      padding: 0px 20px;
 
-          form {
-            .reset {
-              text-align: center;
-            }
-          }
+      form {
+        .reset {
+          text-align: center;
         }
       }
     }

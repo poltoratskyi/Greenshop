@@ -10,13 +10,7 @@ const RegistrationWrapper: React.FC = () => {
       <div className="container">
         <div className={Style.registration_wrapper}>
           <ModalContent>
-            <div
-              style={{
-                display: "flex",
-                height: "675px",
-                alignItems: "flex-start",
-              }}
-            >
+            <div className={Style.box}>
               <LogIn overflow />
 
               <div className={Style.line}>

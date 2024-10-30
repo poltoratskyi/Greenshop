@@ -9,25 +9,48 @@
     overflow-y: auto;
   }
 
-  .line {
+  .box {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+    height: 675px;
+    align-items: flex-start;
 
-    span {
-      display: block;
-      background-color: $line;
+    .line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       height: 100%;
-      width: 1px;
-    }
 
-    p {
-      color: #3d3d3d;
-      font-size: 13px;
-      line-height: 16px;
-      font-weight: 400;
-      margin: 10px 0px;
+      span {
+        display: block;
+        background-color: $line;
+        height: 100%;
+        width: 1px;
+      }
+
+      p {
+        color: #3d3d3d;
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: 400;
+        margin: 10px 0px;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .registration {
+    margin: 40px 0px;
+    .registration_wrapper {
+      .box {
+        flex-direction: column;
+        height: auto;
+        gap: 30px;
+
+        .line {
+          display: none;
+        }
+      }
     }
   }
 }
