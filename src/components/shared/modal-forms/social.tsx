@@ -1,6 +1,6 @@
-import Style from "./login.module.scss";
+import Style from "./modal-forms.module.scss";
 
-import Button from "../../shared/button";
+import Button from "../button";
 
 import { svgFacebook, svgGithub, svgGoogle } from "./static-data";
 

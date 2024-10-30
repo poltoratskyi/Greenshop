@@ -1,18 +1,27 @@
-import Style from "./login.module.scss";
+import Style from "./modal-forms.module.scss";
 
 import Social from "./social";
 
-import Button from "../../shared/button";
+import Button from "../button";
 
-const Register: React.FC = () => {
+interface Props {
+  overflow?: boolean;
+}
+
+const SignUp: React.FC<Props> = ({ overflow }) => {
   return (
-    <div className={Style.register}>
-      <h3>Enter your email and password to register.</h3>
+    <div
+      style={{ height: overflow ? "100%" : "500px" }}
+      className={Style.sign_up}
+    >
+      {overflow && <h2 className={Style.text_reg}>Sign Up</h2>}
+
+      <h3>Sign up to get started.</h3>
 
       <form action="#" method="post">
         <input
-          className={Style.register_name}
-          id="register_id"
+          className={Style.sign_up__name}
+          id="sign_up__id"
           name="username"
           type="text"
           placeholder="Enter your username"
@@ -20,17 +29,17 @@ const Register: React.FC = () => {
         />
 
         <input
-          id="register-email_id"
+          id="sign_up__email-id"
           name="email"
           type="email"
-          className={Style.register_email}
+          className={Style.sign_up__email}
           placeholder="Enter your email address"
           autoComplete="off"
         />
 
         <input
-          className={Style.register_password}
-          id="register-password_id"
+          className={Style.sign_up__password}
+          id="sign_up__password-id"
           name="password"
           type="password"
           placeholder="Password"
@@ -39,17 +48,17 @@ const Register: React.FC = () => {
 
         <input
           className={Style.confirm_password}
-          id="confirm-password_id"
+          id="confirm_password-id"
           name="password"
           type="password"
           placeholder="Confirm Password"
           autoComplete="off"
         />
 
-        <Button button={true} className="register" value="Register" />
+        <Button button={true} className="sign_up" value="Create an account" />
       </form>
       <Social
-        location="Or register with"
+        location="Or sign up with"
         google="Continue with Google"
         facebook="Continue with Facebook"
         github="Continue with Github"
@@ -58,4 +67,4 @@ const Register: React.FC = () => {
   );
 };
 
-export default Register;
+export default SignUp;

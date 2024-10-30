@@ -1,5 +1,7 @@
-const LoginPage: React.FC = () => {
-  return <p>123</p>;
+import Registration from "../../../components/shared/registration";
+
+const RegistrationPage: React.FC = () => {
+  return <Registration />;
 };
 
-export default LoginPage;
+export default RegistrationPage;

@@ -1,9 +1,21 @@
+"use client";
 import React from "react";
 
-import Login from "../../../../components/ui/login";
+import ModalWrapper from "../../../../components/shared/modal-forms/modal-wrapper";
+import ModalForm from "../../../../components/shared/modal-forms";
+import SignUp from "../../../../components/shared/modal-forms/sign-up";
+import LogIn from "../../../../components/shared/modal-forms/log-in";
 
-const LoginModal: React.FC = () => {
-  return <Login />;
+import { useUIStore } from "../../../../utils/store";
+
+const Modal: React.FC = () => {
+  const toggleAction = useUIStore((state) => state.toggleAction);
+
+  return (
+    <ModalWrapper>
+      <ModalForm>{toggleAction ? <LogIn /> : <SignUp />}</ModalForm>
+    </ModalWrapper>
+  );
 };
 
-export default LoginModal;
+export default Modal;

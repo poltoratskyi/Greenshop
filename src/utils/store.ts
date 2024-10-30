@@ -192,11 +192,13 @@ interface UIState {
   openModal: boolean;
   sortMenu: boolean;
   showMenu: boolean;
+  toggleAction: boolean;
 
   setOpenSearch: (isOpen: boolean) => void;
   setOpenModal: (isOpen: boolean) => void;
   setOpenSort: (isOpen: boolean) => void;
   setShowMenu: (isShown: boolean) => void;
+  setToggleAction: (isShown: boolean) => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({
@@ -204,9 +206,11 @@ export const useUIStore = create<UIState>((set) => ({
   openModal: false,
   sortMenu: false,
   showMenu: true,
+  toggleAction: true,
 
   setOpenSearch: (isOpen: boolean) => set({ openSearch: isOpen }),
   setOpenModal: (isOpen: boolean) => set({ openModal: isOpen }),
   setOpenSort: (isOpen: boolean) => set({ sortMenu: isOpen }),
   setShowMenu: (isShown: boolean) => set({ showMenu: isShown }),
+  setToggleAction: (isShown: boolean) => set({ toggleAction: isShown }),
 }));

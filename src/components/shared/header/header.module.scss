@@ -1,12 +1,14 @@
 @import "../../../styles/variables.scss";
 
 .header {
-  padding: 25px 0px;
+  padding-top: 25px;
 
   .content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
+    border-bottom: 1px solid $line;
+    padding-bottom: 17px;
 
     .lists {
       display: flex;

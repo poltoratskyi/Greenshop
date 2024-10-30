@@ -1,18 +1,27 @@
 import Link from "next/link";
 
-import Style from "./login.module.scss";
+import Style from "./modal-forms.module.scss";
 
-import Button from "../../shared/button";
+import Button from "../button";
 import Social from "./social";
 
-const Login: React.FC = () => {
+interface Props {
+  overflow?: boolean;
+}
+
+const LogIn: React.FC<Props> = ({ overflow }) => {
   return (
-    <div className={Style.login}>
-      <h3>Enter your username and password to login.</h3>
+    <div
+      style={{ height: overflow ? "100%" : "500px" }}
+      className={Style.log_in}
+    >
+      {overflow && <h2 className={Style.text_reg}>Log In</h2>}
+
+      <h3>Log in to your account to continue.</h3>
 
       <form action="#" method="post">
         <input
-          className={Style.login_name}
+          className={Style.log_in__name}
           id="login_id"
           name="username"
           type="text"
@@ -21,11 +30,11 @@ const Login: React.FC = () => {
         />
 
         <input
-          className={Style.login_password}
+          className={Style.log_in__password}
           id="login-password_id"
           name="password"
           type="password"
-          placeholder="Enter your password to login"
+          placeholder="Enter your password"
           autoComplete="off"
         />
 
@@ -33,11 +42,11 @@ const Login: React.FC = () => {
           <Link href="#">Forgot Password?</Link>
         </div>
 
-        <Button button={true} className="enter" value="Login" />
+        <Button button={true} className="log_in" value="Log In" />
       </form>
 
       <Social
-        location="Or login with"
+        location="Or log in with"
         google="Login with Google"
         facebook="Login with Facebook"
         github="Login with Github"
@@ -46,4 +55,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default LogIn;

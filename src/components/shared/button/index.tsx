@@ -25,20 +25,10 @@ const Button: React.FC<Props> = ({
 }) => {
   const buttonClass = Style[className || ""];
 
-  const handlerOpenModal = () => {
-    document.body.style.overflow = "hidden";
-    setOpenModal && setOpenModal(true);
-  };
-
   return (
     <>
       {button && (
-        <button
-          onClick={() => {
-            handlerOpenModal();
-          }}
-          className={buttonClass}
-        >
+        <button className={buttonClass}>
           {svgLeft}
           {value}
           {svgRight}

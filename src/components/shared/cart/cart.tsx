@@ -4,6 +4,8 @@ import Style from "./cart.module.scss";
 
 import CartList from "./list";
 import CartCheck from "./check";
+import Slider from "./slider";
+
 import { svgBackspace } from "./static-data";
 
 const Cart: React.FC = () => {
@@ -21,6 +23,8 @@ const Cart: React.FC = () => {
 
           <CartCheck />
         </div>
+
+        <Slider />
       </div>
     </section>
   );
