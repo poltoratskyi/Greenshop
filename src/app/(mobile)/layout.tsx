@@ -1,3 +1,4 @@
+import Footer from "../../components/shared/footer";
 import type { Metadata } from "next";
 
 const metadata: Metadata = {
@@ -10,7 +11,11 @@ const MobileLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  return <main>{children}</main>;
+  return (
+    <main>
+      {children} <Footer />
+    </main>
+  );
 };
 
 export default MobileLayout;

@@ -8,20 +8,20 @@ interface Props {
   button?: boolean;
   link?: boolean;
   className?: string;
-  value: string | JSX.Element;
+  value?: string | JSX.Element;
+  svgCenter?: JSX.Element;
   svgLeft?: JSX.Element;
   svgRight?: JSX.Element;
-  setOpenModal?: (openModal: boolean) => void;
 }
 
 const Button: React.FC<Props> = ({
   className,
   value,
   svgLeft,
+  svgCenter,
   svgRight,
   button,
   link,
-  setOpenModal,
 }) => {
   const buttonClass = Style[className || ""];
 
@@ -30,6 +30,7 @@ const Button: React.FC<Props> = ({
       {button && (
         <button className={buttonClass}>
           {svgLeft}
+          {svgCenter}
           {value}
           {svgRight}
         </button>

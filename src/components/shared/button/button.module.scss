@@ -1,28 +1,13 @@
 @import "../../../styles/variables.scss";
 
-.join {
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-  line-height: 16px;
-  padding: 10px 25px;
-  background-color: $main;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  transition: 0.5s ease;
-
-  &:hover {
-    background-color: #2d763c;
-  }
-}
-
-.banner {
+.banner,
+.buy,
+.add,
+.favorite {
   display: inline-block;
-  padding: 15px 30px;
+  padding: 15px 35px;
   background-color: $main;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 16px;
   font-weight: 700;
   color: #fff;
@@ -35,12 +20,37 @@
   }
 }
 
+.add,
+.favorite {
+  border: 1px solid $main;
+  color: $main;
+  background-color: #fff;
+
+  &:hover {
+    color: #fff;
+    background-color: #2d763c;
+  }
+}
+
+.favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+  &:hover {
+    svg {
+      fill: #fff;
+    }
+  }
+}
+
 .adv {
   display: inline-flex;
   align-items: center;
   padding: 15px 30px;
   background-color: $main;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
   color: #fff;
@@ -60,7 +70,7 @@
   width: 100%;
   padding: 15px 25px;
   background-color: $main;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 16px;
   font-weight: 700;
   color: #fff;
@@ -124,7 +134,7 @@
 .sign_up {
   padding: 15px 30px;
   background-color: $main;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 16px;
   font-weight: 500;
   color: #fff;

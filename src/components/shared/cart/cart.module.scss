@@ -1,28 +1,13 @@
 @import "../../../styles/variables.scss";
 
 .cart {
-  .backspace {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-
-    h2 {
-      display: block;
-      margin: 0 auto;
-      font-size: 17px;
-      line-height: 16px;
-      color: $text;
-      font-weight: 700;
-    }
-  }
-
   .inner {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin: 35px 0px 90px;
 
-    .products_title,
+    .items_title,
     .check_title {
       display: flex;
       text-align: left;

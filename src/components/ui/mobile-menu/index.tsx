@@ -40,12 +40,19 @@ const MobileMenu: React.FC = () => {
 
         <Link href="/login">
           <li
+            style={{
+              pointerEvents: pathname === "/login" ? "none" : "auto",
+            }}
             onClick={() => {
               setShowMenu(false);
-              setOpenModal && setOpenModal(true);
+              setOpenModal(true);
               document.body.style.overflow = "hidden";
             }}
-            className={Style.list}
+            className={
+              pathname === "/login"
+                ? `${Style.list} ${Style.active}`
+                : Style.list
+            }
           >
             {login}
           </li>

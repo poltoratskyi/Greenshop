@@ -1,23 +1,15 @@
-import Link from "next/link";
-
 import Style from "./cart.module.scss";
 
 import CartList from "./list";
 import CartCheck from "./check";
 import Slider from "./slider";
-
-import { svgBackspace } from "./static-data";
+import Backspace from "../backspace";
 
 const Cart: React.FC = () => {
   return (
     <section className={Style.cart}>
-      <div className={Style.backspace}>
-        <Link href="/">{svgBackspace}</Link>
-
-        <h2>Shopping Cart</h2>
-      </div>
-
       <div className="container">
+        <Backspace text="Shopping Cart" />
         <div className={Style.inner}>
           <CartList />
 

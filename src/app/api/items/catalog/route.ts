@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { Item } from "../../../../types";
 import { prisma } from "../../../../prisma/prisma-client";
 
 export async function GET() {
@@ -10,14 +9,7 @@ export async function GET() {
       },
     });
 
-    const itemsWithFirstVariation = items.map((item: Item) => {
-      return {
-        ...item,
-        firstVariation: item.variations[0],
-      };
-    });
-
-    return NextResponse.json(itemsWithFirstVariation);
+    return NextResponse.json(items);
   } catch (error) {
     console.error("Error", error);
     return NextResponse.json({ error: "Error" }, { status: 500 });

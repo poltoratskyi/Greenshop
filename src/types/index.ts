@@ -8,7 +8,6 @@ export type Item = {
   categoryId: number;
   createdAt: Date;
   updatedAt: Date;
-  firstVariation?: Variation;
   variations: Variation[];
 };
 

@@ -10,26 +10,12 @@ import { useCountStore } from "../../../utils/store";
 
 import { svgDecr, svgIncr, svgTrash } from "./static-data";
 
-interface Item {
-  id: number;
-  imgUrl: string;
-  name: string;
-  onSale: boolean;
-  sailPrice: number;
-  price: number;
-  sku: string;
-  description: string;
-  category: string;
-  tags: string;
-}
-[];
-
 const CartList: React.FC = () => {
   const { count, increase, decrease } = useCountStore();
 
   return (
-    <div className={Style.products}>
-      <div className={Style.products_title}>
+    <div className={Style.items}>
+      <div className={Style.items_title}>
         <h2 style={{ width: "320px" }}>Products</h2>
         <h2 style={{ width: "100px" }}>Price</h2>
         <h2 style={{ width: "100px" }}>Quantity</h2>
@@ -37,7 +23,7 @@ const CartList: React.FC = () => {
       </div>
 
       <ul className={Style.lists}>
-        {catalog.map((item: Item) => (
+        {catalog.map((item) => (
           <li className={Style.list} key={item.id}>
             <div className={Style.layout}>
               <Link className={Style.img} href="#">

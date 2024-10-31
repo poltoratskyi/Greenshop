@@ -6,24 +6,21 @@ import { Item } from "../../../types";
 
 import Style from "./catalog.module.scss";
 
+import { percentValue } from "../../../hooks/index";
 import { svgCart, svgHeart } from "./static-data";
 
-const List: React.FC<Item> = ({ id, imgUrl, name, firstVariation }) => {
-  const percentValue = (price: number, sailPrice: number) => {
-    const discount = ((price - sailPrice) / price) * 100;
-    return discount.toFixed(0);
-  };
-
+const List: React.FC<Item> = ({ id, imgUrl, name, variations }) => {
   return (
     <>
       <div className={Style.block}>
-        <Link className={Style.img_link} href={`/product/${id}`}>
+        <Link className={Style.img_link} href={`/item/${id}`}>
           <div className={Style.line}></div>
 
           <img
             style={{
               width: "100%",
               height: "auto",
+              objectFit: "contain",
             }}
             src={imgUrl}
             alt={name}
@@ -36,32 +33,32 @@ const List: React.FC<Item> = ({ id, imgUrl, name, firstVariation }) => {
           {svgCart}
         </div>
 
-        <Link className={Style.title} href={`/product/${id}`}>
+        <Link className={Style.title} href={`/item/${id}`}>
           {name}
         </Link>
 
-        {firstVariation?.onSale && (
+        {variations[0]?.onSale && (
           <div className={Style.percent}>
-            {percentValue(firstVariation.price, firstVariation.sailPrice)}
+            {percentValue(variations[0].price, variations[0].sailPrice)}
             {"% OFF"}
           </div>
         )}
       </div>
 
-      {firstVariation?.onSale ? (
+      {variations[0]?.onSale ? (
         <div className={Style.info}>
           <span className={Style.price}>
-            ${firstVariation.sailPrice.toFixed(2)}
+            ${variations[0].sailPrice.toFixed(2)}
           </span>
 
           <span className={Style.sailPrice}>
-            ${firstVariation.price.toFixed(2)}
+            ${variations[0].price.toFixed(2)}
           </span>
         </div>
       ) : (
         <div className={Style.info}>
           <span className={Style.price}>
-            ${firstVariation?.price.toFixed(2)}
+            ${variations[0]?.price.toFixed(2)}
           </span>
         </div>
       )}
