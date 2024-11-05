@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import Style from "./adv.module.scss";
 
 import Button from "../../shared/button";
@@ -20,10 +22,13 @@ const Adv: React.FC = () => {
         <div className={Style.content}>
           {advData.map((item: Item) => (
             <div className={Style.info} key={item.id}>
-              <img
+              <Image
+                width={600}
+                height={600}
                 style={{
                   width: "100%",
                   height: "auto",
+                  objectFit: "contain",
                 }}
                 src={item.imgUrl}
                 alt={item.title}

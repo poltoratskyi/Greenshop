@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import Style from "./single-item.module.scss";
 
@@ -21,7 +22,18 @@ const List: React.FC<Props> = ({ item }) => {
 
   return (
     <div className={Style.content}>
-      <img src={item.imgUrl} alt={item.name}></img>
+      <Image
+        width={575}
+        height={575}
+        priority
+        style={{
+          width: "100%",
+          height: "auto",
+          objectFit: "contain",
+        }}
+        src={item.imgUrl}
+        alt={item.name}
+      />
 
       {item.variations[selectedSizeIndex]?.onSale && (
         <div className={Style.percent}>

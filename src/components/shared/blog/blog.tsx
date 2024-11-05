@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import Link from "next/link";
 
 import Style from "./blog.module.scss";
@@ -27,10 +29,13 @@ const Blog: React.FC = () => {
         <div className={Style.content}>
           {blogData.map((item: Item) => (
             <div className={Style.wrapper} key={item.id}>
-              <img
+              <Image
+                width={600}
+                height={600}
                 style={{
                   width: "100%",
                   height: "auto",
+                  objectFit: "contain",
                 }}
                 src={item.imgUrl}
                 alt={item.title}

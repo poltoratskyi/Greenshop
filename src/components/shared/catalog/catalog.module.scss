@@ -125,10 +125,15 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 15px;
+      width: 100%;
 
       .block {
         position: relative;
         padding-bottom: 50px;
+
+        .img_link {
+          display: block;
+        }
 
         &:hover {
           background-color: $background;

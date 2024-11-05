@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { Item } from "../../../types";
 
@@ -23,8 +24,6 @@ const List: React.FC<Item> = ({
   updatedAt,
   variations,
 }) => {
-  // Related item
-
   const checkRelatedItems = () => {
     const itemProps = {
       id,
@@ -58,7 +57,9 @@ const List: React.FC<Item> = ({
           >
             <div className={Style.line}></div>
 
-            <img
+            <Image
+              width={252}
+              height={252}
               style={{
                 width: "100%",
                 height: "auto",

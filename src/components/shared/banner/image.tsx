@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface Props {
   imgUrl: string;
   width?: number;
@@ -5,7 +7,20 @@ interface Props {
 }
 
 const Img: React.FC<Props> = ({ imgUrl, width, height }) => {
-  return <img src={imgUrl} width={width} height={height} alt="img" />;
+  return (
+    <Image
+      width={width}
+      height={height}
+      priority
+      style={{
+        width: "100%",
+        height: "auto",
+        objectFit: "contain",
+      }}
+      src={imgUrl}
+      alt="main"
+    />
+  );
 };
 
 export default Img;
