@@ -192,14 +192,14 @@ const Categories: React.FC = () => {
           {sizeMenu.map((item: Size, index: number) => (
             <li
               className={
-                activeSizeMenu === item.name
+                activeSizeMenu === item.fullName
                   ? `${Style.list} ${Style.active}`
                   : Style.list
               }
-              onClick={() => setActiveSizeMenu(item.name)}
+              onClick={() => setActiveSizeMenu(item.fullName)}
               key={index}
             >
-              {item.name}
+              {item.fullName}
               <span>
                 <span>{calculateQuantity(variation, item.id)}</span>
               </span>

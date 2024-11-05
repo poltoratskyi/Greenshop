@@ -1,23 +1,17 @@
 @import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
 
 .blog {
   margin-bottom: 100px;
+
   .title {
+    @include title($m: 0px 0px 15px, $fw: 700, $lh: 16px, $fz: 30px);
     text-align: center;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 16px;
-    color: $text;
-    margin-bottom: 15px;
   }
 
   .descr {
+    @include description($mb: 35px);
     text-align: center;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    color: $descr;
-    margin-bottom: 35px;
   }
 
   .content {
@@ -43,29 +37,11 @@
         }
 
         h3 {
-          font-weight: 700;
-          line-height: 26px;
-          font-size: 20px;
-          color: $text;
-          margin-bottom: 5px;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          -webkit-line-clamp: 2;
+          @include title-clamp($mb: 5px);
         }
 
         p {
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          font-size: 14px;
-          color: $descr;
-          font-weight: 400;
-          margin-bottom: 10px;
-          line-height: 22px;
-          -webkit-line-clamp: 2;
+          @include description-clamp($mb: 10px);
         }
 
         a {
@@ -87,6 +63,7 @@
 
           &:hover {
             color: $main;
+
             svg {
               opacity: 1;
               visibility: visible;
@@ -102,6 +79,7 @@
 @media (max-width: 575px) {
   .blog {
     margin-bottom: 20px;
+
     .title {
       font-size: 20px;
     }
@@ -126,7 +104,7 @@
           }
 
           h3 {
-            font-size: 17px;
+            @include title($m: 0px 0px 10px, $fw: 700, $lh: 26px, $fz: 17px);
           }
         }
       }

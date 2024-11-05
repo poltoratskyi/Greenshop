@@ -21,9 +21,6 @@ export async function GET(request: NextRequest) {
       include: {
         variations: true,
       },
-
-      // Limiting the items -> 4
-      take: 4,
     });
 
     return NextResponse.json(items);

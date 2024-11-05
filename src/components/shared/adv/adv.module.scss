@@ -1,4 +1,5 @@
 @import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
 
 .adv {
   margin: 100px 0px 140px;
@@ -20,11 +21,7 @@
         width: 350px;
 
         .title {
-          font-size: 18px;
-          line-height: 24px;
-          color: $text;
-          font-weight: 900;
-          margin-bottom: 10px;
+          @include title($m: 0px 0px 10px);
           text-transform: uppercase;
           display: -webkit-box;
           -webkit-box-orient: vertical;
@@ -34,11 +31,7 @@
         }
 
         .descr {
-          font-size: 14px;
-          line-height: 24px;
-          font-weight: 400;
-          margin-bottom: 25px;
-          color: $descr;
+          @include description($mb: 25px);
           display: -webkit-box;
           -webkit-box-orient: vertical;
           overflow: hidden;

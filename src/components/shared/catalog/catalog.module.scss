@@ -1,4 +1,5 @@
 @import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
 
 .catalog {
   .content {
@@ -51,11 +52,7 @@
 
     .categories {
       .title {
-        color: $text;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 16px;
-        margin-bottom: 10px;
+        @include title($m: 0px 0px 10px, $fw: 700, $lh: 18px);
       }
 
       .lists {
@@ -119,6 +116,10 @@
     justify-items: center;
     gap: 40px;
 
+    &.related {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
     .list {
       display: flex;
       flex-direction: column;
@@ -127,12 +128,11 @@
 
       .block {
         position: relative;
+        padding-bottom: 50px;
 
         &:hover {
-          .img_link {
-            background-color: $background;
-            transition: 0.5s ease;
-          }
+          background-color: $background;
+          transition: 0.5s ease;
 
           .line {
             opacity: 1;
@@ -145,18 +145,13 @@
           }
         }
 
-        .img_link {
-          display: block;
-          padding-bottom: 50px;
-        }
-
         .control {
           position: absolute;
-          top: 80%;
+          bottom: 0;
           left: 50%;
           transform: translate(-50%, -50%);
-          opacity: 0;
           visibility: hidden;
+          opacity: 0;
 
           & > [data-type="heart"] {
             cursor: pointer;
@@ -177,12 +172,8 @@
       }
 
       .title {
+        @include title($m: 15px 0px 0px 0px, $fw: 500, $lh: 16px, $fz: 16px);
         display: block;
-        margin-top: 30px;
-        font-size: 16px;
-        line-height: 16px;
-        color: $text;
-        font-weight: 500;
         transition: 0.5s ease;
 
         &:hover {
@@ -191,16 +182,7 @@
       }
 
       .percent {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 10px;
-        background-color: $main;
-        color: #fff;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 16px;
-        margin: 5px 0px 0px 5px;
+        @include percent();
       }
 
       .info {
@@ -208,19 +190,18 @@
         align-items: center;
 
         .sailPrice {
-          font-size: 18px;
-          font-weight: 400;
-          line-height: 16px;
-          color: $sailPrice;
-          margin-left: 20px;
-          text-decoration: $sailPriceLine line-through;
+          @include sail-price($ml: 20px);
         }
 
         .price {
-          color: $main;
-          font-weight: 700;
-          font-size: 18px;
-          line-height: 18px;
+          @include price(
+            $fw: 700,
+            $lh: 18px,
+            $fz: 18px,
+            $c: $main,
+            $ta: left,
+            $w: auto
+          );
         }
       }
 
@@ -278,11 +259,9 @@
         gap: 5px;
 
         .block {
-          .img_link {
-            background-color: $background;
-            border-radius: 20px;
-            padding-bottom: 0;
-          }
+          background-color: $background;
+          border-radius: 20px;
+          padding-bottom: 0;
 
           .control {
             top: 0;
@@ -291,6 +270,7 @@
             transform: none;
             opacity: 1;
             visibility: visible;
+            bottom: auto;
             background-color: #fff;
             border-radius: 100%;
             padding: 10px;

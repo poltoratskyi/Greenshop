@@ -1,4 +1,5 @@
 @import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
 
 .footer {
   .content {
@@ -18,21 +19,17 @@
 
           .inner {
             padding-right: 35px;
-            border-right: 1px rgba($main, 0.1) solid;
+            border-right: 1px solid $line;
 
             .title {
+              @include title($fw: 700, $lh: 16px, $fz: 17px);
               margin: 20px 0px 10px;
-              font-size: 17px;
-              font-weight: 700;
-              color: $text;
-              line-height: 16px;
             }
 
             .descr {
+              @include description($mb: unset, $lh: 22px, $fz: 14px);
               font-size: 14px;
               font-weight: 400;
-              color: $descr;
-              line-height: 22px;
             }
 
             &:nth-child(3n) {
@@ -45,11 +42,7 @@
           max-width: 350px;
 
           .title {
-            margin-bottom: 20px;
-            font-size: 18px;
-            font-weight: 700;
-            color: $text;
-            line-height: 16px;
+            @include title($m: 0px 0px 10px, $fw: 700, $lh: 16px);
           }
 
           form {
@@ -57,10 +50,7 @@
           }
 
           .descr {
-            font-size: 14px;
-            line-height: 22px;
-            color: $descr;
-            font-weight: 400;
+            @include description($mb: unset, $lh: 22px);
             margin-top: 20px;
           }
         }
@@ -68,14 +58,14 @@
     }
 
     .contacts {
-      border-top: 1px rgba($main, 0.1) solid;
-      border-bottom: 1px rgba($main, 0.1) solid;
+      border-top: 1px solid $main;
+      border-bottom: 1px solid $main;
 
       .wrapper {
         display: flex;
         gap: 60px;
         padding: 25px;
-        background-color: rgba($main, 0.1);
+        background-color: $line;
 
         .lists {
           display: grid;
@@ -91,10 +81,7 @@
             }
 
             .descr {
-              font-size: 14px;
-              line-height: 22px;
-              color: $text;
-              font-weight: 400;
+              @include description($mb: unset, $lh: 22px, $c: $text);
             }
           }
         }
@@ -106,14 +93,10 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 30px;
       padding: 30px 25px;
-      border-bottom: 1px rgba($main, 0.2) solid;
+      border-bottom: 1px solid $line;
 
       .title {
-        font-size: 18px;
-        font-weight: 700;
-        line-height: 16px;
-        color: $text;
-        margin-bottom: 10px;
+        @include title($m: 0px 0px 10px, $fw: 700, $lh: 16px);
       }
 
       .lists {
@@ -144,7 +127,7 @@
             height: 30px;
             width: 30px;
             border-radius: 4px;
-            border: 1px rgba($main, 0.2) solid;
+            border: 1px $line solid;
             cursor: pointer;
             margin-right: 10px;
             transition: 0.5s ease;
@@ -190,7 +173,6 @@
 
 @media (max-width: 575px) {
   .footer {
-    padding-bottom: 50px;
     .content {
       .contacts {
         .wrapper {
@@ -215,16 +197,6 @@
       .service {
         padding: 20px;
 
-        .title {
-          font-size: 17px;
-          min-height: 35px;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          -webkit-line-clamp: 2;
-        }
-
         .label {
           flex-direction: column;
           .info {
@@ -236,10 +208,6 @@
               svg {
                 display: block;
                 margin: 0 auto;
-              }
-
-              .title {
-                font-size: 17px;
               }
 
               .title,
@@ -260,6 +228,7 @@
             .title {
               text-align: center;
             }
+
             .title {
               font-size: 17px;
               line-height: 22px;

@@ -1,7 +1,8 @@
 @import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
 
 .single_item {
-  margin: 50px 0px 100px;
+  margin-bottom: 100px;
 
   .content {
     position: relative;
@@ -9,6 +10,7 @@
     grid-template-columns: repeat(2, 1fr);
     align-items: start;
     gap: 50px;
+    margin-bottom: 100px;
 
     img {
       border-radius: 6px;
@@ -18,16 +20,7 @@
     }
 
     .percent {
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 10px;
-      background-color: $main;
-      color: #fff;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 16px;
-      margin: 5px 0px 0px 5px;
+      @include percent(6px);
     }
 
     .info {
@@ -69,11 +62,7 @@
       }
 
       .description {
-        font-size: 14px;
-        line-height: 24px;
-        font-weight: 400;
-        color: $descr;
-        margin-bottom: 25px;
+        @include description($mb: 25px);
       }
 
       .short {
@@ -106,15 +95,21 @@
           justify-content: center;
           height: 38px;
           width: 38px;
-          border: 1px solid $line;
+          border: 1px solid $border;
           border-radius: 100%;
           font-size: 14px;
           line-height: 16px;
-          transition: 0.5s ease;
           color: $descr;
           cursor: pointer;
 
           &:hover {
+            color: $main;
+            border: 1px solid $main;
+          }
+
+          &.selected {
+            font-size: 18px;
+            font-weight: 700;
             color: $main;
             border: 1px solid $main;
           }
@@ -172,7 +167,7 @@
             height: 30px;
             width: 30px;
             border-radius: 4px;
-            border: 1px rgba($main, 0.2) solid;
+            border: 1px $line solid;
             transition: 0.5s ease;
             cursor: pointer;
 
@@ -186,6 +181,31 @@
           }
         }
       }
+    }
+  }
+
+  .outline {
+    margin-bottom: 130px;
+    .wrapper {
+      border-bottom: 1px solid $line;
+      margin-bottom: 30px;
+      .title {
+        @include title($m: unset, $fw: 700, $lh: 16px, $fz: 17px, $c: $main);
+        display: inline-block;
+        padding-bottom: 15px;
+        border-bottom: 3px solid $main;
+      }
+    }
+
+    .text {
+      color: $descr;
+      font-weight: 400px;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    &:last-child {
+      margin-bottom: 0px;
     }
   }
 }

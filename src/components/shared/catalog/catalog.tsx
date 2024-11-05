@@ -6,12 +6,11 @@ import Style from "./catalog.module.scss";
 
 import Categories from "./categories";
 import Filter from "./filter";
-import List from "./list";
 
 import { useCatalogStore } from "../../../utils/store";
-import { Item } from "../../../types";
 
 import Skeleton from "../../ui/skeleton/catalog/items";
+import CatalogItems from "./catalog-items";
 
 const Catalog: React.FC = () => {
   const catalog = useCatalogStore((state) => state.catalog);
@@ -64,15 +63,7 @@ const Catalog: React.FC = () => {
           <div style={{ width: "100%" }}>
             <Filter />
 
-            <div className={Style.items}>
-              <ul className={Style.lists}>
-                {catalog.map((item: Item) => (
-                  <li key={item.id} className={Style.list}>
-                    <List {...item} />
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <CatalogItems catalog={catalog} />
           </div>
         </div>
       </div>

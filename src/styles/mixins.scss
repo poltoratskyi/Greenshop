@@ -1,0 +1,108 @@
+@import "./variables.scss";
+
+@mixin title($m: unset, $fw: 900, $lh: 24px, $fz: 18px, $c: $text) {
+  color: $c;
+  font-size: $fz;
+  font-weight: $fw;
+  line-height: $lh;
+  margin: $m;
+}
+
+@mixin description($mb: unset, $fw: 400, $lh: 24px, $fz: 14px, $c: $descr) {
+  color: $c;
+  font-size: $fz;
+  font-weight: $fw;
+  line-height: $lh;
+  margin-bottom: $mb;
+}
+
+@mixin title-clamp($mb: unset, $fw: 700, $lh: 26px, $fz: 20px, $c: $text) {
+  color: $c;
+  font-size: $fz;
+  font-weight: $fw;
+  line-height: $lh;
+  margin-bottom: $mb;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
+
+@mixin description-clamp(
+  $mb: unset,
+  $fw: 400,
+  $lh: 22px,
+  $fz: 14px,
+  $c: $descr
+) {
+  color: $c;
+  font-size: $fz;
+  font-weight: $fw;
+  line-height: $lh;
+  margin-bottom: $mb;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
+
+@mixin price($fw: 500, $lh: 16px, $fz: 16px, $c: $descr, $ta, $w: auto) {
+  color: $c;
+  font-size: $fz;
+  font-weight: $fw;
+  line-height: $lh;
+  text-align: $ta;
+  width: $w;
+}
+
+@mixin sail-price(
+  $ml: unset,
+  $fw: 500,
+  $lh: 16px,
+  $fz: 16px,
+  $c: $sailPrice,
+  $td: $sailPriceLine line-through,
+  $w: auto
+) {
+  font-size: $fz;
+  font-weight: $fw;
+  line-height: $lh;
+  color: $c;
+  margin-left: $ml;
+  text-decoration: $td;
+}
+
+@mixin percent($br: 0, $m: 5px 0 0 5px, $fz: 16px) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background-color: $main;
+  color: #fff;
+  font-weight: 500;
+  font-size: $fz;
+  line-height: 16px;
+  margin: $m;
+  border-radius: $br;
+}
+
+@mixin scroll($width) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($main, 0.5);
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $line;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba($main, 1);
+    cursor: pointer;
+  }
+}

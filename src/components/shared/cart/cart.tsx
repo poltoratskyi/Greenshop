@@ -7,18 +7,20 @@ import Backspace from "../backspace";
 
 const Cart: React.FC = () => {
   return (
-    <section className={Style.cart}>
-      <div className="container">
-        <Backspace text="Shopping Cart" />
-        <div className={Style.inner}>
-          <CartList />
+    <>
+      <Backspace text="Shopping Cart" />
+      <section className={Style.cart}>
+        <div className="container">
+          <div className={Style.inner}>
+            <CartList />
 
-          <CartCheck />
+            <CartCheck />
+          </div>
+
+          <Slider />
         </div>
-
-        <Slider />
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

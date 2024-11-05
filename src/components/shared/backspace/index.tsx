@@ -10,11 +10,11 @@ interface Props {
 
 const Backspace: React.FC<Props> = ({ text }) => {
   return (
-    <div className={Style.backspace}>
+    <nav className={Style.backspace}>
       <Link href="/">{svgBackspace}</Link>
 
       {text && <h2>{text}</h2>}
-    </div>
+    </nav>
   );
 };
 

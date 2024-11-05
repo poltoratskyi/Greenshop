@@ -10,7 +10,11 @@ const SingleItemPage: React.FC<Props> = async ({ params: { id } }) => {
   const item = await prisma.item.findUnique({
     where: { id: Number(id) },
     include: {
-      variations: true,
+      variations: {
+        include: {
+          size: true,
+        },
+      },
     },
   });
 

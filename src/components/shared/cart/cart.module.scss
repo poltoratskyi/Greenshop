@@ -1,23 +1,22 @@
 @import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
 
 .cart {
+  margin-bottom: 90px;
+
   .inner {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 35px 0px 90px;
+    margin-bottom: 90px;
 
     .items_title,
     .check_title {
+      @include title($m: 0px 0px 10px, $fw: 700, $lh: 16px, $fz: 16px);
       display: flex;
       text-align: left;
-      font-size: 16px;
-      line-height: 16px;
-      color: $text;
-      font-weight: 700;
-      margin-bottom: 10px;
       padding-bottom: 15px;
-      border-bottom: 1px solid rgba(203, 203, 203, 0.4);
+      border-bottom: 1px solid rgba($main, 0.5);
     }
 
     .lists {
@@ -28,7 +27,7 @@
           display: flex;
           align-items: center;
           transition: 0.5s ease;
-          padding: 10px;
+          padding: 10px 30px 10px 10px;
 
           .img {
             width: 100px;
@@ -37,17 +36,8 @@
           }
 
           .title {
-            font-size: 16px;
-            line-height: 16px;
-            color: $text;
-            font-weight: 500;
-            margin-bottom: 10px;
+            @include title-clamp($mb: 10px, $fw: 500, $lh: 16px, $fz: 16px);
             transition: 0.5s ease;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 2;
             cursor: pointer;
 
             &:hover {
@@ -78,22 +68,15 @@
 
         .price,
         .total {
-          font-size: 16px;
-          line-height: 16px;
-          color: $descr;
-          font-weight: 500;
+          @include price($ta: left);
         }
 
         .price {
-          text-align: left;
-          width: 100px;
+          @include price($ta: left, $w: 100px);
         }
 
         .total {
-          text-align: left;
-          color: $main;
-          font-weight: 700;
-          width: 130px;
+          @include price($c: $main, $fw: 700, $ta: left, $w: 130px);
           margin-left: 130px;
         }
 
@@ -225,13 +208,15 @@
 
   .slider {
     .title {
-      font-size: 17px;
-      line-height: 16px;
-      color: $main;
-      font-weight: 700;
-      margin-bottom: 10px;
+      @include title(
+        $m: 0px 0px 10px,
+        $fw: 700,
+        $lh: 16px,
+        $fz: 17px,
+        $c: $main
+      );
       padding-bottom: 15px;
-      border-bottom: 1px solid rgba(203, 203, 203, 0.4);
+      border-bottom: 1px solid rgba($main, 0.5);
     }
   }
 }
