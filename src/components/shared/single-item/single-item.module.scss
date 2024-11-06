@@ -23,11 +23,13 @@
 
     .info {
       h2 {
-        font-size: 28px;
-        line-height: 16px;
-        font-weight: 700;
-        color: $text;
-        margin-bottom: 20px;
+        @include title(
+          $m: 0px 0px 20px 0px,
+          $fw: 700,
+          $lh: 16px,
+          $fz: 28px,
+          $c: $text
+        );
       }
 
       .info {
@@ -131,6 +133,10 @@
         font-weight: 400;
       }
 
+      .tags {
+        margin-bottom: 25px;
+      }
+
       .sku,
       .tags,
       .categories {
@@ -143,7 +149,6 @@
       .share {
         display: flex;
         align-items: center;
-        margin-top: 25px;
 
         .text {
           color: $text;
@@ -183,10 +188,12 @@
   }
 
   .outline {
-    margin-bottom: 130px;
+    margin-bottom: 100px;
+
     .wrapper {
       border-bottom: 1px solid $line;
       margin-bottom: 30px;
+
       .title {
         @include title($m: unset, $fw: 700, $lh: 16px, $fz: 17px, $c: $main);
         display: inline-block;
@@ -197,13 +204,73 @@
 
     .text {
       color: $descr;
-      font-weight: 400px;
+      font-weight: 400;
       font-size: 14px;
       line-height: 24px;
     }
 
     &:last-child {
       margin-bottom: 0px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .single_item {
+    margin-bottom: 50px;
+
+    .content {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 25px;
+      margin-bottom: 50px;
+
+      .info {
+        h2 {
+          font-size: 17px;
+        }
+
+        .lists {
+          .list {
+            border-radius: 6px;
+            height: 46px;
+            width: 46px;
+            font-size: 18px;
+
+            &.selected {
+              font-size: 22px;
+            }
+          }
+        }
+
+        .action {
+          justify-content: space-between;
+          gap: 20px;
+        }
+
+        .share {
+          flex-direction: column;
+          align-items: start;
+
+          .text {
+            margin: 0px 0px 10px 0px;
+          }
+
+          .share_lists {
+            li {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+      }
+    }
+
+    .outline {
+      margin-bottom: 50px;
+
+      .wrapper {
+        margin-bottom: 15px;
+      }
     }
   }
 }

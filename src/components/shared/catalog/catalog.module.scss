@@ -255,6 +255,10 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
 
+      &.related {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .loader {
         width: 100%;
         height: auto;
@@ -265,7 +269,7 @@
 
         .block {
           background-color: $background;
-          border-radius: 20px;
+          border-radius: 6px;
           padding-bottom: 0;
 
           .control {

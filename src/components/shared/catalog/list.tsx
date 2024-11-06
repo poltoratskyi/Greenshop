@@ -10,7 +10,11 @@ import Style from "./catalog.module.scss";
 import { percentValue, handleRelatedItems } from "../../../hooks/index";
 import { svgCart, svgHeart } from "./static-data";
 
-const List: React.FC<Item> = ({
+interface Props extends Item {
+  control?: boolean;
+}
+
+const List: React.FC<Props> = ({
   id,
   imgUrl,
   name,
@@ -23,6 +27,7 @@ const List: React.FC<Item> = ({
   createdAt,
   updatedAt,
   variations,
+  control,
 }) => {
   const checkRelatedItems = () => {
     const itemProps = {
@@ -70,11 +75,13 @@ const List: React.FC<Item> = ({
             />
           </Link>
 
-          <div className={Style.control}>
-            {svgHeart}
+          {control && (
+            <div className={Style.control}>
+              {svgHeart}
 
-            {svgCart}
-          </div>
+              {svgCart}
+            </div>
+          )}
 
           {variations[0]?.onSale && (
             <div className={Style.percent}>

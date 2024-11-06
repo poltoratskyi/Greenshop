@@ -14,3 +14,9 @@
     font-weight: 700;
   }
 }
+
+@media (max-width: 575px) {
+  .backspace {
+    margin: 15px 0px;
+  }
+}

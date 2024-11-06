@@ -2,7 +2,7 @@ import Style from "./feedback.module.scss";
 
 const FeedbackInput: React.FC = () => {
   return (
-    <div style={{ display: "flex" }}>
+    <div className={Style.block}>
       <input
         id="email"
         name="email"

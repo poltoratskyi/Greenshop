@@ -157,8 +157,8 @@ export const variation = [
     itemId: 1,
   },
   {
-    price: 139,
-    sailPrice: 0,
+    price: 159,
+    sailPrice: 139,
     onSale: true,
     sizeId: 3,
     value: 60,

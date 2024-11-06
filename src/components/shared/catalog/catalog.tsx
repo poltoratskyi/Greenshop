@@ -11,6 +11,7 @@ import { useCatalogStore } from "../../../utils/store";
 
 import Skeleton from "../../ui/skeleton/catalog/items";
 import CatalogItems from "./catalog-items";
+import List from "./list";
 
 const Catalog: React.FC = () => {
   const catalog = useCatalogStore((state) => state.catalog);
@@ -63,7 +64,13 @@ const Catalog: React.FC = () => {
           <div style={{ width: "100%" }}>
             <Filter />
 
-            <CatalogItems catalog={catalog} />
+            <CatalogItems>
+              {catalog.map((item) => (
+                <li key={item.id} className={Style.list}>
+                  <List control {...item} />
+                </li>
+              ))}
+            </CatalogItems>
           </div>
         </div>
       </div>

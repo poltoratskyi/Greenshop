@@ -1,8 +1,11 @@
 "use client";
 
 import Style from "./results.module.scss";
+import List from "../catalog/list";
 
+import CatalogStyle from "../catalog/catalog.module.scss";
 import CatalogItems from "../catalog/catalog-items";
+
 import { useSearchStore } from "../../../utils/store";
 
 const Results: React.FC = () => {
@@ -38,7 +41,13 @@ const Results: React.FC = () => {
           </h2>
 
           <div className={Style.scrollbar}>
-            <CatalogItems catalog={results} />
+            <CatalogItems>
+              {results.map((item) => (
+                <li key={item.id} className={CatalogStyle.list}>
+                  <List control {...item} />
+                </li>
+              ))}
+            </CatalogItems>
           </div>
         </div>
       </div>
