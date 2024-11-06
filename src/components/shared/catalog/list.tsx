@@ -51,7 +51,10 @@ const List: React.FC<Props> = ({
   return (
     <>
       <div>
-        <div className={Style.block}>
+        <div
+          style={!control ? { paddingBottom: "unset" } : {}}
+          className={Style.block}
+        >
           <Link
             onClick={() => {
               checkRelatedItems();

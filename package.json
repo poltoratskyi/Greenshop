@@ -16,27 +16,27 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^5.17.0",
+    "@prisma/client": "^5.22.0",
     "@types/bcrypt": "^5.0.2",
-    "axios": "^1.7.4",
+    "axios": "^1.7.7",
     "bcrypt": "^5.1.1",
     "next": "14.2.5",
-    "prisma": "^5.17.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-loading-skeleton": "^3.4.0",
+    "prisma": "^5.22.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-loading-skeleton": "^3.5.0",
     "react-use": "^17.5.1",
-    "sass": "^1.77.8",
+    "sass": "^1.80.6",
     "ts-node": "^10.9.2",
     "zustand": "^4.5.5"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/node": "^20.17.6",
+    "@types/react": "^18.3.12",
     "@types/react-content-loader": "^4.0.0",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
+    "@types/react-dom": "^18.3.1",
+    "eslint": "^8.57.1",
     "eslint-config-next": "14.2.5",
-    "typescript": "^5"
+    "typescript": "^5.6.3"
   }
 }
