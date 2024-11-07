@@ -14,9 +14,14 @@ const Actions: React.FC = () => {
 
   return (
     <div className={Style.actions}>
-      <span onClick={() => setOpenSearch(true)}>{svgSearch}</span>
+      <span className={Style.search} onClick={() => setOpenSearch(true)}>
+        {svgSearch}
+      </span>
 
-      <Link href="/cart">{svgCart}</Link>
+      <Link className={Style.cart} href="/cart">
+        {svgCart}
+        <span>9</span>
+      </Link>
 
       <Link
         style={{

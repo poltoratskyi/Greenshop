@@ -10,10 +10,7 @@ interface Props {
 
 const SignUp: React.FC<Props> = ({ overflow }) => {
   return (
-    <div
-      style={{ height: overflow ? "100%" : "500px" }}
-      className={Style.sign_up}
-    >
+    <div className={`${Style.log_in} ${overflow && Style.overflow}`}>
       {overflow && <h2 className={Style.text_reg}>Sign Up</h2>}
 
       <h3>Sign up to get started.</h3>

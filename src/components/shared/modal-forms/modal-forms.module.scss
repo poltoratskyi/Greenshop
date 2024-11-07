@@ -113,6 +113,10 @@
     overflow-y: auto;
     width: 100%;
 
+    &.overflow {
+      height: 100%;
+    }
+
     @include scroll(3px);
 
     h3 {

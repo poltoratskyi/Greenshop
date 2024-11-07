@@ -11,10 +11,7 @@ interface Props {
 
 const LogIn: React.FC<Props> = ({ overflow }) => {
   return (
-    <div
-      style={{ height: overflow ? "100%" : "500px" }}
-      className={Style.log_in}
-    >
+    <div className={`${Style.log_in} ${overflow && Style.overflow}`}>
       {overflow && <h2 className={Style.text_reg}>Log In</h2>}
 
       <h3>Log in to your account to continue.</h3>

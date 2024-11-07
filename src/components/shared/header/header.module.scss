@@ -68,21 +68,35 @@
         }
       }
 
-      span {
-        & > [data-type="search"] {
-          margin-right: 30px;
-          &:hover {
-            fill: $main;
-          }
+      .search,
+      .cart {
+        margin-right: 30px;
+
+        &:hover {
+          fill: $main;
         }
       }
 
-      a {
-        & > [data-type="cart"] {
-          margin-right: 30px;
-          &:hover {
-            fill: $main;
-          }
+      .cart {
+        position: relative;
+
+        span {
+          border: 1px solid #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 10px;
+          bottom: 100%;
+          left: 100%;
+          transform: translate(-50%, 50%);
+          position: absolute;
+          background-color: $main;
+          height: 22px;
+          width: 22px;
+          border-radius: 100%;
         }
       }
 
