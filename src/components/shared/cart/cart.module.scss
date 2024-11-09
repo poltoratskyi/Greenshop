@@ -2,7 +2,7 @@
 @import "../../../styles/mixins.scss";
 
 .cart {
-  margin-bottom: 90px;
+  margin: 50px 0px 100px 0px;
 
   .inner {
     display: flex;
@@ -222,6 +222,8 @@
 
 @media (max-width: 575px) {
   .cart {
+    margin: 25px 0px 50px 0px;
+
     .inner {
       display: none;
     }

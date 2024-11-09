@@ -130,14 +130,15 @@
       .block {
         position: relative;
         padding-bottom: 50px;
+        background-color: $background;
 
-        .img_link {
+        .img {
           display: block;
         }
 
         &:hover {
-          background-color: $background;
           transition: 0.5s ease;
+          background-color: #f8f8f8;
 
           .line {
             opacity: 1;
@@ -253,7 +254,7 @@
   .items {
     .lists {
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 5px;
 
       &.related {
         grid-template-columns: repeat(2, 1fr);
@@ -282,8 +283,9 @@
             bottom: auto;
             background-color: #fff;
             border-radius: 100%;
-            padding: 10px;
+            padding: 5px;
             margin: 10px 10px 0px 0px;
+            border: 1px solid #fff;
 
             & > [data-type="heart"] {
               margin-right: 0px;
@@ -320,22 +322,6 @@
 
         .line {
           display: none;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 375px) {
-  .items {
-    .lists {
-      grid-template-columns: repeat(1, 1fr);
-
-      .list {
-        .block {
-          .control {
-            margin: 25px 25px 0px 0px;
-          }
         }
       }
     }

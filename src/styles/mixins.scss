@@ -16,25 +16,13 @@
   margin-bottom: $mb;
 }
 
-@mixin title-clamp($mb: unset, $fw: 700, $lh: 26px, $fz: 20px, $c: $text) {
-  color: $c;
-  font-size: $fz;
-  font-weight: $fw;
-  line-height: $lh;
-  margin-bottom: $mb;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
-}
-
-@mixin description-clamp(
+@mixin title-clamp(
   $mb: unset,
-  $fw: 400,
-  $lh: 22px,
-  $fz: 14px,
-  $c: $descr
+  $fw: 700,
+  $lh: 26px,
+  $fz: 20px,
+  $c: $text,
+  $lc: 2
 ) {
   color: $c;
   font-size: $fz;
@@ -45,7 +33,27 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: $lc;
+}
+
+@mixin description-clamp(
+  $mb: unset,
+  $fw: 400,
+  $lh: 22px,
+  $fz: 14px,
+  $c: $descr,
+  $lc: 2
+) {
+  color: $c;
+  font-size: $fz;
+  font-weight: $fw;
+  line-height: $lh;
+  margin-bottom: $mb;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lc;
 }
 
 @mixin price($fw: 500, $lh: 16px, $fz: 16px, $c: $descr, $ta, $w: auto) {
@@ -104,5 +112,28 @@
   &::-webkit-scrollbar-thumb:hover {
     background-color: rgba($main, 1);
     cursor: pointer;
+  }
+}
+
+@mixin cartQuantity() {
+  position: relative;
+
+  span {
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 10px;
+    bottom: 100%;
+    left: 100%;
+    transform: translate(-50%, 50%);
+    position: absolute;
+    background-color: $main;
+    height: 22px;
+    width: 22px;
+    border-radius: 100%;
   }
 }

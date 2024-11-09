@@ -4,6 +4,7 @@
 .footer {
   .content {
     background-color: $background;
+    border-bottom: 1px solid $line;
 
     .service {
       padding: 25px;
@@ -93,7 +94,6 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 30px;
       padding: 30px 25px;
-      border-bottom: 1px solid $line;
 
       .title {
         @include title($m: 0px 0px 10px, $fw: 700, $lh: 16px);
@@ -159,26 +159,29 @@
         }
       }
     }
+  }
 
-    .privacy {
-      background-color: #fff;
-      text-align: center;
-      color: $text;
-      line-height: 30px;
-      font-weight: 400;
-      padding: 10px 0px;
-    }
+  .privacy {
+    background-color: #fff;
+    text-align: center;
+    color: $text;
+    line-height: 30px;
+    font-weight: 400;
+    padding: 10px 0px;
   }
 }
 
 @media (max-width: 575px) {
   .footer {
     .content {
+      border-radius: 6px;
+      border-bottom: none;
+
       .contacts {
         .wrapper {
           flex-direction: column;
           gap: 10px;
-          padding: 10px;
+          padding: 15px;
 
           .lists {
             grid-template-columns: repeat(1, 1fr);
@@ -196,16 +199,19 @@
       }
 
       .service {
-        padding: 10px;
+        padding: 15px;
 
         .label {
           flex-direction: column;
+
           .info {
+            margin-bottom: 25px;
+
             .inner {
-              margin-bottom: 25px;
               padding: unset;
               border-right: none;
               border-bottom: none;
+              gap: 15px;
 
               svg {
                 display: block;
@@ -230,13 +236,14 @@
             .title {
               font-size: 17px;
               line-height: 22px;
+              text-align: center;
             }
           }
         }
       }
 
       .feedback {
-        padding: 10px;
+        padding: 15px;
         grid-template-columns: repeat(2, 1fr);
 
         .title {
@@ -273,37 +280,10 @@
       .feedback {
         grid-template-columns: repeat(1, 1fr);
       }
-
-      .privacy {
-        padding: 10px 0px;
-      }
     }
-  }
-}
 
-@media (max-width: 375px) {
-  .footer {
-    .content {
-      .service {
-        .label {
-          .info {
-            grid-template-columns: repeat(1, 1fr);
-            margin-bottom: 25px;
-
-            .inner {
-              svg {
-                display: unset;
-              }
-
-              .title,
-              .descr {
-                min-height: auto;
-                text-align: left;
-              }
-            }
-          }
-        }
-      }
+    .privacy {
+      padding: 10px 0px;
     }
   }
 }

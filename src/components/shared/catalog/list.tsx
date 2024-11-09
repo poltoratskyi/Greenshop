@@ -60,7 +60,7 @@ const List: React.FC<Props> = ({
               checkRelatedItems();
               document.body.style.overflow = "auto";
             }}
-            className={Style.img_link}
+            className={Style.img}
             href={`/item/${id}`}
           >
             <div className={Style.line}></div>

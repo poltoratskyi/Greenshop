@@ -15,6 +15,8 @@ const Footer: React.FC = () => {
           <Contacts />
           <Feedback />
         </div>
+
+        <p className={Style.privacy}>© 2024 GreenShop. All Rights Reserved.</p>
       </div>
     </footer>
   );

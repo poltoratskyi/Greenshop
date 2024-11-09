@@ -104,11 +104,10 @@
 }
 
 .filter_mobile {
-  height: 45px;
+  height: 100%;
   min-width: 45px;
-  border-radius: 14px;
+  border-radius: 12px;
   background-color: $main;
-  margin-left: 10px;
   transition: 0.5s ease;
 
   &:hover {
@@ -179,7 +178,8 @@
 
 @media (max-width: 575px) {
   .adv {
-    border-radius: 40px;
+    justify-content: center;
+    width: 100%;
   }
 
   .buy {

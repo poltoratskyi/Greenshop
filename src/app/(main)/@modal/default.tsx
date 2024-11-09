@@ -1,5 +1,3 @@
-const Default: React.FC = () => {
+export default function Default() {
   return null;
-};
-
-export default Default;
+}

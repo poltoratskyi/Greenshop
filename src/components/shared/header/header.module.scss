@@ -1,7 +1,8 @@
 @import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
 
 .header {
-  padding-top: 25px;
+  margin-top: 25px;
 
   .content {
     display: grid;
@@ -73,30 +74,19 @@
         margin-right: 30px;
 
         &:hover {
-          fill: $main;
+          svg {
+            fill: $main;
+          }
         }
       }
 
       .cart {
-        position: relative;
+        @include cartQuantity();
 
-        span {
-          border: 1px solid #fff;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: #fff;
-          font-size: 14px;
-          font-weight: 500;
-          line-height: 10px;
-          bottom: 100%;
-          left: 100%;
-          transform: translate(-50%, 50%);
-          position: absolute;
-          background-color: $main;
-          height: 22px;
-          width: 22px;
-          border-radius: 100%;
+        &.active {
+          svg {
+            fill: $main;
+          }
         }
       }
 
@@ -110,6 +100,10 @@
 .logo {
   display: flex;
   align-items: center;
+
+  &.center {
+    justify-content: center;
+  }
 
   svg {
     margin-right: 10px;
@@ -126,7 +120,8 @@
 
 @media (max-width: 575px) {
   .header {
-    padding: 40px 0px 0px 0px;
+    margin-top: 20px;
+
     .content {
       display: none;
     }

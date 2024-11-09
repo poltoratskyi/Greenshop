@@ -8,7 +8,7 @@ import LogIn from "../../../../components/shared/modal-forms/log-in";
 
 import { useUIStore } from "../../../../utils/store";
 
-const Modal: React.FC = () => {
+export default function Modal() {
   const toggleAction = useUIStore((state) => state.toggleAction);
 
   return (
@@ -16,6 +16,4 @@ const Modal: React.FC = () => {
       <ModalForm>{toggleAction ? <LogIn /> : <SignUp />}</ModalForm>
     </ModalWrapper>
   );
-};
-
-export default Modal;
+}

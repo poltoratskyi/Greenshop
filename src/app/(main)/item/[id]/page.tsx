@@ -6,8 +6,10 @@ interface Props {
   params: { id: string };
 }
 
-const SingleItemPage: React.FC<Props> = async ({ params: { id } }) => {
-  const item = await prisma.item.findUnique({
+export default async function Item({ params }: Props) {
+  const { id } = params;
+
+  const item = await prisma.item.findFirst({
     where: { id: Number(id) },
     include: {
       variations: {
@@ -23,6 +25,4 @@ const SingleItemPage: React.FC<Props> = async ({ params: { id } }) => {
   }
 
   return <SingleItem item={item} />;
-};
-
-export default SingleItemPage;
+}

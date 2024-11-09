@@ -34,7 +34,11 @@ const MobileMenu: React.FC = () => {
                 : Style.list
             }
           >
-            <Link href={link.href}>{link.menu}</Link>
+            <Link href={link.href}>
+              {link.menu}
+
+              {link.href === "/cart" && <span>9</span>}
+            </Link>
           </li>
         ))}
 

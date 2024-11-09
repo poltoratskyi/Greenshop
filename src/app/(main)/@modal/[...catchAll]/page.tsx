@@ -1,5 +1,3 @@
-const CatchAll: React.FC = () => {
+export default function Default() {
   return null;
-};
-
-export default CatchAll;
+}

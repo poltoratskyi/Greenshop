@@ -16,12 +16,23 @@ const CartList: React.FC = () => {
 
   return (
     <div className={Style.items}>
-      <div className={Style.items_title}>
-        <h2 style={{ width: "320px" }}>Products</h2>
-        <h2 style={{ width: "100px" }}>Price</h2>
-        <h2 style={{ width: "100px" }}>Quantity</h2>
-        <h2 style={{ width: "130px", marginLeft: "130px" }}>Total</h2>
-      </div>
+      <ul className={Style.items_title}>
+        <li style={{ width: "320px" }}>
+          <h2>Products</h2>
+        </li>
+
+        <li style={{ width: "100px" }}>
+          <h2>Price</h2>
+        </li>
+
+        <li style={{ width: "100px" }}>
+          <h2>Quantity</h2>
+        </li>
+
+        <li style={{ width: "130px", marginLeft: "130px" }}>
+          <h2>Total</h2>
+        </li>
+      </ul>
 
       <ul className={Style.lists}>
         {catalog.map((item) => (

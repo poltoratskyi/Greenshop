@@ -19,10 +19,10 @@ export const advData = [
 
   {
     id: 2,
-    imgUrl: "/adv/adv-2-min.png",
+    imgUrl: "/catalog/2-min.png",
     title: "Styling Trends",
     subTitle: "Much More",
     descr:
-      "Discover the latest trends in plant styling with our extensive range of budget-friendly options.",
+      "Discover the latest trends in plant styling with our extensive range of budget friendly options.",
   },
 ];

@@ -48,7 +48,18 @@
         gap: 30px;
 
         .line {
-          display: none;
+          flex-direction: unset;
+          width: 100%;
+          height: auto;
+
+          span {
+            height: 1px;
+            width: 100%;
+          }
+
+          p {
+            margin: 0px 10px;
+          }
         }
       }
     }

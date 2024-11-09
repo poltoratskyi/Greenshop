@@ -1,9 +1,10 @@
 @import "../../../styles/variables.scss";
 
 .backspace {
-  display: flex;
+  display: none;
   align-items: center;
-  margin: 35px 0px;
+  border-right: 1px solid $border;
+  height: 100%;
 
   h2 {
     display: block;
@@ -17,6 +18,11 @@
 
 @media (max-width: 575px) {
   .backspace {
-    margin: 15px 0px;
+    display: flex;
+
+    button {
+      height: 100%;
+      background-color: transparent;
+    }
   }
 }

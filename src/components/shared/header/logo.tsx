@@ -4,9 +4,13 @@ import Style from "./header.module.scss";
 
 import { svgLogo } from "./static-data";
 
-const Logo: React.FC = () => {
+interface Props {
+  logoPosition: boolean;
+}
+
+const Logo: React.FC<Props> = ({ logoPosition }) => {
   return (
-    <div className={Style.logo}>
+    <div className={`${Style.logo} ${logoPosition && Style.center}`}>
       {svgLogo}
 
       <span>GreenShop</span>

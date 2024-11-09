@@ -18,7 +18,12 @@ const Actions: React.FC = () => {
         {svgSearch}
       </span>
 
-      <Link className={Style.cart} href="/cart">
+      <Link
+        className={
+          pathname === "/cart" ? `${Style.cart} ${Style.active}` : Style.cart
+        }
+        href="/cart"
+      >
         {svgCart}
         <span>9</span>
       </Link>

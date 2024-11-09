@@ -3,12 +3,10 @@ import Style from "./cart.module.scss";
 import CartList from "./list";
 import CartCheck from "./check";
 import Slider from "./slider";
-import Backspace from "../backspace";
 
 const Cart: React.FC = () => {
   return (
     <>
-      <Backspace text="Shopping Cart" />
       <section className={Style.cart}>
         <div className="container">
           <div className={Style.inner}>

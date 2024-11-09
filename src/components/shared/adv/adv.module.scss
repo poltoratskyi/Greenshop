@@ -5,38 +5,35 @@
   margin: 100px 0px 140px;
 
   .content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: space-between;
     gap: 30px;
 
     .info {
-      display: grid;
-      align-items: center;
-      grid-template-columns: repeat(2, 1fr);
+      position: relative;
       background-color: $background;
+      width: 100%;
+
+      .img {
+        position: absolute;
+        width: 320px;
+        height: auto;
+        bottom: 0;
+        left: 50%;
+      }
 
       .wrapper {
-        text-align: right;
-        padding: 40px 30px 45px 0px;
-        width: 350px;
+        text-align: left;
+        padding: 40px 0px 45px 30px;
+        width: 295px;
 
         .title {
-          @include title($m: 0px 0px 10px);
+          @include title-clamp($mb: 10px, $fw: 900, $lh: 24px, $fz: 18px);
           text-transform: uppercase;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          -webkit-line-clamp: 2;
         }
 
         .descr {
-          @include description($mb: 25px);
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          -webkit-line-clamp: 3;
+          @include description-clamp($mb: 25px, $lh: 24px);
         }
       }
     }
@@ -46,18 +43,25 @@
 @media (max-width: 575px) {
   .adv {
     margin: 20px 0px;
+
     .content {
       gap: 20px;
 
       .info {
         grid-template-columns: repeat(1, 1fr);
         justify-items: center;
-        border-radius: 20px;
+        border-radius: 6px;
+
+        .img {
+          position: relative;
+          width: 100%;
+          left: 0%;
+        }
 
         .wrapper {
           text-align: center;
-          width: auto;
-          padding: 25px 20px;
+          width: 100%;
+          padding: 25px 15px;
 
           .title {
             font-size: 17px;
@@ -71,7 +75,7 @@
 @media (max-width: 470px) {
   .adv {
     .content {
-      grid-template-columns: repeat(1, 1fr);
+      flex-direction: column;
     }
   }
 }
