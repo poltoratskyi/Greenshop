@@ -5,7 +5,7 @@ import Style from "./header.module.scss";
 import { svgLogo } from "./static-data";
 
 interface Props {
-  logoPosition: boolean;
+  logoPosition?: boolean;
 }
 
 const Logo: React.FC<Props> = ({ logoPosition }) => {
