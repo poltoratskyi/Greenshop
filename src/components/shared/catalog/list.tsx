@@ -10,6 +10,8 @@ import Style from "./catalog.module.scss";
 import { percentValue, handleRelatedItems } from "../../../hooks/index";
 import { svgCart, svgHeart } from "./static-data";
 
+import { useSearchStore, useUIStore } from "../../../utils/store";
+
 interface Props extends Item {
   control?: boolean;
 }
@@ -29,6 +31,12 @@ const List: React.FC<Props> = ({
   variations,
   control,
 }) => {
+  const openSearch = useUIStore((state) => state.openSearch);
+  const setOpenSearch = useUIStore((state) => state.setOpenSearch);
+
+  const setInputValue = useSearchStore((state) => state.setInputValue);
+  const clearResults = useSearchStore((state) => state.clearResults);
+
   const checkRelatedItems = () => {
     const itemProps = {
       id,
@@ -58,6 +66,11 @@ const List: React.FC<Props> = ({
           <Link
             onClick={() => {
               checkRelatedItems();
+              if (openSearch) {
+                setOpenSearch && setOpenSearch(false);
+                setInputValue("");
+                clearResults();
+              }
               document.body.style.overflow = "auto";
             }}
             className={Style.img}
@@ -97,6 +110,11 @@ const List: React.FC<Props> = ({
         <Link
           onClick={() => {
             checkRelatedItems();
+            if (openSearch) {
+              setOpenSearch && setOpenSearch(false);
+              setInputValue("");
+              clearResults();
+            }
             document.body.style.overflow = "auto";
           }}
           className={Style.title}

@@ -20,12 +20,12 @@ const ModalContent: React.FC<Props> = ({ title, children }) => {
 
   const setToggleAction = useUIStore((state) => state.setToggleAction);
   const setOpenModal = useUIStore((state) => state.setOpenModal);
-  const setShowMenu = useUIStore((state) => state.setShowMenu);
+  /* const setShowMenu = useUIStore((state) => state.setShowMenu); */
 
   const closeModal = () => {
     router.back();
     setOpenModal(false);
-    setShowMenu(true);
+    /* setShowMenu(true); */
     document.body.style.overflow = "auto";
   };
   return (

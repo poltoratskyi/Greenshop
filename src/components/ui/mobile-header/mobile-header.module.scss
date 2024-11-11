@@ -1,0 +1,35 @@
+@import "../../../styles/variables.scss";
+
+.mobile_header,
+.top_info {
+  display: none;
+}
+
+@media (max-width: 575px) {
+  .mobile_header {
+    display: flex;
+    padding: 15px 5px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .top_info {
+    display: block;
+
+    .text {
+      text-align: center;
+      color: #fff;
+      font-weight: 500;
+      line-height: 16px;
+      padding: 5px 10px;
+      background-color: $main;
+
+      &.delivered {
+        padding: 10px;
+        color: $text;
+        background-color: #fff;
+        border-bottom: 1px solid $border;
+      }
+    }
+  }
+}

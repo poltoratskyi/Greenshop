@@ -7,7 +7,7 @@ import { descr } from "./static-data";
 
 const Banner: React.FC = () => {
   return (
-    <section className={Style.banner}>
+    <section id="banner" className={Style.banner}>
       <div className="container">
         <Info
           descr={descr}

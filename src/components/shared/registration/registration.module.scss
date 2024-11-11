@@ -1,7 +1,7 @@
 @import "../../../styles/variables.scss";
 
 .registration {
-  margin: 45px 0px;
+  margin-bottom: 45px;
 
   .registration_wrapper {
     background-color: $background;
@@ -40,7 +40,8 @@
 
 @media (max-width: 575px) {
   .registration {
-    margin: 40px 0px;
+    margin-bottom: 45px;
+
     .registration_wrapper {
       .box {
         flex-direction: column;

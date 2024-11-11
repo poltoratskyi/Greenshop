@@ -2,6 +2,7 @@ import { Metadata } from "next";
 
 import Header from "../../components/shared/header";
 import Footer from "../../components/shared/footer";
+import React from "react";
 
 const metadata: Metadata = {
   title: "GREENSHOP | Main Page",
@@ -9,8 +10,8 @@ const metadata: Metadata = {
 };
 
 const MainLayout = ({
-  modal,
   children,
+  modal,
 }: Readonly<{
   modal: React.ReactNode;
   children: React.ReactNode;

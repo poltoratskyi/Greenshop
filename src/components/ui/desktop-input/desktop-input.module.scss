@@ -46,12 +46,6 @@
 .svg_close,
 .svg_search {
   cursor: pointer;
-  svg {
-    transition: 0.5s ease;
-    &:hover {
-      fill: #000;
-    }
-  }
 }
 
 .svg_search {
@@ -60,4 +54,10 @@
 
 .svg_close {
   margin-right: 25px;
+  svg {
+    transition: 0.5s ease;
+    &:hover {
+      fill: #000;
+    }
+  }
 }

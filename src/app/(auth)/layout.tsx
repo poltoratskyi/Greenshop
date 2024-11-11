@@ -2,20 +2,22 @@ import Footer from "../../components/shared/footer";
 import type { Metadata } from "next";
 
 const metadata: Metadata = {
-  title: "GREENSHOP | Mobile ver",
+  title: "GREENSHOP | Auth Page",
   description: "Online plant store",
 };
 
-const MobileLayout = ({
+const AuthLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
   return (
     <main>
-      {children} <Footer />
+      {children}
+
+      <Footer />
     </main>
   );
 };
 
-export default MobileLayout;
+export default AuthLayout;

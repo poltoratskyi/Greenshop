@@ -10,7 +10,7 @@ import ExtendedDescription from "./extended-description";
 import List from "./list";
 import Wrapper from "./wrapper";
 import CatalogItems from "../catalog/catalog-items";
-import ItemPath from "../item-path";
+import Pathname from "../pathname";
 
 interface Props {
   item: Item;
@@ -18,27 +18,29 @@ interface Props {
 
 const SingleItem: React.FC<Props> = ({ item }) => {
   return (
-    <section className={Style.single_item}>
-      <ItemPath item={item} />
+    <>
+      <Pathname item={item} thirdPath />
 
-      <div className="container">
-        <List item={item} />
+      <section className={Style.single_item}>
+        <div className="container">
+          <List item={item} />
 
-        <Wrapper title="Product Description">
-          <ExtendedDescription item={item} />
-        </Wrapper>
+          <Wrapper title="Product Description">
+            <ExtendedDescription item={item} />
+          </Wrapper>
 
-        <Wrapper title="Related Products">
-          <CatalogItems gridWidth>
-            {[item].map((item) => (
-              <li key={item.id} className={CatalogStyle.list}>
-                <CatalogList {...item} />
-              </li>
-            ))}
-          </CatalogItems>
-        </Wrapper>
-      </div>
-    </section>
+          <Wrapper title="Related Products">
+            <CatalogItems gridWidth>
+              {[item].map((item) => (
+                <li key={item.id} className={CatalogStyle.list}>
+                  <CatalogList {...item} />
+                </li>
+              ))}
+            </CatalogItems>
+          </Wrapper>
+        </div>
+      </section>
+    </>
   );
 };
 

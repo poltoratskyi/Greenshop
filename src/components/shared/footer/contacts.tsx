@@ -13,7 +13,7 @@ const Contacts: React.FC = () => {
   return (
     <div className={Style.contacts}>
       <div className={Style.wrapper}>
-        <Logo logoPosition />
+        <Logo logoCenter />
 
         <ul className={Style.lists}>
           {info.map((item: Element, index: number) => (

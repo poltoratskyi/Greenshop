@@ -2,7 +2,7 @@
 @import "../../../styles/mixins.scss";
 
 .banner {
-  margin: 10px 0px 45px;
+  margin-bottom: 45px;
 
   .content {
     display: flex;
@@ -43,7 +43,7 @@
 
 @media (max-width: 575px) {
   .banner {
-    margin: 20px 0px;
+    margin-bottom: 20px;
 
     .content {
       display: none;
@@ -54,7 +54,6 @@
 
       .content {
         display: block;
-        border-radius: 6px;
         background: url("../../../../public/banner-mobile-min.png") center
           (center / cover) no-repeat;
 

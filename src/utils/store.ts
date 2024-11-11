@@ -197,7 +197,7 @@ interface UIState {
   setOpenSearch: (isOpen: boolean) => void;
   setOpenModal: (isOpen: boolean) => void;
   setOpenSort: (isOpen: boolean) => void;
-  setShowMenu: (isShown: boolean) => void;
+  /* setShowMenu: (isShown: boolean) => void; */
   setToggleAction: (isShown: boolean) => void;
 }
 
@@ -211,6 +211,6 @@ export const useUIStore = create<UIState>((set) => ({
   setOpenSearch: (isOpen: boolean) => set({ openSearch: isOpen }),
   setOpenModal: (isOpen: boolean) => set({ openModal: isOpen }),
   setOpenSort: (isOpen: boolean) => set({ sortMenu: isOpen }),
-  setShowMenu: (isShown: boolean) => set({ showMenu: isShown }),
+  /* setShowMenu: (isShown: boolean) => set({ showMenu: isShown }), */
   setToggleAction: (isShown: boolean) => set({ toggleAction: isShown }),
 }));

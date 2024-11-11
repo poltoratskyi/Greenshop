@@ -1,13 +1,13 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 import Style from "./mobile-menu.module.scss";
 
 import { useUIStore } from "../../../utils/store";
 
-import { login, btn, pages } from "./static-data";
+import { login, /* btn, */ pages } from "./static-data";
 
 interface Element {
   menu: JSX.Element;
@@ -17,10 +17,11 @@ interface Element {
 
 const MobileMenu: React.FC = () => {
   const showMenu = useUIStore((state) => state.showMenu);
-  const setShowMenu = useUIStore((state) => state.setShowMenu);
+  /* const setShowMenu = useUIStore((state) => state.setShowMenu); */
   const setOpenModal = useUIStore((state) => state.setOpenModal);
 
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <nav className={!showMenu ? `${Style.menu} ${Style.active}` : Style.menu}>
@@ -28,11 +29,26 @@ const MobileMenu: React.FC = () => {
         {pages.map((link: Element, index: number) => (
           <li
             key={index}
+            onClick={() => {
+              if (link.href === "/login") {
+                // setShowMenu(false);
+                setOpenModal(true);
+                document.body.style.overflow = "hidden";
+              }
+            }}
             className={
               pathname === link.href
                 ? `${Style.list} ${Style.active}`
                 : Style.list
             }
+            style={{
+              pointerEvents:
+                pathname === "/login" && link.href === "/login"
+                  ? "none"
+                  : "auto",
+              opacity:
+                pathname === "/login" && link.href === "/login" ? 0.5 : 1,
+            }}
           >
             <Link href={link.href}>
               {link.menu}
@@ -41,34 +57,14 @@ const MobileMenu: React.FC = () => {
             </Link>
           </li>
         ))}
-
-        <Link href="/login">
-          <li
-            style={{
-              pointerEvents: pathname === "/login" ? "none" : "auto",
-            }}
-            onClick={() => {
-              setShowMenu(false);
-              setOpenModal(true);
-              document.body.style.overflow = "hidden";
-            }}
-            className={
-              pathname === "/login"
-                ? `${Style.list} ${Style.active}`
-                : Style.list
-            }
-          >
-            {login}
-          </li>
-        </Link>
       </ul>
 
-      <div
+      {/* <div
         onClick={() => setShowMenu(!showMenu)}
         className={!showMenu ? `${Style.btn} ${Style.active}` : Style.btn}
       >
         {btn}
-      </div>
+      </div> */}
     </nav>
   );
 };
