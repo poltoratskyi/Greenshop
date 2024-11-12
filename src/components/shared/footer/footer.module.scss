@@ -130,7 +130,7 @@
             border: 1px $line solid;
             cursor: pointer;
             margin-right: 10px;
-            transition: 0.5s ease;
+            transition: all 0.5s ease;
 
             &:hover {
               border: 1px rgba($main, 1) solid;

@@ -1,0 +1,88 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.overlay {
+  @include overlay();
+  visibility: hidden;
+  opacity: 0;
+
+  &.visible {
+    @include overlay();
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .search_items_input {
+    width: 1200px;
+    position: fixed;
+    right: 50%;
+    top: -25%;
+    transform: translate(50%, 0%);
+    z-index: 3;
+    margin-top: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+
+    .block {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 0px;
+
+      .search {
+        padding: 0px 10px;
+        height: 50px;
+        color: $text;
+        background-color: #fff;
+        font-size: 16px;
+        line-height: 18px;
+        width: 100%;
+        font-weight: 400;
+
+        &::placeholder {
+          color: $sailPrice;
+        }
+      }
+    }
+
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+      top: 0;
+    }
+  }
+}
+
+.svg_close,
+.svg_search {
+  cursor: pointer;
+}
+
+.svg_search {
+  margin-left: 25px;
+}
+
+.svg_close {
+  margin-right: 25px;
+  svg {
+    transition: all 0.5s ease;
+    &:hover {
+      fill: #000;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .overlay {
+    .search_items_input {
+      position: relative;
+      top: -5%;
+      right: 0;
+      width: 100%;
+      margin-top: 0;
+      transform: none;
+      height: 100%;
+    }
+  }
+}

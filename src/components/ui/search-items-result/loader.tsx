@@ -1,4 +1,4 @@
-import Style from "./results.module.scss";
+import Style from "./search-items-result.module.scss";
 
 const Loader: React.FC = () => {
   return (

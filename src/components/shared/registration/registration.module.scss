@@ -11,14 +11,14 @@
 
   .box {
     display: flex;
-    height: 675px;
     align-items: flex-start;
 
     .line {
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 100%;
+      height: 500px;
+      margin: auto;
 
       span {
         display: block;

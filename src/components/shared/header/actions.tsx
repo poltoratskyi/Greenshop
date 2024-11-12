@@ -10,7 +10,6 @@ import { svgCart, svgLogin, svgSearch } from "./static-data";
 const Actions: React.FC = () => {
   const pathname = usePathname();
 
-  const openModal = useUIStore((state) => state.openModal);
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
   const setOpenModal = useUIStore((state) => state.setOpenModal);
 
@@ -36,11 +35,8 @@ const Actions: React.FC = () => {
           opacity: pathname === "/login" ? 0.5 : 1,
         }}
         onClick={() => {
-          if (openModal) {
-            document.body.style.overflow = "hidden";
-          }
-
           setOpenModal(true);
+          document.body.style.overflow = "hidden";
         }}
         className={Style.login}
         href="/login"

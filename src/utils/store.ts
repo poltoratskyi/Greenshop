@@ -8,7 +8,7 @@ import axiosSize from "../service/size";
 import axiosVariation from "../service/variation";
 import axiosItem from "../service/search";
 
-import { svgTrend } from "../components/shared/results/static-data";
+import { svgTrend } from "../components/ui/search-items-result/static-data";
 
 interface CountState {
   count: number;

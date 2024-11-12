@@ -1,10 +1,10 @@
 "use client";
 
-import Style from "./results.module.scss";
-import List from "../catalog/list";
+import Style from "./search-items-result.module.scss";
+import List from "../../shared/catalog/list";
 
-import CatalogStyle from "../catalog/catalog.module.scss";
-import CatalogItems from "../catalog/catalog-items";
+import CatalogStyle from "../../shared/catalog/catalog.module.scss";
+import CatalogItems from "../../shared/catalog/catalog-items";
 
 import { useSearchStore } from "../../../utils/store";
 

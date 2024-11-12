@@ -65,7 +65,7 @@
           font-weight: 500;
           cursor: pointer;
           padding: 0px 12px;
-          transition: 0.5s ease;
+          transition: all 0.5s ease;
 
           &:hover {
             color: $main;
@@ -137,7 +137,8 @@
         }
 
         &:hover {
-          transition: 0.5s ease;
+          transition: all 0.5s ease;
+
           background-color: #f8f8f8;
 
           .line {
@@ -180,8 +181,7 @@
       .title {
         @include title($m: 15px 0px 0px 0px, $fw: 500, $lh: 16px, $fz: 16px);
         display: block;
-        transition: 0.5s ease;
-
+        transition: all 0.5s ease;
         &:hover {
           color: $main;
         }
@@ -219,7 +219,7 @@
         border-bottom: 1px solid $main;
         opacity: 0;
         visibility: hidden;
-        transition: 0.5s ease;
+        transition: all 0.5s ease;
       }
     }
   }

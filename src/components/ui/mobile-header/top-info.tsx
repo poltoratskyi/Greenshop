@@ -8,7 +8,7 @@ const TopInfo: React.FC = () => {
   return (
     <div id="top-info" className={Style.top_info}>
       <>
-        {pathname !== "/" && (
+        {pathname !== "/" && pathname !== "/login" && (
           <h4 className={Style.text}>Summer sale - up to 20% off!</h4>
         )}
 
