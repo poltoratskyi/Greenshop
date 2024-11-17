@@ -10,7 +10,7 @@ interface Element {
 [];
 
 interface Props {
-  burger_menu: boolean;
+  burger_menu?: boolean;
 }
 
 const Contacts: React.FC<Props> = ({ burger_menu }) => {
