@@ -45,7 +45,12 @@ const CartCheck: React.FC = () => {
         <b>$2,699.00</b>
       </div>
 
-      <Button link={true} className="checkout" value="Proceed To Checkout" />
+      <Button
+        link
+        linkValue="#"
+        className="checkout"
+        value="Proceed To Checkout"
+      />
 
       <Link className={Style.continue} href="/">
         Continue Shopping

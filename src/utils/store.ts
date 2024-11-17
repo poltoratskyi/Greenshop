@@ -188,29 +188,59 @@ export const useSearchStore = create<SearchState>((set, get) => ({
 }));
 
 interface UIState {
-  openSearch: boolean;
-  openModal: boolean;
-  sortMenu: boolean;
-  showMenu: boolean;
-  toggleAction: boolean;
+  search: boolean;
+
+  modal: boolean;
+  modalAction: boolean;
+
+  sort: boolean;
+  activeSortMenuValue: string;
+  activeSortValue: string;
+
+  burger: boolean;
+
+  selectedSizeIndex: number;
 
   setOpenSearch: (isOpen: boolean) => void;
+
   setOpenModal: (isOpen: boolean) => void;
-  setOpenSort: (isOpen: boolean) => void;
-  /* setShowMenu: (isShown: boolean) => void; */
   setToggleAction: (isShown: boolean) => void;
+
+  setOpenSort: (isOpen: boolean) => void;
+  setActiveSortMenuValue: (value: string) => void;
+  setActiveSortValue: (value: string) => void;
+
+  setOpenBurger: (isOpen: boolean) => void;
+
+  setSelectedSizeIndex: (index: number) => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({
-  openSearch: false,
-  openModal: false,
-  sortMenu: false,
-  showMenu: true,
-  toggleAction: true,
+  search: false,
 
-  setOpenSearch: (isOpen: boolean) => set({ openSearch: isOpen }),
-  setOpenModal: (isOpen: boolean) => set({ openModal: isOpen }),
-  setOpenSort: (isOpen: boolean) => set({ sortMenu: isOpen }),
-  /* setShowMenu: (isShown: boolean) => set({ showMenu: isShown }), */
-  setToggleAction: (isShown: boolean) => set({ toggleAction: isShown }),
+  modal: false,
+  modalAction: true,
+
+  sort: false,
+  activeSortMenuValue: "name",
+  activeSortValue: "All Plants",
+
+  burger: false,
+
+  selectedSizeIndex: 0,
+
+  setOpenSearch: (isOpen: boolean) => set({ search: isOpen }),
+
+  setOpenModal: (isOpen: boolean) => set({ modal: isOpen }),
+
+  setToggleAction: (isShown: boolean) => set({ modalAction: isShown }),
+
+  setOpenSort: (isOpen: boolean) => set({ sort: isOpen }),
+  setActiveSortMenuValue: (value: string) =>
+    set({ activeSortMenuValue: value }),
+  setActiveSortValue: (value: string) => set({ activeSortValue: value }),
+
+  setOpenBurger: (isOpen: boolean) => set({ burger: isOpen }),
+
+  setSelectedSizeIndex: (index: number) => set({ selectedSizeIndex: index }),
 }));

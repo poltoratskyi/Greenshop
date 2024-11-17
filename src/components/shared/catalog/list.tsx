@@ -31,7 +31,7 @@ const List: React.FC<Props> = ({
   variations,
   control,
 }) => {
-  const openSearch = useUIStore((state) => state.openSearch);
+  const search = useUIStore((state) => state.search);
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
 
   const setInputValue = useSearchStore((state) => state.setInputValue);
@@ -66,7 +66,7 @@ const List: React.FC<Props> = ({
           <Link
             onClick={() => {
               checkRelatedItems();
-              if (openSearch) {
+              if (search) {
                 setOpenSearch && setOpenSearch(false);
                 setInputValue("");
                 clearResults();
@@ -101,7 +101,7 @@ const List: React.FC<Props> = ({
 
           {variations[0]?.onSale && (
             <div className={Style.percent}>
-              {percentValue(variations[0].price, variations[0].sailPrice)}
+              {percentValue(variations[0].price, variations[0].salePrice)}
               {"% OFF"}
             </div>
           )}
@@ -110,7 +110,7 @@ const List: React.FC<Props> = ({
         <Link
           onClick={() => {
             checkRelatedItems();
-            if (openSearch) {
+            if (search) {
               setOpenSearch && setOpenSearch(false);
               setInputValue("");
               clearResults();
@@ -126,10 +126,10 @@ const List: React.FC<Props> = ({
       {variations[0]?.onSale ? (
         <div className={Style.info}>
           <span className={Style.price}>
-            ${variations[0].sailPrice.toFixed(2)}
+            ${variations[0].salePrice.toFixed(2)}
           </span>
 
-          <span className={Style.sailPrice}>
+          <span className={Style.salePrice}>
             ${variations[0].price.toFixed(2)}
           </span>
         </div>

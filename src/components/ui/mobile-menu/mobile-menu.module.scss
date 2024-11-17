@@ -13,9 +13,7 @@
   box-shadow: 0 -2px 8px #00000026;
   opacity: 1;
   visibility: visible;
-  /*   border-top-left-radius: 30px;
-  border-top-right-radius: 30px; */
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   .lists {
     display: flex;
@@ -37,27 +35,6 @@
     opacity: 0;
     visibility: hidden;
   }
-
-  /*  .btn {
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background-color: $main;
-    width: 65px;
-    height: 65px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-
-    &.active {
-      top: -100%;
-      left: 80%;
-    }
-  } */
 }
 
 @media (max-width: 575px) {

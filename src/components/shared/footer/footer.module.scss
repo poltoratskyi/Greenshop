@@ -58,37 +58,6 @@
       }
     }
 
-    .contacts {
-      border-top: 1px solid $main;
-      border-bottom: 1px solid $main;
-
-      .wrapper {
-        display: flex;
-        gap: 60px;
-        padding: 25px;
-        background-color: $line;
-
-        .lists {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          justify-items: center;
-
-          .list {
-            display: flex;
-            align-items: center;
-
-            .icon {
-              margin-right: 10px;
-            }
-
-            .descr {
-              @include description($mb: unset, $lh: 22px, $c: $text);
-            }
-          }
-        }
-      }
-    }
-
     .feedback {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -112,52 +81,6 @@
           }
         }
       }
-
-      .accept {
-        width: 350px;
-
-        .lists {
-          display: flex;
-          align-items: center;
-
-          .list {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 30px;
-            width: 30px;
-            border-radius: 4px;
-            border: 1px $line solid;
-            cursor: pointer;
-            margin-right: 10px;
-            transition: all 0.5s ease;
-
-            &:hover {
-              border: 1px rgba($main, 1) solid;
-            }
-
-            .link {
-              font-size: 15px;
-            }
-
-            &:last-child {
-              margin-right: 0px;
-            }
-          }
-
-          li {
-            margin-right: 15px;
-
-            &:last-child {
-              margin-right: 0px;
-            }
-          }
-
-          &:last-child {
-            height: 30px;
-          }
-        }
-      }
     }
   }
 
@@ -171,6 +94,114 @@
   }
 }
 
+.contacts {
+  border-top: 1px solid $main;
+  border-bottom: 1px solid $main;
+
+  &.burger_menu {
+    margin-bottom: 15px;
+  }
+
+  .wrapper {
+    display: flex;
+    gap: 60px;
+    padding: 25px;
+    background-color: $line;
+
+    .lists {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+
+      .list {
+        display: flex;
+        align-items: center;
+
+        .icon {
+          margin-right: 10px;
+        }
+
+        .descr {
+          @include description($mb: unset, $lh: 22px, $c: $text);
+        }
+      }
+    }
+  }
+}
+
+.accept {
+  width: 350px;
+
+  .inner {
+    margin-bottom: 30px;
+
+    &.burger_menu {
+      margin-bottom: 15px;
+    }
+  }
+
+  .title {
+    @include title($m: 0px 0px 10px, $fw: 700, $lh: 16px);
+
+    &.burger_menu {
+      margin-bottom: 15px;
+    }
+  }
+
+  .lists {
+    display: flex;
+    align-items: center;
+
+    &.burger_menu {
+      justify-content: space-between;
+    }
+
+    .list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      width: 30px;
+      border-radius: 4px;
+      border: 1px $line solid;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: all 0.2s ease;
+
+      &.burger_menu {
+        width: 40px;
+        height: 40px;
+        border-radius: 0px;
+      }
+
+      &:hover {
+        border: 1px rgba($main, 1) solid;
+      }
+
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+
+    li {
+      margin-right: 15px;
+
+      .link {
+        display: block;
+        height: 100%;
+      }
+
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+
+    &:last-child {
+      height: 30px;
+    }
+  }
+}
+
 @media (max-width: 575px) {
   .footer {
     padding-bottom: 50px;
@@ -178,27 +209,6 @@
     .content {
       border-radius: 6px;
       border-bottom: none;
-
-      .contacts {
-        .wrapper {
-          flex-direction: column;
-          gap: 10px;
-          padding: 15px;
-
-          .lists {
-            grid-template-columns: repeat(1, 1fr);
-            justify-items: normal;
-
-            .list {
-              margin-bottom: 10px;
-
-              &:last-child {
-                margin-bottom: 0px;
-              }
-            }
-          }
-        }
-      }
 
       .service {
         padding: 15px;
@@ -259,9 +269,34 @@
             }
           }
         }
+      }
+    }
+  }
 
-        .accept {
-          width: auto;
+  .accept {
+    width: auto;
+
+    .title {
+      font-size: 17px;
+    }
+  }
+
+  .contacts {
+    .wrapper {
+      flex-direction: column;
+      gap: 10px;
+      padding: 15px;
+
+      .lists {
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: normal;
+
+        .list {
+          margin-bottom: 10px;
+
+          &:last-child {
+            margin-bottom: 0px;
+          }
         }
       }
     }

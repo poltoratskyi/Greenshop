@@ -1,6 +1,7 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import Style from "./mobile-menu.module.scss";
 
@@ -15,21 +16,16 @@ interface Element {
 [];
 
 const MobileMenu: React.FC = () => {
-  const showMenu = useUIStore((state) => state.showMenu);
-  /* const setShowMenu = useUIStore((state) => state.setShowMenu); */
+  const pathname = usePathname();
+
   const setOpenModal = useUIStore((state) => state.setOpenModal);
 
   const results = useSearchStore((state) => state.results);
 
-  const pathname = usePathname();
-  const router = useRouter();
-
   return (
     <nav
       className={
-        /* !showMenu */ results.length > 0
-          ? `${Style.menu} ${Style.active}`
-          : Style.menu
+        results.length > 0 ? `${Style.menu} ${Style.active}` : Style.menu
       }
     >
       <ul className={Style.lists}>
@@ -37,11 +33,8 @@ const MobileMenu: React.FC = () => {
           <li
             key={index}
             onClick={() => {
-              router.push(link.href);
               if (link.href === "/login") {
-                // setShowMenu(false);
                 setOpenModal(true);
-                document.body.style.overflow = "hidden";
               }
             }}
             className={
@@ -58,19 +51,14 @@ const MobileMenu: React.FC = () => {
                 pathname === "/login" && link.href === "/login" ? 0.5 : 1,
             }}
           >
-            {link.menu}
+            <Link href={link.href}>
+              {link.menu}
 
-            {link.href === "/cart" && <span>9</span>}
+              {link.href === "/cart" && <span>9</span>}
+            </Link>
           </li>
         ))}
       </ul>
-
-      {/* <div
-        onClick={() => setShowMenu(!showMenu)}
-        className={!showMenu ? `${Style.btn} ${Style.active}` : Style.btn}
-      >
-        {btn}
-      </div> */}
     </nav>
   );
 };

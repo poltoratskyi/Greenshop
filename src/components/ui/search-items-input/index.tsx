@@ -16,7 +16,7 @@ import { svgClose, svgSearch } from "./static-data";
 const SearchItemsInput: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const openSearch = useUIStore((state) => state.openSearch);
+  const search = useUIStore((state) => state.search);
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
 
   const inputValue = useSearchStore((state) => state.inputValue);
@@ -27,7 +27,7 @@ const SearchItemsInput: React.FC = () => {
   const clearResults = useSearchStore((state) => state.clearResults);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (openSearch) {
+    if (search) {
       const value = e.target.value.trimStart();
 
       setInputValue(value);
@@ -45,7 +45,7 @@ const SearchItemsInput: React.FC = () => {
   );
 
   useClickAway(ref, () => {
-    if (openSearch) {
+    if (search) {
       setOpenSearch && setOpenSearch(false);
       setInputValue("");
       clearResults();
@@ -58,20 +58,24 @@ const SearchItemsInput: React.FC = () => {
     } else {
       document.body.style.overflow = "auto";
     }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [inputValue, results]);
 
   if (isLoading) {
     return (
       <div
         className={`${
-          openSearch ? `${Style.overlay} ${Style.visible}` : Style.overlay
+          search ? `${Style.overlay} ${Style.visible}` : Style.overlay
         }`}
       >
         <TopInfo />
         <div
           ref={ref}
           className={`${
-            openSearch
+            search
               ? `${Style.search_items_input} ${Style.visible}`
               : Style.search_items_input
           }`}
@@ -93,8 +97,7 @@ const SearchItemsInput: React.FC = () => {
 
             <span
               onClick={() => {
-                if (openSearch) {
-                  document.body.style.overflow = "auto";
+                if (search) {
                   setOpenSearch(false);
                   setInputValue("");
                   clearResults();
@@ -115,14 +118,14 @@ const SearchItemsInput: React.FC = () => {
   return (
     <div
       className={`${
-        openSearch ? `${Style.overlay} ${Style.visible}` : Style.overlay
+        search ? `${Style.overlay} ${Style.visible}` : Style.overlay
       }`}
     >
       <TopInfo />
       <div
         ref={ref}
         className={`${
-          openSearch
+          search
             ? `${Style.search_items_input} ${Style.visible}`
             : Style.search_items_input
         }`}
@@ -144,8 +147,7 @@ const SearchItemsInput: React.FC = () => {
 
           <span
             onClick={() => {
-              if (openSearch) {
-                document.body.style.overflow = "auto";
+              if (search) {
                 setOpenSearch(false);
                 setInputValue("");
                 clearResults();

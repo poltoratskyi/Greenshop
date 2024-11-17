@@ -9,16 +9,21 @@ import { Item } from "../../../types";
 
 import { percentValue } from "../../../hooks/index";
 
-import { media, svgHeart } from "./static-data";
 import Button from "../button";
-import { useState } from "react";
+
+import { media, svgHeart } from "./static-data";
+
+import { useUIStore } from "../../../utils/store";
 
 interface Props {
   item: Item;
 }
 
 const List: React.FC<Props> = ({ item }) => {
-  const [selectedSizeIndex, setSelectedSizeIndex] = useState<number>(0);
+  const selectedSizeIndex = useUIStore((state) => state.selectedSizeIndex);
+  const setSelectedSizeIndex = useUIStore(
+    (state) => state.setSelectedSizeIndex
+  );
 
   return (
     <div className={Style.content}>
@@ -39,7 +44,7 @@ const List: React.FC<Props> = ({ item }) => {
         <div className={Style.percent}>
           {percentValue(
             item.variations[selectedSizeIndex].price,
-            item.variations[selectedSizeIndex].sailPrice
+            item.variations[selectedSizeIndex].salePrice
           )}
           {"% OFF"}
         </div>
@@ -51,10 +56,10 @@ const List: React.FC<Props> = ({ item }) => {
           {item.variations[selectedSizeIndex]?.onSale ? (
             <div className={Style.info}>
               <span className={Style.price}>
-                ${item.variations[selectedSizeIndex].sailPrice.toFixed(2)}
+                ${item.variations[selectedSizeIndex].salePrice.toFixed(2)}
               </span>
 
-              <span className={Style.sailPrice}>
+              <span className={Style.salePrice}>
                 ${item.variations[selectedSizeIndex].price.toFixed(2)}
               </span>
             </div>

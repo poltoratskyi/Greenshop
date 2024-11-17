@@ -4,7 +4,7 @@ const catalog = [
     imgUrl: "/catalog/daisy-min.png",
     name: "Barberton Daisy",
     onSale: false,
-    sailPrice: 0,
+    salePrice: 0,
     price: 119,
     sku: "BD12345",
     description:
@@ -18,7 +18,7 @@ const catalog = [
     imgUrl: "/catalog/begonia-min.png",
     name: "Angel Wing Begonia",
     onSale: false,
-    sailPrice: 0,
+    salePrice: 0,
     price: 169,
     sku: "AWB67890",
     description:
@@ -32,7 +32,7 @@ const catalog = [
     imgUrl: "/catalog/violet-min.png",
     name: "African Violet",
     onSale: true,
-    sailPrice: 199,
+    salePrice: 199,
     price: 229,
     sku: "AV11223",
     description:
@@ -46,7 +46,7 @@ const catalog = [
     imgUrl: "/catalog/lily-min.png",
     name: "Beach Spider Lily",
     onSale: false,
-    sailPrice: 0,
+    salePrice: 0,
     price: 129,
     sku: "BSL33445",
     description:
@@ -60,7 +60,7 @@ const catalog = [
     imgUrl: "/catalog/bromeliad-min.png",
     name: "Blushing Bromeliad",
     onSale: true,
-    sailPrice: 79,
+    salePrice: 79,
     price: 139,
     sku: "BB55667",
     description:
@@ -74,7 +74,7 @@ const catalog = [
     imgUrl: "/catalog/cactus-min.png",
     name: "Summer Cactus",
     onSale: false,
-    sailPrice: 0,
+    salePrice: 0,
     price: 179,
     sku: "SC77889",
     description:
@@ -88,7 +88,7 @@ const catalog = [
     imgUrl: "/catalog/plant-min.png",
     name: "Aluminum Plant",
     onSale: true,
-    sailPrice: 69,
+    salePrice: 69,
     price: 99,
     sku: "AP99000",
     description:
@@ -102,7 +102,7 @@ const catalog = [
     imgUrl: "/catalog/palm-min.png",
     name: "Broadleaf Lady Palm",
     onSale: false,
-    sailPrice: 0,
+    salePrice: 0,
     price: 59,
     sku: "BLP11122",
     description:
@@ -116,7 +116,7 @@ const catalog = [
     imgUrl: "/catalog/evergreen-min.png",
     name: "Chinese Evergreen",
     onSale: false,
-    sailPrice: 0,
+    salePrice: 0,
     price: 39,
     sku: "CE22334",
     description:

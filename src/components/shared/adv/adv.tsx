@@ -44,7 +44,8 @@ const Adv: React.FC = () => {
                 <p className={Style.descr}>{item.descr}</p>
 
                 <Button
-                  link={true}
+                  link
+                  linkValue="#"
                   value="Find More"
                   className="adv"
                   svgRight={svgRight}

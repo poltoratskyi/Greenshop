@@ -51,13 +51,13 @@
       }
 
       .close {
-        margin-right: 15px;
+        margin-right: 25px;
         position: absolute;
         right: 0;
         cursor: pointer;
 
         svg {
-          transition: all 0.5s ease;
+          transition: all 0.2s ease;
           &:hover {
             fill: red;
           }
@@ -131,7 +131,7 @@
         }
 
         &::placeholder {
-          color: $sailPrice;
+          color: $salePrice;
         }
       }
 

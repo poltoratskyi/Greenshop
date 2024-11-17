@@ -65,13 +65,13 @@
   width: $w;
 }
 
-@mixin sail-price(
+@mixin sale-price(
   $ml: unset,
   $fw: 500,
   $lh: 16px,
   $fz: 16px,
-  $c: $sailPrice,
-  $td: $sailPriceLine line-through,
+  $c: $salePrice,
+  $td: $salePriceLine line-through,
   $w: auto
 ) {
   font-size: $fz;
@@ -146,5 +146,22 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.25);
   z-index: 2;
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
+}
+
+@mixin button($d, $p, $bc, $br, $fz, $fw, $lh, $c, $tt) {
+  display: $d;
+  padding: $p;
+  background-color: $bc;
+  border-radius: $br;
+  font-size: $fz;
+  font-weight: $fw;
+  color: $c;
+  line-height: $lh;
+  text-transform: $tt;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #2d763c;
+  }
 }

@@ -31,7 +31,8 @@ const Info: React.FC<Props> = ({
         <p>{descr}</p>
 
         <Button
-          link={true}
+          link
+          linkValue="#"
           svgRight={svgRight}
           className={className}
           value={value}

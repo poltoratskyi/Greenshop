@@ -5,7 +5,7 @@ import Style from "./header.module.scss";
 import Logo from "./logo";
 import Links from "./links";
 import Actions from "./actions";
-import MobileHeader from "../../ui/mobile-header";
+import MobileHeader from "../../ui/mobile-header/mobile-header";
 import MobileMenu from "../../ui/mobile-menu";
 import SearchItemsInput from "../../ui/search-items-input";
 import TopInfo from "../../../components/ui/mobile-header/top-info";

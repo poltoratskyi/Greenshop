@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
-
 import Style from "./catalog.module.scss";
 
 import Sort from "../../../components/ui/sort-menu";
 
 import { filterMenu } from "./static-data";
+
+import { useUIStore } from "../../../utils/store";
 
 interface Sort {
   menu: string;
@@ -14,7 +14,8 @@ interface Sort {
 [];
 
 const Filter: React.FC = () => {
-  const [activeFilterMenu, setActiveFilterMenu] = useState("All Plants");
+  const activeSortValue = useUIStore((state) => state.activeSortValue);
+  const setActiveSortValue = useUIStore((state) => state.setActiveSortValue);
 
   return (
     <form className={Style.filter}>
@@ -23,11 +24,11 @@ const Filter: React.FC = () => {
           <li className={Style.list} key={index}>
             <span
               className={
-                activeFilterMenu === item.menu
+                activeSortValue === item.menu
                   ? `${Style.text} ${Style.active}`
                   : Style.text
               }
-              onClick={() => setActiveFilterMenu(item.menu)}
+              onClick={() => setActiveSortValue(item.menu)}
             >
               {item.menu}
             </span>

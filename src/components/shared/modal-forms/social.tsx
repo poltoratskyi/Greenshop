@@ -20,26 +20,16 @@ const Social: React.FC<Props> = ({ location, google, facebook, github }) => {
         <span className={Style.line}></span>
       </div>
 
-      <Button
-        svgLeft={svgGoogle}
-        button={true}
-        className="google"
-        value={google}
-      />
+      <Button svgLeft={svgGoogle} button className="google" value={google} />
 
       <Button
         svgLeft={svgFacebook}
-        button={true}
+        button
         className="facebook"
         value={facebook}
       />
 
-      <Button
-        svgLeft={svgGithub}
-        button={true}
-        className="github"
-        value={github}
-      />
+      <Button svgLeft={svgGithub} button className="github" value={github} />
     </>
   );
 };

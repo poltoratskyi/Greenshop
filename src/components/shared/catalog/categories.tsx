@@ -208,7 +208,7 @@ const Categories: React.FC = () => {
         </ul>
       </div>
 
-      <Button button={true} className="filter" value="Filter" />
+      <Button button className="filter" value="Filter" />
     </form>
   );
 };

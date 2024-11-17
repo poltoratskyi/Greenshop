@@ -65,7 +65,7 @@
           font-weight: 500;
           cursor: pointer;
           padding: 0px 12px;
-          transition: all 0.5s ease;
+          transition: all 0.2s ease;
 
           &:hover {
             color: $main;
@@ -137,7 +137,7 @@
         }
 
         &:hover {
-          transition: all 0.5s ease;
+          transition: all 0.2s ease;
 
           background-color: #f8f8f8;
 
@@ -181,7 +181,7 @@
       .title {
         @include title($m: 15px 0px 0px 0px, $fw: 500, $lh: 16px, $fz: 16px);
         display: block;
-        transition: all 0.5s ease;
+        transition: all 0.2s ease;
         &:hover {
           color: $main;
         }
@@ -195,8 +195,8 @@
         display: flex;
         align-items: center;
 
-        .sailPrice {
-          @include sail-price($ml: 20px);
+        .salePrice {
+          @include sale-price($ml: 20px);
         }
 
         .price {
@@ -219,7 +219,7 @@
         border-bottom: 1px solid $main;
         opacity: 0;
         visibility: hidden;
-        transition: all 0.5s ease;
+        transition: all 0.2s ease;
       }
     }
   }
@@ -311,7 +311,7 @@
         }
 
         .info {
-          .sailPrice {
+          .salePrice {
             font-size: 16px;
           }
 

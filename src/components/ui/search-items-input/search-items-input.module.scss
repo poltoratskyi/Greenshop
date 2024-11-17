@@ -7,7 +7,6 @@
   opacity: 0;
 
   &.visible {
-    @include overlay();
     opacity: 1;
     visibility: visible;
   }
@@ -16,13 +15,13 @@
     width: 1200px;
     position: fixed;
     right: 50%;
-    top: -25%;
+    top: 0;
     transform: translate(50%, 0%);
     z-index: 3;
     margin-top: 20px;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.5s ease;
+    transition: all 0.2s ease;
 
     .block {
       display: flex;
@@ -41,7 +40,7 @@
         font-weight: 400;
 
         &::placeholder {
-          color: $sailPrice;
+          color: $salePrice;
         }
       }
     }
@@ -49,7 +48,6 @@
     &.visible {
       opacity: 1;
       visibility: visible;
-      top: 0;
     }
   }
 }
@@ -66,7 +64,7 @@
 .svg_close {
   margin-right: 25px;
   svg {
-    transition: all 0.5s ease;
+    transition: all 0.2s ease;
     &:hover {
       fill: #000;
     }
@@ -77,12 +75,12 @@
   .overlay {
     .search_items_input {
       position: relative;
-      top: -5%;
+      top: 0;
       right: 0;
       width: 100%;
       margin-top: 0;
       transform: none;
-      height: 100%;
+      transition: all 0.2s ease;
     }
   }
 }

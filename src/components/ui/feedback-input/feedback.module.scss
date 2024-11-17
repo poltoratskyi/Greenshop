@@ -16,7 +16,7 @@
     font-weight: 400;
 
     &::placeholder {
-      color: $sailPrice;
+      color: $salePrice;
     }
 
     &:focus {
@@ -26,8 +26,6 @@
   }
 
   .feedback_button {
-    display: flex;
-    align-items: center;
     font-size: 18px;
     font-weight: 700;
     color: #fff;
@@ -54,6 +52,7 @@
     }
 
     .feedback_button {
+      font-size: 17px;
       justify-content: center;
       padding: 15px 35px;
       border-top-left-radius: 5px;

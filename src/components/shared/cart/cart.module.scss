@@ -26,7 +26,7 @@
         .layout {
           display: flex;
           align-items: center;
-          transition: all 0.5s ease;
+          transition: all 0.2s ease;
 
           padding: 10px 30px 10px 10px;
 
@@ -37,7 +37,7 @@
 
           .title {
             @include title-clamp($mb: 10px, $fw: 500, $lh: 16px, $fz: 16px);
-            transition: all 0.5s ease;
+            transition: all 0.2s ease;
 
             cursor: pointer;
 
@@ -107,7 +107,7 @@
             width: 25px;
             background-color: #fff;
             border: 1px rgba($main, 0.5) solid;
-            transition: all 0.5s ease;
+            transition: all 0.2s ease;
 
             &:hover {
               border: 1px rgba($main, 1) solid;

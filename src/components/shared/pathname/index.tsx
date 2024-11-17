@@ -24,7 +24,12 @@ const Pathname: React.FC<Props> = ({ item, second, third, thirdPath }) => {
             <li className={`${Style.list} ${Style.link}`}>Home /</li>
           </Link>
 
-          <li className={Style.list}>
+          <li
+            style={!thirdPath ? { cursor: "auto" } : {}}
+            className={`${
+              thirdPath ? Style.list : `${Style.list} ${Style.active}`
+            }`}
+          >
             {item ? item.categories : second} {thirdPath && "/"}
           </li>
 

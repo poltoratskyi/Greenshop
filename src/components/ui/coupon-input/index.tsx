@@ -1,5 +1,7 @@
 import Style from "./coupon.module.scss";
 
+import Button from "../../../components/shared/button";
+
 const CouponInput: React.FC = () => {
   return (
     <div style={{ display: "flex", marginBottom: "30px" }}>
@@ -12,7 +14,7 @@ const CouponInput: React.FC = () => {
         autoComplete="off"
       />
 
-      <button className={Style.coupon_button}>Apply</button>
+      <Button button className="coupon" value="Apply" />
     </div>
   );
 };

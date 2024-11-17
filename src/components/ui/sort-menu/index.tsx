@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useClickAway } from "react-use";
 
 import Style from "./sort.module.scss";
@@ -16,10 +16,13 @@ interface Filter {
 [];
 
 const Sort: React.FC = () => {
-  const sortMenu = useUIStore((state) => state.sortMenu);
+  const sort = useUIStore((state) => state.sort);
   const setOpenSort = useUIStore((state) => state.setOpenSort);
+  const activeSortMenuValue = useUIStore((state) => state.activeSortMenuValue);
+  const setActiveSortMenuValue = useUIStore(
+    (state) => state.setActiveSortMenuValue
+  );
 
-  const [activeSortMenu, setActiveSortMenu] = useState("name");
   const ref = useRef<HTMLDivElement>(null);
 
   useClickAway(ref, () => {
@@ -27,35 +30,37 @@ const Sort: React.FC = () => {
   });
 
   return (
-    <div ref={ref} className={Style.sort}>
+    <div className={Style.sort}>
       <span className={Style.descr}>
-        Sort by: <span>{activeSortMenu}</span>
+        Sort by: <span>{activeSortMenuValue}</span>
       </span>
 
-      <span onClick={() => setOpenSort(true)}>{svgRound}</span>
+      <div ref={ref}>
+        <span onClick={() => setOpenSort(!sort)}>{svgRound}</span>
 
-      <ul
-        className={
-          sortMenu ? `${Style.active} ${Style.sortLists}` : Style.sortLists
-        }
-      >
-        {filterSort.map((item: Filter, index: number) => (
-          <li
-            className={
-              activeSortMenu === item.label
-                ? `${Style.sortList} ${Style.active}`
-                : Style.sortList
-            }
-            onClick={() => {
-              setActiveSortMenu(item.label);
-              setOpenSort(false);
-            }}
-            key={index}
-          >
-            {item.label}
-          </li>
-        ))}
-      </ul>
+        <ul
+          className={
+            sort ? `${Style.active} ${Style.sortLists}` : Style.sortLists
+          }
+        >
+          {filterSort.map((item: Filter, index: number) => (
+            <li
+              className={
+                activeSortMenuValue === item.label
+                  ? `${Style.sortList} ${Style.active}`
+                  : Style.sortList
+              }
+              onClick={() => {
+                setActiveSortMenuValue(item.label);
+                setOpenSort(false);
+              }}
+              key={index}
+            >
+              {item.label}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

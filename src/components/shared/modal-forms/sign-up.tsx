@@ -52,7 +52,7 @@ const SignUp: React.FC<Props> = ({ overflow }) => {
           autoComplete="off"
         />
 
-        <Button button={true} className="sign_up" value="Create an account" />
+        <Button button className="sign_up" value="Create an account" />
       </form>
       <Social
         location="Or sign up with"

@@ -9,11 +9,19 @@ interface Element {
 }
 [];
 
-const Contacts: React.FC = () => {
+interface Props {
+  burger_menu: boolean;
+}
+
+const Contacts: React.FC<Props> = ({ burger_menu }) => {
   return (
-    <div className={Style.contacts}>
+    <div
+      className={`${
+        burger_menu ? `${Style.contacts} ${Style.burger_menu}` : Style.contacts
+      }`}
+    >
       <div className={Style.wrapper}>
-        <Logo logoCenter />
+        <Logo />
 
         <ul className={Style.lists}>
           {info.map((item: Element, index: number) => (

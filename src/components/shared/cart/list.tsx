@@ -64,7 +64,7 @@ const CartList: React.FC = () => {
 
               {item.onSale ? (
                 <span className={Style.price}>
-                  ${item.sailPrice.toFixed(2)}
+                  ${item.salePrice.toFixed(2)}
                 </span>
               ) : (
                 <span className={Style.price}>${item.price.toFixed(2)}</span>
@@ -80,7 +80,7 @@ const CartList: React.FC = () => {
 
               {item.onSale ? (
                 <span className={Style.total}>
-                  ${item.sailPrice.toFixed(2)}
+                  ${item.salePrice.toFixed(2)}
                 </span>
               ) : (
                 <span className={Style.total}>${item.price.toFixed(2)}</span>

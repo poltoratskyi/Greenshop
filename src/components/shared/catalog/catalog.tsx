@@ -20,7 +20,7 @@ const Catalog: React.FC = () => {
 
   useEffect(() => {
     fetchCatalog();
-  }, []);
+  }, []); 
 
   if (isLoading) {
     return (

@@ -10,11 +10,11 @@ import LogIn from "../../../../components/shared/modal-forms/log-in";
 import { useUIStore } from "../../../../utils/store";
 
 export default function Modal() {
-  const toggleAction = useUIStore((state) => state.toggleAction);
+  const modalAction = useUIStore((state) => state.modalAction);
 
   return (
     <ModalWrapper>
-      <ModalForm>{toggleAction ? <LogIn /> : <SignUp />}</ModalForm>
+      <ModalForm>{modalAction ? <LogIn /> : <SignUp />}</ModalForm>
     </ModalWrapper>
   );
 }

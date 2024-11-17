@@ -39,7 +39,7 @@ const LogIn: React.FC<Props> = ({ overflow }) => {
           <Link href="#">Forgot Password?</Link>
         </div>
 
-        <Button button={true} className="log_in" value="Log In" />
+        <Button button className="log_in" value="Log In" />
       </form>
 
       <Social

@@ -1,5 +1,7 @@
 import Style from "./feedback.module.scss";
 
+import Button from "../../../components/shared/button";
+
 const FeedbackInput: React.FC = () => {
   return (
     <div className={Style.block}>
@@ -12,7 +14,7 @@ const FeedbackInput: React.FC = () => {
         autoComplete="off"
       />
 
-      <button className={Style.feedback_button}>Join</button>
+      <Button button value="Join" className="feedback" />
     </div>
   );
 };

@@ -16,11 +16,10 @@ interface Props {
 const ModalContent: React.FC<Props> = ({ title, children }) => {
   const router = useRouter();
 
-  const toggleAction = useUIStore((state) => state.toggleAction);
+  const modalAction = useUIStore((state) => state.modalAction);
 
   const setToggleAction = useUIStore((state) => state.setToggleAction);
   const setOpenModal = useUIStore((state) => state.setOpenModal);
-  /* const setShowMenu = useUIStore((state) => state.setShowMenu); */
 
   const closeModal = () => {
     router.back();
@@ -35,7 +34,7 @@ const ModalContent: React.FC<Props> = ({ title, children }) => {
           <h2
             onClick={() => setToggleAction(true)}
             className={
-              toggleAction ? `${Style.text} ${Style.active}` : Style.text
+              modalAction ? `${Style.text} ${Style.active}` : Style.text
             }
           >
             Log In
@@ -46,7 +45,7 @@ const ModalContent: React.FC<Props> = ({ title, children }) => {
           <h2
             onClick={() => setToggleAction(false)}
             className={
-              !toggleAction ? `${Style.text} ${Style.active}` : Style.text
+              !modalAction ? `${Style.text} ${Style.active}` : Style.text
             }
           >
             Sign Up
