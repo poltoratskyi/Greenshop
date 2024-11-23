@@ -1,3 +1,5 @@
+"use client";
+
 import { usePathname } from "next/navigation";
 
 import Style from "./mobile-header.module.scss";
@@ -6,7 +8,15 @@ const TopInfo: React.FC = () => {
   const pathname = usePathname();
 
   return (
-    <div id="top-info" className={Style.top_info}>
+    <div
+      style={
+        pathname === "/" || pathname === "/login"
+          ? { height: "40px" }
+          : { height: "65px" }
+      }
+      id="top-info"
+      className={Style.top_info}
+    >
       <>
         {pathname !== "/" && pathname !== "/login" && (
           <h4 className={Style.text}>Summer sale - up to 20% off!</h4>

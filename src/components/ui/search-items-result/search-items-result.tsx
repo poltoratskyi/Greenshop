@@ -1,8 +1,8 @@
 "use client";
 
 import Style from "./search-items-result.module.scss";
-import List from "../../shared/catalog/list";
 
+import List from "../../shared/catalog/list";
 import CatalogStyle from "../../shared/catalog/catalog.module.scss";
 import CatalogItems from "../../shared/catalog/catalog-items";
 

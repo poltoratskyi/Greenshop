@@ -88,7 +88,7 @@ export const btn = (
 
 export const pages = [
   { menu: home, href: "/" },
-  { menu: catalog, href: "#" },
+  { menu: catalog, href: "/catalog" },
   { menu: favorite, href: "#" },
   { menu: cart, href: "/cart" },
   { menu: login, href: "/login" },

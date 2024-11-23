@@ -9,16 +9,11 @@ import { useSearchStore, useUIStore } from "../../../utils/store";
 
 import { /* btn, */ pages } from "./static-data";
 
-interface Element {
-  menu: JSX.Element;
-  href: string;
-}
-[];
-
 const MobileMenu: React.FC = () => {
   const pathname = usePathname();
 
   const setOpenModal = useUIStore((state) => state.setOpenModal);
+  const setOpenModalCatalog = useUIStore((state) => state.setOpenModalCatalog);
 
   const results = useSearchStore((state) => state.results);
 
@@ -29,12 +24,14 @@ const MobileMenu: React.FC = () => {
       }
     >
       <ul className={Style.lists}>
-        {pages.map((link: Element, index: number) => (
+        {pages.map((link, index) => (
           <li
             key={index}
             onClick={() => {
               if (link.href === "/login") {
                 setOpenModal(true);
+              } else if (link.href === "/catalog") {
+                setOpenModalCatalog(true);
               }
             }}
             className={

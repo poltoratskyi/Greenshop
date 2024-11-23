@@ -16,7 +16,18 @@ const MobileHeader: React.FC = () => {
     <div className={Style.mobile_header}>
       <BurgerMenu />
 
-      <span onClick={() => setOpenBurger(true)}>{svgBurgerMenu}</span>
+      <span
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+
+          setOpenBurger(true);
+        }}
+      >
+        {svgBurgerMenu}
+      </span>
 
       <Logo subtitle width="30" height="30" />
 

@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,28 +12,23 @@ import { svgCart, svgLogin, svgSearch } from "./static-data";
 const Actions: React.FC = () => {
   const pathname = usePathname();
 
-  const modal = useUIStore((state) => state.modal);
-  const burger = useUIStore((state) => state.burger);
-
   const setOpenModal = useUIStore((state) => state.setOpenModal);
 
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
 
-  useEffect(() => {
-    if (modal || burger) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [modal, burger]);
-
   return (
     <div className={Style.actions}>
-      <span className={Style.search} onClick={() => setOpenSearch(true)}>
+      <span
+        className={Style.search}
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+
+          setOpenSearch(true);
+        }}
+      >
         {svgSearch}
       </span>
 

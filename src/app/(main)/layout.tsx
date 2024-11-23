@@ -12,15 +12,19 @@ const metadata: Metadata = {
 const MainLayout = ({
   children,
   modal,
+  catalog,
 }: Readonly<{
-  modal: React.ReactNode;
   children: React.ReactNode;
+  modal: React.ReactNode;
+  catalog: React.ReactNode;
 }>) => {
   return (
     <main>
       <Header />
 
       {modal}
+
+      {catalog}
 
       {children}
 
