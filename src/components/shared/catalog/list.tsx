@@ -101,7 +101,7 @@ const List: React.FC<Props> = ({
 
           {variations[0]?.onSale && (
             <div className={Style.percent}>
-              {percentValue(variations[0].price, variations[0].salePrice)}
+              {percentValue(variations[0].price, variations[0].sale)}
               {"% OFF"}
             </div>
           )}
@@ -125,13 +125,9 @@ const List: React.FC<Props> = ({
       </div>
       {variations[0]?.onSale ? (
         <div className={Style.info}>
-          <span className={Style.price}>
-            ${variations[0].salePrice.toFixed(2)}
-          </span>
+          <span className={Style.price}>${variations[0].sale.toFixed(2)}</span>
 
-          <span className={Style.salePrice}>
-            ${variations[0].price.toFixed(2)}
-          </span>
+          <span className={Style.sale}>${variations[0].price.toFixed(2)}</span>
         </div>
       ) : (
         <div className={Style.info}>

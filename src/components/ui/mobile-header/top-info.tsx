@@ -8,23 +8,19 @@ const TopInfo: React.FC = () => {
   const pathname = usePathname();
 
   return (
-    <div
-      style={
-        pathname === "/" || pathname === "/login"
-          ? { height: "40px" }
-          : { height: "65px" }
-      }
-      id="top-info"
-      className={Style.top_info}
-    >
+    <div id="top-info" className={Style.top_info}>
       <>
-        {pathname !== "/" && pathname !== "/login" && (
-          <h4 className={Style.text}>Summer sale - up to 20% off!</h4>
-        )}
+        {pathname !== "/" &&
+          pathname !== "/login" &&
+          pathname !== "/categories" && (
+            <h4 className={Style.text}>Summer sale - up to 20% off!</h4>
+          )}
 
-        <p className={`${Style.text} ${Style.delivered}`}>
-          Fresh flowers delivered to your door!
-        </p>
+        <div className="container">
+          <p className={`${Style.text} ${Style.delivered}`}>
+            Fresh flowers delivered to your door!
+          </p>
+        </div>
       </>
     </div>
   );

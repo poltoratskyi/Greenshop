@@ -9,7 +9,7 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     border-bottom: 1px solid $line;
-    padding-bottom: 17px;
+    padding-bottom: 15px;
 
     .lists {
       display: flex;
@@ -20,11 +20,7 @@
         margin-right: auto;
 
         .link {
-          text-align: center;
-          color: $text;
-          font-size: 16px;
-          font-weight: 500;
-          line-height: 20px;
+          @include title($fz: 16px, $lh: 24px);
           padding-bottom: 25px;
 
           &:hover {
@@ -49,15 +45,12 @@
       justify-content: flex-end;
 
       .login {
+        @include description($c: #fff);
         padding: 10px 20px;
         background-color: $main;
         border-radius: 5px;
         display: flex;
         align-items: center;
-        font-size: 16px;
-        font-weight: 500;
-        color: #fff;
-        line-height: 20px;
         transition: all 0.2s ease;
 
         svg {
@@ -75,7 +68,7 @@
       }
 
       .cart {
-        @include cartQuantity();
+        @include cart-quantity();
 
         &.active {
           svg {
@@ -104,21 +97,15 @@
     text-align: center;
 
     h3 {
-      color: $main;
-      font-weight: 700;
-      line-height: 12px;
+      @include header($fz: 20px, $lh: 20px, $c: $main);
       text-transform: uppercase;
-      font-size: 18px;
     }
 
     span {
-      display: block;
+      @include description($fz: 11px, $lh: 11px, $c: $main);
+      display: inline-block;
       margin-top: 10px;
-      color: $main;
-      font-weight: 400;
-      line-height: 12px;
       text-transform: uppercase;
-      font-size: 10px;
     }
   }
 }
@@ -133,6 +120,6 @@
   }
 
   .logo {
-    margin: auto;
+    margin: 0 auto;
   }
 }

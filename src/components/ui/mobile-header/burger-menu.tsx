@@ -38,8 +38,8 @@ const BurgerMenu: React.FC = () => {
     <div
       style={
         pathname === "/" || pathname === "/login"
-          ? { marginTop: "40px" }
-          : { marginTop: "65px" }
+          ? { marginTop: "41px" }
+          : { marginTop: "66px" }
       }
       className={`${
         burger ? `${Style.burger} ${Style.visible}` : Style.burger

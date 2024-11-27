@@ -18,19 +18,19 @@ const CartList: React.FC = () => {
     <div className={Style.items}>
       <ul className={Style.items_title}>
         <li style={{ width: "320px" }}>
-          <h2>Products</h2>
+          <h4>Products</h4>
         </li>
 
         <li style={{ width: "100px" }}>
-          <h2>Price</h2>
+          <h4>Price</h4>
         </li>
 
         <li style={{ width: "100px" }}>
-          <h2>Quantity</h2>
+          <h4>Quantity</h4>
         </li>
 
         <li style={{ width: "130px", marginLeft: "130px" }}>
-          <h2>Total</h2>
+          <h4>Total</h4>
         </li>
       </ul>
 
@@ -53,7 +53,7 @@ const CartList: React.FC = () => {
 
               <div style={{ width: "200px" }}>
                 <Link href="#">
-                  <h2 className={Style.title}>{item.name}</h2>
+                  <h3 className={Style.title}>{item.name}</h3>
                 </Link>
 
                 <p className={Style.sku}>
@@ -63,9 +63,7 @@ const CartList: React.FC = () => {
               </div>
 
               {item.onSale ? (
-                <span className={Style.price}>
-                  ${item.salePrice.toFixed(2)}
-                </span>
+                <span className={Style.price}>${item.sale.toFixed(2)}</span>
               ) : (
                 <span className={Style.price}>${item.price.toFixed(2)}</span>
               )}
@@ -79,9 +77,7 @@ const CartList: React.FC = () => {
               </div>
 
               {item.onSale ? (
-                <span className={Style.total}>
-                  ${item.salePrice.toFixed(2)}
-                </span>
+                <span className={Style.total}>${item.sale.toFixed(2)}</span>
               ) : (
                 <span className={Style.total}>${item.price.toFixed(2)}</span>
               )}

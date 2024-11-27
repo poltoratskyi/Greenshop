@@ -193,7 +193,7 @@ interface UIState {
   modal: boolean;
   modalAction: boolean;
 
-  modalCatalog: boolean;
+  modalCategories: boolean;
 
   sort: boolean;
   activeSortMenuValue: string;
@@ -208,7 +208,7 @@ interface UIState {
   setOpenModal: (isOpen: boolean) => void;
   setToggleAction: (isShown: boolean) => void;
 
-  setOpenModalCatalog: (isOpen: boolean) => void;
+  setOpenModalCategories: (isOpen: boolean) => void;
 
   setOpenSort: (isOpen: boolean) => void;
   setActiveSortMenuValue: (value: string) => void;
@@ -225,7 +225,7 @@ export const useUIStore = create<UIState>((set) => ({
   modal: false,
   modalAction: true,
 
-  modalCatalog: false,
+  modalCategories: false,
 
   sort: false,
   activeSortMenuValue: "name",
@@ -240,7 +240,7 @@ export const useUIStore = create<UIState>((set) => ({
   setOpenModal: (isOpen: boolean) => set({ modal: isOpen }),
   setToggleAction: (isShown: boolean) => set({ modalAction: isShown }),
 
-  setOpenModalCatalog: (isOpen: boolean) => set({ modal: isOpen }),
+  setOpenModalCategories: (isOpen: boolean) => set({ modalCategories: isOpen }),
 
   setOpenSort: (isOpen: boolean) => set({ sort: isOpen }),
   setActiveSortMenuValue: (value: string) =>

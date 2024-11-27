@@ -12,11 +12,12 @@
 
     .items_title,
     .check_title {
-      @include title($m: 0px 0px 10px, $fw: 700, $lh: 16px, $fz: 16px);
+      @include subtitle($fz: 16px);
       display: flex;
       text-align: left;
       padding-bottom: 15px;
       border-bottom: 1px solid rgba($main, 0.5);
+      margin-bottom: 10px;
     }
 
     .lists {
@@ -36,8 +37,9 @@
           }
 
           .title {
-            @include title-clamp($mb: 10px, $fw: 500, $lh: 16px, $fz: 16px);
+            @include subtitle-clamp($fz: 16px);
             transition: all 0.2s ease;
+            margin-bottom: 10px;
 
             cursor: pointer;
 
@@ -47,13 +49,10 @@
           }
 
           .sku {
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 16px;
-            color: $descr;
+            @include description();
 
             span {
-              color: #a5a5a5;
+              color: $text;
               margin-right: 5px;
             }
           }
@@ -67,17 +66,14 @@
           }
         }
 
-        .price,
-        .total {
-          @include price($ta: left);
-        }
-
         .price {
-          @include price($ta: left, $w: 100px);
+          @include price($fw: 400);
+          width: 100px;
         }
 
         .total {
-          @include price($c: $main, $fw: 700, $ta: left, $w: 130px);
+          @include price($c: $main, $fw: 500);
+          width: 130px;
           margin-left: 130px;
         }
 
@@ -96,9 +92,8 @@
           width: 100px;
 
           button {
-            font-size: 16px;
-            line-height: 16px;
-            font-weight: 500;
+            font-size: 14px;
+            line-height: 24px;
             color: #fff;
             display: flex;
             justify-content: center;
@@ -115,10 +110,7 @@
           }
 
           span {
-            font-size: 17px;
-            line-height: 10px;
-            font-weight: 400;
-            color: $text;
+            @include description($c: $text);
             text-align: center;
           }
         }
@@ -134,12 +126,9 @@
       text-align: center;
 
       .subtitle {
+        @include description($c: $text);
         text-align: left;
         display: block;
-        font-size: 14px;
-        line-height: 16px;
-        font-weight: 400;
-        color: $text;
         margin-bottom: 10px;
       }
 
@@ -150,30 +139,22 @@
         margin-bottom: 15px;
 
         p {
-          font-size: 15px;
-          line-height: 16px;
-          color: $text;
-          font-weight: 400;
+          @include description($c: $text);
         }
 
         mark {
           color: $text;
-          font-size: 16px;
-          line-height: 16px;
-          font-weight: 700;
+          font-size: 18px;
+          line-height: 24px;
+          font-weight: 600;
           background-color: transparent;
         }
 
         span {
-          color: $text;
-          font-size: 18px;
-          line-height: 16px;
-          font-weight: 500;
+          @include description($c: $text, $fw: 500);
 
           a {
-            font-size: 14px;
-            line-height: 16px;
-            color: #46a358;
+            @include description($c: $main);
             margin-top: 10px;
 
             &:hover {
@@ -184,19 +165,13 @@
         }
 
         b {
-          color: $main;
-          font-size: 18px;
-          line-height: 16px;
-          font-weight: 700;
+          @include title($c: $main, $fz: 18px, $lh: 24px);
         }
       }
 
       .continue {
+        @include description($c: $main);
         display: inline-block;
-        color: $main;
-        font-size: 15px;
-        line-height: 16px;
-        font-weight: 400;
         text-emphasis: center;
 
         &:hover {
@@ -209,13 +184,8 @@
 
   .slider {
     .title {
-      @include title(
-        $m: 0px 0px 10px,
-        $fw: 700,
-        $lh: 16px,
-        $fz: 17px,
-        $c: $main
-      );
+      @include title($lh: 32px, $fz: 20px, $c: $main);
+      margin-bottom: 10px;
       padding-bottom: 15px;
       border-bottom: 1px solid rgba($main, 0.5);
     }

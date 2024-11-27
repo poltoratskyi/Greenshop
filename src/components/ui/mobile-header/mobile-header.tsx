@@ -8,7 +8,7 @@ import Logo from "../../shared/header/logo";
 import { useUIStore } from "../../../utils/store";
 import BurgerMenu from "./burger-menu";
 
-const MobileHeader: React.FC = () => {
+const mobileHeader: React.FC = () => {
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
   const setOpenBurger = useUIStore((state) => state.setOpenBurger);
 
@@ -36,4 +36,4 @@ const MobileHeader: React.FC = () => {
   );
 };
 
-export default MobileHeader;
+export default mobileHeader;

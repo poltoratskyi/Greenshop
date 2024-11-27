@@ -1,10 +1,10 @@
-import { Montserrat } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 
 import "../styles/globals.scss";
 
-const font = Montserrat({
+const font = IBM_Plex_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
 const RootLayout = ({

@@ -1,8 +1,8 @@
 import { Item, Size } from "../types";
 
 // Percent Value
-export const percentValue = (price: number, salePrice: number): string => {
-  const discount = ((price - salePrice) / price) * 100;
+export const percentValue = (price: number, sale: number): string => {
+  const discount = ((price - sale) / price) * 100;
   return discount.toFixed(0);
 };
 

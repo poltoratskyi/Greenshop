@@ -5,13 +5,15 @@
   margin-bottom: 100px;
 
   .title {
-    @include title($m: 0px 0px 15px, $fw: 700, $lh: 16px, $fz: 30px);
+    @include title();
     text-align: center;
+    margin-bottom: 15px;
   }
 
   .descr {
-    @include description($mb: 35px);
+    @include description();
     text-align: center;
+    margin-bottom: 35px;
   }
 
   .content {
@@ -27,34 +29,40 @@
         padding: 10px;
         background-color: $background;
 
-        span {
-          display: block;
-          font-size: 14px;
-          line-height: 16px;
-          color: $main;
-          font-weight: 500;
+        .date {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           margin-bottom: 5px;
+
+          span {
+            @include description($c: $main);
+          }
+
+          .element {
+            @include description($c: $text);
+            padding: 0px 10px;
+          }
         }
 
         h3 {
-          @include title-clamp($mb: 5px);
+          @include subtitle-clamp();
+          margin-bottom: 10px;
         }
 
         p {
-          @include description-clamp($mb: 10px);
+          @include description-clamp();
+          margin-bottom: 15px;
         }
 
         a {
+          @include description($c: $text, $fw: 500);
           position: relative;
-          line-height: 16px;
-          font-size: 14px;
-          font-weight: 500;
-          color: $text;
 
           svg {
             position: absolute;
             top: 0;
-            left: 85px;
+            left: 80px;
             margin-top: 15px;
             transition: all 0.2s ease;
             opacity: 0;
@@ -81,7 +89,13 @@
     margin-bottom: 20px;
 
     .title {
-      font-size: 20px;
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 5px;
+    }
+
+    .descr {
+      margin-bottom: 25px;
     }
 
     .content {
@@ -99,12 +113,13 @@
           border-bottom-right-radius: 6px;
           border-bottom-left-radius: 6px;
 
-          span {
-            font-size: 12px;
+          h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
           }
 
-          h3 {
-            @include title($m: 0px 0px 10px, $fw: 700, $lh: 26px, $fz: 17px);
+          p {
+            margin-bottom: 10px;
           }
         }
       }

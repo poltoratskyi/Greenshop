@@ -45,11 +45,11 @@ export const svgBurgerMenu = (
 
 export const svgClose = (
   <svg
-    width="20"
-    height="20"
+    width="18"
+    height="18"
     viewBox="0 0 513.552 513.552"
     enableBackground=":new 0 0 513.552 513.552;"
-    fill="#3D3D3D"
+    fill="#46a358"
   >
     <g>
       <g>

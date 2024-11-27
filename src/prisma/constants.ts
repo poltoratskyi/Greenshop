@@ -142,7 +142,7 @@ export const variation = [
   // item 1
   {
     price: 119,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 1,
     value: 20,
@@ -150,7 +150,7 @@ export const variation = [
   },
   {
     price: 139,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 2,
     value: 40,
@@ -158,7 +158,7 @@ export const variation = [
   },
   {
     price: 159,
-    salePrice: 139,
+    sale: 139,
     onSale: true,
     sizeId: 3,
     value: 60,
@@ -166,7 +166,7 @@ export const variation = [
   },
   {
     price: 179,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 4,
     value: 80,
@@ -176,7 +176,7 @@ export const variation = [
   // item 2
   {
     price: 169,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 1,
     value: 10,
@@ -184,7 +184,7 @@ export const variation = [
   },
   {
     price: 189,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 2,
     value: 20,
@@ -192,7 +192,7 @@ export const variation = [
   },
   {
     price: 209,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 3,
     value: 30,
@@ -200,7 +200,7 @@ export const variation = [
   },
   {
     price: 229,
-    salePrice: 209,
+    sale: 209,
     onSale: true,
     sizeId: 4,
     value: 40,
@@ -210,7 +210,7 @@ export const variation = [
   // item 3
   {
     price: 229,
-    salePrice: 199,
+    sale: 199,
     onSale: true,
     sizeId: 1,
     value: 40,
@@ -218,7 +218,7 @@ export const variation = [
   },
   {
     price: 249,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 2,
     value: 50,
@@ -226,7 +226,7 @@ export const variation = [
   },
   {
     price: 269,
-    salePrice: 249,
+    sale: 249,
     onSale: true,
     sizeId: 3,
     value: 60,
@@ -234,7 +234,7 @@ export const variation = [
   },
   {
     price: 289,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 4,
     value: 70,
@@ -244,7 +244,7 @@ export const variation = [
   // item 4
   {
     price: 129,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 1,
     value: 10,
@@ -252,7 +252,7 @@ export const variation = [
   },
   {
     price: 149,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 2,
     value: 5,
@@ -260,7 +260,7 @@ export const variation = [
   },
   {
     price: 169,
-    salePrice: 149,
+    sale: 149,
     onSale: true,
     sizeId: 3,
     value: 10,
@@ -268,7 +268,7 @@ export const variation = [
   },
   {
     price: 189,
-    salePrice: 169,
+    sale: 169,
     onSale: true,
     sizeId: 4,
     value: 5,
@@ -278,7 +278,7 @@ export const variation = [
   // item 5
   {
     price: 139,
-    salePrice: 129,
+    sale: 129,
     onSale: true,
     sizeId: 1,
     value: 6,
@@ -286,7 +286,7 @@ export const variation = [
   },
   {
     price: 159,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 2,
     value: 4,
@@ -294,7 +294,7 @@ export const variation = [
   },
   {
     price: 179,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 3,
     value: 15,
@@ -302,7 +302,7 @@ export const variation = [
   },
   {
     price: 199,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 4,
     value: 30,
@@ -312,7 +312,7 @@ export const variation = [
   // item 6
   {
     price: 179,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 1,
     value: 44,
@@ -320,7 +320,7 @@ export const variation = [
   },
   {
     price: 199,
-    salePrice: 179,
+    sale: 179,
     onSale: true,
     sizeId: 2,
     value: 31,
@@ -328,7 +328,7 @@ export const variation = [
   },
   {
     price: 219,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 3,
     value: 17,
@@ -336,7 +336,7 @@ export const variation = [
   },
   {
     price: 239,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 4,
     value: 13,
@@ -347,7 +347,7 @@ export const variation = [
   {
     price: 99,
     onSale: true,
-    salePrice: 79,
+    sale: 79,
     sizeId: 1,
     value: 12,
     itemId: 7,
@@ -355,7 +355,7 @@ export const variation = [
   {
     price: 119,
     onSale: true,
-    salePrice: 99,
+    sale: 99,
     sizeId: 2,
     value: 13,
     itemId: 7,
@@ -363,7 +363,7 @@ export const variation = [
   {
     price: 139,
     onSale: false,
-    salePrice: 0,
+    sale: 0,
     sizeId: 3,
     value: 15,
     itemId: 7,
@@ -371,7 +371,7 @@ export const variation = [
   {
     price: 159,
     onSale: false,
-    salePrice: 0,
+    sale: 0,
     sizeId: 4,
     value: 18,
     itemId: 7,
@@ -380,7 +380,7 @@ export const variation = [
   // item 8
   {
     price: 59,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 1,
     value: 2,
@@ -388,7 +388,7 @@ export const variation = [
   },
   {
     price: 79,
-    salePrice: 59,
+    sale: 59,
     onSale: true,
     sizeId: 2,
     value: 5,
@@ -396,7 +396,7 @@ export const variation = [
   },
   {
     price: 99,
-    salePrice: 79,
+    sale: 79,
     onSale: true,
     sizeId: 3,
     value: 1,
@@ -404,7 +404,7 @@ export const variation = [
   },
   {
     price: 119,
-    salePrice: 99,
+    sale: 99,
     onSale: true,
     sizeId: 4,
     value: 1,
@@ -414,7 +414,7 @@ export const variation = [
   // item 9
   {
     price: 39,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 1,
     value: 8,
@@ -422,7 +422,7 @@ export const variation = [
   },
   {
     price: 59,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 2,
     value: 9,
@@ -430,7 +430,7 @@ export const variation = [
   },
   {
     price: 79,
-    salePrice: 0,
+    sale: 0,
     onSale: false,
     sizeId: 3,
     value: 10,
@@ -438,7 +438,7 @@ export const variation = [
   },
   {
     price: 99,
-    salePrice: 79,
+    sale: 79,
     onSale: true,
     sizeId: 4,
     value: 11,

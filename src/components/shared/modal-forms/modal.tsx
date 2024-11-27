@@ -1,3 +1,5 @@
+import Style from "./modal-forms.module.scss";
+
 import ModalContent from "./modal-content";
 
 interface Props {
@@ -5,7 +7,15 @@ interface Props {
 }
 
 const Modal: React.FC<Props> = ({ children }) => {
-  return <ModalContent title>{children}</ModalContent>;
+  return (
+    <>
+      <div className={Style.overlay}></div>
+
+      <div className={Style.modal}>
+        <ModalContent title>{children}</ModalContent>
+      </div>
+    </>
+  );
 };
 
 export default Modal;

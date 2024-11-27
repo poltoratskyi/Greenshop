@@ -8,7 +8,7 @@ import { account, help, categories } from "./static-data";
 const Feedback: React.FC = () => {
   return (
     <div className={Style.feedback}>
-      <nav>
+      <nav className={Style.nav}>
         <h3 className={Style.title}>My Account</h3>
 
         <ul className={Style.lists}>
@@ -22,7 +22,7 @@ const Feedback: React.FC = () => {
         </ul>
       </nav>
 
-      <nav>
+      <nav className={Style.nav}>
         <h3 className={Style.title}>Help & Guide</h3>
 
         <ul className={Style.lists}>
@@ -36,7 +36,7 @@ const Feedback: React.FC = () => {
         </ul>
       </nav>
 
-      <nav>
+      <nav className={Style.nav}>
         <h3 className={Style.title}>Categories</h3>
 
         <ul className={Style.lists}>

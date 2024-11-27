@@ -1,7 +1,7 @@
 export const svgClose = (
   <svg
-    width="17"
-    height="17"
+    width="18"
+    height="18"
     viewBox="0 0 513.552 513.552"
     enableBackground=":new 0 0 513.552 513.552;"
     fill="#46a358"

@@ -5,24 +5,20 @@ import { usePathname } from "next/navigation";
 
 import Style from "./mobile-menu.module.scss";
 
-import { useSearchStore, useUIStore } from "../../../utils/store";
+import { useUIStore } from "../../../utils/store";
 
-import { /* btn, */ pages } from "./static-data";
+import { pages } from "./static-data";
 
 const MobileMenu: React.FC = () => {
   const pathname = usePathname();
 
   const setOpenModal = useUIStore((state) => state.setOpenModal);
-  const setOpenModalCatalog = useUIStore((state) => state.setOpenModalCatalog);
-
-  const results = useSearchStore((state) => state.results);
+  const setOpenModalCategories = useUIStore(
+    (state) => state.setOpenModalCategories
+  );
 
   return (
-    <nav
-      className={
-        results.length > 0 ? `${Style.menu} ${Style.active}` : Style.menu
-      }
-    >
+    <nav className={Style.menu}>
       <ul className={Style.lists}>
         {pages.map((link, index) => (
           <li
@@ -30,8 +26,8 @@ const MobileMenu: React.FC = () => {
             onClick={() => {
               if (link.href === "/login") {
                 setOpenModal(true);
-              } else if (link.href === "/catalog") {
-                setOpenModalCatalog(true);
+              } else if (link.href === "/categories") {
+                setOpenModalCategories(true);
               }
             }}
             className={
@@ -40,12 +36,7 @@ const MobileMenu: React.FC = () => {
                 : Style.list
             }
             style={{
-              pointerEvents:
-                pathname === "/login" && link.href === "/login"
-                  ? "none"
-                  : "auto",
-              opacity:
-                pathname === "/login" && link.href === "/login" ? 0.5 : 1,
+              pointerEvents: pathname === link.href ? "none" : "auto",
             }}
           >
             <Link href={link.href}>

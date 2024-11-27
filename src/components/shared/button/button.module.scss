@@ -10,9 +10,9 @@
     $p: 15px 35px,
     $bc: $main,
     $br: 6px,
-    $fz: 16px,
-    $fw: 700,
-    $lh: 20px,
+    $fz: 14px,
+    $fw: 400,
+    $lh: 24px,
     $c: #fff,
     $tt: uppercase
   );
@@ -49,8 +49,8 @@
     $bc: $main,
     $br: 6px,
     $fz: 14px,
-    $fw: 500,
-    $lh: 20px,
+    $fw: 400,
+    $lh: 24px,
     $c: #fff,
     $tt: unset
   );
@@ -68,15 +68,14 @@
     $p: 15px 25px,
     $bc: $main,
     $br: 6px,
-    $fz: 16px,
-    $fw: 700,
-    $lh: 20px,
+    $fz: 14px,
+    $fw: 400,
+    $lh: 24px,
     $c: #fff,
     $tt: uppercase
   );
 
   width: 100%;
-  margin-top: 35px;
 }
 
 .feedback {
@@ -85,9 +84,9 @@
     $p: 15px 25px,
     $bc: $main,
     $br: unset,
-    $fz: 18px,
-    $fw: 700,
-    $lh: 16px,
+    $fz: 14px,
+    $fw: 400,
+    $lh: 24px,
     $c: #fff,
     $tt: unset
   );
@@ -97,10 +96,10 @@
 }
 
 .coupon {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 400;
   color: #fff;
-  line-height: 16px;
+  line-height: 24spx;
   padding: 10px 25px;
   background-color: $main;
   border-top-right-radius: 5px;
@@ -118,9 +117,9 @@
     $p: 15px 30px,
     $bc: $main,
     $br: 3px,
-    $fz: 15px,
-    $fw: 700,
-    $lh: 16px,
+    $fz: 14px,
+    $fw: 400,
+    $lh: 24px,
     $c: #fff,
     $tt: unset
   );
@@ -137,9 +136,9 @@
     $p: 15px 30px,
     $bc: $main,
     $br: 6px,
-    $fz: 16px,
-    $fw: 500,
-    $lh: 20px,
+    $fz: 14px,
+    $fw: 400,
+    $lh: 24px,
     $c: #fff,
     $tt: unset
   );
@@ -153,9 +152,9 @@
     $p: 15px 30px,
     $bc: #fff,
     $br: 5px,
-    $fz: 13px,
-    $fw: 500,
-    $lh: 16px,
+    $fz: 14px,
+    $fw: 400,
+    $lh: 24px,
     $c: $descr,
     $tt: unset
   );
@@ -183,8 +182,8 @@
 @media (max-width: 575px) {
   .banner_mobile {
     font-size: 14px;
-    line-height: 14px;
-    font-weight: 700;
+    line-height: 24px;
+    font-weight: 400;
     display: inline-flex;
     text-transform: uppercase;
     align-items: center;
@@ -215,7 +214,7 @@
   }
 
   .feedback {
-    font-size: 17px;
+    font-size: 14px;
     justify-content: center;
     padding: 15px 35px;
     border-top-left-radius: 5px;

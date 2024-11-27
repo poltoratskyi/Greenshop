@@ -2,11 +2,11 @@
 
 import { useRouter } from "next/navigation";
 
-import { useUIStore } from "../../../utils/store";
+import Style from "./modal-forms.module.scss";
 
 import { svgClose } from "./static-data";
 
-import Style from "./modal-forms.module.scss";
+import { useUIStore } from "../../../utils/store";
 
 interface Props {
   title?: boolean;
@@ -24,41 +24,40 @@ const ModalContent: React.FC<Props> = ({ title, children }) => {
   const closeModal = () => {
     router.back();
     setOpenModal(false);
-    /* setShowMenu(true); */
-    document.body.style.overflow = "auto";
   };
+
   return (
     <>
       {title && (
-        <div className={Style.title}>
+        <div className={Style.header}>
           <h2
             onClick={() => setToggleAction(true)}
             className={
-              modalAction ? `${Style.text} ${Style.active}` : Style.text
+              modalAction ? `${Style.title} ${Style.active}` : Style.title
             }
           >
             Log In
           </h2>
 
-          <span>I</span>
+          <span className={Style.element}>I</span>
 
           <h2
             onClick={() => setToggleAction(false)}
             className={
-              !modalAction ? `${Style.text} ${Style.active}` : Style.text
+              !modalAction ? `${Style.title} ${Style.active}` : Style.title
             }
           >
             Sign Up
           </h2>
 
-          <div
+          <span
             onClick={() => {
               closeModal();
             }}
             className={Style.close}
           >
             {svgClose}
-          </div>
+          </span>
         </div>
       )}
 

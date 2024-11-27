@@ -44,22 +44,22 @@ const List: React.FC<Props> = ({ item }) => {
         <div className={Style.percent}>
           {percentValue(
             item.variations[selectedSizeIndex].price,
-            item.variations[selectedSizeIndex].salePrice
+            item.variations[selectedSizeIndex].sale
           )}
           {"% OFF"}
         </div>
       )}
 
-      <div className={Style.info}>
+      <div className={Style.block}>
         <h2>{item.name}</h2>
         <span className={Style.price}>
           {item.variations[selectedSizeIndex]?.onSale ? (
             <div className={Style.info}>
               <span className={Style.price}>
-                ${item.variations[selectedSizeIndex].salePrice.toFixed(2)}
+                ${item.variations[selectedSizeIndex].sale.toFixed(2)}
               </span>
 
-              <span className={Style.salePrice}>
+              <span className={Style.sale}>
                 ${item.variations[selectedSizeIndex].price.toFixed(2)}
               </span>
             </div>
@@ -72,7 +72,7 @@ const List: React.FC<Props> = ({ item }) => {
           )}
         </span>
         <span className={Style.line}></span>
-        <span className={Style.short}>Short Description:</span>
+        <span className={Style.subtitle}>Short Description:</span>
         <p className={Style.description}>{item.shortDescription}</p>
         <span className={Style.size}>Size:</span>
 

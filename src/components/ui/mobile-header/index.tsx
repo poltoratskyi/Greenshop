@@ -1,3 +1,3 @@
-import MobileHeader from "./mobile-header";
+import mobileHeader from "./mobile-header";
 
-export default MobileHeader;
+export default mobileHeader;

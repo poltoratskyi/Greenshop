@@ -1,3 +1,3 @@
-import RegPageModal from "./registration-wrapper";
+import RegPageModal from "./registration";
 
 export default RegPageModal;

@@ -9,6 +9,7 @@ import { blogData, svgRight } from "./static-data";
 interface Item {
   id: number;
   imgUrl: string;
+  date: string;
   heading: string;
   title: string;
   descr: string;
@@ -42,7 +43,12 @@ const Blog: React.FC = () => {
               />
 
               <div className={Style.info}>
-                <span>{item.heading}</span>
+                <div className={Style.date}>
+                  <span>{item.date}</span>
+                  <span className={Style.element}>|</span>
+                  <span>{item.heading}</span>
+                </div>
+
                 <h3>{item.title}</h3>
                 <p>{item.descr}</p>
                 <Link href={item.link}>

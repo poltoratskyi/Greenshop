@@ -15,28 +15,19 @@
       width: 25%;
 
       .title {
-        @include title(
-          $m: 0px 0px 18px,
-          $c: $text,
-          $fw: 700,
-          $fz: 18px,
-          $lh: 16px
-        );
+        @include subtitle($fz: 18px, $lh: 26px);
+        margin-bottom: 18px;
       }
 
       .lists {
         .list {
+          @include description($fz: 16px, $c: $text);
           display: flex;
           align-items: center;
           justify-content: space-between;
           padding: 0px 0px 0px 12px;
           margin-bottom: 24px;
-          color: $text;
-          font-size: 16px;
-          font-weight: 500;
-          line-height: 20px;
           transition: all 0.2s ease;
-
           cursor: pointer;
 
           svg {
@@ -65,13 +56,8 @@
       }
 
       .title {
-        @include title(
-          $m: 0px 0px 18px,
-          $c: $text,
-          $fw: 700,
-          $fz: 18px,
-          $lh: 16px
-        );
+        @include subtitle($fz: 18px, $lh: 26px);
+        margin-bottom: 18px;
       }
     }
   }
@@ -122,7 +108,7 @@
         width: 100%;
 
         .title {
-          font-size: 17px;
+          font-size: 16px;
         }
 
         .lists {
@@ -136,7 +122,7 @@
         min-width: 100%;
 
         .title {
-          font-size: 17px;
+          font-size: 16px;
         }
 
         .scrollbar {

@@ -1,34 +1,31 @@
 @import "./variables.scss";
 
-@mixin title($m: unset, $fw: 900, $lh: 24px, $fz: 18px, $c: $text) {
-  color: $c;
-  font-size: $fz;
+@mixin header($fw: 700, $fz: 70px, $lh: 70px, $c: $text) {
   font-weight: $fw;
+  font-size: $fz;
   line-height: $lh;
-  margin: $m;
+  color: $c;
 }
 
-@mixin description($mb: unset, $fw: 400, $lh: 24px, $fz: 14px, $c: $descr) {
-  color: $c;
-  font-size: $fz;
+@mixin title($fw: 600, $fz: 26px, $lh: 40px, $c: $text) {
   font-weight: $fw;
+  font-size: $fz;
   line-height: $lh;
-  margin-bottom: $mb;
+  color: $c;
 }
 
-@mixin title-clamp(
-  $mb: unset,
-  $fw: 700,
-  $lh: 26px,
-  $fz: 20px,
-  $c: $text,
-  $lc: 2
-) {
-  color: $c;
-  font-size: $fz;
+@mixin subtitle($fw: 500, $fz: 20px, $lh: 24px, $c: $text) {
   font-weight: $fw;
+  font-size: $fz;
   line-height: $lh;
-  margin-bottom: $mb;
+  color: $c;
+}
+
+@mixin subtitle-clamp($fw: 500, $fz: 20px, $lh: 24px, $c: $text, $lc: 2) {
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+  color: $c;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -36,62 +33,69 @@
   -webkit-line-clamp: $lc;
 }
 
-@mixin description-clamp(
-  $mb: unset,
+@mixin description($fw: 400, $fz: 14px, $lh: 24px, $c: $descr) {
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+  color: $c;
+}
+
+@mixin description-clamp($fw: 400, $fz: 14px, $lh: 24px, $c: $descr, $lc: 2) {
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+  color: $c;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lc;
+}
+
+@mixin price($fw: 500, $fz: 14px, $lh: 24px, $c: $main) {
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+  color: $c;
+}
+
+@mixin sale(
   $fw: 400,
-  $lh: 22px,
   $fz: 14px,
-  $c: $descr,
-  $lc: 2
+  $lh: 24px,
+  $td: $sale-line line-through,
+  $c: $sale
 ) {
-  color: $c;
-  font-size: $fz;
   font-weight: $fw;
-  line-height: $lh;
-  margin-bottom: $mb;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: $lc;
-}
-
-@mixin price($fw: 500, $lh: 16px, $fz: 16px, $c: $descr, $ta, $w: auto) {
-  color: $c;
   font-size: $fz;
-  font-weight: $fw;
   line-height: $lh;
-  text-align: $ta;
-  width: $w;
-}
-
-@mixin sale-price(
-  $ml: unset,
-  $fw: 500,
-  $lh: 16px,
-  $fz: 16px,
-  $c: $salePrice,
-  $td: $salePriceLine line-through,
-  $w: auto
-) {
-  font-size: $fz;
-  font-weight: $fw;
-  line-height: $lh;
-  color: $c;
-  margin-left: $ml;
   text-decoration: $td;
+  color: $c;
 }
 
-@mixin percent($br: 0, $m: 5px 0 0 5px, $fz: 16px) {
+@mixin percent($fz: 14px) {
   position: absolute;
   top: 0;
   left: 0;
   padding: 10px;
   background-color: $main;
   color: #fff;
-  font-weight: 500;
+  font-weight: 400;
   font-size: $fz;
-  line-height: 16px;
+  line-height: 14px;
+  border-radius: $br;
+}
+
+@mixin percent($br: 0, $m: 5px 0 0 5px, $fz: 14px) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background-color: $main;
+  color: #fff;
+  font-weight: 400;
+  font-size: $fz;
+  line-height: 14px;
   margin: $m;
   border-radius: $br;
 }
@@ -115,25 +119,25 @@
   }
 }
 
-@mixin cartQuantity() {
+@mixin cart-quantity() {
   position: relative;
 
   span {
-    border: 1px solid #fff;
+    position: absolute;
+    bottom: 100%;
+    left: 100%;
+    transform: translate(-50%, 50%);
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: $main;
     color: #fff;
     font-size: 14px;
     font-weight: 500;
     line-height: 10px;
-    bottom: 100%;
-    left: 100%;
-    transform: translate(-50%, 50%);
-    position: absolute;
-    background-color: $main;
     height: 22px;
     width: 22px;
+    border: 1px solid #fff;
     border-radius: 100%;
   }
 }
@@ -146,7 +150,6 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.25);
   z-index: 2;
-  transition: all 0.2s ease;
 }
 
 @mixin button($d, $p, $bc, $br, $fz, $fw, $lh, $c, $tt) {
@@ -154,9 +157,9 @@
   padding: $p;
   background-color: $bc;
   border-radius: $br;
+  color: $c;
   font-size: $fz;
   font-weight: $fw;
-  color: $c;
   line-height: $lh;
   text-transform: $tt;
   transition: all 0.2s ease;
@@ -164,4 +167,26 @@
   &:hover {
     background-color: #2d763c;
   }
+}
+
+@mixin mobile-modal-close() {
+  position: absolute;
+  right: 0;
+  margin-right: 25px;
+  cursor: pointer;
+
+  svg {
+    transition: all 0.2s ease;
+
+    &:hover {
+      fill: red;
+    }
+  }
+}
+
+@mixin mobile-header() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65px;
 }

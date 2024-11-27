@@ -15,7 +15,7 @@ export type Item = {
 
 export type Variation = {
   price: number;
-  salePrice: number;
+  sale: number;
   value: number;
   onSale: boolean;
   sizeId: number;

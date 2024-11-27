@@ -72,7 +72,7 @@ model Size {
 model Variation {
     id        Int     @id @default(autoincrement())
     price     Int
-    salePrice Int
+    sale Int
     value     Int
     onSale    Boolean
 

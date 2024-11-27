@@ -14,7 +14,7 @@ const LogIn: React.FC<Props> = ({ overflow }) => {
     <div className={`${Style.log_in} ${overflow && Style.overflow}`}>
       {overflow && <h2 className={Style.text_reg}>Log In</h2>}
 
-      <h3>Log in to your account to continue.</h3>
+      <h5>Log in to your account to continue.</h5>
 
       <form action="#" method="post">
         <input

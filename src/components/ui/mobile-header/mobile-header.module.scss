@@ -8,14 +8,11 @@
 
 @media (max-width: 575px) {
   .mobile_header {
+    @include mobile-header();
     position: relative;
-    display: flex;
-    padding: 15px 5px;
-    align-items: center;
-    justify-content: center;
 
     &.burger_header {
-      padding: 15px 25px;
+      padding: 0px 10px;
     }
 
     .burger {
@@ -41,13 +38,7 @@
         height: 245px;
 
         .text {
-          @include description(
-            $mb: unset,
-            $fw: 400,
-            $lh: 42px,
-            $fz: 20px,
-            $c: $descr
-          );
+          @include description($fw: 400, $lh: 42px, $fz: 20px, $c: $descr);
           padding: 65px 20px;
           text-align: center;
           height: 100%;
@@ -72,12 +63,9 @@
             padding: 12px 16px;
             margin-bottom: 15px;
             a {
+              @include description($c: $text);
               display: flex;
               align-items: center;
-              color: $text;
-              font-weight: 400;
-              line-height: 24px;
-              font-size: 14px;
 
               svg {
                 margin-right: 15px;
@@ -97,7 +85,7 @@
             $bc: $main,
             $br: 0px,
             $fz: 14px,
-            $fw: 500,
+            $fw: 400,
             $lh: 20px,
             $c: #fff,
             $tt: unset
@@ -122,15 +110,15 @@
     background-color: #fff;
 
     .text {
-      text-align: center;
-      color: #fff;
-      font-weight: 500;
-      line-height: 16px;
-      padding: 5px 10px;
+      @include description($c: #fff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 25px;
       background-color: $main;
 
       &.delivered {
-        padding: 11px;
+        height: 40px;
         color: $text;
         background-color: #fff;
       }

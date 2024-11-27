@@ -20,35 +20,23 @@
       @include percent(6px);
     }
 
-    .info {
+    .block {
       h2 {
-        @include title(
-          $m: 0px 0px 20px 0px,
-          $fw: 700,
-          $lh: 16px,
-          $fz: 28px,
-          $c: $text
-        );
+        @include subtitle($lh: 32px, $fz: 26px, $c: $text);
+        margin-bottom: 10px;
       }
 
       .info {
         display: flex;
         align-items: center;
 
-        .salePrice {
-          font-size: 18px;
-          font-weight: 400;
-          line-height: 16px;
-          color: $salePrice;
+        .sale {
+          @include sale();
           margin-left: 20px;
-          text-decoration: $salePriceLine line-through;
         }
 
         .price {
-          color: $main;
-          font-weight: 700;
-          font-size: 18px;
-          line-height: 18px;
+          @include price($c: $main);
         }
       }
 
@@ -61,24 +49,14 @@
       }
 
       .description {
-        @include description($mb: 25px);
+        @include description();
+        margin-bottom: 25px;
       }
 
-      .short {
-        display: block;
-        font-size: 15px;
-        line-height: 16px;
-        font-weight: 500;
-        color: $text;
-        margin-bottom: 10px;
-      }
-
+      .subtitle,
       .size {
-        display: block;
-        font-size: 15px;
-        line-height: 16px;
-        font-weight: 500;
-        color: $text;
+        @include subtitle($fz: 16px, $c: $text);
+        display: inline-block;
         margin-bottom: 10px;
       }
 
@@ -89,6 +67,7 @@
         margin-bottom: 25px;
 
         .list {
+          @include subtitle($fz: 16px, $c: $descr);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -96,11 +75,7 @@
           width: 38px;
           border: 1px solid $border;
           border-radius: 100%;
-          font-size: 17px;
-          line-height: 16px;
-          color: $descr;
           cursor: pointer;
-          font-weight: 400;
 
           &:hover {
             color: $main;
@@ -124,24 +99,18 @@
       .sku,
       .tags,
       .categories {
-        color: $descr;
-        font-size: 15px;
-        line-height: 16px;
+        @include description();
         margin-bottom: 10px;
-        font-weight: 400;
+
+        span {
+          font-weight: 500;
+          color: $text;
+          font-size: 16px;
+        }
       }
 
       .tags {
         margin-bottom: 25px;
-      }
-
-      .sku,
-      .tags,
-      .categories {
-        span {
-          font-weight: 500;
-          color: $text;
-        }
       }
 
       .share {
@@ -149,10 +118,7 @@
         align-items: center;
 
         .text {
-          color: $text;
-          font-size: 15px;
-          line-height: 16px;
-          font-weight: 500;
+          @include subtitle($fz: 16px, $c: $text);
           margin-right: 15px;
         }
 
@@ -194,7 +160,7 @@
       margin-bottom: 30px;
 
       .title {
-        @include title($m: unset, $fw: 700, $lh: 16px, $fz: 17px, $c: $main);
+        @include subtitle($c: $main);
         display: inline-block;
         padding-bottom: 15px;
         border-bottom: 3px solid $main;
@@ -202,10 +168,7 @@
     }
 
     .text {
-      color: $descr;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 24px;
+      @include description();
     }
 
     &:last-child {
@@ -223,9 +186,21 @@
       gap: 25px;
       margin-bottom: 50px;
 
-      .info {
+      .percent {
+        @include percent(6px);
+        font-size: 12px;
+        padding: 8px;
+      }
+
+      .block {
         h2 {
-          font-size: 17px;
+          font-size: 24px;
+        }
+
+        .info {
+          .price {
+            font-size: 18px;
+          }
         }
 
         .lists {
@@ -233,7 +208,7 @@
             border-radius: 6px;
             height: 46px;
             width: 46px;
-            font-size: 18px;
+            font-size: 16px;
           }
         }
 

@@ -2,7 +2,8 @@ export const blogData = [
   {
     id: 1,
     imgUrl: "/blog/blog-1-min.png",
-    heading: "September 12 I Read in 6 minutes",
+    date: "September 12",
+    heading: "Read in 6 minutes",
     title: "Cactus & Succulent Care Tips",
     descr:
       "Care tips for cacti and succulents: easy guidance for your home or patio.",
@@ -11,7 +12,8 @@ export const blogData = [
   {
     id: 2,
     imgUrl: "/blog/blog-2-min.png",
-    heading: "September 13 I Read in 2 minutes",
+    date: "September 13",
+    heading: "Read in 2 minutes",
     title: "Top 10 Succulents for Your Home",
     descr:
       "The best succulents for hanging baskets, thriving in medium to bright light.",
@@ -20,7 +22,8 @@ export const blogData = [
   {
     id: 3,
     imgUrl: "/blog/blog-3-min.png",
-    heading: "September 15 I Read in 3 minutes",
+    date: "September 15",
+    heading: "Read in 3 minutes",
     title: "Cacti & Succulent Care Tips",
     descr:
       "Cacti and succulents thrive in containers, requiring minimal care for stunning results.",
@@ -29,7 +32,8 @@ export const blogData = [
   {
     id: 4,
     imgUrl: "/blog/blog-4-min.png",
-    heading: "September 15 I Read in 2 minutes",
+    date: "September 23",
+    heading: "Read in 2 minutes",
     title: "Best Houseplants Room by Room",
     descr:
       "The benefits of houseplants are endless, improving air quality and adding warmth to your home.",

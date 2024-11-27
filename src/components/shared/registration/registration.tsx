@@ -1,11 +1,11 @@
 import Style from "./registration.module.scss";
 
 import ModalContent from "../modal-forms/modal-content";
-import SignUp from "../../../components/shared/modal-forms/sign-up";
-import LogIn from "../../../components/shared/modal-forms/log-in";
+import SignUp from "../modal-forms/sign-up";
+import LogIn from "../modal-forms/log-in";
 import Pathname from "../pathname";
 
-const RegistrationWrapper: React.FC = () => {
+const Registration: React.FC = () => {
   return (
     <>
       <Pathname second="Account" />
@@ -33,4 +33,4 @@ const RegistrationWrapper: React.FC = () => {
   );
 };
 
-export default RegistrationWrapper;
+export default Registration;
