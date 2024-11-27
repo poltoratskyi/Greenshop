@@ -2,12 +2,12 @@
 
 import React from "react";
 
-import ModalCategories from "../../../../components/ui/modal-categories";
+import MobileModalCategories from "../../../../components/ui/modal-categories";
 
 import { useUIStore } from "../../../../utils/store";
 
-export default function modalCategories() {
+export default function MobModalCategories() {
   const modalCategories = useUIStore((state) => state.modalCategories);
 
-  return modalCategories && <ModalCategories />;
+  return modalCategories && <MobileModalCategories />;
 }
