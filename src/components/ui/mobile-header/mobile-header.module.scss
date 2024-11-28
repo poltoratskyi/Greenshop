@@ -1,5 +1,5 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .mobile_header,
 .top_info {
@@ -8,7 +8,7 @@
 
 @media (max-width: 575px) {
   .mobile_header {
-    @include mobile-header();
+    @include m.mobile-header();
     position: relative;
 
     &.burger_header {
@@ -24,7 +24,7 @@
       overflow-y: auto;
       z-index: 5;
       transition: all 0.2s ease;
-      background-color: $background;
+      background-color: v.$background;
 
       &.visible {
         left: 0%;
@@ -38,7 +38,7 @@
         height: 245px;
 
         .text {
-          @include description($fw: 400, $lh: 42px, $fz: 20px, $c: $descr);
+          @include m.description($fw: 400, $lh: 42px, $fz: 20px, $c: v.$descr);
           padding: 65px 20px;
           text-align: center;
           height: 100%;
@@ -63,7 +63,7 @@
             padding: 12px 16px;
             margin-bottom: 15px;
             a {
-              @include description($c: $text);
+              @include m.description($c: v.$text);
               display: flex;
               align-items: center;
 
@@ -79,10 +79,10 @@
         }
 
         .login {
-          @include button(
+          @include m.button(
             $d: flex,
             $p: 15px,
-            $bc: $main,
+            $bc: v.$main,
             $br: 0px,
             $fz: 14px,
             $fw: 400,
@@ -106,20 +106,20 @@
 
   .top_info {
     display: block;
-    border-bottom: 1px solid $border;
+    border-bottom: 1px solid v.$border;
     background-color: #fff;
 
     .text {
-      @include description($c: #fff);
+      @include m.description($c: #fff);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 25px;
-      background-color: $main;
+      background-color: v.$main;
 
       &.delivered {
         height: 40px;
-        color: $text;
+        color: v.$text;
         background-color: #fff;
       }
     }

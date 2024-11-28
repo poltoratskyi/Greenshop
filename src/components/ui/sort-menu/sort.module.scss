@@ -1,5 +1,5 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .sort {
   position: relative;
@@ -7,11 +7,11 @@
   align-items: center;
 
   .descr {
-    @include description();
+    @include m.description();
     margin-right: 5px;
 
     span {
-      color: $text;
+      color: v.$text;
       font-weight: 500;
     }
   }
@@ -32,7 +32,7 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
     .sortList {
-      @include description($lh: 21px);
+      @include m.description($lh: 21px);
       margin-bottom: 15px;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -42,11 +42,11 @@
       }
 
       &:hover {
-        color: $text;
+        color: v.$text;
       }
 
       &.active {
-        color: $text;
+        color: v.$text;
         font-weight: 500;
       }
     }

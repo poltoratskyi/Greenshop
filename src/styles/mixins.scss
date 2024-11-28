@@ -1,46 +1,27 @@
-@import "./variables.scss";
+@use "./variables.scss" as v;
 
-@mixin header($fw: 700, $fz: 70px, $lh: 70px, $c: $text) {
+@mixin header($fw: 700, $fz: 70px, $lh: 70px, $c: v.$text) {
   font-weight: $fw;
   font-size: $fz;
   line-height: $lh;
   color: $c;
 }
 
-@mixin title($fw: 600, $fz: 26px, $lh: 40px, $c: $text) {
+@mixin title($fw: 600, $fz: 26px, $lh: 40px, $c: v.$text) {
   font-weight: $fw;
   font-size: $fz;
   line-height: $lh;
   color: $c;
 }
 
-@mixin subtitle($fw: 500, $fz: 20px, $lh: 24px, $c: $text) {
+@mixin subtitle($fw: 500, $fz: 20px, $lh: 24px, $c: v.$text) {
   font-weight: $fw;
   font-size: $fz;
   line-height: $lh;
   color: $c;
 }
 
-@mixin subtitle-clamp($fw: 500, $fz: 20px, $lh: 24px, $c: $text, $lc: 2) {
-  font-weight: $fw;
-  font-size: $fz;
-  line-height: $lh;
-  color: $c;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: $lc;
-}
-
-@mixin description($fw: 400, $fz: 14px, $lh: 24px, $c: $descr) {
-  font-weight: $fw;
-  font-size: $fz;
-  line-height: $lh;
-  color: $c;
-}
-
-@mixin description-clamp($fw: 400, $fz: 14px, $lh: 24px, $c: $descr, $lc: 2) {
+@mixin subtitle-clamp($fw: 500, $fz: 20px, $lh: 24px, $c: v.$text, $lc: 2) {
   font-weight: $fw;
   font-size: $fz;
   line-height: $lh;
@@ -52,7 +33,26 @@
   -webkit-line-clamp: $lc;
 }
 
-@mixin price($fw: 500, $fz: 14px, $lh: 24px, $c: $main) {
+@mixin description($fw: 400, $fz: 14px, $lh: 24px, $c: v.$descr) {
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+  color: $c;
+}
+
+@mixin description-clamp($fw: 400, $fz: 14px, $lh: 24px, $c: v.$descr, $lc: 2) {
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+  color: $c;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lc;
+}
+
+@mixin price($fw: 500, $fz: 14px, $lh: 24px, $c: v.$main) {
   font-weight: $fw;
   font-size: $fz;
   line-height: $lh;
@@ -63,8 +63,8 @@
   $fw: 400,
   $fz: 14px,
   $lh: 24px,
-  $td: $sale-line line-through,
-  $c: $sale
+  $td: v.$sale-line line-through,
+  $c: v.$sale
 ) {
   font-weight: $fw;
   font-size: $fz;
@@ -78,7 +78,7 @@
   top: 0;
   left: 0;
   padding: 10px;
-  background-color: $main;
+  background-color: v.$main;
   color: #fff;
   font-weight: 400;
   font-size: $fz;
@@ -91,7 +91,7 @@
   top: 0;
   left: 0;
   padding: 10px;
-  background-color: $main;
+  background-color: v.$main;
   color: #fff;
   font-weight: 400;
   font-size: $fz;
@@ -106,15 +106,15 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba($main, 0.5);
+    background-color: rgba(v.$main, 0.5);
   }
 
   &::-webkit-scrollbar-track {
-    background-color: $line;
+    background-color: v.$line;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background-color: rgba($main, 1);
+    background-color: rgba(v.$main, 1);
     cursor: pointer;
   }
 }
@@ -130,7 +130,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $main;
+    background-color: v.$main;
     color: #fff;
     font-size: 14px;
     font-weight: 500;

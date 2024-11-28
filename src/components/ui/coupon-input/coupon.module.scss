@@ -1,21 +1,21 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .coupon {
-  @include description($fz: 16px, $c: $text);
+  @include m.description($fz: 16px, $c: v.$text);
   padding: 15px 10px;
   background-color: #fff;
-  border: 1px solid rgba($main, 0.5);
+  border: 1px solid rgba(v.$main, 0.5);
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   width: 100%;
 
   &::placeholder {
-    color: $sale;
+    color: v.$sale;
   }
 
   &:focus {
-    border-color: rgba($main, 1);
+    border-color: rgba(v.$main, 1);
     outline: none;
   }
 }

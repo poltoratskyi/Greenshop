@@ -1,5 +1,5 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .cart {
   margin: 50px 0px 100px 0px;
@@ -12,11 +12,11 @@
 
     .items_title,
     .check_title {
-      @include subtitle($fz: 16px);
+      @include m.subtitle($fz: 16px);
       display: flex;
       text-align: left;
       padding-bottom: 15px;
-      border-bottom: 1px solid rgba($main, 0.5);
+      border-bottom: 1px solid rgba(v.$main, 0.5);
       margin-bottom: 10px;
     }
 
@@ -37,22 +37,22 @@
           }
 
           .title {
-            @include subtitle-clamp($fz: 16px);
+            @include m.subtitle-clamp($fz: 16px);
             transition: all 0.2s ease;
             margin-bottom: 10px;
 
             cursor: pointer;
 
             &:hover {
-              color: $main;
+              color: v.$main;
             }
           }
 
           .sku {
-            @include description();
+            @include m.description();
 
             span {
-              color: $text;
+              color: v.$text;
               margin-right: 5px;
             }
           }
@@ -62,17 +62,17 @@
           }
 
           &:hover {
-            background-color: $background;
+            background-color: v.$background;
           }
         }
 
         .price {
-          @include price($fw: 400);
+          @include m.price($fw: 400);
           width: 100px;
         }
 
         .total {
-          @include price($c: $main, $fw: 500);
+          @include m.price($c: v.$main, $fw: 500);
           width: 130px;
           margin-left: 130px;
         }
@@ -81,7 +81,7 @@
           cursor: pointer;
 
           &:hover {
-            fill: $text;
+            fill: v.$text;
           }
         }
 
@@ -101,16 +101,16 @@
             height: 25px;
             width: 25px;
             background-color: #fff;
-            border: 1px rgba($main, 0.5) solid;
+            border: 1px rgba(v.$main, 0.5) solid;
             transition: all 0.2s ease;
 
             &:hover {
-              border: 1px rgba($main, 1) solid;
+              border: 1px rgba(v.$main, 1) solid;
             }
           }
 
           span {
-            @include description($c: $text);
+            @include m.description($c: v.$text);
             text-align: center;
           }
         }
@@ -126,7 +126,7 @@
       text-align: center;
 
       .subtitle {
-        @include description($c: $text);
+        @include m.description($c: v.$text);
         text-align: left;
         display: block;
         margin-bottom: 10px;
@@ -139,11 +139,11 @@
         margin-bottom: 15px;
 
         p {
-          @include description($c: $text);
+          @include m.description($c: v.$text);
         }
 
         mark {
-          color: $text;
+          color: v.$text;
           font-size: 18px;
           line-height: 24px;
           font-weight: 600;
@@ -151,10 +151,10 @@
         }
 
         span {
-          @include description($c: $text, $fw: 500);
+          @include m.description($c: v.$text, $fw: 500);
 
           a {
-            @include description($c: $main);
+            @include m.description($c: v.$main);
             margin-top: 10px;
 
             &:hover {
@@ -165,12 +165,12 @@
         }
 
         b {
-          @include title($c: $main, $fz: 18px, $lh: 24px);
+          @include m.title($c: v.$main, $fz: 18px, $lh: 24px);
         }
       }
 
       .continue {
-        @include description($c: $main);
+        @include m.description($c: v.$main);
         display: inline-block;
         text-emphasis: center;
 
@@ -184,10 +184,10 @@
 
   .slider {
     .title {
-      @include title($lh: 32px, $fz: 20px, $c: $main);
+      @include m.title($lh: 32px, $fz: 20px, $c: v.$main);
       margin-bottom: 10px;
       padding-bottom: 15px;
-      border-bottom: 1px solid rgba($main, 0.5);
+      border-bottom: 1px solid rgba(v.$main, 0.5);
     }
   }
 }

@@ -1,10 +1,10 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .footer {
   .content {
-    background-color: $background;
-    border-bottom: 1px solid $line;
+    background-color: v.$background;
+    border-bottom: 1px solid v.$line;
 
     .service {
       padding: 25px;
@@ -20,15 +20,15 @@
 
           .inner {
             padding-right: 35px;
-            border-right: 1px solid $line;
+            border-right: 1px solid v.$line;
 
             .title {
-              @include subtitle();
+              @include m.subtitle();
               margin: 20px 0px 10px;
             }
 
             .descr {
-              @include description();
+              @include m.description();
             }
 
             &:nth-child(3n) {
@@ -41,7 +41,7 @@
           max-width: 350px;
 
           .title {
-            @include subtitle();
+            @include m.subtitle();
             margin-bottom: 10px;
           }
 
@@ -50,7 +50,7 @@
           }
 
           .descr {
-            @include description();
+            @include m.description();
             margin-top: 20px;
           }
         }
@@ -65,7 +65,7 @@
 
       .nav {
         .title {
-          @include subtitle();
+          @include m.subtitle();
           margin-bottom: 10px;
         }
 
@@ -74,7 +74,7 @@
             margin-bottom: 5px;
 
             .link {
-              @include description($c: $text);
+              @include m.description($c: v.$text);
               &:hover {
                 text-decoration: underline;
               }
@@ -90,7 +90,7 @@
   }
 
   .privacy {
-    @include description($fz: 12px, $c: $text);
+    @include m.description($fz: 12px, $c: v.$text);
     background-color: #fff;
     text-align: center;
     padding: 10px 0px;
@@ -98,8 +98,8 @@
 }
 
 .contacts {
-  border-top: 1px solid $main;
-  border-bottom: 1px solid $main;
+  border-top: 1px solid v.$main;
+  border-bottom: 1px solid v.$main;
 
   &.burger_menu {
     margin-bottom: 15px;
@@ -109,7 +109,7 @@
     display: flex;
     gap: 60px;
     padding: 25px;
-    background-color: $line;
+    background-color: v.$line;
 
     .lists {
       display: grid;
@@ -125,7 +125,7 @@
         }
 
         .descr {
-          @include description($c: $text);
+          @include m.description($c: v.$text);
         }
       }
     }
@@ -144,7 +144,7 @@
   }
 
   .title {
-    @include subtitle();
+    @include m.subtitle();
     margin-bottom: 10px;
 
     &.burger_menu {
@@ -167,7 +167,7 @@
       height: 30px;
       width: 30px;
       border-radius: 4px;
-      border: 1px $line solid;
+      border: 1px v.$line solid;
       cursor: pointer;
       margin-right: 10px;
       transition: all 0.2s ease;
@@ -179,7 +179,7 @@
       }
 
       &:hover {
-        border: 1px rgba($main, 1) solid;
+        border: 1px rgba(v.$main, 1) solid;
       }
 
       &:last-child {

@@ -1,5 +1,5 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .results {
   background-color: #fff;
@@ -15,13 +15,13 @@
       width: 25%;
 
       .title {
-        @include subtitle($fz: 18px, $lh: 26px);
+        @include m.subtitle($fz: 18px, $lh: 26px);
         margin-bottom: 18px;
       }
 
       .lists {
         .list {
-          @include description($fz: 16px, $c: $text);
+          @include m.description($fz: 16px, $c: v.$text);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -35,7 +35,7 @@
           }
 
           &:hover {
-            color: $main;
+            color: v.$main;
           }
 
           &:last-child {
@@ -52,11 +52,11 @@
         overflow-y: auto;
         height: 370px;
 
-        @include scroll(3px);
+        @include m.scroll(3px);
       }
 
       .title {
-        @include subtitle($fz: 18px, $lh: 26px);
+        @include m.subtitle($fz: 18px, $lh: 26px);
         margin-bottom: 18px;
       }
     }
@@ -76,7 +76,7 @@
     padding: 8px;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: $main;
+    background: v.$main;
     --_m: conic-gradient(#0000 50%, #000), linear-gradient(#000 0 0) content-box;
     -webkit-mask: var(--_m);
     mask: var(--_m);
@@ -98,7 +98,7 @@
     overflow-y: auto;
     height: calc(100vh - 110px);
 
-    @include scroll(3px);
+    @include m.scroll(3px);
 
     .content {
       flex-direction: column;

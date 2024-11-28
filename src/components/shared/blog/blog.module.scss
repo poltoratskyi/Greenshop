@@ -1,17 +1,17 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .blog {
   margin-bottom: 100px;
 
   .title {
-    @include title();
+    @include m.title();
     text-align: center;
     margin-bottom: 15px;
   }
 
   .descr {
-    @include description();
+    @include m.description();
     text-align: center;
     margin-bottom: 35px;
   }
@@ -27,7 +27,7 @@
       .info {
         text-align: left;
         padding: 10px;
-        background-color: $background;
+        background-color: v.$background;
 
         .date {
           display: flex;
@@ -36,27 +36,27 @@
           margin-bottom: 5px;
 
           span {
-            @include description($c: $main);
+            @include m.description($c: v.$main);
           }
 
           .element {
-            @include description($c: $text);
+            @include m.description($c: v.$text);
             padding: 0px 10px;
           }
         }
 
         h3 {
-          @include subtitle-clamp();
+          @include m.subtitle-clamp();
           margin-bottom: 10px;
         }
 
         p {
-          @include description-clamp();
+          @include m.description-clamp();
           margin-bottom: 15px;
         }
 
         a {
-          @include description($c: $text, $fw: 500);
+          @include m.description($fw: 500, $c: v.$text);
           position: relative;
 
           svg {
@@ -70,7 +70,7 @@
           }
 
           &:hover {
-            color: $main;
+            color: v.$main;
 
             svg {
               opacity: 1;

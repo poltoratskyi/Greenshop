@@ -1,14 +1,14 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .banner,
 .buy,
 .add,
 .favorite {
-  @include button(
+  @include m.button(
     $d: inline-block,
     $p: 15px 35px,
-    $bc: $main,
+    $bc: v.$main,
     $br: 6px,
     $fz: 14px,
     $fw: 400,
@@ -20,8 +20,8 @@
 
 .add,
 .favorite {
-  border: 1px solid $main;
-  color: $main;
+  border: 1px solid v.$main;
+  color: v.$main;
   background-color: #fff;
 
   &:hover {
@@ -43,10 +43,10 @@
 }
 
 .adv {
-  @include button(
+  @include m.button(
     $d: inline-flex,
     $p: 15px 30px,
-    $bc: $main,
+    $bc: v.$main,
     $br: 6px,
     $fz: 14px,
     $fw: 400,
@@ -63,10 +63,10 @@
 }
 
 .filter {
-  @include button(
+  @include m.button(
     $d: block,
     $p: 15px 25px,
-    $bc: $main,
+    $bc: v.$main,
     $br: 6px,
     $fz: 14px,
     $fw: 400,
@@ -79,10 +79,10 @@
 }
 
 .feedback {
-  @include button(
+  @include m.button(
     $d: block,
     $p: 15px 25px,
-    $bc: $main,
+    $bc: v.$main,
     $br: unset,
     $fz: 14px,
     $fw: 400,
@@ -99,9 +99,9 @@
   font-size: 14px;
   font-weight: 400;
   color: #fff;
-  line-height: 24spx;
+  line-height: 24px;
   padding: 10px 25px;
-  background-color: $main;
+  background-color: v.$main;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   transition: all 0.2s ease;
@@ -112,10 +112,10 @@
 }
 
 .checkout {
-  @include button(
+  @include m.button(
     $d: block,
     $p: 15px 30px,
-    $bc: $main,
+    $bc: v.$main,
     $br: 3px,
     $fz: 14px,
     $fw: 400,
@@ -131,10 +131,10 @@
 
 .log_in,
 .sign_up {
-  @include button(
+  @include m.button(
     $d: block,
     $p: 15px 30px,
-    $bc: $main,
+    $bc: v.$main,
     $br: 6px,
     $fz: 14px,
     $fw: 400,
@@ -147,7 +147,7 @@
 .google,
 .facebook,
 .github {
-  @include button(
+  @include m.button(
     $d: flex,
     $p: 15px 30px,
     $bc: #fff,
@@ -155,14 +155,14 @@
     $fz: 14px,
     $fw: 400,
     $lh: 24px,
-    $c: $descr,
+    $c: v.$descr,
     $tt: unset
   );
 
   align-items: center;
   justify-content: center;
   width: 100%;
-  border: 1px solid $border;
+  border: 1px solid v.$border;
   margin-bottom: 15px;
 
   svg {
@@ -175,7 +175,7 @@
 
   &:hover {
     background-color: #fff;
-    border: 1px solid $main;
+    border: 1px solid v.$main;
   }
 }
 
@@ -187,7 +187,7 @@
     display: inline-flex;
     text-transform: uppercase;
     align-items: center;
-    color: $main;
+    color: v.$main;
 
     svg {
       margin-left: 5px;

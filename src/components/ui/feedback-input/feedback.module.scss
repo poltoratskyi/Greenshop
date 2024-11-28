@@ -1,24 +1,24 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .block {
   display: flex;
 
   .feedback {
-    @include description($fz: 16px, $c: $text);
+    @include m.description($fz: 16px, $c: v.$text);
     padding: 15px;
     background-color: #fff;
-    border: 1px solid rgba($main, 0.1);
+    border: 1px solid rgba(v.$main, 0.1);
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     width: 100%;
 
     &::placeholder {
-      color: $sale;
+      color: v.$sale;
     }
 
     &:focus {
-      border-color: rgba($main, 0.5);
+      border-color: rgba(v.$main, 0.5);
       outline: none;
     }
   }

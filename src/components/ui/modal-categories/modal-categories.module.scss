@@ -1,5 +1,5 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 @keyframes bounceIn {
   0% {
@@ -23,19 +23,19 @@
   animation: bounceIn 0.3s ease forwards;
 
   .header {
-    @include mobile-header();
+    @include m.mobile-header();
     position: sticky;
     top: 0;
     z-index: 2;
     background-color: #fff;
-    border-bottom: 1px solid $border;
+    border-bottom: 1px solid v.$border;
 
     .title {
-      @include subtitle($lh: 16px, $fz: 20px);
+      @include m.subtitle($lh: 16px, $fz: 20px);
     }
 
     .close {
-      @include mobile-modal-close();
+      @include m.mobile-modal-close();
     }
   }
 

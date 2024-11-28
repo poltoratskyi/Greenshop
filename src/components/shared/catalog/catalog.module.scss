@@ -1,5 +1,5 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .catalog {
   .content {
@@ -7,7 +7,7 @@
     gap: 50px;
 
     .wrapper {
-      background-color: $background;
+      background-color: v.$background;
       min-width: 315px;
       padding: 20px 25px 20px 20px;
     }
@@ -26,17 +26,17 @@
           margin-right: 40px;
 
           .text {
-            @include subtitle($fz: 14px);
+            @include m.subtitle($fz: 14px);
             padding: 0px 0px 10px 0px;
             cursor: pointer;
 
             &:hover {
-              color: $main;
+              color: v.$main;
             }
 
             &.active {
-              color: $main;
-              border-bottom: 3px $main solid;
+              color: v.$main;
+              border-bottom: 3px v.$main solid;
             }
           }
 
@@ -53,26 +53,26 @@
   margin-bottom: 35px;
 
   .title {
-    @include subtitle($fz: 16px);
+    @include m.subtitle($fz: 16px);
     margin-bottom: 10px;
   }
 
   .lists {
     .list {
-      @include subtitle($fz: 14px);
+      @include m.subtitle($fz: 14px);
       display: flex;
       justify-content: space-between;
-      color: $text;
+      color: v.$text;
       cursor: pointer;
       padding: 8px 12px;
       transition: all 0.2s ease;
 
       &:hover {
-        color: $main;
+        color: v.$main;
       }
 
       &.active {
-        color: $main;
+        color: v.$main;
       }
     }
   }
@@ -93,7 +93,7 @@
     }
 
     input {
-      @include description($fz: 16px, $c: $text);
+      @include m.description($fz: 16px, $c: v.$text);
       width: 70px;
       height: 40px;
       background-color: #fff;
@@ -128,7 +128,7 @@
       .block {
         position: relative;
         padding-bottom: 50px;
-        background-color: $background;
+        background-color: v.$background;
         cursor: pointer;
 
         .img {
@@ -172,25 +172,25 @@
           & > [data-type="cart"] {
             cursor: pointer;
             &:hover {
-              fill: $main;
+              fill: v.$main;
             }
           }
         }
       }
 
       .title {
-        @include description($fz: 16px, $c: $text);
+        @include m.description($fz: 16px, $c: v.$text);
         display: block;
         transition: all 0.2s ease;
         margin-top: 15px;
 
         &:hover {
-          color: $main;
+          color: v.$main;
         }
       }
 
       .percent {
-        @include percent();
+        @include m.percent();
       }
 
       .info {
@@ -198,12 +198,12 @@
         align-items: center;
 
         .sale {
-          @include sale();
+          @include m.sale();
           margin-left: 20px;
         }
 
         .price {
-          @include price($fw: 500, $lh: 24px, $fz: 14px, $c: $main);
+          @include m.price($fw: 500, $lh: 24px, $fz: 14px, $c: v.$main);
         }
       }
 
@@ -212,7 +212,7 @@
         width: 100%;
         position: absolute;
         top: 0;
-        border-bottom: 1px solid $main;
+        border-bottom: 1px solid v.$main;
         opacity: 0;
         visibility: hidden;
         transition: all 0.2s ease;
@@ -261,7 +261,7 @@
         gap: 5px;
 
         .block {
-          background-color: $background;
+          background-color: v.$background;
           border-radius: 6px;
           padding-bottom: 0;
 
@@ -285,7 +285,7 @@
 
             & > [data-type="heart"] {
               margin-right: 0px;
-              fill: $main;
+              fill: v.$main;
             }
 
             & > [data-type="cart"] {

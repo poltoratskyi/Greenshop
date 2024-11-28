@@ -1,5 +1,5 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/mixins" as m;
+@use "../../../styles/variables.scss" as v;
 
 .adv {
   margin: 100px 0px 140px;
@@ -11,7 +11,7 @@
 
     .info {
       position: relative;
-      background-color: $background;
+      background-color: v.$background;
       width: 100%;
 
       .img {
@@ -28,13 +28,13 @@
         width: 295px;
 
         .title {
-          @include subtitle-clamp();
+          @include m.subtitle-clamp();
           text-transform: uppercase;
           margin-bottom: 10px;
         }
 
         .descr {
-          @include description-clamp();
+          @include m.description-clamp();
           margin-bottom: 15px;
         }
       }

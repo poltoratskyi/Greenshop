@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default async function Item({ params }: Props) {
-  const { id } = params;
+  const { id } = await params;
 
   const item = await prisma.item.findFirst({
     where: { id: Number(id) },

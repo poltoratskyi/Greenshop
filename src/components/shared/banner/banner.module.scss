@@ -1,36 +1,36 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .banner {
   margin-bottom: 45px;
 
   .content {
     display: flex;
-    background-color: $background;
+    background-color: v.$background;
 
     .info {
       padding: 70px 0px 85px 40px;
 
       span {
-        @include description($c: $text);
+        @include m.description($c: v.$text);
         display: inline-block;
         margin-bottom: 10px;
         text-transform: uppercase;
       }
 
       h1 {
-        @include header();
+        @include m.header();
         text-transform: uppercase;
         margin-bottom: 10px;
 
         mark {
           background-color: transparent;
-          color: $main;
+          color: v.$main;
         }
       }
 
       p {
-        @include description();
+        @include m.description();
         margin-bottom: 45px;
       }
     }

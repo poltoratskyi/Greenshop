@@ -1,5 +1,5 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .wrapper {
   max-width: 1200px;
@@ -14,12 +14,12 @@
       align-items: center;
 
       .list {
-        @include description();
+        @include m.description();
         margin-left: 5px;
         cursor: pointer;
 
         &.active {
-          color: $text;
+          color: v.$text;
           cursor: auto;
           font-weight: 500;
         }
@@ -40,8 +40,8 @@
       display: flex;
       align-items: center;
       height: 50px;
-      border-top: 1px solid $border;
-      border-bottom: 1px solid $border;
+      border-top: 1px solid v.$border;
+      border-bottom: 1px solid v.$border;
 
       .lists {
         overflow-x: auto;

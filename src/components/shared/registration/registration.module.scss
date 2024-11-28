@@ -1,11 +1,11 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
 
 .registration {
   margin-bottom: 45px;
 
   .registration_wrapper {
-    background-color: $background;
+    background-color: v.$background;
     text-align: center;
     overflow-y: auto;
   }
@@ -23,13 +23,13 @@
 
       span {
         display: block;
-        background-color: rgba($main, 0.5);
+        background-color: rgba(v.$main, 0.5);
         height: 100%;
         width: 1px;
       }
 
       p {
-        @include description($c: $text);
+        @include m.description($c: v.$text);
         margin: 10px 0px;
       }
     }
