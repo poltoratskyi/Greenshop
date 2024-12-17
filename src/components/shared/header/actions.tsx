@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 import Style from "./header.module.scss";
 
-import { useUIStore } from "../../../utils/store";
+import { useUIStore } from "../../../store";
 
 import { svgCart, svgLogin, svgSearch } from "./static-data";
 
@@ -13,7 +13,6 @@ const Actions: React.FC = () => {
   const pathname = usePathname();
 
   const setOpenModal = useUIStore((state) => state.setOpenModal);
-
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
 
   return (
@@ -39,7 +38,6 @@ const Actions: React.FC = () => {
         href="/cart"
       >
         {svgCart}
-        <span>9</span>
       </Link>
 
       <Link

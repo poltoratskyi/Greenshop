@@ -1,55 +1,19 @@
-"use client";
-
 import Style from "./search-items-result.module.scss";
 
-import List from "../../shared/catalog/list";
-import CatalogStyle from "../../shared/catalog/catalog.module.scss";
-import CatalogItems from "../../shared/catalog/catalog-items";
-
-import { useSearchStore } from "../../../utils/store";
+import TrendingList from "./trending-list";
+import ItemsList from "./items-list";
 
 const Results: React.FC = () => {
-  const results = useSearchStore((state) => state.results);
-  const trending = useSearchStore((state) => state.trending);
-  const setInputValue = useSearchStore((state) => state.setInputValue);
-
   return (
     <div className={Style.results}>
       <div className={Style.content}>
-        <div className={Style.categories}>
+        <div className={Style.category}>
           <h2 className={Style.title}>Trending searches</h2>
 
-          <ul className={Style.lists}>
-            {trending
-              .sort((a, b) => b.rate - a.rate)
-              .map((item, index) => (
-                <li
-                  onClick={() => setInputValue(item.name)}
-                  key={index}
-                  className={Style.list}
-                >
-                  {item.name}
-                  {item.svg}
-                </li>
-              ))}
-          </ul>
+          <TrendingList />
         </div>
 
-        <div className={Style.result_items}>
-          <h2 className={Style.title}>
-            {results.length > 1 ? "Results" : "Result"}
-          </h2>
-
-          <div className={Style.scrollbar}>
-            <CatalogItems>
-              {results.map((item) => (
-                <li key={item.id} className={CatalogStyle.list}>
-                  <List control {...item} />
-                </li>
-              ))}
-            </CatalogItems>
-          </div>
-        </div>
+        <ItemsList />
       </div>
     </div>
   );

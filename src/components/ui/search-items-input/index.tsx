@@ -7,9 +7,9 @@ import Style from "./search-items-input.module.scss";
 
 import Results from "../search-items-result";
 import Loader from "../search-items-result/loader";
-import TopInfo from "../mobile-header/top-info";
+import SaleBanner from "../mobile-header/sale-banner";
 
-import { useSearchStore, useUIStore } from "../../../utils/store";
+import { useSearchStore, useUIStore } from "../../../store";
 
 import { svgClose, svgSearch } from "./static-data";
 
@@ -23,13 +23,12 @@ const SearchItemsInput: React.FC = () => {
   const results = useSearchStore((state) => state.results);
   const isLoading = useSearchStore((state) => state.isLoading);
   const setInputValue = useSearchStore((state) => state.setInputValue);
-  const fetchSearch = useSearchStore((state) => state.fetchSearch);
+  const loadSearch = useSearchStore((state) => state.loadSearch);
   const clearResults = useSearchStore((state) => state.clearResults);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (search) {
       const value = e.target.value.trimStart();
-
       setInputValue(value);
     }
 
@@ -38,7 +37,7 @@ const SearchItemsInput: React.FC = () => {
 
   useDebounce(
     () => {
-      fetchSearch();
+      inputValue.length >= 2 ? loadSearch() : clearResults();
     },
     350,
     [inputValue]
@@ -46,23 +45,21 @@ const SearchItemsInput: React.FC = () => {
 
   useClickAway(ref, () => {
     if (search) {
-      setOpenSearch && setOpenSearch(false);
+      setOpenSearch(false);
       setInputValue("");
       clearResults();
     }
   });
 
   useEffect(() => {
-    if (inputValue !== "" || results.length > 0) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    inputValue !== ""
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto");
 
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [inputValue, results]);
+  }, [inputValue]);
 
   if (isLoading) {
     return (
@@ -71,7 +68,7 @@ const SearchItemsInput: React.FC = () => {
           search ? `${Style.overlay} ${Style.visible}` : Style.overlay
         }`}
       >
-        <TopInfo />
+        <SaleBanner />
         <div
           ref={ref}
           className={`${
@@ -121,7 +118,8 @@ const SearchItemsInput: React.FC = () => {
         search ? `${Style.overlay} ${Style.visible}` : Style.overlay
       }`}
     >
-      <TopInfo />
+      <SaleBanner />
+
       <div
         ref={ref}
         className={`${

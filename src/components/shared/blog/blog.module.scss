@@ -30,9 +30,7 @@
         background-color: v.$background;
 
         .date {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          text-align: center;
           margin-bottom: 5px;
 
           span {
@@ -112,6 +110,10 @@
           padding: 15px;
           border-bottom-right-radius: 6px;
           border-bottom-left-radius: 6px;
+
+          .date {
+            text-align: left;
+          }
 
           h3 {
             font-size: 16px;

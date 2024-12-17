@@ -1,5 +1,5 @@
 {
-  "name": "greenshop",
+  "name": "GREENSHOP",
   "version": "1.0",
   "private": true,
   "scripts": {
@@ -16,12 +16,11 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^5.22.0",
+    "@prisma/client": "^6.0.1",
     "@types/bcrypt": "^5.0.2",
     "axios": "^1.7.8",
     "bcrypt": "^5.1.1",
     "next": "^15.0.3",
-    "prisma": "^5.22.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-loading-skeleton": "^3.5.0",
@@ -35,8 +34,9 @@
     "@types/react": "^18.3.12",
     "@types/react-content-loader": "^4.0.0",
     "@types/react-dom": "^18.3.1",
-    "eslint": "^9.15.0",
+    "eslint": "^9.16.0",
     "eslint-config-next": "^15.0.3",
+    "prisma": "^6.0.1",
     "typescript": "^5.7.2"
   }
 }

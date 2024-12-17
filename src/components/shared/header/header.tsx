@@ -6,12 +6,12 @@ import Actions from "./actions";
 import MobileHeader from "../../ui/mobile-header/mobile-header";
 import MobileMenu from "../../ui/mobile-menu";
 import SearchItemsInput from "../../ui/search-items-input";
-import TopInfo from "../../../components/ui/mobile-header/top-info";
+import SaleBanner from "../../ui/mobile-header/sale-banner";
 
 const Header: React.FC = () => {
   return (
     <header className={Style.header}>
-      <TopInfo />
+      <SaleBanner />
 
       <div className="container">
         <div className={Style.content}>
@@ -22,7 +22,6 @@ const Header: React.FC = () => {
 
         <SearchItemsInput />
 
-        {/* Media */}
         <MobileHeader />
       </div>
 

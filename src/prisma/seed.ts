@@ -1,6 +1,6 @@
 import { prisma } from "./prisma-client";
 import { hashSync } from "bcrypt";
-import { categoriesMenu, catalog, variation, sizes } from "./constants";
+import { categoryMenu, catalog, variation, sizes } from "./constants";
 
 async function upload() {
   await prisma.user.createMany({
@@ -24,7 +24,7 @@ async function upload() {
   });
 
   await prisma.category.createMany({
-    data: categoriesMenu,
+    data: categoryMenu,
   });
 
   await prisma.item.createMany({

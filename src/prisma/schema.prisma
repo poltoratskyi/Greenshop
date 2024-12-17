@@ -42,11 +42,11 @@ model Item {
     name                String
     shortDescription    String
     extendedDescription String
-    categories          String
     tags                String
     sku                 String
 
     variations Variation[]
+    items CartItem[]
 
     // category -> JavaScript | TypeScript
     // Find the categoryId "fields: [categoryId]" in the db and look for it "references: [id]" in the Category model
@@ -60,6 +60,7 @@ model Item {
 
 model Size {
     id   Int    @id @default(autoincrement())
+
     shortName String @unique
     fullName  String @unique
 
@@ -71,10 +72,13 @@ model Size {
 
 model Variation {
     id        Int     @id @default(autoincrement())
+
     price     Int
-    sale Int
+    sale      Int
     value     Int
     onSale    Boolean
+
+    cartItems CartItem[]
 
     size   Size @relation(fields: [sizeId], references: [id])
     sizeId Int
@@ -94,9 +98,8 @@ model User {
     email    String   @unique
     password String
 
-    verificationCode VerificationCode?
-    verified         DateTime
 
+    verificationCode VerificationCode?
     cart   Cart?
     orders Order[]
 
@@ -104,6 +107,8 @@ model User {
     provider   String?
     // Id -> Google | Facebook
     providerId String?
+
+    verified         DateTime
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
@@ -123,11 +128,32 @@ model VerificationCode {
 model Cart {
     id Int @id @default(autoincrement())
 
+    subTotalAmount Int @default(0)
     totalAmount Int    @default(0)
-    token       String
+    token       String @unique
+
+    items CartItem[]
 
     user   User? @relation(fields: [userId], references: [id])
     userId Int?  @unique
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model CartItem {
+    id      Int    @id @default(autoincrement())
+
+    quantity Int   @default(1)
+
+    cart     Cart  @relation(fields: [cartId], references: [id])
+    cartId   Int 
+
+    variation Variation @relation(fields: [variationId], references: [id])
+    variationId Int
+
+    item     Item  @relation(fields: [itemId], references: [id])
+    itemId   Int
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
@@ -154,9 +180,25 @@ model Order {
     user   User? @relation(fields: [userId], references: [id])
     userId Int?
 
+    order OrderItem[]
+
     status    OrderStatus
-    // Id Paymant Service
-    paymantId String?
+    // Id Payment Service
+    paymentId  String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model OrderItem {
+    id       Int    @id @default(autoincrement())
+
+    order    Order  @relation(fields: [orderId], references: [id])
+
+    orderId  Int
+    itemId   Int    
+    quantity Int
+    price    Int
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
@@ -171,4 +213,5 @@ enum OrderStatus {
     PENDING
     SUCCEEDED
     CANCELLED
+    FAILED       
 }

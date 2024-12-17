@@ -11,7 +11,7 @@ import Logo from "../../../components/shared/header/logo";
 import Contacts from "../../../components/shared/footer/contacts";
 import Accept from "../../../components/shared/footer/accept";
 
-import { useUIStore } from "../../../utils/store";
+import { useUIStore } from "../../../store";
 
 import { svgLogin, svgClose, links } from "./static-data";
 

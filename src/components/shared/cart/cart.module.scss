@@ -6,12 +6,12 @@
 
   .inner {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 90px;
+    gap: 50px;
 
     .items_title,
-    .check_title {
+    .review_title {
       @include m.subtitle($fz: 16px);
       display: flex;
       text-align: left;
@@ -20,109 +20,121 @@
       margin-bottom: 10px;
     }
 
-    .lists {
-      .list {
-        margin-bottom: 20px;
+    .items {
+      width: 850px;
 
-        .layout {
-          display: flex;
-          align-items: center;
-          transition: all 0.2s ease;
+      .lists {
+        .list {
+          margin-bottom: 20px;
 
-          padding: 10px 30px 10px 10px;
-
-          .img {
-            margin-right: 10px;
-            cursor: pointer;
-          }
-
-          .title {
-            @include m.subtitle-clamp($fz: 16px);
-            transition: all 0.2s ease;
-            margin-bottom: 10px;
-
-            cursor: pointer;
-
-            &:hover {
-              color: v.$main;
-            }
-          }
-
-          .sku {
-            @include m.description();
-
-            span {
-              color: v.$text;
-              margin-right: 5px;
-            }
-          }
-
-          &:last-child {
-            margin-bottom: 0px;
-          }
-
-          &:hover {
-            background-color: v.$background;
-          }
-        }
-
-        .price {
-          @include m.price($fw: 400);
-          width: 100px;
-        }
-
-        .total {
-          @include m.price($c: v.$main, $fw: 500);
-          width: 130px;
-          margin-left: 130px;
-        }
-
-        svg {
-          cursor: pointer;
-
-          &:hover {
-            fill: v.$text;
-          }
-        }
-
-        .quantity {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 100px;
-
-          button {
-            font-size: 14px;
-            line-height: 24px;
-            color: #fff;
+          .layout {
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 25px;
-            width: 25px;
-            background-color: #fff;
-            border: 1px rgba(v.$main, 0.5) solid;
             transition: all 0.2s ease;
+            padding: 10px;
+
+            .img {
+              margin-right: 10px;
+              cursor: pointer;
+            }
+
+            .driver {
+              width: 200px;
+
+              .title {
+                @include m.subtitle-clamp($fz: 16px);
+                display: inline-block;
+                transition: all 0.2s ease;
+                margin-bottom: 10px;
+
+                cursor: pointer;
+
+                &:hover {
+                  color: v.$main;
+                }
+              }
+
+              .sku {
+                @include m.description();
+
+                span {
+                  color: v.$text;
+                  margin-right: 5px;
+                }
+              }
+            }
+
+            &:last-child {
+              margin-bottom: 0px;
+            }
 
             &:hover {
-              border: 1px rgba(v.$main, 1) solid;
+              background-color: v.$background;
+            }
+
+            .price {
+              @include m.price($fw: 400);
+              width: 100px;
+            }
+
+            .total {
+              @include m.price($c: v.$main, $fw: 500);
+              width: 130px;
+              margin-left: 130px;
+            }
+
+            .delete {
+              display: block;
+              margin: 0 auto;
+              svg {
+                cursor: pointer;
+
+                &:hover {
+                  fill: v.$text;
+                }
+              }
+            }
+
+            .quantity {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 100px;
+
+              button {
+                font-size: 14px;
+                line-height: 24px;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 25px;
+                width: 25px;
+                background-color: #fff;
+                border: 1px rgba(v.$main, 0.5) solid;
+                transition: all 0.2s ease;
+
+                &:hover {
+                  border: 1px rgba(v.$main, 1) solid;
+                }
+              }
+
+              span {
+                @include m.description($c: v.$text);
+                text-align: center;
+              }
+            }
+
+            &:last-child {
+              margin-bottom: 0px;
             }
           }
-
-          span {
-            @include m.description($c: v.$text);
-            text-align: center;
-          }
-        }
-
-        &:last-child {
-          margin-bottom: 0px;
         }
       }
     }
 
-    .check {
-      min-width: 330px;
+    .review {
+      width: 300px;
       text-align: center;
 
       .subtitle {

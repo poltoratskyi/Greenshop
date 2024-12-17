@@ -4,23 +4,23 @@ import { useEffect } from "react";
 
 import Style from "./catalog.module.scss";
 
-import Categories from "./categories";
+import Category from "./category";
 import Filter from "./filter";
 
-import { useCatalogStore } from "../../../utils/store";
+import { useCatalogStore } from "../../../store";
 
-import Skeleton from "../../ui/skeleton/catalog/items";
-import CatalogItems from "./catalog-items";
-import List from "./list";
+import Skeleton from "../../ui/skeleton/catalog";
+import ItemsWrapper from "./items-wrapper";
+import ItemList from "./item-list";
 
 const Catalog: React.FC = () => {
   const catalog = useCatalogStore((state) => state.catalog);
   const isLoading = useCatalogStore((state) => state.isLoading);
-  const fetchCatalog = useCatalogStore((state) => state.fetchCatalog);
+  const loadCatalog = useCatalogStore((state) => state.loadCatalog);
 
   useEffect(() => {
-    fetchCatalog();
-  }, []); 
+    loadCatalog();
+  }, []);
 
   if (isLoading) {
     return (
@@ -28,7 +28,7 @@ const Catalog: React.FC = () => {
         <div className="container">
           <div className={Style.content}>
             <aside className={Style.wrapper}>
-              <Categories />
+              <Category />
             </aside>
 
             <div style={{ width: "100%" }}>
@@ -41,6 +41,8 @@ const Catalog: React.FC = () => {
                       <Skeleton
                         className={Style.loader}
                         key={index}
+                        width="255"
+                        height="380"
                         uniqueKey="1"
                       />
                     ))}
@@ -58,19 +60,19 @@ const Catalog: React.FC = () => {
       <div className="container">
         <div className={Style.content}>
           <aside className={Style.wrapper}>
-            <Categories />
+            <Category />
           </aside>
 
           <div style={{ width: "100%" }}>
             <Filter />
 
-            <CatalogItems>
+            <ItemsWrapper>
               {catalog.map((item) => (
                 <li key={item.id} className={Style.list}>
-                  <List control {...item} />
+                  <ItemList control {...item} />
                 </li>
               ))}
-            </CatalogItems>
+            </ItemsWrapper>
           </div>
         </div>
       </div>

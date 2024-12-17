@@ -1,4 +1,4 @@
-export const categoriesMenu = [
+export const categoryMenu = [
   { name: "House Plants" },
   { name: "Potter Plants" },
   { name: "Seeds" },
@@ -20,7 +20,6 @@ export const catalog = [
       "It is petals come in a variety of shades-from soft pink to bold red, orange, and yellow-making it ideal for adding bright accents to interiors. The flowers grow on tall, sturdy stems, with a central part that often contrasts with the petal color, drawing attention.",
     extendedDescription:
       "The Barberton Daisy, scientifically known as *Gerbera jamesonii*, is not only visually stunning but also a symbol of cheerfulness and joy. Its vibrant blooms make it a popular choice for floral arrangements and indoor decorations. This perennial plant thrives in well-drained soil and requires bright, indirect light to flourish. Proper watering and occasional fertilization will encourage healthy growth and prolific blooming throughout the year. Additionally, the Barberton Daisy is relatively easy to care for, making it a perfect addition for both novice and experienced gardeners.",
-    categories: categoriesMenu[0].name,
     tags: "Daisy, Home, Garden, Plants",
     sku: "BD12345",
   },
@@ -33,7 +32,6 @@ export const catalog = [
       "This plant prefers bright but indirect light and requires moderate watering to avoid waterlogging. The Angel Wing Begonia is well-suited for indoor cultivation and can serve as a focal point in arrangements or as a standalone decorative piece.",
     extendedDescription:
       "The Angel Wing Begonia, scientifically known as *Begonia maculata*, is celebrated for its distinctive wing-shaped leaves adorned with silver spots. These striking features, combined with its charming clusters of delicate pink or white flowers, make it a popular choice among indoor gardeners. This plant thrives in humid environments, so it benefits from regular misting or being placed near a humidity tray. Ideal for both novice and experienced plant lovers, the Angel Wing Begonia adds a touch of elegance and vibrancy to any room.",
-    categories: categoriesMenu[0].name,
     tags: "Begonia, Decorative, House plants",
     sku: "AWB67890",
   },
@@ -46,7 +44,6 @@ export const catalog = [
       "African Violet prefers bright but indirect light and requires regular yet moderate watering. This plant is sensitive to cold drafts, so its best kept in a warm, sheltered spot. The African Violet is an ideal choice for those looking to add vibrant accents to their interiors and create a cozy atmosphere at home.",
     extendedDescription:
       "The African Violet, or *Saintpaulia*, is renowned for its beautiful, velvety leaves and vibrant blooms that come in shades of purple, pink, and white. This charming houseplant is perfect for windowsills and tabletops, providing year-round color and joy. African Violets thrive in well-draining potting mix and appreciate being watered from below to avoid leaf spots. Regular fertilization will help promote lush foliage and prolific flowering, making it a delightful addition to any home.",
-    categories: categoriesMenu[0].name,
     tags: "Violet, African, House plants",
     sku: "AV11223",
   },
@@ -59,7 +56,6 @@ export const catalog = [
       "Beach Spider Lily prefers bright but indirect light and requires regular watering to maintain soil moisture. It is also sensitive to frost and should be protected from cold. This is an ideal houseplant for creating a cozy and vibrant atmosphere.",
     extendedDescription:
       "The Beach Spider Lily, or *Hymenocallis*, is a striking tropical plant known for its long, slender leaves and unique, fragrant white flowers that resemble delicate spiders. This plant adds an exotic flair to indoor spaces and can thrive in both pots and gardens. To ensure optimal growth, it should be kept in bright, indirect light and watered consistently, allowing the soil to dry slightly between waterings. With proper care, the Beach Spider Lily will reward you with its stunning blooms and lush foliage.",
-    categories: categoriesMenu[0].name,
     tags: "Lily, House plants, Tropical, Exotic",
     sku: "BSL33445",
   },
@@ -72,7 +68,6 @@ export const catalog = [
       "Blushing Bromeliad prefers bright but indirect light and requires moderate watering. It is important to avoid water accumulation in the rosette to prevent rot. This plant is perfect for creating a tropical atmosphere and enhancing indoor decor.",
     extendedDescription:
       "The Blushing Bromeliad, or *Neoregalia*, is a stunning tropical plant celebrated for its vibrant colors and unique foliage. The rosette of leaves features striking patterns, and when in bloom, it showcases beautiful flowers that can last for several months. This bromeliad thrives in humid environments and requires minimal care, making it an excellent choice for busy plant lovers. Regularly misting the leaves or using a humidity tray will help maintain its lush appearance.",
-    categories: categoriesMenu[0].name,
     tags: "Bromeliad, House plants, Tropical, Exotic",
     sku: "BB55667",
   },
@@ -85,7 +80,6 @@ export const catalog = [
       "Summer Cactus prefers bright sunlight and requires infrequent watering, as its roots do not tolerate standing water. This plant is perfect for those looking to add exotic accents to their interior or create interesting compositions in the garden.",
     extendedDescription:
       "The Summer Cactus, or *Echinopsis*, is a hardy succulent known for its stunning blooms that can come in various colors. This cactus thrives in bright, direct sunlight, making it a perfect addition to sunny windowsills. It requires minimal water, as overmastering can lead to root rot. With its unique shapes and beautiful flowers, the Summer Cactus adds a touch of desert charm to your indoor or outdoor space. It is also a low-maintenance option for those who appreciate succulent plants.",
-    categories: categoriesMenu[5].name,
     tags: "Cactus, Summer, Succulents",
     sku: "SC77889",
   },
@@ -98,7 +92,6 @@ export const catalog = [
       "Aluminum Plant prefers bright but indirect light and requires moderate watering. The plant thrives in high humidity, making it suitable for placement in bathrooms or kitchens. It is an ideal choice for those looking to adorn their home with a stylish and low-maintenance plant.",
     extendedDescription:
       "The Aluminum Plant, or *Pilea cadierei*, is recognized for its eye-catching silver-striped leaves that add a unique touch to any indoor space. This plant is easy to care for and can flourish in a variety of conditions, making it perfect for both beginners and experienced gardeners. It enjoys humid environments, so regular misting or placement near water features will promote healthy growth. The Aluminum Plant not only beautifies your home but also helps purify the air.",
-    categories: categoriesMenu[0].name,
     tags: "Aluminum, House plants",
     sku: "AP99000",
   },
@@ -111,7 +104,6 @@ export const catalog = [
       "Broadleaf Lady Palm easily adapts to various lighting conditions but thrives best in bright, indirect light. The plant requires moderate watering, preferably with added humidity in the air. It is an ideal choice for those looking to add a tropical touch and improve indoor air quality.",
     extendedDescription:
       "The Broadleaf Lady Palm, or *Rhapis excelsa*, is a popular indoor plant recognized for its lush, fan-shaped leaves that create a serene tropical vibe. This palm is not only visually appealing but also an excellent air purifier, helping to filter indoor toxins. It can tolerate low light but performs best in bright, indirect sunlight. Regular watering and humidity are key to keeping the leaves vibrant and healthy, making this palm a fantastic choice for enhancing your home environment.",
-    categories: categoriesMenu[0].name,
     tags: "Palm, House plants",
     sku: "BLP11122",
   },
@@ -124,7 +116,6 @@ export const catalog = [
       "Chinese Evergreen prefers indirect light and moderate watering. This plant requires little care and can thrive in low humidity conditions, making it a great option for offices and living spaces. Additionally, Chinese Evergreen helps purify the air by absorbing toxins.",
     extendedDescription:
       "The Chinese Evergreen, or *Aglaonema*, is cherished for its beautiful foliage that can come in a variety of colors and patterns, making it a striking addition to any interior. This low-maintenance plant thrives in low to bright indirect light and adapts well to different humidity levels. Regular watering, allowing the topsoil to dry out between waterings, will help maintain its health. The Chinese Evergreen is not only visually appealing but also effective at improving indoor air quality by removing harmful pollutants.",
-    categories: categoriesMenu[0].name,
     tags: "Evergreen, House plants",
     sku: "CE22334",
   },
@@ -145,7 +136,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 20,
+    value: 10,
     itemId: 1,
   },
   {
@@ -153,15 +144,15 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 40,
+    value: 20,
     itemId: 1,
   },
   {
     price: 159,
-    sale: 139,
-    onSale: true,
+    sale: 0,
+    onSale: false,
     sizeId: 3,
-    value: 60,
+    value: 30,
     itemId: 1,
   },
   {
@@ -169,7 +160,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 4,
-    value: 80,
+    value: 40,
     itemId: 1,
   },
 
@@ -213,7 +204,7 @@ export const variation = [
     sale: 199,
     onSale: true,
     sizeId: 1,
-    value: 40,
+    value: 10,
     itemId: 3,
   },
   {
@@ -221,7 +212,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 50,
+    value: 20,
     itemId: 3,
   },
   {
@@ -229,7 +220,7 @@ export const variation = [
     sale: 249,
     onSale: true,
     sizeId: 3,
-    value: 60,
+    value: 30,
     itemId: 3,
   },
   {
@@ -237,7 +228,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 4,
-    value: 70,
+    value: 40,
     itemId: 3,
   },
 
@@ -255,7 +246,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 5,
+    value: 20,
     itemId: 4,
   },
   {
@@ -263,7 +254,7 @@ export const variation = [
     sale: 149,
     onSale: true,
     sizeId: 3,
-    value: 10,
+    value: 30,
     itemId: 4,
   },
   {
@@ -271,7 +262,7 @@ export const variation = [
     sale: 169,
     onSale: true,
     sizeId: 4,
-    value: 5,
+    value: 40,
     itemId: 4,
   },
 
@@ -281,7 +272,7 @@ export const variation = [
     sale: 129,
     onSale: true,
     sizeId: 1,
-    value: 6,
+    value: 10,
     itemId: 5,
   },
   {
@@ -289,7 +280,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 4,
+    value: 20,
     itemId: 5,
   },
   {
@@ -297,7 +288,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 15,
+    value: 30,
     itemId: 5,
   },
   {
@@ -305,7 +296,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 4,
-    value: 30,
+    value: 40,
     itemId: 5,
   },
 
@@ -315,15 +306,15 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 44,
+    value: 10,
     itemId: 6,
   },
   {
     price: 199,
-    sale: 179,
-    onSale: true,
+    sale: 0,
+    onSale: false,
     sizeId: 2,
-    value: 31,
+    value: 20,
     itemId: 6,
   },
   {
@@ -331,7 +322,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 17,
+    value: 30,
     itemId: 6,
   },
   {
@@ -339,7 +330,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 4,
-    value: 13,
+    value: 40,
     itemId: 6,
   },
 
@@ -349,7 +340,7 @@ export const variation = [
     onSale: true,
     sale: 79,
     sizeId: 1,
-    value: 12,
+    value: 10,
     itemId: 7,
   },
   {
@@ -357,7 +348,7 @@ export const variation = [
     onSale: true,
     sale: 99,
     sizeId: 2,
-    value: 13,
+    value: 20,
     itemId: 7,
   },
   {
@@ -365,7 +356,7 @@ export const variation = [
     onSale: false,
     sale: 0,
     sizeId: 3,
-    value: 15,
+    value: 30,
     itemId: 7,
   },
   {
@@ -373,7 +364,7 @@ export const variation = [
     onSale: false,
     sale: 0,
     sizeId: 4,
-    value: 18,
+    value: 40,
     itemId: 7,
   },
 
@@ -383,7 +374,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 2,
+    value: 10,
     itemId: 8,
   },
   {
@@ -391,7 +382,7 @@ export const variation = [
     sale: 59,
     onSale: true,
     sizeId: 2,
-    value: 5,
+    value: 20,
     itemId: 8,
   },
   {
@@ -399,7 +390,7 @@ export const variation = [
     sale: 79,
     onSale: true,
     sizeId: 3,
-    value: 1,
+    value: 30,
     itemId: 8,
   },
   {
@@ -407,7 +398,7 @@ export const variation = [
     sale: 99,
     onSale: true,
     sizeId: 4,
-    value: 1,
+    value: 40,
     itemId: 8,
   },
 
@@ -417,7 +408,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 8,
+    value: 10,
     itemId: 9,
   },
   {
@@ -425,7 +416,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 9,
+    value: 20,
     itemId: 9,
   },
   {
@@ -433,7 +424,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 10,
+    value: 30,
     itemId: 9,
   },
   {
@@ -441,7 +432,7 @@ export const variation = [
     sale: 79,
     onSale: true,
     sizeId: 4,
-    value: 11,
+    value: 40,
     itemId: 9,
   },
 ];

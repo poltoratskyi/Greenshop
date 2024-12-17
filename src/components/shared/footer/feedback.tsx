@@ -3,7 +3,7 @@ import Link from "next/link";
 import Style from "./footer.module.scss";
 
 import Accept from "./accept";
-import { account, help, categories } from "./static-data";
+import { account, help, category } from "./static-data";
 
 const Feedback: React.FC = () => {
   return (
@@ -37,10 +37,10 @@ const Feedback: React.FC = () => {
       </nav>
 
       <nav className={Style.nav}>
-        <h3 className={Style.title}>Categories</h3>
+        <h3 className={Style.title}>Category</h3>
 
         <ul className={Style.lists}>
-          {categories.map((item, index) => (
+          {category.map((item, index) => (
             <li className={Style.list} key={index}>
               <Link className={Style.link} href={item.link}>
                 {item.title}

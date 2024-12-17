@@ -7,7 +7,7 @@ export const home = (
   </svg>
 );
 
-export const categories = (
+export const category = (
   <svg width="20" height="20" fill="#D9D9D9" viewBox="0 0 24 24">
     <path
       strokeWidth="1.5"
@@ -58,7 +58,7 @@ export const login = (
 
 export const pages = [
   { menu: home, href: "/" },
-  { menu: categories, href: "/categories" },
+  { menu: category, href: "/category" },
   { menu: favorite, href: "#" },
   { menu: cart, href: "/cart" },
   { menu: login, href: "/login" },

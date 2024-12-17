@@ -1,12 +1,9 @@
 import { Item } from "../types";
-import AxiosInstance from "./axios";
+import { AxiosInstance } from "./axios";
 
-const axiosItem = async (query: string) => {
+export const fetchSearchItem = async (query: string): Promise<Item[]> => {
   const response = await AxiosInstance.get<Item[]>("/items/search", {
     params: { query },
   });
-
   return response.data;
 };
-
-export default axiosItem;

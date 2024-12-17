@@ -2,9 +2,13 @@
 
 import Link from "next/link";
 
+import { Item } from "../../../types";
+
 import Style from "./button.module.scss";
 
 interface Props {
+  handleAddToCart?: () => void;
+  addItem?: boolean;
   button?: boolean;
   link?: boolean;
   linkValue?: string;
@@ -16,14 +20,16 @@ interface Props {
 }
 
 const Button: React.FC<Props> = ({
-  className,
-  value,
-  svgLeft,
-  svgCenter,
-  svgRight,
+  handleAddToCart,
+  addItem,
   button,
   link,
   linkValue,
+  className,
+  value,
+  svgCenter,
+  svgLeft,
+  svgRight,
 }) => {
   const buttonClass = Style[className || ""];
 
@@ -45,8 +51,20 @@ const Button: React.FC<Props> = ({
           {svgRight}
         </Link>
       )}
+
+      {addItem && (
+        <button
+          onClick={() => handleAddToCart && handleAddToCart()}
+          className={buttonClass}
+        >
+          {value}
+        </button>
+      )}
     </>
   );
 };
 
 export default Button;
+/*  cartId: createUserCartToken.id,
+        itemId: data.itemId,
+  variationId: data.variationId, */

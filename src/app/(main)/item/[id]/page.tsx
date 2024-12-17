@@ -7,22 +7,60 @@ interface Props {
 }
 
 export default async function Item({ params }: Props) {
-  const { id } = await params;
+  try {
+    // Get the id
+    const { id } = await params;
 
-  const item = await prisma.item.findFirst({
-    where: { id: Number(id) },
-    include: {
-      variations: {
-        include: {
-          size: true,
+    // Get the item from the database
+    const item = await prisma.item.findFirst({
+      where: { id: Number(id) },
+
+      select: {
+        id: true,
+
+        imgUrl: true,
+        name: true,
+        shortDescription: true,
+        extendedDescription: true,
+        sku: true,
+        tags: true,
+
+        variations: {
+          select: {
+            id: true,
+
+            price: true,
+            sale: true,
+            onSale: true,
+
+            sizeId: true,
+            size: {
+              select: {
+                id: true,
+                shortName: true,
+              },
+            },
+          },
         },
+
+        category: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+
+        categoryId: true,
       },
-    },
-  });
+    });
 
-  if (!item) {
-    return notFound();
+    if (!item) {
+      return notFound();
+    }
+
+    return <SingleItem item={item} />;
+  } catch (error) {
+    console.error("Error fetching item:", error);
+    throw new Error("Error fetching item");
   }
-
-  return <SingleItem item={item} />;
 }

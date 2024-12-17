@@ -4,12 +4,12 @@
 .catalog {
   .content {
     display: flex;
-    gap: 50px;
+    gap: 40px;
 
     .wrapper {
       background-color: v.$background;
-      min-width: 315px;
       padding: 20px 25px 20px 20px;
+      width: 35%;
     }
 
     .filter {
@@ -49,12 +49,12 @@
   }
 }
 
-.categories {
+.category {
   margin-bottom: 35px;
 
   .title {
     @include m.subtitle($fz: 16px);
-    margin-bottom: 10px;
+    margin-bottom: 16px;
   }
 
   .lists {
@@ -64,8 +64,13 @@
       justify-content: space-between;
       color: v.$text;
       cursor: pointer;
-      padding: 8px 12px;
+      padding: 0px 12px;
       transition: all 0.2s ease;
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
 
       &:hover {
         color: v.$main;
@@ -80,7 +85,7 @@
   .range {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 8px 12px;
+    padding: 0px 12px;
     gap: 20px;
 
     .column {
@@ -160,19 +165,15 @@
           opacity: 0;
           margin-bottom: 5%;
 
-          & > [data-type="heart"] {
-            cursor: pointer;
+          a {
+            display: inline-block;
             margin-right: 30px;
+            & > [data-type="heart"] {
+              cursor: pointer;
 
-            &:hover {
-              fill: red;
-            }
-          }
-
-          & > [data-type="cart"] {
-            cursor: pointer;
-            &:hover {
-              fill: v.$main;
+              &:hover {
+                fill: red;
+              }
             }
           }
         }
@@ -180,7 +181,7 @@
 
       .title {
         @include m.description($fz: 16px, $c: v.$text);
-        display: block;
+        display: inline-block;
         transition: all 0.2s ease;
         margin-top: 15px;
 
@@ -283,13 +284,12 @@
             margin: 10px 10px 0px 0px;
             border: 1px solid #fff;
 
-            & > [data-type="heart"] {
+            a {
               margin-right: 0px;
-              fill: v.$main;
-            }
 
-            & > [data-type="cart"] {
-              display: none;
+              & > [data-type="heart"] {
+                fill: v.$main;
+              }
             }
           }
         }
@@ -313,7 +313,7 @@
     }
   }
 
-  .categories {
+  .category {
     margin-bottom: 10px;
 
     &.size {

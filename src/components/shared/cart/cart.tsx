@@ -1,7 +1,7 @@
 import Style from "./cart.module.scss";
 
-import CartList from "./list";
-import CartCheck from "./check";
+import ItemsList from "./items-list";
+import Review from "./review";
 import Slider from "./slider";
 import Pathname from "../pathname";
 
@@ -13,9 +13,9 @@ const Cart: React.FC = () => {
       <section className={Style.cart}>
         <div className="container">
           <div className={Style.inner}>
-            <CartList />
+            <ItemsList />
 
-            <CartCheck />
+            <Review />
           </div>
 
           <Slider />

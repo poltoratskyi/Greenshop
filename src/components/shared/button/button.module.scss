@@ -18,6 +18,16 @@
   );
 }
 
+.addToCart {
+  background-color: transparent;
+  & > [data-type="cart"] {
+    cursor: pointer;
+    &:hover {
+      fill: v.$main;
+    }
+  }
+}
+
 .add,
 .favorite {
   border: 1px solid v.$main;
@@ -192,6 +202,10 @@
     svg {
       margin-left: 5px;
     }
+  }
+
+  .addToCart {
+    display: none;
   }
 
   .adv,

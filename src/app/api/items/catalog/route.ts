@@ -4,14 +4,38 @@ import { prisma } from "../../../../prisma/prisma-client";
 export async function GET() {
   try {
     const items = await prisma.item.findMany({
-      include: {
-        variations: true,
+      orderBy: {
+        name: "asc",
+      },
+
+      select: {
+        id: true,
+
+        name: true,
+        imgUrl: true,
+
+        variations: {
+          take: 1,
+
+          select: {
+            id: true,
+            sizeId: true,
+
+            price: true,
+            sale: true,
+            onSale: true,
+          },
+        },
       },
     });
 
     return NextResponse.json(items);
   } catch (error) {
-    console.error("Error", error);
-    return NextResponse.json({ error: "Error" }, { status: 500 });
+    console.error("Error fetching items:", error);
+
+    return NextResponse.json(
+      { error: "Failed to fetch items" },
+      { status: 500 }
+    );
   }
 }

@@ -6,7 +6,7 @@ import Style from "./modal-forms.module.scss";
 
 import { svgClose } from "./static-data";
 
-import { useUIStore } from "../../../utils/store";
+import { useUIStore } from "../../../store";
 
 interface Props {
   title?: boolean;

@@ -4,17 +4,17 @@ import { Item } from "../../../types";
 
 import Style from "./single-item.module.scss";
 import CatalogStyle from "../catalog/catalog.module.scss";
-import CatalogList from "../catalog/list";
+import CatalogItemList from "../catalog/item-list";
 
 import ExtendedDescription from "./extended-description";
-import List from "./list";
-import Wrapper from "./wrapper";
-import CatalogItems from "../catalog/catalog-items";
+import ItemList from "./item-list";
+import SingleItemWrapper from "./single-item-wrapper";
+import ItemsWrapper from "../catalog/items-wrapper";
 import Pathname from "../pathname";
 
-interface Props {
+export type Props = {
   item: Item;
-}
+};
 
 const SingleItem: React.FC<Props> = ({ item }) => {
   return (
@@ -23,21 +23,21 @@ const SingleItem: React.FC<Props> = ({ item }) => {
 
       <section className={Style.single_item}>
         <div className="container">
-          <List item={item} />
+          <ItemList item={item} />
 
-          <Wrapper title="Product Description">
+          <SingleItemWrapper title="Product Description">
             <ExtendedDescription item={item} />
-          </Wrapper>
+          </SingleItemWrapper>
 
-          <Wrapper title="Related Products">
-            <CatalogItems gridWidth>
+          <SingleItemWrapper title="Related Products">
+            <ItemsWrapper gridWidth>
               {[item].map((item) => (
                 <li key={item.id} className={CatalogStyle.list}>
-                  <CatalogList {...item} />
+                  <CatalogItemList {...item} />
                 </li>
               ))}
-            </CatalogItems>
-          </Wrapper>
+            </ItemsWrapper>
+          </SingleItemWrapper>
         </div>
       </section>
     </>

@@ -1,21 +1,28 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import Style from "./mobile-menu.module.scss";
 
-import { useUIStore } from "../../../utils/store";
+import { useCartStore, useUIStore } from "../../../store";
 
 import { pages } from "./static-data";
 
 const MobileMenu: React.FC = () => {
   const pathname = usePathname();
 
+  const loadUserCart = useCartStore((state) => state.loadUserCart);
+
   const setOpenModal = useUIStore((state) => state.setOpenModal);
-  const setOpenModalCategories = useUIStore(
-    (state) => state.setOpenModalCategories
+  const setOpenModalCategory = useUIStore(
+    (state) => state.setOpenModalCategory
   );
+
+  useEffect(() => {
+    loadUserCart();
+  }, []);
 
   return (
     <nav className={Style.menu}>
@@ -26,8 +33,8 @@ const MobileMenu: React.FC = () => {
             onClick={() => {
               if (link.href === "/login") {
                 setOpenModal(true);
-              } else if (link.href === "/categories") {
-                setOpenModalCategories(true);
+              } else if (link.href === "/category") {
+                setOpenModalCategory(true);
               }
             }}
             className={
@@ -39,11 +46,7 @@ const MobileMenu: React.FC = () => {
               pointerEvents: pathname === link.href ? "none" : "auto",
             }}
           >
-            <Link href={link.href}>
-              {link.menu}
-
-              {link.href === "/cart" && <span>9</span>}
-            </Link>
+            <Link href={link.href}>{link.menu}</Link>
           </li>
         ))}
       </ul>

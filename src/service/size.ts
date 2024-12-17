@@ -1,10 +1,7 @@
 import { Size } from "../types";
-import AxiosInstance from "./axios";
+import { AxiosInstance } from "./axios";
 
-const axiosSize = async () => {
+export const fetchSize = async (): Promise<Size[]> => {
   const response = await AxiosInstance.get<Size[]>("/size");
-
   return response.data;
 };
-
-export default axiosSize;

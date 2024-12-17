@@ -1220,7 +1220,7 @@ export const help = [
   },
 ];
 
-export const categories = [
+export const category = [
   {
     title: "House Plants",
     link: "#",

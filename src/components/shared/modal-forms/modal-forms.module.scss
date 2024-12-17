@@ -102,7 +102,7 @@
       .sign_up__email,
       .sign_up__password,
       .confirm_password {
-        @include m.description($c: v.$text);
+        @include m.description($fz: 16px, $c: v.$text);
         padding: 15px 10px;
         background-color: #fff;
         border: 1px solid v.$border;

@@ -1,19 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useRef } from "react";
 import { useClickAway } from "react-use";
 
 import Style from "./sort.module.scss";
 
-import { useUIStore } from "../../../utils/store";
+import { useUIStore } from "../../../store";
 
 import { filterSort, svgRound } from "./static-data";
-
-interface Filter {
-  value: string;
-  label: string;
-}
-[];
 
 const Sort: React.FC = () => {
   const sort = useUIStore((state) => state.sort);
@@ -43,7 +38,7 @@ const Sort: React.FC = () => {
             sort ? `${Style.active} ${Style.sortLists}` : Style.sortLists
           }
         >
-          {filterSort.map((item: Filter, index: number) => (
+          {filterSort.map((item, index) => (
             <li
               className={
                 activeSortMenuValue === item.label
@@ -56,7 +51,7 @@ const Sort: React.FC = () => {
               }}
               key={index}
             >
-              {item.label}
+              <Link href={`/catalog/${item.value}`}>{item.label}</Link>
             </li>
           ))}
         </ul>

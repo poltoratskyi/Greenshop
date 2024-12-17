@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import Style from "./header.module.scss";
 
-import { useUIStore } from "../../../utils/store";
+import { useUIStore } from "../../../store";
 
 interface Props {
   subtitle?: boolean;

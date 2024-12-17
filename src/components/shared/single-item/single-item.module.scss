@@ -98,7 +98,7 @@
 
       .sku,
       .tags,
-      .categories {
+      .category {
         @include m.description();
         margin-bottom: 10px;
 

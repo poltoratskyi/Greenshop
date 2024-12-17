@@ -30,7 +30,8 @@ const Pathname: React.FC<Props> = ({ item, second, third, thirdPath }) => {
               thirdPath ? Style.list : `${Style.list} ${Style.active}`
             }`}
           >
-            {item ? item.categories : second} {thirdPath && "/"}
+            {item && item.category ? item.category.name : second}{" "}
+            {thirdPath && "/"}
           </li>
 
           {thirdPath && (

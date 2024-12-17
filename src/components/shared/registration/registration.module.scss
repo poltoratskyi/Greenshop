@@ -2,7 +2,7 @@
 @use "../../../styles/mixins.scss" as m;
 
 .registration {
-  margin-bottom: 45px;
+  margin: 50px 0px 45px;
 
   .registration_wrapper {
     background-color: v.$background;
@@ -38,7 +38,7 @@
 
 @media (max-width: 575px) {
   .registration {
-    margin-bottom: 45px;
+    margin: 0px 0px 45px 0px;
 
     .registration_wrapper {
       .box {
