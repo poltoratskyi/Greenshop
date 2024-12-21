@@ -4,6 +4,7 @@ import ItemsList from "./items-list";
 import Review from "./review";
 import Slider from "./slider";
 import Pathname from "../pathname";
+import Inner from "./inner";
 
 const Cart: React.FC = () => {
   return (
@@ -12,11 +13,11 @@ const Cart: React.FC = () => {
 
       <section className={Style.cart}>
         <div className="container">
-          <div className={Style.inner}>
+          <Inner>
             <ItemsList />
 
             <Review />
-          </div>
+          </Inner>
 
           <Slider />
         </div>

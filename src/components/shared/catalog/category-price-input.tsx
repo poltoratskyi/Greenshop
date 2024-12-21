@@ -16,7 +16,7 @@ const CategoryPriceInput: React.FC = () => {
 
         {isLoading &&
           [...new Array(1)].map((_, index: number) => (
-            <Skeleton key={index} width="265" height="40" uniqueKey="3" />
+            <Skeleton key={index} width="100%" height="40" uniqueKey="3" />
           ))}
       </div>
     );

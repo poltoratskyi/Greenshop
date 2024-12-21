@@ -85,7 +85,7 @@ const ItemList: React.FC<Props> = ({
               <Link href="/login">{svgHeart}</Link>
 
               <Button
-                addItem
+                addToCart
                 handleAddToCart={handleAddToCart}
                 className="addToCart"
                 value={svgCart}

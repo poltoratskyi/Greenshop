@@ -58,7 +58,7 @@ export type CartItem = {
   variations: CartVariation[];
 };
 
-export type postCartItem = {
+export type PostCartItem = {
   itemId: number;
   variationId: number;
 };
@@ -95,6 +95,10 @@ export type CartVariation = {
   price: number;
   sale: number;
   onSale: boolean;
+
+  size: {
+    shortName: string;
+  };
 };
 
 export type CartResponse = {
@@ -126,6 +130,10 @@ export type CartResponse = {
         price: number;
         sale: number;
         onSale: boolean;
+
+        size: {
+          shortName: string;
+        };
       }[];
 
       category: {

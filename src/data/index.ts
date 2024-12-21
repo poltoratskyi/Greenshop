@@ -25,6 +25,10 @@ export const responseData = (data: CartResponse): CartDetails => {
       price: variation.price,
       sale: variation.sale,
       onSale: variation.onSale,
+
+      size: {
+        shortName: variation.size.shortName,
+      },
     })),
 
     category: {
@@ -35,7 +39,8 @@ export const responseData = (data: CartResponse): CartDetails => {
 
   return {
     cartItems,
-    totalAmount: data.totalAmount + 16,
+    totalAmount:
+      data.totalAmount > 0 ? data.totalAmount + 16 : (data.totalAmount = 0),
     subtotalAmount: data.totalAmount,
   };
 };

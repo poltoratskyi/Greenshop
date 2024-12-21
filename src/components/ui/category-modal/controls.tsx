@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import Style from "./modal-category.module.scss";
+import Style from "./category-modal.module.scss";
 
 import { svgClose } from "./static-data";
 

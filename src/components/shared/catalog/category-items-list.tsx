@@ -33,7 +33,7 @@ const CategoryItemsList: React.FC = () => {
             [...new Array(9)].map((_, index: number) => (
               <Skeleton
                 key={index}
-                width="265"
+                width="100%"
                 height="24"
                 style={{
                   marginBottom: index === 8 ? "0" : "16px",

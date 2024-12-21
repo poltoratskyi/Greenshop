@@ -39,7 +39,7 @@ const CategoryItemsSize: React.FC = () => {
             [...new Array(4)].map((_, index: number) => (
               <Skeleton
                 key={index}
-                width="265"
+                width="100%"
                 height="24"
                 style={{
                   marginBottom: index === 3 ? "0" : "16px",

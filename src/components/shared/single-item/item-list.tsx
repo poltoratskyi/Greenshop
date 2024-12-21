@@ -38,7 +38,7 @@ const ItemList: React.FC<Props> = ({ item }) => {
         <ItemInfo item={item} />
 
         <p className={Style.sku}>
-          <span>SKU: </span>
+          <span>Sku: </span>
           {item.sku}
         </p>
 

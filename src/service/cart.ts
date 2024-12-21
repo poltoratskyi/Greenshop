@@ -1,4 +1,4 @@
-import { CartResponse, postCartItem } from "../types";
+import { CartResponse, PostCartItem } from "../types";
 import { AxiosInstance } from "./axios";
 
 export const fetchUserCart = async (): Promise<CartResponse> => {
@@ -23,7 +23,7 @@ export const deleteCartItem = async (id: number): Promise<CartResponse> => {
 };
 
 export const addCartItem = async (
-  item: postCartItem
+  item: PostCartItem
 ): Promise<CartResponse> => {
   const response = await AxiosInstance.post<CartResponse>(`/cart/`, item);
   return response.data;

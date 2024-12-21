@@ -1,4 +1,4 @@
-import Style from "./modal-category.module.scss";
+import Style from "./category-modal.module.scss";
 
 import Category from "../../shared/catalog/category";
 import Controls from "./controls";
@@ -6,7 +6,7 @@ import Controls from "./controls";
 const ModalCategory: React.FC = () => {
   return (
     <div>
-      <div className={Style.modal_category}>
+      <div className={Style.category_modal}>
         <div className={Style.header}>
           <h2 className={Style.title}>Catalog Items</h2>
 

@@ -36,7 +36,7 @@ export const updateTotalAmounts = async (token: string) => {
 
       items: {
         orderBy: {
-          itemId: "asc",
+          createdAt: "desc",
         },
 
         select: {
@@ -63,6 +63,12 @@ export const updateTotalAmounts = async (token: string) => {
                   price: true,
                   sale: true,
                   onSale: true,
+
+                  size: {
+                    select: {
+                      shortName: true,
+                    },
+                  },
                 },
               },
 

@@ -82,13 +82,20 @@ const ItemInfo: React.FC<Props> = ({ item }) => {
       </ul>
 
       <div className={Style.action}>
-        <Button addItem className="buy" value="Buy NOW" />
         <Button
-          addItem
+          buy
+          handleAddToCart={handleAddToCart}
+          className="buy"
+          value="Buy NOW"
+        />
+
+        <Button
+          addToCart
           handleAddToCart={handleAddToCart}
           className="add"
           value="Add to cart"
         />
+
         <Button link linkValue="/login" className="favorite" value={svgHeart} />
       </div>
     </>

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import Style from "./cart.module.scss";
 
-import SkeletonFetch from "../../ui/skeleton/cartFetch";
+import Skeleton from "../../ui/skeleton/cart-items";
 
 import { svgDecr, svgIncr, svgTrash } from "./static-data";
 
@@ -49,7 +49,7 @@ const ItemsList: React.FC = () => {
             <h4>Products</h4>
           </li>
 
-          <li style={{ width: "100px" }}>
+          <li style={{ width: "160px" }}>
             <h4>Price</h4>
           </li>
 
@@ -57,7 +57,7 @@ const ItemsList: React.FC = () => {
             <h4>Quantity</h4>
           </li>
 
-          <li style={{ marginLeft: "130px" }}>
+          <li style={{ marginLeft: "70px" }}>
             <h4>Total</h4>
           </li>
         </ul>
@@ -65,7 +65,7 @@ const ItemsList: React.FC = () => {
         <ul className={Style.lists}>
           {isLoading &&
             [...new Array(3)].map((_, index: number) => (
-              <SkeletonFetch
+              <Skeleton
                 key={index}
                 width="850"
                 height="100"
@@ -85,7 +85,7 @@ const ItemsList: React.FC = () => {
           <h4>Products</h4>
         </li>
 
-        <li style={{ width: "100px" }}>
+        <li style={{ width: "160px" }}>
           <h4>Price</h4>
         </li>
 
@@ -93,7 +93,7 @@ const ItemsList: React.FC = () => {
           <h4>Quantity</h4>
         </li>
 
-        <li style={{ marginLeft: "130px" }}>
+        <li style={{ marginLeft: "70px" }}>
           <h4>Total</h4>
         </li>
       </ul>
@@ -121,20 +121,35 @@ const ItemsList: React.FC = () => {
                   <h3 className={Style.title}>{item.name}</h3>
                 </Link>
 
+                <p className={Style.size}>
+                  <span>Size:</span>
+                  {item.variations[item.variationId].size.shortName}
+                </p>
+
                 <p className={Style.sku}>
-                  <span>SKU:</span>
+                  <span>Sku:</span>
                   {item.sku}
                 </p>
               </div>
 
               {item.variations[item.variationId].onSale ? (
-                <span className={Style.price}>
-                  ${item.variations[item.variationId].sale.toFixed(2)}
-                </span>
+                <div className={Style.info}>
+                  <div className={Style.prices}>
+                    <span className={Style.sale}>
+                      ${item.variations[item.variationId].price.toFixed(2)}
+                    </span>
+
+                    <span className={Style.price}>
+                      ${item.variations[item.variationId].sale.toFixed(2)}
+                    </span>
+                  </div>
+                </div>
               ) : (
-                <span className={Style.price}>
-                  ${item.variations[item.variationId].price.toFixed(2)}
-                </span>
+                <div className={Style.info}>
+                  <span className={Style.price}>
+                    ${item.variations[item.variationId].price.toFixed(2)}
+                  </span>
+                </div>
               )}
 
               <div className={Style.quantity}>

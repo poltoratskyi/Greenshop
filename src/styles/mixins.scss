@@ -120,6 +120,7 @@
 }
 
 @mixin cart-quantity() {
+  display: block;
   position: relative;
 
   span {

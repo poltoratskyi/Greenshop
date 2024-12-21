@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 
-import { Item } from "../../../types";
+import { useRouter } from "next/navigation";
 
 import Style from "./button.module.scss";
 
 interface Props {
   handleAddToCart?: () => void;
-  addItem?: boolean;
+  buy?: boolean;
+  addToCart?: boolean;
   button?: boolean;
   link?: boolean;
   linkValue?: string;
@@ -21,7 +22,8 @@ interface Props {
 
 const Button: React.FC<Props> = ({
   handleAddToCart,
-  addItem,
+  buy,
+  addToCart,
   button,
   link,
   linkValue,
@@ -31,6 +33,8 @@ const Button: React.FC<Props> = ({
   svgLeft,
   svgRight,
 }) => {
+  const router = useRouter();
+
   const buttonClass = Style[className || ""];
 
   return (
@@ -52,9 +56,21 @@ const Button: React.FC<Props> = ({
         </Link>
       )}
 
-      {addItem && (
+      {addToCart && (
         <button
           onClick={() => handleAddToCart && handleAddToCart()}
+          className={buttonClass}
+        >
+          {value}
+        </button>
+      )}
+
+      {buy && (
+        <button
+          onClick={() => {
+            router.push("/cart");
+            handleAddToCart && handleAddToCart();
+          }}
           className={buttonClass}
         >
           {value}
@@ -65,6 +81,3 @@ const Button: React.FC<Props> = ({
 };
 
 export default Button;
-/*  cartId: createUserCartToken.id,
-        itemId: data.itemId,
-  variationId: data.variationId, */

@@ -8,6 +8,8 @@ import Style from "./header.module.scss";
 import { useUIStore } from "../../../store";
 
 import { svgCart, svgLogin, svgSearch } from "./static-data";
+import ItemsList from "../../../components/ui/modal-mini-cart";
+import Summary from "../../../components/ui/modal-mini-cart/summary";
 
 const Actions: React.FC = () => {
   const pathname = usePathname();
@@ -31,14 +33,22 @@ const Actions: React.FC = () => {
         {svgSearch}
       </span>
 
-      <Link
-        className={
-          pathname === "/cart" ? `${Style.cart} ${Style.active}` : Style.cart
-        }
-        href="/cart"
-      >
-        {svgCart}
-      </Link>
+      <div className={Style.cart_wrapper}>
+        <Link
+          className={
+            pathname === "/cart" ? `${Style.cart} ${Style.active}` : Style.cart
+          }
+          href="/cart"
+        >
+          {svgCart}
+        </Link>
+
+        <div className={Style.dropdown_cart}>
+          <ItemsList />
+
+          <Summary />
+        </div>
+      </div>
 
       <Link
         style={{

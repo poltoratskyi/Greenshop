@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { CartItem, postCartItem } from "../types";
+import { CartItem, PostCartItem } from "../types";
 
 import {
   fetchUserCart,
@@ -20,7 +20,7 @@ interface CartState {
   loadUserCart: () => Promise<void>;
   updateCartItemQuantity: (id: number, quantity: number) => Promise<void>;
   deleteCartItem: (id: number) => Promise<void>;
-  addCartItem: (item: postCartItem) => Promise<void>;
+  addCartItem: (item: PostCartItem) => Promise<void>;
 }
 
 export const useCartStore = create<CartState>((set) => ({
@@ -45,7 +45,7 @@ export const useCartStore = create<CartState>((set) => ({
   },
 
   updateCartItemQuantity: async (id: number, quantity: number) => {
-    set({ error: null });
+    set({ isLoading: true, error: null });
 
     try {
       const response = await updateCartItemQuantity(id, quantity);
@@ -55,15 +55,13 @@ export const useCartStore = create<CartState>((set) => ({
       set({
         error: "Error updating quantity from user cart",
       });
-
-      console.error("Error updating quantity from user cart:", err);
     } finally {
-      set({});
+      set({ isLoading: false });
     }
   },
 
   deleteCartItem: async (id: number) => {
-    set({ error: null });
+    set({ isLoading: true, error: null });
 
     try {
       const response = await deleteCartItem(id);
@@ -73,14 +71,12 @@ export const useCartStore = create<CartState>((set) => ({
       set({
         error: "Error deleting item from user cart",
       });
-
-      console.error("Error deleting item from user cart:", err);
     } finally {
-      set({});
+      set({ isLoading: false });
     }
   },
 
-  addCartItem: async (item: postCartItem) => {
+  addCartItem: async (item: PostCartItem) => {
     set({ error: null });
 
     try {
@@ -91,8 +87,6 @@ export const useCartStore = create<CartState>((set) => ({
       set({
         error: "Error adding item to user cart",
       });
-
-      console.error("Error adding item to user cart:", err);
     } finally {
       set({});
     }

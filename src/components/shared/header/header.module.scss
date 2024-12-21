@@ -13,28 +13,22 @@
 
     .lists {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
 
       .list {
-        margin-right: auto;
-
         .link {
           @include m.title($fz: 16px, $lh: 24px);
-          padding-bottom: 25px;
 
           &:hover {
             color: v.$main;
           }
 
           &.active {
+            padding-bottom: 25px;
             color: v.$main;
             border-bottom: 3px v.$main solid;
           }
-        }
-
-        &:last-child {
-          margin-right: 0px;
         }
       }
     }
@@ -43,6 +37,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      gap: 30px;
 
       .login {
         @include m.description($c: #fff);
@@ -63,22 +58,53 @@
       }
 
       .search,
-      .cart {
-        margin-right: 30px;
-      }
+      .cart_wrapper {
+        z-index: 2;
 
-      .cart {
-        @include m.cart-quantity();
-
-        &.active {
+        &:hover {
           svg {
-            fill: v.$main;
+            cursor: pointer;
           }
         }
       }
 
-      svg {
-        cursor: pointer;
+      .cart_wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+
+        &:hover {
+          .dropdown_cart {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+
+        .cart {
+          @include m.cart-quantity();
+
+          &.active {
+            svg {
+              fill: v.$main;
+            }
+          }
+        }
+
+        .dropdown_cart {
+          transition: all 0.2s ease;
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          background-color: #fff;
+          width: 350px;
+          border-radius: 6px;
+        }
       }
     }
   }

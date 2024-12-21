@@ -1,7 +1,7 @@
 import React from "react";
 import ContentLoader, { IContentLoaderProps } from "react-content-loader";
 
-const Category: React.FC<IContentLoaderProps> = ({
+const CartSummary: React.FC<IContentLoaderProps> = ({
   width,
   height,
   ...props
@@ -10,13 +10,14 @@ const Category: React.FC<IContentLoaderProps> = ({
     speed={2}
     width={width}
     height={height}
-    viewBox={`0 0 450 ${height}`}
+    viewBox={`0 0 60 19`}
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
     {...props}
   >
-    <rect x="0" y="0" rx="5px" ry="5px" width={width} height={height} />
+    {/* Value */}
+    <rect x="0" y="0" rx="5px" ry="5px" width="60" height="19" />
   </ContentLoader>
 );
 
-export default Category;
+export default CartSummary;
