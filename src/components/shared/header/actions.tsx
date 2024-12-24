@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 import Style from "./header.module.scss";
 
-import { useUIStore } from "../../../store";
+import { useCartStore, useUIStore } from "../../../store";
 
 import { svgCart, svgLogin, svgSearch } from "./static-data";
 import ItemsList from "../../../components/ui/modal-mini-cart";
@@ -13,6 +13,8 @@ import Summary from "../../../components/ui/modal-mini-cart/summary";
 
 const Actions: React.FC = () => {
   const pathname = usePathname();
+
+  const cartItems = useCartStore((state) => state.cartItems);
 
   const setOpenModal = useUIStore((state) => state.setOpenModal);
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
@@ -40,6 +42,8 @@ const Actions: React.FC = () => {
           }
           href="/cart"
         >
+          {cartItems.length > 0 && <span>{cartItems.length}</span>}
+
           {svgCart}
         </Link>
 

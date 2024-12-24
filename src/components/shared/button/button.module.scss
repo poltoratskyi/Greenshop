@@ -136,7 +136,25 @@
 
   text-align: center;
   width: 100%;
-  margin-bottom: 15px;
+}
+
+.disabled {
+  @include m.button(
+    $d: block,
+    $p: 15px 30px,
+    $bc: v.$main,
+    $br: 3px,
+    $fz: 14px,
+    $fw: 400,
+    $lh: 24px,
+    $c: #000,
+    $tt: unset
+  );
+
+  background-color: v.$border;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .log_in,

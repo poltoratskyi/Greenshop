@@ -8,6 +8,8 @@ import Skeleton from "../../ui/skeleton/cart-summary";
 
 import { useCartStore } from "../../../store";
 
+import Button from "../button";
+
 const Summary: React.FC = () => {
   const isLoading = useCartStore((state) => state.isLoading);
   const subTotalAmount = useCartStore((state) => state.subtotalAmount);
@@ -18,12 +20,11 @@ const Summary: React.FC = () => {
       <>
         <div className={Style.result}>
           <p>Subtotal</p>
-          <span>
-            {isLoading &&
-              [...new Array(1)].map((_, index: number) => (
-                <Skeleton key={index} width="60" height="100%" uniqueKey="7" />
-              ))}
-          </span>
+
+          {isLoading &&
+            [...new Array(1)].map((_, index: number) => (
+              <Skeleton key={index} width="60" height="100%" uniqueKey="7" />
+            ))}
         </div>
 
         <div className={Style.result}>
@@ -42,7 +43,7 @@ const Summary: React.FC = () => {
           >
             {isLoading &&
               [...new Array(1)].map((_, index: number) => (
-                <Skeleton key={index} width="60" height="100%" uniqueKey="7" />
+                <Skeleton key={index} width="60" height="24" uniqueKey="7" />
               ))}
             <Link href="#">View shipping charge</Link>
           </span>
@@ -50,24 +51,23 @@ const Summary: React.FC = () => {
 
         <div style={{ marginBottom: "30px" }} className={Style.result}>
           <mark>Total</mark>
-          <b>
-            {isLoading &&
-              [...new Array(1)].map((_, index: number) => (
-                <Skeleton key={index} width="60" height="100%" uniqueKey="7" />
-              ))}
-          </b>
+
+          {isLoading &&
+            [...new Array(1)].map((_, index: number) => (
+              <Skeleton key={index} width="60" height="100%" uniqueKey="7" />
+            ))}
         </div>
+
+        <Button
+          link
+          linkValue="#"
+          className="disabled"
+          value="Proceed To Checkout"
+        />
       </>
     );
-    /*  return (
-      <>
-        {isLoading &&
-          [...new Array(1)].map((_, index: number) => (
-            <Skeleton key={index} width="100%" height="185" uniqueKey="7" />
-          ))}
-      </>
-    ); */
   }
+
   return (
     <>
       <div className={Style.result}>
@@ -98,6 +98,13 @@ const Summary: React.FC = () => {
         <mark>Total</mark>
         <b>${totalAmount.toFixed(2)} </b>
       </div>
+
+      <Button
+        link
+        linkValue="#"
+        className="checkout"
+        value="Proceed To Checkout"
+      />
     </>
   );
 };

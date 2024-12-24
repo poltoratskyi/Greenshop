@@ -14,7 +14,7 @@ const Inner: React.FC<Props> = ({ children }) => {
 
   if (cartItems.length === 0) {
     return (
-      <div style={{ width: "400px", margin: "0 auto" }}>
+      <div className={Style.wrapper}>
         <Empty />
       </div>
     );

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import Style from "./cart.module.scss";
 
-import Skeleton from "../../ui/skeleton/cart-items";
+import Loader from "../../ui/search-items-result/loader";
 
 import { svgDecr, svgIncr, svgTrash } from "./static-data";
 
@@ -41,47 +41,12 @@ const ItemsList: React.FC = () => {
     updateCartItemQuantity(id, newQuantity);
   };
 
-  if (isLoading) {
-    return (
-      <div className={Style.items}>
-        <ul className={Style.items_title}>
-          <li style={{ width: "320px" }}>
-            <h4>Products</h4>
-          </li>
-
-          <li style={{ width: "160px" }}>
-            <h4>Price</h4>
-          </li>
-
-          <li style={{ width: "100px" }}>
-            <h4>Quantity</h4>
-          </li>
-
-          <li style={{ marginLeft: "70px" }}>
-            <h4>Total</h4>
-          </li>
-        </ul>
-
-        <ul className={Style.lists}>
-          {isLoading &&
-            [...new Array(3)].map((_, index: number) => (
-              <Skeleton
-                key={index}
-                width="850"
-                height="100"
-                style={{ marginBottom: "40px" }}
-                uniqueKey="4"
-              />
-            ))}
-        </ul>
-      </div>
-    );
-  }
-
   return (
     <div className={Style.items}>
+      {isLoading && <Loader fullPage />}
+
       <ul className={Style.items_title}>
-        <li style={{ width: "320px" }}>
+        <li style={{ width: "335px" }}>
           <h4>Products</h4>
         </li>
 
@@ -102,86 +67,93 @@ const ItemsList: React.FC = () => {
         {cartItems.map((item) => (
           <li className={Style.list} key={item.id}>
             <div className={Style.layout}>
-              <Link className={Style.img} href={`/item/${item.itemId}`}>
-                <Image
-                  priority
-                  width={100}
-                  height={100}
-                  style={{
-                    width: "100%",
-                    objectFit: "contain",
-                  }}
-                  src={item.imgUrl}
-                  alt={item.name}
-                />
-              </Link>
+              <div className={Style.product}>
+                <div className={Style.image}>
+                  <Link href={`/item/${item.itemId}`}>
+                    <Image
+                      priority
+                      width={100}
+                      height={100}
+                      style={{
+                        width: "100%",
+                        objectFit: "contain",
+                        cursor: "pointer",
+                      }}
+                      src={item.imgUrl}
+                      alt={item.name}
+                    />
+                  </Link>
+                </div>
 
-              <div className={Style.driver}>
-                <Link href={`/item/${item.itemId}`}>
-                  <h3 className={Style.title}>{item.name}</h3>
-                </Link>
+                <div className={Style.driver}>
+                  <Link href={`/item/${item.itemId}`}>
+                    <h3 className={Style.title}>{item.name}</h3>
+                  </Link>
 
-                <p className={Style.size}>
-                  <span>Size:</span>
-                  {item.variations[item.variationId].size.shortName}
-                </p>
+                  <p className={Style.size}>
+                    <span>Size:</span>
+                    {item.variations[item.variationId].size.shortName}
+                  </p>
 
-                <p className={Style.sku}>
-                  <span>Sku:</span>
-                  {item.sku}
-                </p>
+                  <p className={Style.sku}>
+                    <span>Sku:</span>
+                    {item.sku}
+                  </p>
+                </div>
               </div>
 
-              {item.variations[item.variationId].onSale ? (
-                <div className={Style.info}>
-                  <div className={Style.prices}>
-                    <span className={Style.sale}>
+              <div className={Style.details}>
+                {item.variations[item.variationId].onSale ? (
+                  <div className={Style.info}>
+                    <div className={Style.prices}>
+                      <span className={Style.sale}>
+                        ${item.variations[item.variationId].price.toFixed(2)}
+                      </span>
+
+                      <span className={Style.price}>
+                        ${item.variations[item.variationId].sale.toFixed(2)}
+                      </span>
+                    </div>
+                  </div>
+                ) : (
+                  <div className={Style.info}>
+                    <span className={Style.price}>
                       ${item.variations[item.variationId].price.toFixed(2)}
                     </span>
-
-                    <span className={Style.price}>
-                      ${item.variations[item.variationId].sale.toFixed(2)}
-                    </span>
                   </div>
+                )}
+
+                <div className={Style.quantity}>
+                  <button
+                    onClick={() =>
+                      changeQuantityItems(item.id, item.quantity, "decrement")
+                    }
+                  >
+                    {svgDecr}
+                  </button>
+
+                  <span>{item.quantity}</span>
+
+                  <button
+                    onClick={() =>
+                      changeQuantityItems(item.id, item.quantity, "increment")
+                    }
+                  >
+                    {svgIncr}
+                  </button>
                 </div>
-              ) : (
-                <div className={Style.info}>
-                  <span className={Style.price}>
-                    ${item.variations[item.variationId].price.toFixed(2)}
-                  </span>
-                </div>
-              )}
 
-              <div className={Style.quantity}>
-                <button
-                  onClick={() =>
-                    changeQuantityItems(item.id, item.quantity, "decrement")
-                  }
+                <span className={Style.total}>
+                  ${item.singleItemPrice.toFixed(2)}
+                </span>
+
+                <span
+                  className={Style.delete}
+                  onClick={() => deleteCartItem(item.id)}
                 >
-                  {svgDecr}
-                </button>
-
-                <span>{item.quantity}</span>
-
-                <button
-                  onClick={() =>
-                    changeQuantityItems(item.id, item.quantity, "increment")
-                  }
-                >
-                  {svgIncr}
-                </button>
+                  {svgTrash}
+                </span>
               </div>
-
-              <span className={Style.total}>
-                ${item.singleItemPrice.toFixed(2)}
-              </span>
-
-              <span
-                className={Style.delete}
-                onClick={() => deleteCartItem(item.id)}
-              >
-                {svgTrash}
-              </span>
             </div>
           </li>
         ))}

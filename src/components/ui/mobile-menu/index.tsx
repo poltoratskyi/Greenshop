@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,16 +12,12 @@ import { pages } from "./static-data";
 const MobileMenu: React.FC = () => {
   const pathname = usePathname();
 
-  const loadUserCart = useCartStore((state) => state.loadUserCart);
+  const cartItems = useCartStore((state) => state.cartItems);
 
   const setOpenModal = useUIStore((state) => state.setOpenModal);
   const setOpenModalCategory = useUIStore(
     (state) => state.setOpenModalCategory
   );
-
-  useEffect(() => {
-    loadUserCart();
-  }, []);
 
   return (
     <nav className={Style.menu}>
@@ -46,6 +41,10 @@ const MobileMenu: React.FC = () => {
               pointerEvents: pathname === link.href ? "none" : "auto",
             }}
           >
+            {link.href === "/cart" && cartItems.length > 0 && (
+              <span>{cartItems.length}</span>
+            )}
+
             <Link href={link.href}>{link.menu}</Link>
           </li>
         ))}
