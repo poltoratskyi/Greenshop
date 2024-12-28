@@ -19,7 +19,7 @@ export type Item = {
 
     size: {
       id: number;
-      fullName: string;
+      fullName?: string;
       shortName: string;
     };
   }[];
