@@ -16,6 +16,7 @@ interface CartState {
   subtotalAmount: number;
   totalAmount: number;
   isLoading: boolean;
+  isLoadingItem: boolean;
   error: string | null;
 
   loadUserCart: () => Promise<void>;
@@ -29,6 +30,7 @@ export const useCartStore = create<CartState>((set) => ({
   subtotalAmount: 0,
   totalAmount: 0,
   isLoading: false,
+  isLoadingItem: false,
   error: null,
 
   loadUserCart: async () => {
@@ -78,7 +80,7 @@ export const useCartStore = create<CartState>((set) => ({
   },
 
   addCartItem: async (item: PostCartItem) => {
-    set({ error: null });
+    set({ isLoadingItem: true, error: null });
 
     try {
       const response = await addCartItem(item);
@@ -89,7 +91,7 @@ export const useCartStore = create<CartState>((set) => ({
         error: "Error adding item to user cart",
       });
     } finally {
-      set({});
+      set({ isLoadingItem: false });
     }
   },
 }));

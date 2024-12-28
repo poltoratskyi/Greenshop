@@ -41,11 +41,13 @@ const MobileMenu: React.FC = () => {
               pointerEvents: pathname === link.href ? "none" : "auto",
             }}
           >
-            {link.href === "/cart" && cartItems.length > 0 && (
-              <span>{cartItems.length}</span>
-            )}
+            <Link href={link.href}>
+              {link.href === "/cart" && cartItems.length > 0 && (
+                <span>{cartItems.length}</span>
+              )}
 
-            <Link href={link.href}>{link.menu}</Link>
+              {link.menu}
+            </Link>
           </li>
         ))}
       </ul>

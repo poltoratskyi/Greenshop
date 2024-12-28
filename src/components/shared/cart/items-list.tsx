@@ -90,14 +90,14 @@ const ItemsList: React.FC = () => {
                     <h3 className={Style.title}>{item.name}</h3>
                   </Link>
 
-                  <p className={Style.size}>
-                    <span>Size:</span>
-                    {item.variations[item.variationId].size.shortName}
-                  </p>
-
                   <p className={Style.sku}>
                     <span>Sku:</span>
                     {item.sku}
+                  </p>
+
+                  <p className={Style.size}>
+                    <span>Size:</span>
+                    {item.variations[item.variationId].size.shortName}
                   </p>
                 </div>
               </div>

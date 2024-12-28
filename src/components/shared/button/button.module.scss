@@ -18,6 +18,11 @@
   );
 }
 
+.add {
+  position: relative;
+  padding: 15px 40px;
+}
+
 .addToCart {
   background-color: transparent;
   & > [data-type="cart"] {
@@ -155,6 +160,33 @@
   cursor: not-allowed;
   opacity: 0.5;
   pointer-events: none;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  right: 0;
+  margin-right: 8px;
+  .round {
+    width: 15px;
+    padding: 3px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: v.$main;
+    --_m: conic-gradient(#0000 50%, #000), linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    animation: l3 1s infinite linear;
+  }
+
+  @keyframes l3 {
+    to {
+      transform: rotate(1turn);
+    }
+  }
 }
 
 .log_in,

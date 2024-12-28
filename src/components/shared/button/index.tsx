@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
-
 import { useRouter } from "next/navigation";
 
 import Style from "./button.module.scss";
+
+import { useCartStore } from "../../../store";
+import Loader from "./loader";
 
 interface Props {
   handleAddToCart?: () => void;
@@ -35,6 +37,8 @@ const Button: React.FC<Props> = ({
 }) => {
   const router = useRouter();
 
+  const isLoadingItem = useCartStore((state) => state.isLoadingItem);
+
   const buttonClass = Style[className || ""];
 
   return (
@@ -58,10 +62,21 @@ const Button: React.FC<Props> = ({
 
       {addToCart && (
         <button
+          style={{
+            pointerEvents: isLoadingItem ? "none" : "auto",
+            cursor: isLoadingItem ? "not-allowed" : "pointer",
+          }}
           onClick={() => handleAddToCart && handleAddToCart()}
           className={buttonClass}
         >
-          {value}
+          {isLoadingItem ? (
+            <>
+              {value}
+              <Loader />
+            </>
+          ) : (
+            value
+          )}
         </button>
       )}
 

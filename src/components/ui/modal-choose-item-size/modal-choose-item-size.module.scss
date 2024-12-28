@@ -57,33 +57,60 @@
   .content {
     height: 100%;
 
-    .block {
-      height: 100%;
+    .info {
+      display: flex;
+      align-items: center;
+      padding: 0px 20px 0px 0px;
 
-      .item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 14px 20px;
+      &:hover {
+        cursor: pointer;
+      }
 
-        &:hover {
-          cursor: pointer;
-          background-color: v.$background;
+      .img {
+        min-height: 100px;
+        min-width: 100px;
+      }
+
+      .text {
+        h4 {
+          @include m.subtitle-clamp($lc: 1, $fz: 16px, $fw: 500);
+
+          display: -webkit-inline-box;
+
+          &:hover {
+            color: v.$main;
+          }
         }
 
-        .size {
-          @include m.description($c: v.$descr);
+        p {
+          @include m.description-clamp();
         }
+      }
+    }
 
-        .price {
-          @include m.description($c: v.$main);
-          font-weight: 500;
-        }
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
 
-        .sale {
-          @include m.sale();
-          margin-right: 20px;
-        }
+      &:hover {
+        cursor: pointer;
+        background-color: v.$background;
+      }
+
+      .size {
+        @include m.description($c: v.$descr);
+      }
+
+      .price {
+        @include m.description($c: v.$main);
+        font-weight: 500;
+      }
+
+      .sale {
+        @include m.sale();
+        margin-right: 20px;
       }
     }
   }
@@ -92,5 +119,23 @@
 @media (max-width: 575px) {
   .modal {
     width: 100%;
+    right: 0;
+    bottom: -50%;
+    height: auto;
+    top: auto;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+    &.active {
+      bottom: 0;
+    }
+
+    .content {
+      background-color: v.$background;
+
+      .info {
+        padding: 10px 20px 10px 0px;
+      }
+    }
   }
 }

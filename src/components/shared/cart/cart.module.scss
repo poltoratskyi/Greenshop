@@ -81,10 +81,6 @@
               &:last-child {
                 margin-bottom: 0px;
               }
-
-              &:hover {
-                background-color: v.$background;
-              }
             }
 
             .details {
@@ -166,6 +162,10 @@
               &:last-child {
                 margin-bottom: 0px;
               }
+            }
+
+            &:hover {
+              background-color: v.$background;
             }
           }
         }

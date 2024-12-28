@@ -37,15 +37,13 @@ const ModalChooseItemSize: React.FC = () => {
           </span>
         </div>
 
-        <div className={Style.content}>
-          {catalog
-            .filter((variation) => variation.id === selectedItemId)
-            .map((variation) => (
-              <div className={Style.block} key={variation.id}>
-                <ItemList {...variation} />
-              </div>
-            ))}
-        </div>
+        {catalog
+          .filter((variation) => variation.id === selectedItemId)
+          .map((variation) => (
+            <div className={Style.content} key={variation.id}>
+              <ItemList {...variation} />
+            </div>
+          ))}
       </div>
     </>
   );

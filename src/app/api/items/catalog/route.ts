@@ -13,6 +13,7 @@ export async function GET() {
 
         name: true,
         imgUrl: true,
+        shortDescription: true,
 
         variations: {
           select: {
