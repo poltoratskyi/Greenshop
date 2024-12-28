@@ -1,15 +1,10 @@
 import Style from "./modal-choose-item-size.module.scss";
 
-interface Props {
-  price: number;
-  sale: number;
-  onSale: boolean;
-  size: {
-    id: number;
-    fullName: string;
-  };
+import { Variation, Size } from "../../../types";
+
+interface Props extends Variation {
+  size: Size;
 }
-[];
 
 const ItemInfo: React.FC<Props> = ({ onSale, sale, price, size }) => {
   return (
