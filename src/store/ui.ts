@@ -5,13 +5,19 @@ interface UIState {
   search: boolean;
   setOpenSearch: (isOpen: boolean) => void;
 
-  // Modals
+  // Modal Login
   modal: boolean;
   modalAction: boolean;
   modalCategory: boolean;
   setOpenModal: (isOpen: boolean) => void;
   setToggleAction: (isShown: boolean) => void;
   setOpenModalCategory: (isOpen: boolean) => void;
+
+  // Modal Size
+  modalSize: boolean;
+  selectedItemId: number | null;
+  setSelectedItemId: (id: number) => void;
+  setOpenModalSize: (isOpen: boolean) => void;
 
   // Sort
   sort: boolean;
@@ -35,13 +41,19 @@ export const useUIStore = create<UIState>((set) => ({
   search: false,
   setOpenSearch: (isOpen) => set({ search: isOpen }),
 
-  // Modals
+  // Modal Login
   modal: false,
   modalAction: true,
   modalCategory: false,
   setOpenModal: (isOpen) => set({ modal: isOpen }),
   setToggleAction: (isShown) => set({ modalAction: isShown }),
   setOpenModalCategory: (isOpen) => set({ modalCategory: isOpen }),
+
+  // Modal Size
+  modalSize: false,
+  selectedItemId: null,
+  setOpenModalSize: (isOpen) => set({ modalSize: isOpen }),
+  setSelectedItemId: (id) => set({ selectedItemId: id }),
 
   // Sort
   sort: false,

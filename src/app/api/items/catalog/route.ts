@@ -15,15 +15,21 @@ export async function GET() {
         imgUrl: true,
 
         variations: {
-          take: 1,
-
           select: {
             id: true,
-            sizeId: true,
 
             price: true,
             sale: true,
             onSale: true,
+
+            sizeId: true,
+
+            size: {
+              select: {
+                id: true,
+                fullName: true,
+              },
+            },
           },
         },
       },

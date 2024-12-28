@@ -1,0 +1,96 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.overlay {
+  @include m.overlay();
+  transition: all 0.3s ease;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 3;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: -50%;
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+  z-index: 4;
+
+  &.active {
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+
+    .title {
+      @include m.subtitle();
+    }
+
+    .close {
+      cursor: pointer;
+
+      svg {
+        transition: all 0.2s ease;
+        &:hover {
+          fill: #000;
+        }
+      }
+    }
+  }
+
+  .content {
+    height: 100%;
+
+    .block {
+      height: 100%;
+
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 20px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: v.$background;
+        }
+
+        .size {
+          @include m.description($c: v.$descr);
+        }
+
+        .price {
+          @include m.description($c: v.$main);
+          font-weight: 500;
+        }
+
+        .sale {
+          @include m.sale();
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .modal {
+    width: 100%;
+  }
+}

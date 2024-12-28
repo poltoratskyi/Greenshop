@@ -4,14 +4,14 @@ import { useEffect } from "react";
 
 import Style from "./catalog.module.scss";
 
-import Category from "./category";
-import Filter from "./filter";
-
 import { useCatalogStore } from "../../../store";
 
+import Category from "./category";
 import Skeleton from "../../ui/skeleton/catalog";
 import ItemsWrapper from "./items-wrapper";
 import ItemList from "./item-list";
+import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
+import Filter from "./filter";
 
 const Catalog: React.FC = () => {
   const catalog = useCatalogStore((state) => state.catalog);
@@ -74,6 +74,8 @@ const Catalog: React.FC = () => {
               ))}
             </ItemsWrapper>
           </div>
+
+          <ModalChooseItemSize />
         </div>
       </div>
     </section>

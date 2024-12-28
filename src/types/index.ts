@@ -16,8 +16,10 @@ export type Item = {
     onSale: boolean;
 
     sizeId: number;
+
     size: {
       id: number;
+      fullName: string;
       shortName: string;
     };
   }[];

@@ -10,8 +10,7 @@ import Style from "./catalog.module.scss";
 import { getDiscountPercent } from "../../../hooks";
 import { svgCart, svgHeart } from "./static-data";
 
-import { useSearchStore, useUIStore, useCartStore } from "../../../store";
-import Button from "../button";
+import { useSearchStore, useUIStore } from "../../../store";
 
 interface Props extends Item {
   control?: boolean;
@@ -24,27 +23,13 @@ const ItemList: React.FC<Props> = ({
   variations,
   control,
 }) => {
-  const selectedSizeIndex = useUIStore((state) => state.selectedSizeIndex);
   const search = useUIStore((state) => state.search);
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
+  const setOpenModalSize = useUIStore((state) => state.setOpenModalSize);
+  const setSelectedItemId = useUIStore((state) => state.setSelectedItemId);
 
   const setInputValue = useSearchStore((state) => state.setInputValue);
   const clearResults = useSearchStore((state) => state.clearResults);
-
-  const addCartItem = useCartStore((state) => state.addCartItem);
-
-  const handleAddToCart = async () => {
-    try {
-      const variation = variations[selectedSizeIndex];
-
-      await addCartItem({
-        itemId: id,
-        variationId: variation.sizeId,
-      });
-    } catch (error) {
-      console.error("Error adding item to cart:", error);
-    }
-  };
 
   return (
     <>
@@ -82,18 +67,37 @@ const ItemList: React.FC<Props> = ({
 
           {control && (
             <div className={Style.control}>
-              <Link href="/login">{svgHeart}</Link>
+              <Link className={Style.favorite} href="/login">
+                {svgHeart}
+              </Link>
 
-              <Button
-                addToCart
-                handleAddToCart={handleAddToCart}
-                className="addToCart"
-                value={svgCart}
-              />
+              <span
+                onClick={() => {
+                  setSelectedItemId(id);
+                  setOpenModalSize(true);
+                }}
+                className={Style.cart}
+              >
+                {svgCart}
+              </span>
             </div>
           )}
 
-          {variations[0]?.onSale && (
+          {control && (
+            <div className={Style.control_mobile}>
+              <span
+                onClick={() => {
+                  setSelectedItemId(id);
+                  setOpenModalSize(true);
+                }}
+                className={Style.cart_mobile}
+              >
+                {svgCart}
+              </span>
+            </div>
+          )}
+
+          {variations[0].onSale && (
             <div className={Style.percent}>
               {getDiscountPercent(variations[0].price, variations[0].sale)}
               {"% OFF"}
@@ -117,7 +121,7 @@ const ItemList: React.FC<Props> = ({
         </Link>
       </div>
 
-      {variations[0]?.onSale ? (
+      {variations[0].onSale ? (
         <div className={Style.info}>
           <span className={Style.price}>${variations[0].sale.toFixed(2)}</span>
 
@@ -125,9 +129,7 @@ const ItemList: React.FC<Props> = ({
         </div>
       ) : (
         <div className={Style.info}>
-          <span className={Style.price}>
-            ${variations[0]?.price.toFixed(2)}
-          </span>
+          <span className={Style.price}>${variations[0].price.toFixed(2)}</span>
         </div>
       )}
     </>

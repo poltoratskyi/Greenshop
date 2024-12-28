@@ -12,6 +12,10 @@ export async function GET() {
       },
     });
 
+    if (!sizes) {
+      return NextResponse.json({ error: "Sizes not found" }, { status: 404 });
+    }
+
     return NextResponse.json(sizes);
   } catch (error) {
     console.error("Error fetching sizes:", error);
