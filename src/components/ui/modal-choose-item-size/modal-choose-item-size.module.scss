@@ -121,7 +121,7 @@
     width: 100%;
     right: 0;
     bottom: -50%;
-    height: auto;
+    height: 450px;
     top: auto;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -131,8 +131,6 @@
     }
 
     .content {
-      background-color: v.$background;
-
       .info {
         padding: 10px 20px 10px 0px;
       }

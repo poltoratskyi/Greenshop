@@ -30,27 +30,6 @@
         left: 0%;
       }
 
-      .sale {
-        display: block;
-        background: url("../../../../public/header/menu-mobile/special_sale-min.png")
-          center (center / cover) no-repeat;
-        width: 100%;
-        height: 245px;
-
-        .text {
-          @include m.description($fw: 400, $lh: 42px, $fz: 20px, $c: v.$descr);
-          padding: 65px 20px;
-          text-align: center;
-          height: 100%;
-
-          b {
-            font-size: 30px;
-            color: red;
-            text-transform: uppercase;
-          }
-        }
-      }
-
       .menu {
         display: flex;
         flex-direction: column;

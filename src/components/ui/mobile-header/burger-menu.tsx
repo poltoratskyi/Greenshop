@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
-
-import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 import Style from "./mobile-header.module.scss";
 
@@ -51,11 +51,18 @@ const BurgerMenu: React.FC = () => {
         <span onClick={() => setOpenBurger(false)}>{svgClose}</span>
       </div>
 
-      <Link href="#" className={Style.sale}>
-        <p className={Style.text}>
-          Summer <b>sale</b> <br /> up to <b>20% off!</b>
-        </p>
-      </Link>
+      <Image
+        width={575}
+        height={575}
+        priority
+        style={{
+          width: "100%",
+          height: "auto",
+          objectFit: "none",
+        }}
+        src="/header/menu-mobile/adv-min.png"
+        alt="burger"
+      />
 
       <div
         style={

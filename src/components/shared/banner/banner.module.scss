@@ -51,30 +51,7 @@
 
     .mobile {
       display: block;
-
-      .content {
-        display: block;
-        background: url("../../../../public/banner-mobile-min.png") center
-          (center / cover) no-repeat;
-
-        .info {
-          padding: 40px 10px;
-
-          span {
-            font-size: 12px;
-          }
-
-          h1 {
-            font-size: 24px;
-            line-height: 29px;
-          }
-
-          p {
-            margin-bottom: 10px;
-            width: 200px;
-          }
-        }
-      }
+      position: relative;
     }
   }
 }
