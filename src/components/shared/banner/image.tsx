@@ -15,7 +15,6 @@ const Img: React.FC<Props> = ({ imgUrl, width, height }) => {
       style={{
         width: "100%",
         height: "auto",
-        objectFit: "contain",
       }}
       src={imgUrl}
       alt="main"

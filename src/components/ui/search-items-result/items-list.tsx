@@ -21,7 +21,7 @@ const ItemsList: React.FC = () => {
         <ItemsWrapper>
           {results.map((item) => (
             <li key={item.id} className={CatalogStyle.list}>
-              <ItemList control {...item} />
+              <ItemList {...item} />
             </li>
           ))}
         </ItemsWrapper>

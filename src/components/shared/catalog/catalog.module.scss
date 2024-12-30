@@ -123,6 +123,10 @@
       grid-template-columns: repeat(5, 1fr);
     }
 
+    &.interested {
+      display: unset;
+    }
+
     .list {
       display: flex;
       flex-direction: column;

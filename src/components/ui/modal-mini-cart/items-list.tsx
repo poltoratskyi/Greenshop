@@ -30,12 +30,11 @@ const ItemsList: React.FC<Props> = ({
       <Link className={Style.img} href={`/item/${itemId}`}>
         <Image
           priority
-          width={100}
-          height={100}
+          width={600}
+          height={600}
           style={{
-            height: "auto",
             width: "100%",
-            objectFit: "contain",
+            height: "auto",
           }}
           src={imgUrl}
           alt={name}

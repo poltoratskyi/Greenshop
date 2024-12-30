@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -18,7 +19,8 @@ const ItemList: React.FC<Props> = ({
   id,
   imgUrl,
   name,
-  shortDescription,
+  tags,
+  sku,
 }) => {
   const router = useRouter();
 
@@ -41,30 +43,44 @@ const ItemList: React.FC<Props> = ({
 
   return (
     <>
-      <Link
-        onClick={() => setOpenModalSize(false)}
-        href={`/item/${id}`}
-        className={Style.info}
-      >
-        <div className={Style.img}>
+      <div className={Style.info}>
+        <Link
+          className={Style.img}
+          href={`/item/${id}`}
+          onClick={() => setOpenModalSize(false)}
+        >
           <Image
-            width={252}
-            height={252}
+            width={600}
+            height={600}
             style={{
               width: "100%",
               height: "auto",
-              objectFit: "contain",
             }}
             src={imgUrl}
             alt={name}
           />
-        </div>
+        </Link>
 
         <div className={Style.text}>
-          <h4>{name}</h4>
-          <p>{shortDescription}</p>
+          <Link
+            className={Style.name}
+            href={`/item/${id}`}
+            onClick={() => setOpenModalSize(false)}
+          >
+            {name}
+          </Link>
+
+          <p className={Style.sku}>
+            <span>Sku:</span>
+            {sku}
+          </p>
+
+          <p className={Style.tags}>
+            <span>Tags:</span>
+            {tags}
+          </p>
         </div>
-      </Link>
+      </div>
 
       <ul>
         {variations.map((variation) => (

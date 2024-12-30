@@ -12,17 +12,9 @@ import { svgCart, svgHeart } from "./static-data";
 
 import { useSearchStore, useUIStore } from "../../../store";
 
-interface Props extends Item {
-  control?: boolean;
-}
+interface Props extends Item {}
 
-const ItemList: React.FC<Props> = ({
-  id,
-  imgUrl,
-  name,
-  variations,
-  control,
-}) => {
+const ItemList: React.FC<Props> = ({ id, imgUrl, name, variations }) => {
   const search = useUIStore((state) => state.search);
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
   const setOpenModalSize = useUIStore((state) => state.setOpenModalSize);
@@ -34,10 +26,7 @@ const ItemList: React.FC<Props> = ({
   return (
     <>
       <div>
-        <div
-          style={!control ? { paddingBottom: "unset" } : {}}
-          className={Style.block}
-        >
+        <div className={Style.block}>
           <Link
             onClick={() => {
               if (search) {
@@ -53,49 +42,44 @@ const ItemList: React.FC<Props> = ({
             <div className={Style.line}></div>
 
             <Image
-              width={252}
-              height={252}
+              width={600}
+              height={600}
               style={{
                 width: "100%",
                 height: "auto",
-                objectFit: "contain",
               }}
               src={imgUrl}
               alt={name}
             />
           </Link>
 
-          {control && (
-            <div className={Style.control}>
-              <Link className={Style.favorite} href="/login">
-                {svgHeart}
-              </Link>
+          <div className={Style.control}>
+            <Link className={Style.favorite} href="/login">
+              {svgHeart}
+            </Link>
 
-              <span
-                onClick={() => {
-                  setSelectedItemId(id);
-                  setOpenModalSize(true);
-                }}
-                className={Style.cart}
-              >
-                {svgCart}
-              </span>
-            </div>
-          )}
+            <span
+              onClick={() => {
+                setSelectedItemId(id);
+                setOpenModalSize(true);
+              }}
+              className={Style.cart}
+            >
+              {svgCart}
+            </span>
+          </div>
 
-          {control && (
-            <div className={Style.control_mobile}>
-              <span
-                onClick={() => {
-                  setSelectedItemId(id);
-                  setOpenModalSize(true);
-                }}
-                className={Style.cart_mobile}
-              >
-                {svgCart}
-              </span>
-            </div>
-          )}
+          <div className={Style.control_mobile}>
+            <span
+              onClick={() => {
+                setSelectedItemId(id);
+                setOpenModalSize(true);
+              }}
+              className={Style.cart_mobile}
+            >
+              {svgCart}
+            </span>
+          </div>
 
           {variations[0].onSale && (
             <div className={Style.percent}>

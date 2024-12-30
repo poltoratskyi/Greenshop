@@ -52,8 +52,8 @@ const BurgerMenu: React.FC = () => {
       </div>
 
       <Image
-        width={575}
-        height={575}
+        width={600}
+        height={600}
         priority
         style={{
           width: "100%",

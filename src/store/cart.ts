@@ -80,6 +80,7 @@ export const useCartStore = create<CartState>((set) => ({
   },
 
   addCartItem: async (item: PostCartItem) => {
+    set({ isLoading: true, error: null });
     set({ isLoadingItem: true, error: null });
 
     try {
@@ -91,6 +92,7 @@ export const useCartStore = create<CartState>((set) => ({
         error: "Error adding item to user cart",
       });
     } finally {
+      set({ isLoading: false });
       set({ isLoadingItem: false });
     }
   },

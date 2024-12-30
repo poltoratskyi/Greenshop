@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useEffect } from "react";
 import { Item } from "../../../types";
 
 import Style from "./single-item.module.scss";
@@ -11,12 +12,23 @@ import ItemList from "./item-list";
 import SingleItemWrapper from "./single-item-wrapper";
 import ItemsWrapper from "../catalog/items-wrapper";
 import Pathname from "../pathname";
+import ModalChooseItemSize from "../../../components/shared/modal-choose-item-size";
+import { useCatalogStore, useUIStore } from "../../../store";
 
 export type Props = {
   item: Item;
 };
 
 const SingleItem: React.FC<Props> = ({ item }) => {
+  const modalSize = useUIStore((state) => state.modalSize);
+  const loadCatalog = useCatalogStore((state) => state.loadCatalog);
+
+  useEffect(() => {
+    if (modalSize === true) {
+      loadCatalog();
+    }
+  }, [modalSize]);
+
   return (
     <>
       <Pathname item={item} thirdPath />
@@ -40,6 +52,8 @@ const SingleItem: React.FC<Props> = ({ item }) => {
           </SingleItemWrapper>
         </div>
       </section>
+
+      <ModalChooseItemSize />
     </>
   );
 };

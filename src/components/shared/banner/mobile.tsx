@@ -29,13 +29,12 @@ const Mobile: React.FC = () => {
       >
         <SwiperSlide>
           <Image
-            width={575}
-            height={575}
+            width={600}
+            height={600}
             priority
             style={{
               width: "100%",
               height: "auto",
-              objectFit: "contain",
             }}
             src="/header/slider/adv-1-min.png"
             alt="adv-1"
@@ -44,13 +43,12 @@ const Mobile: React.FC = () => {
 
         <SwiperSlide>
           <Image
-            width={575}
-            height={575}
+            width={600}
+            height={600}
             priority
             style={{
               width: "100%",
               height: "auto",
-              objectFit: "contain",
             }}
             src="/header/slider/adv-1-min.png"
             alt="adv-1"
@@ -59,13 +57,12 @@ const Mobile: React.FC = () => {
 
         <SwiperSlide>
           <Image
-            width={575}
-            height={575}
+            width={600}
+            height={600}
             priority
             style={{
               width: "100%",
               height: "auto",
-              objectFit: "contain",
             }}
             src="/header/slider/adv-1-min.png"
             alt="adv-1"

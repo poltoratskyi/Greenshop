@@ -58,6 +58,11 @@ export type CartItem = {
   variationId: number;
 
   variations: CartVariation[];
+
+  category: {
+    id: number;
+    name: string;
+  };
 };
 
 export type PostCartItem = {

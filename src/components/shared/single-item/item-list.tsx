@@ -18,13 +18,12 @@ const ItemList: React.FC<Props> = ({ item }) => {
   return (
     <div className={Style.content}>
       <Image
-        width={575}
-        height={575}
+        width={600}
+        height={600}
         priority
         style={{
           width: "100%",
           height: "auto",
-          objectFit: "contain",
         }}
         src={item.imgUrl}
         alt={item.name}

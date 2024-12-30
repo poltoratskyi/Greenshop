@@ -13,7 +13,8 @@ export async function GET() {
 
         name: true,
         imgUrl: true,
-        shortDescription: true,
+        tags: true,
+        sku: true,
 
         variations: {
           select: {
@@ -31,6 +32,13 @@ export async function GET() {
                 fullName: true,
               },
             },
+          },
+        },
+
+        category: {
+          select: {
+            id: true,
+            name: true,
           },
         },
       },

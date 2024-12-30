@@ -36,7 +36,6 @@ const Blog: React.FC = () => {
                 style={{
                   width: "100%",
                   height: "auto",
-                  objectFit: "contain",
                 }}
                 src={item.imgUrl}
                 alt={item.title}

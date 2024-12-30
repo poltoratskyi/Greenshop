@@ -68,22 +68,19 @@ const ItemsList: React.FC = () => {
           <li className={Style.list} key={item.id}>
             <div className={Style.layout}>
               <div className={Style.product}>
-                <div className={Style.image}>
-                  <Link href={`/item/${item.itemId}`}>
-                    <Image
-                      priority
-                      width={100}
-                      height={100}
-                      style={{
-                        width: "100%",
-                        objectFit: "contain",
-                        cursor: "pointer",
-                      }}
-                      src={item.imgUrl}
-                      alt={item.name}
-                    />
-                  </Link>
-                </div>
+                <Link className={Style.img} href={`/item/${item.itemId}`}>
+                  <Image
+                    priority
+                    width={600}
+                    height={600}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
+                    src={item.imgUrl}
+                    alt={item.name}
+                  />
+                </Link>
 
                 <div className={Style.driver}>
                   <Link href={`/item/${item.itemId}`}>
