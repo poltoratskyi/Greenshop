@@ -90,17 +90,6 @@
       transform: rotate(1turn);
     }
   }
-
-  &.full_page {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 2;
-    background-color: rgba(#fff, 0.5);
-    padding: 0px;
-  }
 }
 
 @media (max-width: 575px) {
@@ -148,5 +137,11 @@
     padding: unset;
     padding-bottom: 170px;
     height: 100vh;
+
+    &.cart {
+      margin: 0;
+      height: auto;
+      padding: 50px;
+    }
   }
 }

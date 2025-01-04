@@ -41,10 +41,34 @@ const ItemsList: React.FC = () => {
     updateCartItemQuantity(id, newQuantity);
   };
 
+  if (isLoading) {
+    return (
+      <div className={Style.items}>
+        <ul className={Style.items_title}>
+          <li style={{ width: "335px" }}>
+            <h4>Products</h4>
+          </li>
+
+          <li style={{ width: "160px" }}>
+            <h4>Price</h4>
+          </li>
+
+          <li style={{ width: "100px" }}>
+            <h4>Quantity</h4>
+          </li>
+
+          <li style={{ marginLeft: "70px" }}>
+            <h4>Total</h4>
+          </li>
+        </ul>
+
+        <Loader cart />
+      </div>
+    );
+  }
+
   return (
     <div className={Style.items}>
-      {isLoading && <Loader fullPage />}
-
       <ul className={Style.items_title}>
         <li style={{ width: "335px" }}>
           <h4>Products</h4>

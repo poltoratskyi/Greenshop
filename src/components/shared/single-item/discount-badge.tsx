@@ -17,7 +17,7 @@ const DiscountBadge: React.FC<Props> = ({ item }) => {
 
   return (
     <>
-      {item.variations[selectedSizeIndex]?.onSale && (
+      {item.variations[selectedSizeIndex].onSale && (
         <div className={Style.percent}>
           {getDiscountPercent(
             item.variations[selectedSizeIndex].price,

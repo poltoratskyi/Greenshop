@@ -39,8 +39,6 @@ const ItemList: React.FC<Props> = ({ id, imgUrl, name, variations }) => {
             className={Style.img}
             href={`/item/${id}`}
           >
-            <div className={Style.line}></div>
-
             <Image
               width={600}
               height={600}
@@ -107,9 +105,9 @@ const ItemList: React.FC<Props> = ({ id, imgUrl, name, variations }) => {
 
       {variations[0].onSale ? (
         <div className={Style.info}>
-          <span className={Style.price}>${variations[0].sale.toFixed(2)}</span>
-
           <span className={Style.sale}>${variations[0].price.toFixed(2)}</span>
+
+          <span className={Style.price}>${variations[0].sale.toFixed(2)}</span>
         </div>
       ) : (
         <div className={Style.info}>

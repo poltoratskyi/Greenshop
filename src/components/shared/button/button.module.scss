@@ -21,6 +21,10 @@
 .add {
   position: relative;
   padding: 15px 40px;
+
+  &:hover {
+    background-color: #fff;
+  }
 }
 
 .addToCart {
@@ -38,10 +42,6 @@
   border: 1px solid v.$main;
   color: v.$main;
   background-color: #fff;
-
-  &:hover {
-    color: #fff;
-  }
 }
 
 .favorite {
@@ -51,6 +51,8 @@
   padding: 15px;
 
   &:hover {
+    color: #fff;
+
     svg {
       fill: #fff;
     }

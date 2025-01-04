@@ -133,10 +133,12 @@
       justify-content: space-between;
       gap: 10px;
       width: 100%;
+      border-top: 1px solid rgba(v.$background, 1);
+      transition: all 0.2s ease;
 
       .block {
         position: relative;
-        padding-bottom: 50px;
+        padding: 15px 15px 50px 15px;
         background-color: v.$background;
         cursor: pointer;
 
@@ -145,14 +147,7 @@
         }
 
         &:hover {
-          transition: all 0.2s ease;
-
           background-color: #f8f8f8;
-
-          .line {
-            opacity: 1;
-            visibility: visible;
-          }
 
           .control {
             opacity: 1;
@@ -218,7 +213,7 @@
 
         .sale {
           @include m.sale();
-          margin-left: 20px;
+          margin-right: 20px;
         }
 
         .price {
@@ -226,15 +221,8 @@
         }
       }
 
-      .line {
-        height: 1px;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        border-bottom: 1px solid v.$main;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.2s ease;
+      &:hover {
+        border-top: 1px solid rgba(v.$main, 1);
       }
     }
   }
@@ -282,7 +270,7 @@
         .block {
           background-color: v.$background;
           border-radius: 6px;
-          padding-bottom: 0;
+          padding: 15px;
 
           .control,
           .control_mobile {
@@ -336,10 +324,6 @@
           font-size: 12px;
           left: 0;
           border-radius: 6px;
-        }
-
-        .line {
-          display: none;
         }
       }
     }

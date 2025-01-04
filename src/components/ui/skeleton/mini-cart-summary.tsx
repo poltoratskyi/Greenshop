@@ -10,29 +10,29 @@ const MiniCartSummary: React.FC<IContentLoaderProps> = ({
     speed={2}
     width={width}
     height={height}
-    viewBox={`0 0 350 185`}
+    viewBox={`0 0 330 185`}
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
     {...props}
   >
     {/* Subtotal */}
-    <rect x="20" y="15" rx="5px" ry="5px" width="30" height="16" />
-    <rect x="250" y="15" rx="5px" ry="5px" width="80" height="16" />
+    <rect x="10" y="10" rx="5px" ry="5px" width="80" height="24" />
+    <rect x="260" y="10" rx="5px" ry="5px" width="60" height="24" />
 
     {/* Coupon Discount */}
-    <rect x="20" y="40" rx="5px" ry="5px" width="30" height="16" />
-    <rect x="250" y="40" rx="5px" ry="5px" width="80" height="16" />
+    <rect x="10" y="40" rx="5px" ry="5px" width="110" height="24" />
+    <rect x="240" y="40" rx="5px" ry="5px" width="80" height="24" />
 
     {/* Shipping */}
-    <rect x="20" y="65" rx="5px" ry="5px" width="30" height="16" />
-    <rect x="250" y="65" rx="5px" ry="5px" width="80" height="16" />
+    <rect x="10" y="70" rx="5px" ry="5px" width="80" height="24" />
+    <rect x="260" y="70" rx="5px" ry="5px" width="60" height="24" />
 
     {/* Total */}
-    <rect x="20" y="90" rx="5px" ry="5px" width="30" height="25" />
-    <rect x="250" y="90" rx="5px" ry="5px" width="80" height="25" />
+    <rect x="10" y="100" rx="5px" ry="5px" width="30" height="24" />
+    <rect x="260" y="100" rx="5px" ry="5px" width="60" height="24" />
 
     {/* Button */}
-    <rect x="20" y="120" rx="5px" ry="5px" width="310" height="55" />
+    <rect x="10" y="130" rx="5px" ry="5px" width="310" height="55" />
   </ContentLoader>
 );
 

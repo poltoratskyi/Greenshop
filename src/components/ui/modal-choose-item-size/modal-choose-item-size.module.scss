@@ -54,12 +54,17 @@
     }
   }
 
+  .skeleton {
+    padding: 20px;
+  }
+
   .content {
     .info {
       display: flex;
       align-items: center;
-      padding: 0px 20px 0px 0px;
       gap: 10px;
+      margin-bottom: 15px;
+      min-height: 120px;
 
       .img {
         max-height: 100px;
@@ -93,7 +98,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 20px;
+      padding: 15px 20px;
 
       &:hover {
         cursor: pointer;
@@ -122,19 +127,13 @@
     width: 100%;
     right: 0;
     bottom: -50%;
-    height: auto;
+    height: 450px;
     top: auto;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 
     &.active {
       bottom: 0;
-    }
-
-    .content {
-      .info {
-        padding: 10px 20px 10px 0px;
-      }
     }
   }
 }

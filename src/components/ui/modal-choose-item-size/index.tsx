@@ -42,10 +42,12 @@ const ModalChooseItemSize: React.FC = () => {
             </span>
           </div>
 
-          {isLoading &&
-            [...new Array(1)].map((_, index: number) => (
-              <Skeleton key={index} width="100%" height={350} uniqueKey="7" />
-            ))}
+          <div className={Style.skeleton}>
+            {isLoading &&
+              [...new Array(1)].map((_, index: number) => (
+                <Skeleton key={index} width="100%" height={350} uniqueKey="7" />
+              ))}
+          </div>
         </div>
       </>
     );
@@ -72,13 +74,15 @@ const ModalChooseItemSize: React.FC = () => {
           </span>
         </div>
 
-        {catalog
-          .filter((variation) => variation.id === selectedItemId)
-          .map((variation) => (
-            <div className={Style.content} key={variation.id}>
-              <ItemList {...variation} />
-            </div>
-          ))}
+        <div className={Style.content}>
+          {catalog
+            .filter((variation) => variation.id === selectedItemId)
+            .map((variation) => (
+              <div key={variation.id}>
+                <ItemList {...variation} />
+              </div>
+            ))}
+        </div>
       </div>
     </>
   );

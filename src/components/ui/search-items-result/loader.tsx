@@ -1,16 +1,12 @@
 import Style from "./search-items-result.module.scss";
 
 interface Props {
-  fullPage?: boolean;
+  cart?: boolean;
 }
 
-const Loader: React.FC<Props> = ({ fullPage }) => {
+const Loader: React.FC<Props> = ({ cart }) => {
   return (
-    <div
-      className={`${
-        fullPage ? `${Style.loader} ${Style.full_page}` : Style.loader
-      }`}
-    >
+    <div className={`${cart ? `${Style.loader} ${Style.cart}` : Style.loader}`}>
       <div className={Style.round}></div>
     </div>
   );

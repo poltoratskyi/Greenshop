@@ -5,19 +5,51 @@
   margin: 50px 0px 100px;
 
   .content {
-    position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: start;
     gap: 50px;
     margin-bottom: 100px;
 
-    img {
-      border-radius: 6px;
-    }
+    .img {
+      display: flex;
+      gap: 25px;
+      height: 100%;
 
-    .percent {
-      @include m.percent(6px);
+      .lists {
+        .list {
+          padding: 10px;
+          background-color: v.$background;
+          width: 100px;
+          height: 100px;
+          margin-bottom: 25px;
+          border: 1px solid rgba(v.$background, 1);
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:hover {
+            border: 1px solid rgba(v.$main, 0.5);
+          }
+
+          &.active {
+            border: 1px solid rgba(v.$main, 1);
+          }
+
+          &:last-child {
+            margin-bottom: 0px;
+          }
+        }
+      }
+
+      .main {
+        position: relative;
+        padding: 30px;
+        background-color: v.$background;
+
+        .percent {
+          @include m.percent();
+        }
+      }
     }
 
     .block {
@@ -32,7 +64,7 @@
 
         .sale {
           @include m.sale();
-          margin-left: 20px;
+          margin-right: 20px;
         }
 
         .price {
@@ -109,10 +141,6 @@
         }
       }
 
-      .tags {
-        margin-bottom: 25px;
-      }
-
       .share {
         display: flex;
         align-items: center;
@@ -186,10 +214,28 @@
       gap: 25px;
       margin-bottom: 50px;
 
-      .percent {
-        @include m.percent(6px);
-        font-size: 12px;
-        padding: 8px;
+      .img {
+        width: auto;
+        flex-direction: column-reverse;
+
+        .lists {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          justify-items: center;
+          gap: 25px;
+
+          .list {
+            margin: 0;
+          }
+        }
+
+        .main {
+          .percent {
+            @include m.percent();
+            font-size: 12px;
+            padding: 8px;
+          }
+        }
       }
 
       .block {

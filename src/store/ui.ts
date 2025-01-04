@@ -34,6 +34,12 @@ interface UIState {
   // Sizes
   selectedSizeIndex: number;
   setSelectedSizeIndex: (index: number) => void;
+
+  // Switch image
+  imageIndex: number | null;
+  switchImage: string | null;
+  setImageIndex: (index: number) => void;
+  setSwitchImage: (image: string) => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({
@@ -70,4 +76,10 @@ export const useUIStore = create<UIState>((set) => ({
   // Sizes
   selectedSizeIndex: 0,
   setSelectedSizeIndex: (index) => set({ selectedSizeIndex: index }),
+
+  // Switch image
+  imageIndex: null,
+  switchImage: null,
+  setImageIndex: (index) => set({ imageIndex: index }),
+  setSwitchImage: (image) => set({ switchImage: image }),
 }));

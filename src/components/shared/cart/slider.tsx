@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/scss";
-
 import "../../shared/banner/slider.css";
 
 import Style from "./cart.module.scss";
@@ -15,7 +14,7 @@ import { useCartStore, useCatalogStore } from "../../../store";
 
 import ItemList from "../../shared/catalog/item-list";
 import ItemsWrapper from "../../shared/catalog/items-wrapper";
-import ModalChooseItemSize from "@/components/shared/modal-choose-item-size";
+import ModalChooseItemSize from "@/components/ui/modal-choose-item-size";
 
 const Slider: React.FC = () => {
   const cartItems = useCartStore((state) => state.cartItems);

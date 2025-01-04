@@ -12,7 +12,7 @@ import ItemList from "./item-list";
 import SingleItemWrapper from "./single-item-wrapper";
 import ItemsWrapper from "../catalog/items-wrapper";
 import Pathname from "../pathname";
-import ModalChooseItemSize from "../../../components/shared/modal-choose-item-size";
+import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
 import { useCatalogStore, useUIStore } from "../../../store";
 
 export type Props = {

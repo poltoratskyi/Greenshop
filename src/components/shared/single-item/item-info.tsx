@@ -38,14 +38,14 @@ const ItemInfo: React.FC<Props> = ({ item }) => {
   return (
     <>
       <span className={Style.price}>
-        {item.variations[selectedSizeIndex]?.onSale ? (
+        {item.variations[selectedSizeIndex].onSale ? (
           <div className={Style.info}>
-            <span className={Style.price}>
-              ${item.variations[selectedSizeIndex].sale.toFixed(2)}
-            </span>
-
             <span className={Style.sale}>
               ${item.variations[selectedSizeIndex].price.toFixed(2)}
+            </span>
+
+            <span className={Style.price}>
+              ${item.variations[selectedSizeIndex].sale.toFixed(2)}
             </span>
           </div>
         ) : (

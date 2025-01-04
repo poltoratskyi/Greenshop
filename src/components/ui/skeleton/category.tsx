@@ -10,12 +10,11 @@ const Category: React.FC<IContentLoaderProps> = ({
     speed={2}
     width={width}
     height={height}
-    viewBox={`0 0 450 ${height}`}
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
     {...props}
   >
-    <rect x="0" y="0" rx="5px" ry="5px" width={width} height={height} />
+    <rect x="0" y="0" rx="5px" ry="5px" width={width} height={24} />
   </ContentLoader>
 );
 

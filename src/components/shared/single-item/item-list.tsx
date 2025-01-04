@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 import Style from "./single-item.module.scss";
 
@@ -7,8 +6,9 @@ import { Item } from "../../../types";
 
 import { media } from "./static-data";
 
-import DiscountBadge from "./discount-badge";
 import ItemInfo from "./item-info";
+import Miniature from "./miniature";
+import MainImage from "./main-image";
 
 interface Props {
   item: Item;
@@ -17,19 +17,11 @@ interface Props {
 const ItemList: React.FC<Props> = ({ item }) => {
   return (
     <div className={Style.content}>
-      <Image
-        width={600}
-        height={600}
-        priority
-        style={{
-          width: "100%",
-          height: "auto",
-        }}
-        src={item.imgUrl}
-        alt={item.name}
-      />
+      <div className={Style.img}>
+        <Miniature item={item} />
 
-      <DiscountBadge item={item} />
+        <MainImage item={item} />
+      </div>
 
       <div className={Style.block}>
         <h2>{item.name}</h2>

@@ -12,7 +12,7 @@ const SaleInfo: React.FC = () => {
       {pathname !== "/" &&
         pathname !== "/login" &&
         pathname !== "/category" && (
-          <h4 className={Style.text}>Summer sale - up to 20% off!</h4>
+          <h4 className={Style.text}>Everyday discount - up to 20% off!</h4>
         )}
     </>
   );

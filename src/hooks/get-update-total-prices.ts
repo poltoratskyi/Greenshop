@@ -9,7 +9,7 @@ export const updateTotalAmounts = async (token: string) => {
   }
 
   const totalAmount = userCart.items.reduce((acc, i) => {
-    const onSale = i.item.variations[i.variationId - 1]?.onSale;
+    const onSale = i.item.variations[i.variationId - 1].onSale;
     const price = i.item.variations[i.variationId - 1]?.price;
     const sale = i.item.variations[i.variationId - 1]?.sale;
 
