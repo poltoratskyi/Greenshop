@@ -19,7 +19,9 @@ const ItemList: React.FC<Props> = ({ id, imgUrl, name, variations }) => {
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
   const setOpenModalSize = useUIStore((state) => state.setOpenModalSize);
   const setSelectedItemId = useUIStore((state) => state.setSelectedItemId);
-
+  const setResetSelectedVariation = useUIStore(
+    (state) => state.setResetSelectedVariation
+  );
   const setInputValue = useSearchStore((state) => state.setInputValue);
   const clearResults = useSearchStore((state) => state.clearResults);
 
@@ -34,6 +36,9 @@ const ItemList: React.FC<Props> = ({ id, imgUrl, name, variations }) => {
                 setInputValue("");
                 clearResults();
               }
+
+              setResetSelectedVariation();
+
               document.body.style.overflow = "auto";
             }}
             className={Style.img}
@@ -94,6 +99,9 @@ const ItemList: React.FC<Props> = ({ id, imgUrl, name, variations }) => {
               setInputValue("");
               clearResults();
             }
+
+            setResetSelectedVariation();
+
             document.body.style.overflow = "auto";
           }}
           className={Style.title}

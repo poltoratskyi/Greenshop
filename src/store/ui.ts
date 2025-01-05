@@ -31,7 +31,7 @@ interface UIState {
   burger: boolean;
   setOpenBurger: (isOpen: boolean) => void;
 
-  // Sizes
+  // Switch sizes
   selectedSizeIndex: number;
   setSelectedSizeIndex: (index: number) => void;
 
@@ -40,6 +40,7 @@ interface UIState {
   switchImage: string | null;
   setImageIndex: (index: number) => void;
   setSwitchImage: (image: string) => void;
+  setResetSelectedVariation: () => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({
@@ -82,4 +83,6 @@ export const useUIStore = create<UIState>((set) => ({
   switchImage: null,
   setImageIndex: (index) => set({ imageIndex: index }),
   setSwitchImage: (image) => set({ switchImage: image }),
+  setResetSelectedVariation: () =>
+    set({ imageIndex: null, switchImage: null, selectedSizeIndex: 0 }),
 }));

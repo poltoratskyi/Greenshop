@@ -25,12 +25,18 @@ const ItemList: React.FC<Props> = ({
   const router = useRouter();
 
   const setOpenModalSize = useUIStore((state) => state.setOpenModalSize);
-
+  const setResetSelectedVariation = useUIStore(
+    (state) => state.setResetSelectedVariation
+  );
   const addCartItem = useCartStore((state) => state.addCartItem);
 
   const handleAddToCart = async (sizeId: number) => {
     try {
       const variation = variations[sizeId - 1];
+
+      setOpenModalSize(false);
+
+      router.push("/cart");
 
       await addCartItem({
         itemId: id,
@@ -41,13 +47,18 @@ const ItemList: React.FC<Props> = ({
     }
   };
 
+  const handleClick = () => {
+    setResetSelectedVariation();
+    setOpenModalSize(false);
+  };
+
   return (
     <>
       <div className={Style.info}>
         <Link
           className={Style.img}
           href={`/item/${id}`}
-          onClick={() => setOpenModalSize(false)}
+          onClick={() => handleClick()}
         >
           <Image
             width={600}
@@ -65,7 +76,7 @@ const ItemList: React.FC<Props> = ({
           <Link
             className={Style.name}
             href={`/item/${id}`}
-            onClick={() => setOpenModalSize(false)}
+            onClick={() => handleClick()}
           >
             {name}
           </Link>
@@ -85,11 +96,7 @@ const ItemList: React.FC<Props> = ({
       <ul>
         {variations.map((variation) => (
           <li
-            onClick={() => {
-              handleAddToCart(variation.sizeId as number);
-              setOpenModalSize(false);
-              router.push("/cart");
-            }}
+            onClick={() => handleAddToCart(variation.sizeId as number)}
             key={variation.id}
           >
             <ItemInfo {...variation} />

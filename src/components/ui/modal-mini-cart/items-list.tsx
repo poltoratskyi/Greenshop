@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 
 import { CartVariation } from "../../../types";
@@ -11,7 +10,6 @@ interface Props {
   name: string;
   imgUrl: string;
   sku: string;
-  itemId: number;
   variationId: number;
   variations: CartVariation[];
 }
@@ -21,13 +19,12 @@ const ItemsList: React.FC<Props> = ({
   name,
   imgUrl,
   sku,
-  itemId,
   variationId,
   variations,
 }) => {
   return (
     <div className={Style.content}>
-      <Link className={Style.img} href={`/item/${itemId}`}>
+      <div className={Style.img}>
         <Image
           priority
           width={600}
@@ -39,12 +36,10 @@ const ItemsList: React.FC<Props> = ({
           src={imgUrl}
           alt={name}
         />
-      </Link>
+      </div>
 
       <div className={Style.driver}>
-        <Link href={`/item/${itemId}`}>
-          <h3 className={Style.title}>{name}</h3>
-        </Link>
+        <h3 className={Style.title}>{name}</h3>
 
         <p className={Style.size}>
           <span>Size:</span>
