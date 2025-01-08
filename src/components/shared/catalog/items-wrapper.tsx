@@ -10,13 +10,23 @@ interface Props {
 const ItemsWrapper: React.FC<Props> = ({ gridWidth, gridUnset, children }) => {
   return (
     <div className={Style.items}>
-      <ul
-        className={`${Style.lists} ${gridUnset && Style.interested} ${
-          gridWidth && Style.related
-        }`}
-      >
-        {children}
-      </ul>
+      {gridUnset ? (
+        <div
+          className={`${Style.lists} ${gridUnset && Style.interested} ${
+            gridWidth && Style.related
+          }`}
+        >
+          {children}
+        </div>
+      ) : (
+        <ul
+          className={`${Style.lists} ${gridUnset && Style.interested} ${
+            gridWidth && Style.related
+          }`}
+        >
+          {children}
+        </ul>
+      )}
     </div>
   );
 };

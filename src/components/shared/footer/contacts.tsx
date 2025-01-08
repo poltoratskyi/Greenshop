@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 import Logo from "../header/logo";
 import Style from "./footer.module.scss";
 

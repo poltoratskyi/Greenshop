@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 import FeedbackInput from "../../ui/feedback-input";
 
 import Style from "./footer.module.scss";

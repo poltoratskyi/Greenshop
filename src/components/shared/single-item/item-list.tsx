@@ -7,8 +7,7 @@ import { Item } from "../../../types";
 import { media } from "./static-data";
 
 import ItemInfo from "./item-info";
-import Miniature from "./miniature";
-import MainImage from "./main-image";
+import ImageGallery from "./image-gallery";
 
 interface Props {
   item: Item;
@@ -17,11 +16,7 @@ interface Props {
 const ItemList: React.FC<Props> = ({ item }) => {
   return (
     <div className={Style.content}>
-      <div className={Style.img}>
-        <Miniature item={item} />
-
-        <MainImage item={item} />
-      </div>
+      <ImageGallery item={item} />
 
       <div className={Style.block}>
         <h2>{item.name}</h2>

@@ -23,7 +23,7 @@
   padding: 15px 40px;
 
   &:hover {
-    background-color: #fff;
+    color: #fff;
   }
 }
 
@@ -263,6 +263,13 @@
   .adv,
   .add {
     width: 100%;
+  }
+
+  .add {
+    &:hover {
+      color: v.$main;
+      background-color: #fff;
+    }
   }
 
   .adv {

@@ -5,9 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/scss";
 import "swiper/scss/autoplay";
+import "./slider.css";
 
 import Style from "./banner.module.scss";
-import "./slider.css";
 
 const Mobile: React.FC = () => {
   return (
@@ -23,7 +23,7 @@ const Mobile: React.FC = () => {
         speed={1000}
         pagination={{
           clickable: true,
-          el: ".swiper-pagination",
+          el: ".swiper-pagination-banner",
         }}
         modules={[Pagination, Autoplay]}
       >
@@ -70,7 +70,7 @@ const Mobile: React.FC = () => {
         </SwiperSlide>
       </Swiper>
 
-      <div className="swiper-pagination"></div>
+      <div className="swiper-pagination-banner"></div>
     </div>
   );
 };

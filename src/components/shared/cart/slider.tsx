@@ -3,9 +3,10 @@
 import { useEffect } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 import "swiper/scss";
-import "../../shared/banner/slider.css";
+import "swiper/scss/navigation";
+import "./slider.css";
 
 import Style from "./cart.module.scss";
 import CatalogStyle from "../../shared/catalog/catalog.module.scss";
@@ -45,36 +46,49 @@ const Slider: React.FC = () => {
           <h4 className={Style.title}>You may be interested in</h4>
 
           <Swiper
-            spaceBetween={20}
-            slidesPerView={5}
+            spaceBetween={25}
+            slidesPerView={4.4}
             speed={1000}
+            slidesPerGroup={2}
             pagination={{
               clickable: true,
-              el: ".swiper-pagination",
+              el: ".swiper-pagination-cart",
             }}
-            modules={[Pagination]}
+            watchOverflow
+            modules={[Pagination, Navigation]}
+            navigation={{
+              prevEl: ".swiper-button-prev",
+              nextEl: ".swiper-button-next",
+            }}
             breakpoints={{
               320: {
-                slidesPerView: 2,
+                slidesPerView: 1.4,
               },
 
-              1025: {
-                slidesPerView: 5,
+              420: {
+                slidesPerView: 2.4,
+              },
+
+              992: {
+                slidesPerView: 4.4,
               },
             }}
           >
             {filteredCatalog.map((item) => (
               <SwiperSlide key={item.id}>
                 <ItemsWrapper gridUnset>
-                  <li className={CatalogStyle.list}>
+                  <div className={CatalogStyle.list}>
                     <ItemList {...item} />
-                  </li>
+                  </div>
                 </ItemsWrapper>
               </SwiperSlide>
             ))}
-          </Swiper>
 
-          <div className="swiper-pagination swiper-pagination_cart"></div>
+            <div id="cart-button-prev" className="swiper-button-prev"></div>
+            <div id="cart-button-next" className="swiper-button-next"></div>
+
+            <div className="swiper-pagination-cart"></div>
+          </Swiper>
         </div>
       )}
 

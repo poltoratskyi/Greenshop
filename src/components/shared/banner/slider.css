@@ -1,6 +1,6 @@
-.swiper-pagination {
+.swiper-pagination-banner {
+  display: none;
   position: absolute;
-  display: flex;
   justify-content: center;
   gap: 15px;
   z-index: 1;
@@ -10,14 +10,9 @@
   transform: translate(-50%, -50%);
 }
 
-.swiper-pagination_cart {
-  position: relative;
-  margin: 45px 0px 0px 0px;
-}
-
-.swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
+.swiper-pagination-banner .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
   background-color: #fff;
   border-radius: 100%;
   border: 1px solid #46a358;
@@ -25,6 +20,12 @@
   cursor: pointer;
 }
 
-.swiper-pagination-bullet-active {
+.swiper-pagination-banner .swiper-pagination-bullet-active {
   background-color: #46a358;
+}
+
+@media (max-width: 575px) {
+  .swiper-pagination-banner {
+    display: flex;
+  }
 }

@@ -11,44 +11,14 @@
     gap: 50px;
     margin-bottom: 100px;
 
-    .img {
+    .gallery {
       display: flex;
-      gap: 25px;
+      gap: 15px;
       height: 100%;
+      min-width: 0;
 
-      .lists {
-        .list {
-          padding: 10px;
-          background-color: v.$background;
-          width: 100px;
-          height: 100px;
-          margin-bottom: 25px;
-          border: 1px solid rgba(v.$background, 1);
-          cursor: pointer;
-          transition: all 0.2s ease;
-
-          &:hover {
-            border: 1px solid rgba(v.$main, 0.5);
-          }
-
-          &.active {
-            border: 1px solid rgba(v.$main, 1);
-          }
-
-          &:last-child {
-            margin-bottom: 0px;
-          }
-        }
-      }
-
-      .main {
-        position: relative;
-        padding: 30px;
-        background-color: v.$background;
-
-        .percent {
-          @include m.percent();
-        }
+      .percent {
+        @include m.percent();
       }
     }
 
@@ -214,28 +184,8 @@
       gap: 25px;
       margin-bottom: 50px;
 
-      .img {
-        width: auto;
-        flex-direction: column-reverse;
-
-        .lists {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          justify-items: center;
-          gap: 25px;
-
-          .list {
-            margin: 0;
-          }
-        }
-
-        .main {
-          .percent {
-            @include m.percent();
-            font-size: 12px;
-            padding: 8px;
-          }
-        }
+      .gallery {
+        display: block;
       }
 
       .block {

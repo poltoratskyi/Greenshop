@@ -10,7 +10,7 @@ import Loader from "../../ui/search-items-result/loader";
 
 import { svgDecr, svgIncr, svgTrash } from "./static-data";
 
-import { useCartStore, useUIStore } from "../../../store";
+import { useCartStore } from "../../../store";
 
 type QuantityType = "decrement" | "increment";
 
@@ -23,10 +23,6 @@ const ItemsList: React.FC = () => {
   );
   const loadUserCart = useCartStore((state) => state.loadUserCart);
   const deleteCartItem = useCartStore((state) => state.deleteCartItem);
-
-  const setResetSelectedVariation = useUIStore(
-    (state) => state.setResetSelectedVariation
-  );
 
   useEffect(() => {
     loadUserCart();
@@ -96,11 +92,7 @@ const ItemsList: React.FC = () => {
           <li className={Style.list} key={item.id}>
             <div className={Style.layout}>
               <div className={Style.product}>
-                <Link
-                  onClick={() => setResetSelectedVariation()}
-                  className={Style.img}
-                  href={`/item/${item.itemId}`}
-                >
+                <Link className={Style.img} href={`/item/${item.itemId}`}>
                   <Image
                     priority
                     width={600}
@@ -115,10 +107,7 @@ const ItemsList: React.FC = () => {
                 </Link>
 
                 <div className={Style.driver}>
-                  <Link
-                    onClick={() => setResetSelectedVariation()}
-                    href={`/item/${item.itemId}`}
-                  >
+                  <Link href={`/item/${item.itemId}`}>
                     <h3 className={Style.title}>{item.name}</h3>
                   </Link>
 

@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 import Img from "./image";
 
 import Style from "./banner.module.scss";
