@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay, A11y } from "swiper/modules";
 import "swiper/scss";
 import "swiper/scss/autoplay";
+import "swiper/scss/a11y";
 import "./slider.css";
 
 import Style from "./banner.module.scss";
@@ -25,7 +26,7 @@ const Mobile: React.FC = () => {
           clickable: true,
           el: ".swiper-pagination-banner",
         }}
-        modules={[Pagination, Autoplay]}
+        modules={[Pagination, Autoplay, A11y]}
       >
         <SwiperSlide>
           <Image

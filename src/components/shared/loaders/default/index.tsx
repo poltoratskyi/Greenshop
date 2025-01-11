@@ -1,4 +1,4 @@
-import Style from "./search-items-result.module.scss";
+import Style from "./loader.module.scss";
 
 interface Props {
   cart?: boolean;

@@ -32,7 +32,7 @@ const Empty: React.FC = () => {
         Log In
       </Link>
 
-      <Link href="/">
+      <Link href="/#catalog">
         <span>Or continue shopping</span>
       </Link>
     </div>

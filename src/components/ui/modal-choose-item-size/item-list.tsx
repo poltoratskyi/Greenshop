@@ -11,6 +11,7 @@ import { Item } from "../../../types";
 import ItemInfo from "./item-info";
 
 import { useUIStore, useCartStore } from "../../../store";
+import Loader from "../../../components/shared/button/loader";
 
 interface Props extends Item {}
 
@@ -24,7 +25,13 @@ const ItemList: React.FC<Props> = ({
 }) => {
   const router = useRouter();
 
+  const isLoadingItem = useCartStore((state) => state.isLoadingItem);
+
+  const selectedItemSizeId = useUIStore((state) => state.selectedItemSizeId);
   const setOpenModalSize = useUIStore((state) => state.setOpenModalSize);
+  const setSelectedItemSizeId = useUIStore(
+    (state) => state.setSelectedItemSizeId
+  );
 
   const addCartItem = useCartStore((state) => state.addCartItem);
 
@@ -32,14 +39,16 @@ const ItemList: React.FC<Props> = ({
     try {
       const variation = variations[sizeId - 1];
 
-      setOpenModalSize(false);
-
-      router.push("/cart");
+      setSelectedItemSizeId(variation.sizeId);
 
       await addCartItem({
         itemId: id,
         variationId: variation.sizeId,
       });
+
+      setOpenModalSize(false);
+
+      router.push("/cart");
     } catch (error) {
       console.error("Error adding item to cart:", error);
     }
@@ -89,10 +98,22 @@ const ItemList: React.FC<Props> = ({
       <ul>
         {variations.map((variation) => (
           <li
-            onClick={() => handleAddToCart(variation.sizeId as number)}
+            style={{
+              position: "relative",
+              pointerEvents: isLoadingItem ? "none" : "auto",
+              cursor: isLoadingItem ? "not-allowed" : "pointer",
+            }}
             key={variation.id}
+            onClick={() => handleAddToCart(variation.sizeId as number)}
           >
-            <ItemInfo {...variation} />
+            {isLoadingItem ? (
+              <>
+                {selectedItemSizeId === variation.sizeId && <Loader />}
+                <ItemInfo {...variation} />
+              </>
+            ) : (
+              <ItemInfo {...variation} />
+            )}
           </li>
         ))}
       </ul>

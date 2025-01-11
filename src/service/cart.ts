@@ -1,5 +1,5 @@
-import { CartResponse, PostCartItem } from "../types";
 import { AxiosInstance } from "./axios";
+import { CartResponse, PostCartItem } from "../types";
 
 export const fetchUserCart = async (): Promise<CartResponse> => {
   const response = await AxiosInstance.get<CartResponse>("/cart");

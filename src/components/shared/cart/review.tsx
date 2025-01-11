@@ -15,7 +15,7 @@ const Review: React.FC = () => {
 
       <Summary />
 
-      <Link className={Style.continue} href="/">
+      <Link className={Style.continue} href="/#catalog">
         Continue Shopping
       </Link>
     </div>

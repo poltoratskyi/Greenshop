@@ -43,11 +43,9 @@ const SingleItem: React.FC<Props> = ({ item }) => {
 
           <SingleItemWrapper title="Related Products">
             <ItemsWrapper gridWidth>
-              {[item].map((item) => (
-                <li key={item.id} className={CatalogStyle.list}>
-                  <CatalogItemList {...item} />
-                </li>
-              ))}
+              <li key={item.id} className={CatalogStyle.list}>
+                <CatalogItemList {...item} />
+              </li>
             </ItemsWrapper>
           </SingleItemWrapper>
         </div>

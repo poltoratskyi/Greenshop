@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import qs from "qs";
 
 import { Category } from "../../../types";
 import { getCategoryQuantity } from "../../../hooks";
@@ -12,7 +14,8 @@ import Skeleton from "../../ui/skeleton/category";
 import { useCategoryStore } from "../../../store";
 
 const CategoryItemsList: React.FC = () => {
-  const [activeCategoryMenu, setActiveCategoryMenu] = useState("House Plants");
+  const router = useRouter();
+  const [activeCategoryMenu, setActiveCategoryMenu] = useState("");
 
   const isLoading = useCategoryStore((state) => state.isLoading);
 
@@ -22,6 +25,13 @@ const CategoryItemsList: React.FC = () => {
   useEffect(() => {
     loadCategory();
   }, []);
+
+  useEffect(() => {
+    if (!activeCategoryMenu) return;
+
+    const query = qs.stringify({ category: activeCategoryMenu });
+    router.push(`?${query}`.toLocaleLowerCase(), { scroll: false });
+  }, [activeCategoryMenu]);
 
   if (isLoading) {
     return (
@@ -62,9 +72,7 @@ const CategoryItemsList: React.FC = () => {
             key={item.id}
           >
             {item.name}
-            <span>
-              <span>{getCategoryQuantity(category, item.id)}</span>
-            </span>
+            <span>{getCategoryQuantity(category, item.id)}</span>
           </li>
         ))}
       </ul>

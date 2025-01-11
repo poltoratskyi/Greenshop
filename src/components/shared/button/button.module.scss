@@ -170,6 +170,12 @@
   transform: translate(-50%, -50%);
   right: 0;
   margin-right: 8px;
+
+  &.modal {
+    right: 50%;
+    margin-right: 0px;
+  }
+
   .round {
     width: 15px;
     padding: 3px;

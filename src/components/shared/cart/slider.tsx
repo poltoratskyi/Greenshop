@@ -3,9 +3,10 @@
 import { useEffect } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, A11y } from "swiper/modules";
 import "swiper/scss";
 import "swiper/scss/navigation";
+import "swiper/scss/a11y";
 import "./slider.css";
 
 import Style from "./cart.module.scss";
@@ -55,7 +56,7 @@ const Slider: React.FC = () => {
               el: ".swiper-pagination-cart",
             }}
             watchOverflow
-            modules={[Pagination, Navigation]}
+            modules={[Pagination, Navigation, A11y]}
             navigation={{
               prevEl: ".swiper-button-prev",
               nextEl: ".swiper-button-next",

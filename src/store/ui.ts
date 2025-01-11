@@ -16,8 +16,10 @@ interface UIState {
   // Modal Size
   modalSize: boolean;
   selectedItemId: number | null;
+  selectedItemSizeId: number | null;
   setSelectedItemId: (id: number) => void;
   setOpenModalSize: (isOpen: boolean) => void;
+  setSelectedItemSizeId: (id: number) => void;
 
   // Sort
   sort: boolean;
@@ -57,8 +59,10 @@ export const useUIStore = create<UIState>((set) => ({
   // Modal Size
   modalSize: false,
   selectedItemId: null,
+  selectedItemSizeId: null,
   setOpenModalSize: (isOpen) => set({ modalSize: isOpen }),
   setSelectedItemId: (id) => set({ selectedItemId: id }),
+  setSelectedItemSizeId: (id) => set({ selectedItemSizeId: id }),
 
   // Sort
   sort: false,

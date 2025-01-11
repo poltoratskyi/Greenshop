@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRef } from "react";
 import { useClickAway } from "react-use";
 
@@ -33,17 +32,13 @@ const Sort: React.FC = () => {
       <div ref={ref}>
         <span onClick={() => setOpenSort(!sort)}>{svgRound}</span>
 
-        <ul
-          className={
-            sort ? `${Style.active} ${Style.sortLists}` : Style.sortLists
-          }
-        >
+        <ul className={sort ? `${Style.active} ${Style.lists}` : Style.lists}>
           {filterSort.map((item, index) => (
             <li
               className={
                 activeSortMenuValue === item.label
-                  ? `${Style.sortList} ${Style.active}`
-                  : Style.sortList
+                  ? `${Style.list} ${Style.active}`
+                  : Style.list
               }
               onClick={() => {
                 setActiveSortMenuValue(item.label);
@@ -51,7 +46,7 @@ const Sort: React.FC = () => {
               }}
               key={index}
             >
-              <Link href={`/catalog/${item.value}`}>{item.label}</Link>
+              <span>{item.label}</span>
             </li>
           ))}
         </ul>

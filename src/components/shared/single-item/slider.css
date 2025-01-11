@@ -93,6 +93,12 @@
   background-color: #46a358;
 }
 
+/* Img */
+
+.swiper-zoom-container img {
+  background-color: #fafafa;
+}
+
 @media (max-width: 575px) {
   #miniatures {
     display: none;
@@ -105,5 +111,9 @@
   .swiper-button-prev,
   .swiper-button-next {
     display: none;
+  }
+
+  .swiper-zoom-container img {
+    background-color: unset;
   }
 }

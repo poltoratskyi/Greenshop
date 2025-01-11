@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import { prisma } from "../../../../prisma/prisma-client";
 import { notFound } from "next/navigation";
 import SingleItem from "../../../../components/shared/single-item/single-item";
+import Loader from "../../../../components/shared/loaders/suspense";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -59,7 +61,11 @@ export default async function Item({ params }: Props) {
       return notFound();
     }
 
-    return <SingleItem item={item} />;
+    return (
+      <Suspense fallback={<Loader />}>
+        <SingleItem item={item} />
+      </Suspense>
+    );
   } catch (error) {
     console.error("Error fetching item:", error);
     throw new Error("Error fetching item");

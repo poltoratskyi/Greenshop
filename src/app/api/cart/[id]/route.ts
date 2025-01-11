@@ -1,6 +1,6 @@
 import { prisma } from "../../../../prisma/prisma-client";
 import { NextResponse, NextRequest } from "next/server";
-import { updateTotalAmounts } from "../../../../hooks/get-update-total-prices";
+import { getUpdatedTotalAmount } from "../../../../hooks/get-update-total-prices";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -48,7 +48,7 @@ export async function PATCH(
     });
 
     // Update the total amounts
-    const updatedTotalAmounts = await updateTotalAmounts(token);
+    const updatedTotalAmounts = await getUpdatedTotalAmount(token);
 
     if (!updatedTotalAmounts) {
       return NextResponse.json(
@@ -106,7 +106,7 @@ export async function DELETE(
     });
 
     // Update the total amounts
-    const updatedTotalAmounts = await updateTotalAmounts(token);
+    const updatedTotalAmounts = await getUpdatedTotalAmount(token);
 
     if (!updatedTotalAmounts) {
       return NextResponse.json(

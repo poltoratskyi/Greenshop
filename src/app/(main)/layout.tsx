@@ -2,7 +2,6 @@ import { Metadata } from "next";
 
 import Header from "../../components/shared/header";
 import Footer from "../../components/shared/footer";
-import React from "react";
 
 const metadata: Metadata = {
   title: "GREENSHOP | Main Page",

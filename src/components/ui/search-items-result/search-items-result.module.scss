@@ -63,35 +63,6 @@
   }
 }
 
-.loader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 100px;
-  background-color: #fff;
-  margin-top: 1px;
-
-  .round {
-    width: 100px;
-    padding: 8px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: v.$main;
-    --_m: conic-gradient(#0000 50%, #000), linear-gradient(#000 0 0) content-box;
-    -webkit-mask: var(--_m);
-    mask: var(--_m);
-    -webkit-mask-composite: source-out;
-    mask-composite: subtract;
-    animation: l3 1s infinite linear;
-  }
-
-  @keyframes l3 {
-    to {
-      transform: rotate(1turn);
-    }
-  }
-}
-
 @media (max-width: 575px) {
   .results {
     padding: 15px 10px 110px 10px;
@@ -130,18 +101,6 @@
           height: auto;
         }
       }
-    }
-  }
-
-  .loader {
-    padding: unset;
-    padding-bottom: 170px;
-    height: 100vh;
-
-    &.cart {
-      margin: 0;
-      height: auto;
-      padding: 50px;
     }
   }
 }

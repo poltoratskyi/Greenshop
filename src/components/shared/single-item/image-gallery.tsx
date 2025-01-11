@@ -5,11 +5,12 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Thumbs, Zoom, Pagination } from "swiper/modules";
+import { Navigation, Thumbs, Zoom, Pagination, A11y } from "swiper/modules";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/zoom";
 import "swiper/scss/thumbs";
+import "swiper/scss/a11y";
 
 import "./slider.css";
 
@@ -49,6 +50,7 @@ const ImageGallery: React.FC<Props> = ({ item }) => {
         slidesPerView={4}
         spaceBetween={15}
         direction="vertical"
+        modules={[Navigation, Zoom, Thumbs, Pagination, A11y]}
         onSlideChange={(swiper) => setImageIndex(swiper.activeIndex)}
       >
         {images.map((imgUrl, index) => (
@@ -85,7 +87,7 @@ const ImageGallery: React.FC<Props> = ({ item }) => {
           minRatio: 1,
           containerClass: "swiper-zoom-container",
         }}
-        modules={[Navigation, Zoom, Thumbs, Pagination]}
+        modules={[Navigation, Zoom, Thumbs, Pagination, A11y]}
         pagination={{ el: ".swiper-pagination-item", clickable: true }}
         navigation={{
           prevEl: ".swiper-button-prev",
@@ -112,7 +114,6 @@ const ImageGallery: React.FC<Props> = ({ item }) => {
                   height: "100%",
                   objectFit: "contain",
                   padding: "20px",
-                  backgroundColor: "#fafafa",
                 }}
                 src={imgUrl}
                 alt={item.name}

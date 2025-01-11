@@ -6,7 +6,7 @@ import { useClickAway, useDebounce } from "react-use";
 import Style from "./search-items-input.module.scss";
 
 import Results from "../search-items-result";
-import Loader from "../search-items-result/loader";
+import Loader from "../../shared/loaders/default";
 import SaleBanner from "../mobile-header/sale-banner";
 
 import { useSearchStore, useUIStore } from "../../../store";

@@ -1,8 +1,14 @@
 import Style from "./button.module.scss";
 
-const Loader: React.FC = () => {
+interface Props {
+  modal?: boolean;
+}
+
+const Loader: React.FC<Props> = ({ modal }) => {
   return (
-    <div className={Style.loader}>
+    <div
+      className={`${modal}` ? `${Style.loader} ${Style.modal}` : Style.loader}
+    >
       <div className={Style.round}></div>
     </div>
   );

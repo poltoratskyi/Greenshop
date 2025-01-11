@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import Style from "./cart.module.scss";
 
-import Loader from "../../ui/search-items-result/loader";
+import Loader from "../../shared/loaders/default";
 
 import { svgDecr, svgIncr, svgTrash } from "./static-data";
 

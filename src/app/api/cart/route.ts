@@ -3,7 +3,7 @@ import { prisma } from "../../../prisma/prisma-client";
 import { NextResponse, NextRequest } from "next/server";
 
 import { getRandomUserToken } from "../../../hooks";
-import { updateTotalAmounts } from "../../../hooks/get-update-total-prices";
+import { getUpdatedTotalAmount } from "../../../hooks/get-update-total-prices";
 
 export async function GET(request: NextRequest) {
   try {
@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Update the total amounts
-    const updatedTotalAmounts = await updateTotalAmounts(token);
+    const updatedTotalAmounts = await getUpdatedTotalAmount(token);
 
     if (!updatedTotalAmounts) {
       return NextResponse.json(
@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Update the total amounts
-    const updatedTotalAmounts = await updateTotalAmounts(token);
+    const updatedTotalAmounts = await getUpdatedTotalAmount(token);
 
     // Return the updated total amounts
     const response = NextResponse.json(updatedTotalAmounts);

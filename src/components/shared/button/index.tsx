@@ -84,8 +84,8 @@ const Button: React.FC<Props> = ({
       {buy && (
         <button
           onClick={() => {
-            router.push("/cart");
             handleAddToCart && handleAddToCart();
+            router.push("/cart");
           }}
           className={buttonClass}
         >
