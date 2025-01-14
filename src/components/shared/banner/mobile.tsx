@@ -10,6 +10,8 @@ import "./slider.css";
 
 import Style from "./banner.module.scss";
 
+import { slides } from "./static-data";
+
 const Mobile: React.FC = () => {
   return (
     <div className={Style.mobile}>
@@ -28,50 +30,25 @@ const Mobile: React.FC = () => {
         }}
         modules={[Pagination, Autoplay, A11y]}
       >
-        <SwiperSlide>
-          <Image
-            width={600}
-            height={600}
-            priority
-            style={{
-              width: "100%",
-              height: "auto",
-            }}
-            src="/header/slider/adv-1-min.png"
-            alt="adv-1"
-          />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Image
-            width={600}
-            height={600}
-            priority
-            style={{
-              width: "100%",
-              height: "auto",
-            }}
-            src="/header/slider/adv-1-min.png"
-            alt="adv-1"
-          />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Image
-            width={600}
-            height={600}
-            priority
-            style={{
-              width: "100%",
-              height: "auto",
-            }}
-            src="/header/slider/adv-1-min.png"
-            alt="adv-1"
-          />
-        </SwiperSlide>
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <Image
+              width={600}
+              height={600}
+              priority={slide.id === 1}
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+              src={slide.src}
+              alt={slide.alt}
+              aria-label={slide.alt}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
 
-      <div className="swiper-pagination-banner"></div>
+      <div aria-label="Pagination" className="swiper-pagination-banner"></div>
     </div>
   );
 };

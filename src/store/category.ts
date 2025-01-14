@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
-import { Category } from "../types";
+import { QuantityItemsCategory } from "../types";
 
 import { fetchCategory } from "../service";
 
 interface CategoryState {
-  category: Category[];
+  category: QuantityItemsCategory[];
   isLoading: boolean;
   error: string | null;
 

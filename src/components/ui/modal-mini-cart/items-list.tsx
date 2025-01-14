@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { CartVariation } from "../../../types";
+import { CartItemVariation } from "../../../types";
 
 import Style from "./modal-mini-cart.module.scss";
 
@@ -11,7 +11,7 @@ interface Props {
   imgUrl: string;
   sku: string;
   variationId: number;
-  variations: CartVariation[];
+  variations: CartItemVariation[];
 }
 const ItemsList: React.FC<Props> = ({
   singleItemPrice,

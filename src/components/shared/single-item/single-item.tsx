@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { Item } from "../../../types";
 
 import Style from "./single-item.module.scss";
 import CatalogStyle from "../catalog/catalog.module.scss";
@@ -13,15 +12,24 @@ import SingleItemWrapper from "./single-item-wrapper";
 import ItemsWrapper from "../catalog/items-wrapper";
 import Pathname from "../pathname";
 import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
-import { useCatalogStore, useUIStore } from "../../../store";
+import Loader from "../../../components/shared/loaders/default";
+import { useCatalogStore, useUIStore, useItemStore } from "../../../store";
 
-export type Props = {
-  item: Item;
-};
+interface Props {
+  id: number;
+}
 
-const SingleItem: React.FC<Props> = ({ item }) => {
+const SingleItem: React.FC<Props> = ({ id }) => {
+  const isLoading = useItemStore((state) => state.isLoading);
+  const item = useItemStore((state) => state.item);
+  const loadItem = useItemStore((state) => state.loadItem);
+
   const modalSize = useUIStore((state) => state.modalSize);
   const loadCatalog = useCatalogStore((state) => state.loadCatalog);
+
+  useEffect(() => {
+    loadItem(id);
+  }, [id]);
 
   useEffect(() => {
     if (modalSize === true) {
@@ -29,27 +37,51 @@ const SingleItem: React.FC<Props> = ({ item }) => {
     }
   }, [modalSize]);
 
+  if (isLoading) {
+    return <Loader item />;
+  }
+
   return (
     <>
-      <Pathname item={item} thirdPath />
+      {item.map((item) => (
+        <React.Fragment key={item.id}>
+          <Pathname name={item.name} category={item.category} thirdPath />
 
-      <section className={Style.single_item}>
-        <div className="container">
-          <ItemList item={item} />
+          <section className={Style.single_item}>
+            <div className="container">
+              <ItemList
+                id={item.id}
+                name={item.name}
+                imgUrl={item.imgUrl}
+                sku={item.sku}
+                tags={item.tags}
+                shortDescription={item.shortDescription}
+                category={item.category}
+                variations={item.variations}
+              />
 
-          <SingleItemWrapper title="Product Description">
-            <ExtendedDescription item={item} />
-          </SingleItemWrapper>
+              <SingleItemWrapper title="Product Description">
+                <ExtendedDescription
+                  extendedDescription={item.extendedDescription}
+                />
+              </SingleItemWrapper>
 
-          <SingleItemWrapper title="Related Products">
-            <ItemsWrapper gridWidth>
-              <li key={item.id} className={CatalogStyle.list}>
-                <CatalogItemList {...item} />
-              </li>
-            </ItemsWrapper>
-          </SingleItemWrapper>
-        </div>
-      </section>
+              <SingleItemWrapper title="Related Products">
+                <ItemsWrapper gridWidth>
+                  <li key={item.id} className={CatalogStyle.list}>
+                    <CatalogItemList
+                      id={item.id}
+                      name={item.name}
+                      imgUrl={item.imgUrl}
+                      variations={item.variations}
+                    />
+                  </li>
+                </ItemsWrapper>
+              </SingleItemWrapper>
+            </div>
+          </section>
+        </React.Fragment>
+      ))}
 
       <ModalChooseItemSize />
     </>

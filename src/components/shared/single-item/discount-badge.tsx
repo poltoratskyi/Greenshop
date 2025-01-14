@@ -2,26 +2,26 @@
 
 import Style from "./single-item.module.scss";
 
-import { Item } from "../../../types";
+import { ItemVariation } from "../../../types";
 
 import { getDiscountPercent } from "../../../hooks";
 
 import { useUIStore } from "../../../store";
 
 interface Props {
-  item: Item;
+  variations: ItemVariation[];
 }
 
-const DiscountBadge: React.FC<Props> = ({ item }) => {
+const DiscountBadge: React.FC<Props> = ({ variations }) => {
   const selectedSizeIndex = useUIStore((state) => state.selectedSizeIndex);
 
   return (
     <>
-      {item.variations[selectedSizeIndex].onSale && (
+      {variations[selectedSizeIndex].onSale && (
         <div className={Style.percent}>
           {getDiscountPercent(
-            item.variations[selectedSizeIndex].price,
-            item.variations[selectedSizeIndex].sale
+            variations[selectedSizeIndex].price,
+            variations[selectedSizeIndex].sale
           )}
           {"% OFF"}
         </div>

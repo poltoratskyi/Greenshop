@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import Style from "./single-item.module.scss";
 
-import { Item } from "../../../types";
+import { ItemCategory, ItemVariation } from "../../../types";
 
 import { media } from "./static-data";
 
@@ -10,32 +10,52 @@ import ItemInfo from "./item-info";
 import ImageGallery from "./image-gallery";
 
 interface Props {
-  item: Item;
+  id: number;
+  name: string;
+  imgUrl: string;
+  sku: string;
+  category: ItemCategory;
+  tags: string;
+  shortDescription: string;
+  variations: ItemVariation[];
 }
 
-const ItemList: React.FC<Props> = ({ item }) => {
+const ItemList: React.FC<Props> = ({
+  id,
+  name,
+  imgUrl,
+  sku,
+  category,
+  tags,
+  shortDescription,
+  variations,
+}) => {
   return (
     <div className={Style.content}>
-      <ImageGallery item={item} />
+      <ImageGallery imgUrl={imgUrl} name={name} variations={variations} />
 
       <div className={Style.block}>
-        <h2>{item.name}</h2>
+        <h2>{name}</h2>
 
-        <ItemInfo item={item} />
+        <ItemInfo
+          id={id}
+          shortDescription={shortDescription}
+          variations={variations}
+        />
 
         <p className={Style.sku}>
           <span>Sku: </span>
-          {item.sku}
+          {sku}
         </p>
 
         <p className={Style.category}>
           <span>Category: </span>
-          {item.category?.name}
+          {category.name}
         </p>
 
         <p className={Style.tags}>
           <span>Tags: </span>
-          {item.tags}
+          {tags}
         </p>
 
         <div className={Style.share}>

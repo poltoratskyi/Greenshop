@@ -1,4 +1,4 @@
-import { CartItem, CartResponse, CartVariation } from "../types";
+import { CartItem, CartResponse, CartItemVariation } from "../types";
 import { getSingleItemPrice } from "../hooks";
 
 interface CartDetails {
@@ -20,7 +20,7 @@ export const responseData = (data: CartResponse): CartDetails => {
     itemId: i.itemId,
     variationId: i.variationId - 1,
 
-    variations: i.item.variations.map((variation: CartVariation) => ({
+    variations: i.item.variations.map((variation: CartItemVariation) => ({
       id: variation.id,
       price: variation.price,
       sale: variation.sale,

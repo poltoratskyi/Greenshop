@@ -1,6 +1,9 @@
-import { Category } from "../types";
+import { QuantityItemsCategory } from "../types";
 
-export const getCategoryQuantity = (arr: Category[], value: number): number => {
+export const getQuantityItemsCategory = (
+  arr: QuantityItemsCategory[],
+  value: number
+): number => {
   const result = arr.reduce((acc, e) => {
     const itemQuantity = e.items.filter(
       (item) => item.categoryId === value

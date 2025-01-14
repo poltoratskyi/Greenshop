@@ -6,6 +6,7 @@ import {
 } from "./cart";
 import { fetchCatalog } from "./catalog";
 import { fetchCategory } from "./category";
+import { fetchSingleItem } from "./item";
 import { fetchSearchItem } from "./search";
 import { fetchSize } from "./size";
 import { fetchVariation } from "./variation";
@@ -17,6 +18,7 @@ export {
   addCartItem,
   fetchCatalog,
   fetchCategory,
+  fetchSingleItem,
   fetchSearchItem,
   fetchSize,
   fetchVariation,

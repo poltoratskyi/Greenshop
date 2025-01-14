@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
-import { Variation } from "../types";
+import { QuantityItemsSize } from "../types";
 
 import { fetchVariation } from "../service";
 
 interface VariationState {
-  variations: Variation[];
+  variations: QuantityItemsSize[];
   isLoading: boolean;
   error: string | null;
 

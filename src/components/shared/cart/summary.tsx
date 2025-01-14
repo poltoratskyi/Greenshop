@@ -18,7 +18,7 @@ const Summary: React.FC = () => {
   if (isLoading) {
     return (
       <>
-        <div className={Style.result}>
+        <div className={Style.subtotal}>
           <p>Subtotal</p>
 
           {isLoading &&
@@ -27,20 +27,14 @@ const Summary: React.FC = () => {
             ))}
         </div>
 
-        <div className={Style.result}>
+        <div className={Style.coupon}>
           <p>Coupon Discount</p>
           <p>(-) 00.00</p>
         </div>
 
-        <div style={{ alignItems: "flex-start" }} className={Style.result}>
+        <div className={Style.shipping}>
           <p>Shipping</p>
-          <span
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end",
-            }}
-          >
+          <span>
             {isLoading &&
               [...new Array(1)].map((_, index: number) => (
                 <Skeleton key={index} width="60" height="24" uniqueKey="7" />
@@ -49,7 +43,7 @@ const Summary: React.FC = () => {
           </span>
         </div>
 
-        <div style={{ marginBottom: "30px" }} className={Style.result}>
+        <div className={Style.total}>
           <mark>Total</mark>
 
           {isLoading &&
@@ -70,31 +64,25 @@ const Summary: React.FC = () => {
 
   return (
     <>
-      <div className={Style.result}>
+      <div className={Style.subtotal}>
         <p>Subtotal</p>
         <span>${subTotalAmount.toFixed(2)}</span>
       </div>
 
-      <div className={Style.result}>
+      <div className={Style.coupon}>
         <p>Coupon Discount</p>
         <p>(-) 00.00</p>
       </div>
 
-      <div style={{ alignItems: "flex-start" }} className={Style.result}>
+      <div className={Style.shipping}>
         <p>Shipping</p>
-        <span
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-end",
-          }}
-        >
+        <span>
           $16.00
           <Link href="#">View shipping charge</Link>
         </span>
       </div>
 
-      <div style={{ marginBottom: "30px" }} className={Style.result}>
+      <div className={Style.total}>
         <mark>Total</mark>
         <b>${totalAmount.toFixed(2)} </b>
       </div>

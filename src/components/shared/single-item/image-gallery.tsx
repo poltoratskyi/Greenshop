@@ -14,7 +14,7 @@ import "swiper/scss/a11y";
 
 import "./slider.css";
 
-import { Item } from "../../../types";
+import { ItemVariation } from "../../../types";
 
 import Style from "./single-item.module.scss";
 
@@ -23,13 +23,15 @@ import { useUIStore } from "../../../store";
 import DiscountBadge from "./discount-badge";
 
 interface Props {
-  item: Item;
+  imgUrl: string;
+  name: string;
+  variations: ItemVariation[];
 }
 
-const ImageGallery: React.FC<Props> = ({ item }) => {
+const ImageGallery: React.FC<Props> = ({ imgUrl, name, variations }) => {
   const pathname = usePathname();
 
-  const images = [item.imgUrl, item.imgUrl, item.imgUrl, "/catalog/3-min.png"];
+  const images = [imgUrl, imgUrl, imgUrl, "/catalog/3-min.png"];
 
   const imageIndex = useUIStore((state) => state.imageIndex);
   const setImageIndex = useUIStore((state) => state.setImageIndex);
@@ -67,7 +69,7 @@ const ImageGallery: React.FC<Props> = ({ item }) => {
                   backgroundColor: "#fafafa",
                 }}
                 src={imgUrl}
-                alt={item.name}
+                alt={name}
               />
             </div>
           </SwiperSlide>
@@ -116,19 +118,27 @@ const ImageGallery: React.FC<Props> = ({ item }) => {
                   padding: "20px",
                 }}
                 src={imgUrl}
-                alt={item.name}
+                alt={name}
               />
             </div>
 
-            <DiscountBadge item={item} />
+            <DiscountBadge variations={variations} />
           </SwiperSlide>
         ))}
 
-        <div id="item-button-prev" className="swiper-button-prev"></div>
-        <div id="item-button-next" className="swiper-button-next"></div>
+        <div
+          id="item-button-prev"
+          aria-label="Previous slide"
+          className="swiper-button-prev"
+        ></div>
+        <div
+          id="item-button-next"
+          aria-label="Next slide"
+          className="swiper-button-next"
+        ></div>
       </Swiper>
 
-      <div className="swiper-pagination-item"></div>
+      <div aria-label="Pagination" className="swiper-pagination-item"></div>
     </div>
   );
 };

@@ -1,19 +1,26 @@
 import Link from "next/link";
 
-import { Item } from "../../../types";
+import { ItemCategory } from "../../../types";
 
 import Style from "./pathname.module.scss";
 
 import Backspace from "../backspace";
 
 interface Props {
-  item?: Item;
+  name?: string;
+  category?: ItemCategory;
   second?: string;
   third?: string;
   thirdPath?: boolean;
 }
 
-const Pathname: React.FC<Props> = ({ item, second, third, thirdPath }) => {
+const Pathname: React.FC<Props> = ({
+  name,
+  category,
+  second,
+  third,
+  thirdPath,
+}) => {
   return (
     <div className={Style.wrapper}>
       <div className={Style.item_path}>
@@ -30,13 +37,13 @@ const Pathname: React.FC<Props> = ({ item, second, third, thirdPath }) => {
               thirdPath ? Style.list : `${Style.list} ${Style.active}`
             }`}
           >
-            {item && item.category ? item.category.name : second}
-            {thirdPath && "/"}
+            {category ? category.name : second}
+            {thirdPath && <span style={{ marginLeft: "5px" }}>/</span>}
           </li>
 
           {thirdPath && (
             <li className={`${Style.list} ${Style.active}`}>
-              {item ? item.name : third}
+              {thirdPath ? name : third}
             </li>
           )}
         </ul>

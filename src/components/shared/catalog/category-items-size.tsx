@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { Size } from "../../../types";
-import { getSizeQuantity } from "../../../hooks";
+import { getQuantitySize } from "../../../hooks";
 
 import Style from "./catalog.module.scss";
 
@@ -57,7 +56,7 @@ const CategoryItemsSize: React.FC = () => {
       <h3 className={Style.title}>Size</h3>
 
       <ul className={Style.lists}>
-        {sizeMenu.map((item: Size) => (
+        {sizeMenu.map((item) => (
           <li
             className={
               activeSizeMenu === item.fullName
@@ -69,7 +68,7 @@ const CategoryItemsSize: React.FC = () => {
           >
             {item.fullName}
             <span>
-              <span>{getSizeQuantity(variations, item.id)}</span>
+              <span>{getQuantitySize(variations, item.id)}</span>
             </span>
           </li>
         ))}

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { Item } from "../../../types";
+import { ItemVariation } from "../../../types";
 
 import Style from "./catalog.module.scss";
 
@@ -12,9 +12,14 @@ import { svgCart, svgHeart } from "./static-data";
 
 import { useSearchStore, useUIStore } from "../../../store";
 
-interface Props extends Item {}
+interface Props {
+  id: number;
+  name: string;
+  imgUrl: string;
+  variations: ItemVariation[];
+}
 
-const ItemList: React.FC<Props> = ({ id, imgUrl, name, variations }) => {
+const ItemList: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
   const search = useUIStore((state) => state.search);
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
   const setOpenModalSize = useUIStore((state) => state.setOpenModalSize);

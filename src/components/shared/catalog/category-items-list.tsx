@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import qs from "qs";
 
-import { Category } from "../../../types";
-import { getCategoryQuantity } from "../../../hooks";
+import { getQuantityItemsCategory } from "../../../hooks";
 
 import Style from "./catalog.module.scss";
 
@@ -61,7 +60,7 @@ const CategoryItemsList: React.FC = () => {
       <h3 className={Style.title}>Categories</h3>
 
       <ul className={Style.lists}>
-        {category.map((item: Category) => (
+        {category.map((item) => (
           <li
             className={
               activeCategoryMenu === item.name
@@ -72,7 +71,7 @@ const CategoryItemsList: React.FC = () => {
             key={item.id}
           >
             {item.name}
-            <span>{getCategoryQuantity(category, item.id)}</span>
+            <span>{getQuantityItemsCategory(category, item.id)}</span>
           </li>
         ))}
       </ul>

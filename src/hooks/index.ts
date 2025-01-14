@@ -1,15 +1,15 @@
-import { getCategoryQuantity } from "./get-category-quantity";
+import { getQuantityItemsCategory } from "./get-quantity-items-category";
 import { getDiscountPercent } from "./get-discount-percent";
 import { getRandomUserToken } from "./get-random-user-token";
 import { getSingleItemPrice } from "./get-single-item-price";
-import { getSizeQuantity } from "./get-size-quantity";
+import { getQuantitySize } from "./get-quantity-size";
 import { getUserCart } from "./get-user-cart";
 
 export {
-  getCategoryQuantity,
+  getQuantityItemsCategory,
   getDiscountPercent,
   getSingleItemPrice,
-  getSizeQuantity,
+  getQuantitySize,
   getUserCart,
   getRandomUserToken,
 };

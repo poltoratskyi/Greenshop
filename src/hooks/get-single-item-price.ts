@@ -1,6 +1,6 @@
-import { CartSingleItemPrice } from "../types";
+import { CartItemPrice } from "../types";
 
-export const getSingleItemPrice = (i: CartSingleItemPrice): number => {
+export const getSingleItemPrice = (i: CartItemPrice): number => {
   const variation = i.item.variations[i.variationId - 1];
   const price = variation.onSale ? variation.sale : variation.price;
 

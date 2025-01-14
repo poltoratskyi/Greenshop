@@ -9,6 +9,10 @@
   background-color: #fff;
   margin-top: 1px;
 
+  &.item {
+    height: 100vh;
+  }
+
   .round {
     width: 100px;
     padding: 8px;

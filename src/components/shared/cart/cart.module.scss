@@ -185,7 +185,10 @@
         margin-bottom: 10px;
       }
 
-      .result {
+      .subtotal,
+      .coupon,
+      .shipping,
+      .total {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -221,6 +224,19 @@
         b {
           @include m.title($c: v.$main, $fz: 18px, $lh: 24px);
         }
+      }
+
+      .shipping {
+        align-items: flex-start;
+        span {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+        }
+      }
+
+      .total {
+        margin-bottom: 30px;
       }
 
       .continue {

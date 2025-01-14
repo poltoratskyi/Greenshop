@@ -1,13 +1,11 @@
-import { Item } from "../../../types";
-
 import Style from "./single-item.module.scss";
 
 interface Props {
-  item: Item;
+  extendedDescription: string;
 }
 
-const ExtendedDescription: React.FC<Props> = ({ item }) => {
-  return <p className={Style.text}>{item.extendedDescription}</p>;
+const ExtendedDescription: React.FC<Props> = ({ extendedDescription }) => {
+  return <p className={Style.text}>{extendedDescription}</p>;
 };
 
 export default ExtendedDescription;

@@ -108,7 +108,7 @@ const ItemList: React.FC<Props> = ({
           >
             {isLoadingItem ? (
               <>
-                {selectedItemSizeId === variation.sizeId && <Loader />}
+                {selectedItemSizeId === variation.sizeId && <Loader modal />}
                 <ItemInfo {...variation} />
               </>
             ) : (

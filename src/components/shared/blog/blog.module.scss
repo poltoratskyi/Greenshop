@@ -6,12 +6,14 @@
 
   .title {
     @include m.title();
+
     text-align: center;
     margin-bottom: 15px;
   }
 
   .descr {
     @include m.description();
+
     text-align: center;
     margin-bottom: 35px;
   }
@@ -39,22 +41,26 @@
 
           .element {
             @include m.description($c: v.$text);
+
             padding: 0px 10px;
           }
         }
 
         h3 {
           @include m.subtitle-clamp();
+
           margin-bottom: 10px;
         }
 
         p {
           @include m.description-clamp();
+
           margin-bottom: 15px;
         }
 
         a {
           @include m.description($fw: 500, $c: v.$text);
+
           position: relative;
 
           svg {

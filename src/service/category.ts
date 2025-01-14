@@ -1,8 +1,10 @@
 import { AxiosInstance } from "./axios";
 
-import { Category } from "../types";
+import { QuantityItemsCategory } from "../types";
 
-export const fetchCategory = async (): Promise<Category[]> => {
-  const response = await AxiosInstance.get<Category[]>("/category");
+export const fetchCategory = async (): Promise<QuantityItemsCategory[]> => {
+  const response = await AxiosInstance.get<QuantityItemsCategory[]>(
+    "/category"
+  );
   return response.data;
 };

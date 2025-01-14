@@ -2,7 +2,7 @@
 
 import Style from "./single-item.module.scss";
 
-import { Item } from "../../../types";
+import { ItemVariation } from "../../../types";
 
 import { useUIStore, useCartStore } from "../../../store";
 
@@ -11,10 +11,12 @@ import Button from "../button";
 import { svgHeart } from "./static-data";
 
 interface Props {
-  item: Item;
+  id: number;
+  shortDescription: string;
+  variations: ItemVariation[];
 }
 
-const ItemInfo: React.FC<Props> = ({ item }) => {
+const ItemInfo: React.FC<Props> = ({ id, shortDescription, variations }) => {
   const selectedSizeIndex = useUIStore((state) => state.selectedSizeIndex);
   const setSelectedSizeIndex = useUIStore(
     (state) => state.setSelectedSizeIndex
@@ -24,10 +26,10 @@ const ItemInfo: React.FC<Props> = ({ item }) => {
 
   const handleAddToCart = async () => {
     try {
-      const variation = item.variations[selectedSizeIndex];
+      const variation = variations[selectedSizeIndex];
 
       await addCartItem({
-        itemId: item.id,
+        itemId: id,
         variationId: variation.sizeId,
       });
     } catch (error) {
@@ -38,20 +40,20 @@ const ItemInfo: React.FC<Props> = ({ item }) => {
   return (
     <>
       <span className={Style.price}>
-        {item.variations[selectedSizeIndex].onSale ? (
+        {variations[selectedSizeIndex].onSale ? (
           <div className={Style.info}>
             <span className={Style.sale}>
-              ${item.variations[selectedSizeIndex].price.toFixed(2)}
+              ${variations[selectedSizeIndex].price.toFixed(2)}
             </span>
 
             <span className={Style.price}>
-              ${item.variations[selectedSizeIndex].sale.toFixed(2)}
+              ${variations[selectedSizeIndex].sale.toFixed(2)}
             </span>
           </div>
         ) : (
           <div className={Style.info}>
             <span className={Style.price}>
-              ${item.variations[selectedSizeIndex]?.price.toFixed(2)}
+              ${variations[selectedSizeIndex]?.price.toFixed(2)}
             </span>
           </div>
         )}
@@ -61,12 +63,12 @@ const ItemInfo: React.FC<Props> = ({ item }) => {
 
       <span className={Style.subtitle}>Short Description:</span>
 
-      <p className={Style.description}>{item.shortDescription}</p>
+      <p className={Style.description}>{shortDescription}</p>
 
       <span className={Style.size}>Size:</span>
 
       <ul className={Style.lists}>
-        {item.variations.map((variation) => (
+        {variations.map((variation) => (
           <li
             onClick={() => setSelectedSizeIndex(variation.sizeId - 1)}
             className={

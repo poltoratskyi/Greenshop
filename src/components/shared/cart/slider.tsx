@@ -85,10 +85,21 @@ const Slider: React.FC = () => {
               </SwiperSlide>
             ))}
 
-            <div id="cart-button-prev" className="swiper-button-prev"></div>
-            <div id="cart-button-next" className="swiper-button-next"></div>
+            <div
+              id="cart-button-prev"
+              aria-label="Previous slide"
+              className="swiper-button-prev"
+            ></div>
+            <div
+              id="cart-button-next"
+              aria-label="Next slide"
+              className="swiper-button-next"
+            ></div>
 
-            <div className="swiper-pagination-cart"></div>
+            <div
+              aria-label="Pagination"
+              className="swiper-pagination-cart"
+            ></div>
           </Swiper>
         </div>
       )}

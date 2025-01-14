@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
-import { Size } from "../types";
+import { ItemSize } from "../types";
 
 import { fetchSize } from "../service";
 
 interface SizeState {
-  sizeMenu: Size[];
+  sizeMenu: ItemSize[];
   isLoading: boolean;
   error: string | null;
 
