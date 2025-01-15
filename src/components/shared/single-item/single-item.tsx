@@ -13,7 +13,7 @@ import ItemsWrapper from "../catalog/items-wrapper";
 import Pathname from "../pathname";
 import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
 import Loader from "../../../components/shared/loaders/default";
-import { useCatalogStore, useUIStore, useItemStore } from "../../../store";
+import { useItemStore } from "../../../store";
 
 interface Props {
   id: number;
@@ -24,18 +24,9 @@ const SingleItem: React.FC<Props> = ({ id }) => {
   const item = useItemStore((state) => state.item);
   const loadItem = useItemStore((state) => state.loadItem);
 
-  const modalSize = useUIStore((state) => state.modalSize);
-  const loadCatalog = useCatalogStore((state) => state.loadCatalog);
-
   useEffect(() => {
     loadItem(id);
   }, [id]);
-
-  useEffect(() => {
-    if (modalSize === true) {
-      loadCatalog();
-    }
-  }, [modalSize]);
 
   if (isLoading) {
     return <Loader item />;

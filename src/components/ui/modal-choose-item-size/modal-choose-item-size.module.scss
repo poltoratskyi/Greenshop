@@ -86,7 +86,7 @@
 
         .sku,
         .tags {
-          @include m.description();
+          @include m.description-clamp($lc: 1);
 
           span {
             color: v.$text;

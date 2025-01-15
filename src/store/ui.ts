@@ -15,9 +15,7 @@ interface UIState {
 
   // Modal Size
   modalSize: boolean;
-  selectedItemId: number | null;
   selectedItemSizeId: number | null;
-  setSelectedItemId: (id: number) => void;
   setOpenModalSize: (isOpen: boolean) => void;
   setSelectedItemSizeId: (id: number) => void;
 
@@ -58,10 +56,8 @@ export const useUIStore = create<UIState>((set) => ({
 
   // Modal Size
   modalSize: false,
-  selectedItemId: null,
   selectedItemSizeId: null,
   setOpenModalSize: (isOpen) => set({ modalSize: isOpen }),
-  setSelectedItemId: (id) => set({ selectedItemId: id }),
   setSelectedItemSizeId: (id) => set({ selectedItemSizeId: id }),
 
   // Sort
@@ -76,7 +72,7 @@ export const useUIStore = create<UIState>((set) => ({
   burger: false,
   setOpenBurger: (isOpen) => set({ burger: isOpen }),
 
-  // Sizes
+  // Switch sizes
   selectedSizeIndex: 0,
   setSelectedSizeIndex: (index) => set({ selectedSizeIndex: index }),
 

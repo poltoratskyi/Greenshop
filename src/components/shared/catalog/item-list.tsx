@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import qs from "qs";
+
 import { ItemVariation } from "../../../types";
 
 import Style from "./catalog.module.scss";
@@ -10,7 +12,7 @@ import Style from "./catalog.module.scss";
 import { getDiscountPercent } from "../../../hooks";
 import { svgCart, svgHeart } from "./static-data";
 
-import { useSearchStore, useUIStore } from "../../../store";
+import { useItemStore, useSearchStore, useUIStore } from "../../../store";
 
 interface Props {
   id: number;
@@ -23,9 +25,12 @@ const ItemList: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
   const search = useUIStore((state) => state.search);
   const setOpenSearch = useUIStore((state) => state.setOpenSearch);
   const setOpenModalSize = useUIStore((state) => state.setOpenModalSize);
-  const setSelectedItemId = useUIStore((state) => state.setSelectedItemId);
   const setInputValue = useSearchStore((state) => state.setInputValue);
   const clearResults = useSearchStore((state) => state.clearResults);
+
+  const loadModalSingleItem = useItemStore(
+    (state) => state.loadModalSingleItem
+  );
 
   return (
     <>
@@ -63,7 +68,7 @@ const ItemList: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
 
             <span
               onClick={() => {
-                setSelectedItemId(id);
+                loadModalSingleItem(id);
                 setOpenModalSize(true);
               }}
               className={Style.cart}
@@ -75,7 +80,7 @@ const ItemList: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
           <div className={Style.control_mobile}>
             <span
               onClick={() => {
-                setSelectedItemId(id);
+                loadModalSingleItem(id);
                 setOpenModalSize(true);
               }}
               className={Style.cart_mobile}
