@@ -13,7 +13,7 @@ const ItemsWrapper: React.FC<Props> = ({ gridWidth, gridUnset, children }) => {
       {gridUnset ? (
         <div
           className={`${Style.lists} ${gridUnset && Style.interested} ${
-            gridWidth && Style.related
+            gridWidth && Style.viewed
           }`}
         >
           {children}
@@ -21,7 +21,7 @@ const ItemsWrapper: React.FC<Props> = ({ gridWidth, gridUnset, children }) => {
       ) : (
         <ul
           className={`${Style.lists} ${gridUnset && Style.interested} ${
-            gridWidth && Style.related
+            gridWidth && Style.viewed
           }`}
         >
           {children}

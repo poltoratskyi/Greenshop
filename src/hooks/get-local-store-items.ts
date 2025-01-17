@@ -10,7 +10,7 @@ interface Props {
 export const getLocalStoreItems = ({ id, name, imgUrl, variations }: Props) => {
   const item = { id, name, imgUrl, variations };
 
-  let items = JSON.parse(localStorage.getItem("related products") || "[]");
+  let items = JSON.parse(localStorage.getItem("viewed products") || "[]");
 
   const isItem = items.filter((i: { id: number }) => i.id !== item.id);
 
@@ -20,5 +20,5 @@ export const getLocalStoreItems = ({ id, name, imgUrl, variations }: Props) => {
 
   items.unshift(item);
 
-  localStorage.setItem("related products", JSON.stringify(items));
+  localStorage.setItem("viewed products", JSON.stringify(items));
 };

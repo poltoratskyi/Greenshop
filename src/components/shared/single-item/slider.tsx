@@ -12,13 +12,13 @@ import SingleItemWrapper from "./single-item-wrapper";
 
 const Slider: React.FC = () => {
   const storedItems = JSON.parse(
-    localStorage.getItem("related products") || "[]"
+    localStorage.getItem("viewed products") || "[]"
   );
 
   return (
     <>
       {storedItems.length > 0 && (
-        <SingleItemWrapper title="Related Products">
+        <SingleItemWrapper title="viewed Products">
           <Swiper
             spaceBetween={25}
             slidesPerView={4.4}
