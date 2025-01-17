@@ -6,6 +6,7 @@ import { CartItemVariation } from "../../../types";
 import Style from "./cart.module.scss";
 
 import Details from "./details";
+import { getLocalStoreItems } from "@/hooks";
 
 interface Props {
   id: number;
@@ -34,7 +35,11 @@ const CartItem: React.FC<Props> = ({
     <li className={Style.list}>
       <div className={Style.layout}>
         <div className={Style.product}>
-          <Link className={Style.img} href={`/item/${itemId}`}>
+          <Link
+            className={Style.img}
+            href={`/item/${itemId}`}
+            onClick={() => getLocalStoreItems({ id, name, imgUrl, variations })}
+          >
             <Image
               width={600}
               height={600}
@@ -48,7 +53,12 @@ const CartItem: React.FC<Props> = ({
           </Link>
 
           <div className={Style.driver}>
-            <Link href={`/item/${itemId}`}>
+            <Link
+              href={`/item/${itemId}`}
+              onClick={() =>
+                getLocalStoreItems({ id, name, imgUrl, variations })
+              }
+            >
               <h3 className={Style.title}>{name}</h3>
             </Link>
 

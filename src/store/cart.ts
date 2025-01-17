@@ -6,7 +6,7 @@ import {
   fetchUserCart,
   updateCartItemQuantity,
   deleteCartItem,
-  addCartItem,
+  addItemCart,
 } from "../service";
 
 import { responseData } from "../data";
@@ -22,7 +22,7 @@ interface CartState {
   loadUserCart: () => Promise<void>;
   updateCartItemQuantity: (id: number, quantity: number) => Promise<void>;
   deleteCartItem: (id: number) => Promise<void>;
-  addCartItem: (item: PostCartItem) => Promise<void>;
+  addItemCart: (item: PostCartItem) => Promise<void>;
 }
 
 export const useCartStore = create<CartState>((set) => ({
@@ -79,12 +79,12 @@ export const useCartStore = create<CartState>((set) => ({
     }
   },
 
-  addCartItem: async (item: PostCartItem) => {
+  addItemCart: async (item: PostCartItem) => {
     set({ isLoading: true, error: null });
     set({ isLoadingItem: true, error: null });
 
     try {
-      const response = await addCartItem(item);
+      const response = await addItemCart(item);
 
       set(responseData(response));
     } catch (err) {

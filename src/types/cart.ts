@@ -9,8 +9,10 @@ import {
   Price,
   Tags,
   ShortName,
+  FullName,
+  SizeId,
+  ItemCategory,
 } from "./common";
-import { ItemCategory } from "./item";
 import { User } from "./user";
 
 export type VariationId = {
@@ -21,10 +23,11 @@ export type TotalAmount = {
   totalAmount: number;
 };
 
-export type CartItemSize = ShortName & {};
+export type CartItemSize = Id & ShortName & FullName & {};
 
 export type CartItemVariation = Id &
-  Price & {
+  Price &
+  SizeId & {
     size: CartItemSize;
   };
 

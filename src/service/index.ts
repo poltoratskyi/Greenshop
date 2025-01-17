@@ -2,7 +2,7 @@ import {
   fetchUserCart,
   updateCartItemQuantity,
   deleteCartItem,
-  addCartItem,
+  addItemCart,
 } from "./cart";
 import { fetchCatalog } from "./catalog";
 import { fetchCategory } from "./category";
@@ -15,7 +15,7 @@ export {
   fetchUserCart,
   updateCartItemQuantity,
   deleteCartItem,
-  addCartItem,
+  addItemCart,
   fetchCatalog,
   fetchCategory,
   fetchSingleItem,

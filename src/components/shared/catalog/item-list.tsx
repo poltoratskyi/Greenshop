@@ -3,15 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import qs from "qs";
-
 import { ItemVariation } from "../../../types";
 
 import Style from "./catalog.module.scss";
 
-import { getDiscountPercent } from "../../../hooks";
+import { getDiscountPercent, getLocalStoreItems } from "../../../hooks";
 import { svgCart, svgHeart } from "./static-data";
-
 import { useItemStore, useSearchStore, useUIStore } from "../../../store";
 
 interface Props {
@@ -43,6 +40,8 @@ const ItemList: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
                 setInputValue("");
                 clearResults();
               }
+
+              getLocalStoreItems({ id, name, imgUrl, variations });
 
               document.body.style.overflow = "auto";
             }}
@@ -104,6 +103,8 @@ const ItemList: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
               setInputValue("");
               clearResults();
             }
+
+            getLocalStoreItems({ id, name, imgUrl, variations });
 
             document.body.style.overflow = "auto";
           }}

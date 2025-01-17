@@ -1,50 +1,24 @@
-"use client";
-
-import { useEffect } from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, A11y } from "swiper/modules";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/a11y";
-import "./slider.css";
+import "../cart/slider.css";
+import ItemsWrapper from "../catalog/items-wrapper";
 
-import Style from "./cart.module.scss";
 import CatalogStyle from "../../shared/catalog/catalog.module.scss";
-
-import { useCartStore, useCatalogStore } from "../../../store";
-
 import ItemList from "../../shared/catalog/item-list";
-import ItemsWrapper from "../../shared/catalog/items-wrapper";
+import SingleItemWrapper from "./single-item-wrapper";
 
 const Slider: React.FC = () => {
-  const cartItems = useCartStore((state) => state.cartItems);
-
-  const loadCatalog = useCatalogStore((state) => state.loadCatalog);
-  const catalog = useCatalogStore((state) => state.catalog);
-
-  // Get cart items categories
-  const itemCategories = cartItems.map((item) => item.category.name);
-
-  // Get cart items ids
-  const itemIdsInCart = cartItems.map((item) => item.itemId);
-
-  useEffect(() => {
-    loadCatalog();
-  }, []);
-
-  const filteredCatalog = catalog
-    .filter((item) => itemCategories.includes(item.category.name))
-    .filter((item) => !itemIdsInCart.includes(item.id));
-
-  const isEmpty = filteredCatalog.length === 0;
+  const storedItems = JSON.parse(
+    localStorage.getItem("related products") || "[]"
+  );
 
   return (
     <>
-      {cartItems.length > 0 && !isEmpty && (
-        <div className={Style.slider}>
-          <h4 className={Style.title}>You may be interested in</h4>
-
+      {storedItems.length > 0 && (
+        <SingleItemWrapper title="Related Products">
           <Swiper
             spaceBetween={25}
             slidesPerView={4.4}
@@ -74,7 +48,7 @@ const Slider: React.FC = () => {
               },
             }}
           >
-            {filteredCatalog.map((item) => (
+            {storedItems.map((item: any) => (
               <SwiperSlide key={item.id}>
                 <ItemsWrapper gridUnset>
                   <div className={CatalogStyle.list}>
@@ -100,7 +74,7 @@ const Slider: React.FC = () => {
               className="swiper-pagination-cart"
             ></div>
           </Swiper>
-        </div>
+        </SingleItemWrapper>
       )}
     </>
   );

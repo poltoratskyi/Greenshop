@@ -3,17 +3,15 @@
 import React, { useEffect } from "react";
 
 import Style from "./single-item.module.scss";
-import CatalogStyle from "../catalog/catalog.module.scss";
-import CatalogItemList from "../catalog/item-list";
 
 import ExtendedDescription from "./extended-description";
 import ItemList from "./item-list";
 import SingleItemWrapper from "./single-item-wrapper";
-import ItemsWrapper from "../catalog/items-wrapper";
 import Pathname from "../pathname";
 import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
 import Loader from "../../../components/shared/loaders/default";
 import { useItemStore } from "../../../store";
+import Slider from "./slider";
 
 interface Props {
   id: number;
@@ -57,18 +55,7 @@ const SingleItem: React.FC<Props> = ({ id }) => {
                 />
               </SingleItemWrapper>
 
-              <SingleItemWrapper title="Related Products">
-                <ItemsWrapper gridWidth>
-                  <li key={item.id} className={CatalogStyle.list}>
-                    <CatalogItemList
-                      id={item.id}
-                      name={item.name}
-                      imgUrl={item.imgUrl}
-                      variations={item.variations}
-                    />
-                  </li>
-                </ItemsWrapper>
-              </SingleItemWrapper>
+              <Slider />
             </div>
           </section>
         </React.Fragment>

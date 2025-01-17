@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ItemCategory } from "../../../types";
+import { ItemCategory } from "../../../types/common";
 
 import Style from "./pathname.module.scss";
 

@@ -44,9 +44,13 @@ export async function getUserCart(token: string) {
                   sale: true,
                   onSale: true,
 
+                  sizeId: true,
+
                   size: {
                     select: {
+                      id: true,
                       shortName: true,
+                      fullName: true,
                     },
                   },
                 },

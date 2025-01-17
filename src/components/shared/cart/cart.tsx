@@ -5,6 +5,7 @@ import Review from "./review";
 import Slider from "./slider";
 import Pathname from "../pathname";
 import Inner from "./inner";
+import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
 
 const Cart: React.FC = () => {
   return (
@@ -22,6 +23,8 @@ const Cart: React.FC = () => {
           <Slider />
         </div>
       </section>
+
+      <ModalChooseItemSize />
     </>
   );
 };

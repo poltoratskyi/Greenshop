@@ -15,6 +15,7 @@ export async function GET(request: NextRequest, { params }: Props) {
 
       select: {
         id: true,
+
         imgUrl: true,
         name: true,
         shortDescription: true,
@@ -24,10 +25,13 @@ export async function GET(request: NextRequest, { params }: Props) {
         variations: {
           select: {
             id: true,
+
             price: true,
             sale: true,
             onSale: true,
+
             sizeId: true,
+
             size: {
               select: {
                 id: true,
@@ -37,6 +41,7 @@ export async function GET(request: NextRequest, { params }: Props) {
             },
           },
         },
+
         category: {
           select: {
             id: true,

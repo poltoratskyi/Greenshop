@@ -10,6 +10,12 @@ export type ItemId = {
   itemId: number;
 };
 
+export type SizeId = {
+  sizeId: number;
+};
+
+export type ItemCategory = Id & Name & {};
+
 export type Name = {
   name: string;
 };
@@ -26,6 +32,10 @@ export type Quantity = {
 
 export type ShortName = {
   shortName: string;
+};
+
+export type FullName = {
+  fullName: string;
 };
 
 export type Sku = {

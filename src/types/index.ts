@@ -1,6 +1,5 @@
 import {
   Item,
-  ItemCategory,
   ItemVariation,
   ItemSize,
   QuantityItemsSize,
@@ -19,7 +18,6 @@ import { Order, OrderItem, OrderStatus } from "./order";
 
 export type {
   Item,
-  ItemCategory,
   ItemVariation,
   ItemSize,
   QuantityItemsCategory,

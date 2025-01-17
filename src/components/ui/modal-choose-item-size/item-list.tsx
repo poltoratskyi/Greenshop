@@ -6,14 +6,22 @@ import { useRouter } from "next/navigation";
 
 import Style from "./modal-choose-item-size.module.scss";
 
-import { Item } from "../../../types";
+import { ItemVariation } from "../../../types";
 
 import ItemInfo from "./item-info";
 
 import { useUIStore, useCartStore } from "../../../store";
 import Loader from "../../../components/shared/button/loader";
+import { getLocalStoreItems, useAddItemCart } from "../../../hooks";
 
-interface Props extends Item {}
+interface Props {
+  variations: ItemVariation[];
+  id: number;
+  imgUrl: string;
+  name: string;
+  tags: string;
+  sku: string;
+}
 
 const ItemList: React.FC<Props> = ({
   variations,
@@ -29,30 +37,8 @@ const ItemList: React.FC<Props> = ({
 
   const selectedItemSizeId = useUIStore((state) => state.selectedItemSizeId);
   const setOpenModalSize = useUIStore((state) => state.setOpenModalSize);
-  const setSelectedItemSizeId = useUIStore(
-    (state) => state.setSelectedItemSizeId
-  );
 
-  const addCartItem = useCartStore((state) => state.addCartItem);
-
-  const handleAddToCart = async (sizeId: number) => {
-    try {
-      const variation = variations[sizeId - 1];
-
-      setSelectedItemSizeId(variation.sizeId);
-
-      await addCartItem({
-        itemId: id,
-        variationId: variation.sizeId,
-      });
-
-      setOpenModalSize(false);
-
-      router.push("/cart");
-    } catch (error) {
-      console.error("Error adding item to cart:", error);
-    }
-  };
+  const { handleAddToCart } = useAddItemCart();
 
   return (
     <>
@@ -60,7 +46,11 @@ const ItemList: React.FC<Props> = ({
         <Link
           className={Style.img}
           href={`/item/${id}`}
-          onClick={() => setOpenModalSize(false)}
+          onClick={() => {
+            getLocalStoreItems({ id, name, imgUrl, variations });
+
+            setOpenModalSize(false);
+          }}
         >
           <Image
             width={600}
@@ -78,7 +68,10 @@ const ItemList: React.FC<Props> = ({
           <Link
             className={Style.name}
             href={`/item/${id}`}
-            onClick={() => setOpenModalSize(false)}
+            onClick={() => {
+              getLocalStoreItems({ id, name, imgUrl, variations });
+              setOpenModalSize(false);
+            }}
           >
             {name}
           </Link>
@@ -104,7 +97,11 @@ const ItemList: React.FC<Props> = ({
               cursor: isLoadingItem ? "not-allowed" : "pointer",
             }}
             key={variation.id}
-            onClick={() => handleAddToCart(variation.sizeId as number)}
+            onClick={() => {
+              handleAddToCart(id, variation.sizeId, variations);
+              setOpenModalSize(false);
+              router.push("/cart");
+            }}
           >
             {isLoadingItem ? (
               <>

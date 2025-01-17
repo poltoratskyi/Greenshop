@@ -26,8 +26,12 @@ export const responseData = (data: CartResponse): CartDetails => {
       sale: variation.sale,
       onSale: variation.onSale,
 
+      sizeId: variation.size.id,
+
       size: {
+        id: variation.size.id,
         shortName: variation.size.shortName,
+        fullName: variation.size.fullName,
       },
     })),
 

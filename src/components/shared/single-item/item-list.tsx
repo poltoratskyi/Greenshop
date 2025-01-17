@@ -2,7 +2,8 @@ import Link from "next/link";
 
 import Style from "./single-item.module.scss";
 
-import { ItemCategory, ItemVariation } from "../../../types";
+import { ItemVariation } from "../../../types";
+import { ItemCategory } from "../../../types/common";
 
 import { media } from "./static-data";
 

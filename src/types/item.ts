@@ -1,8 +1,16 @@
-import { Id, Image, ItemId, Name, Price, ShortName, Sku, Tags } from "./common";
-
-export type SizeId = {
-  sizeId: number;
-};
+import {
+  FullName,
+  Id,
+  Image,
+  ItemCategory,
+  ItemId,
+  Name,
+  Price,
+  ShortName,
+  SizeId,
+  Sku,
+  Tags,
+} from "./common";
 
 export type Item = Id &
   Image &
@@ -16,12 +24,7 @@ export type Item = Id &
     categoryId: number;
   };
 
-export type ItemSize = Id &
-  ShortName & {
-    fullName: string;
-  };
-
-export type ItemCategory = Id & Name & {};
+export type ItemSize = Id & ShortName & FullName & {};
 
 export type ItemVariation = Id &
   Price &

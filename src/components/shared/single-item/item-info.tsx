@@ -22,13 +22,13 @@ const ItemInfo: React.FC<Props> = ({ id, shortDescription, variations }) => {
     (state) => state.setSelectedSizeIndex
   );
 
-  const addCartItem = useCartStore((state) => state.addCartItem);
+  const addItemCart = useCartStore((state) => state.addItemCart);
 
   const handleAddToCart = async () => {
     try {
       const variation = variations[selectedSizeIndex];
 
-      await addCartItem({
+      await addItemCart({
         itemId: id,
         variationId: variation.sizeId,
       });
