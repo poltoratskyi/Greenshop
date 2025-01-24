@@ -85,7 +85,7 @@
 
     @include m.scroll(3px);
 
-    h5 {
+    h4 {
       @include m.description($c: v.$text);
       display: inline-block;
       margin-bottom: 15px;

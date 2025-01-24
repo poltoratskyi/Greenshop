@@ -58,6 +58,7 @@ const ItemList: React.FC<Props> = ({
             style={{
               width: "100%",
               height: "auto",
+              padding: "10px",
             }}
             src={imgUrl}
             alt={name}

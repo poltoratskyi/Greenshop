@@ -136,7 +136,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 10,
+    value: 1,
     itemId: 1,
   },
   {
@@ -144,7 +144,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 20,
+    value: 2,
     itemId: 1,
   },
   {
@@ -152,7 +152,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 30,
+    value: 3,
     itemId: 1,
   },
   {
@@ -160,7 +160,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 4,
-    value: 40,
+    value: 4,
     itemId: 1,
   },
 
@@ -170,7 +170,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 10,
+    value: 1,
     itemId: 2,
   },
   {
@@ -178,7 +178,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 20,
+    value: 2,
     itemId: 2,
   },
   {
@@ -186,7 +186,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 30,
+    value: 3,
     itemId: 2,
   },
   {
@@ -194,7 +194,7 @@ export const variation = [
     sale: 209,
     onSale: true,
     sizeId: 4,
-    value: 40,
+    value: 4,
     itemId: 2,
   },
 
@@ -204,7 +204,7 @@ export const variation = [
     sale: 199,
     onSale: true,
     sizeId: 1,
-    value: 10,
+    value: 1,
     itemId: 3,
   },
   {
@@ -212,7 +212,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 20,
+    value: 2,
     itemId: 3,
   },
   {
@@ -220,7 +220,7 @@ export const variation = [
     sale: 249,
     onSale: true,
     sizeId: 3,
-    value: 30,
+    value: 3,
     itemId: 3,
   },
   {
@@ -228,7 +228,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 4,
-    value: 40,
+    value: 4,
     itemId: 3,
   },
 
@@ -238,7 +238,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 10,
+    value: 1,
     itemId: 4,
   },
   {
@@ -246,7 +246,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 20,
+    value: 2,
     itemId: 4,
   },
   {
@@ -254,7 +254,7 @@ export const variation = [
     sale: 149,
     onSale: true,
     sizeId: 3,
-    value: 30,
+    value: 3,
     itemId: 4,
   },
   {
@@ -262,7 +262,7 @@ export const variation = [
     sale: 169,
     onSale: true,
     sizeId: 4,
-    value: 40,
+    value: 4,
     itemId: 4,
   },
 
@@ -272,7 +272,7 @@ export const variation = [
     sale: 129,
     onSale: true,
     sizeId: 1,
-    value: 10,
+    value: 1,
     itemId: 5,
   },
   {
@@ -280,7 +280,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 20,
+    value: 2,
     itemId: 5,
   },
   {
@@ -288,7 +288,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 30,
+    value: 3,
     itemId: 5,
   },
   {
@@ -296,7 +296,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 4,
-    value: 40,
+    value: 4,
     itemId: 5,
   },
 
@@ -306,7 +306,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 10,
+    value: 1,
     itemId: 6,
   },
   {
@@ -314,7 +314,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 20,
+    value: 2,
     itemId: 6,
   },
   {
@@ -322,7 +322,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 30,
+    value: 3,
     itemId: 6,
   },
   {
@@ -330,7 +330,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 4,
-    value: 40,
+    value: 4,
     itemId: 6,
   },
 
@@ -340,7 +340,7 @@ export const variation = [
     onSale: true,
     sale: 79,
     sizeId: 1,
-    value: 10,
+    value: 1,
     itemId: 7,
   },
   {
@@ -348,7 +348,7 @@ export const variation = [
     onSale: true,
     sale: 99,
     sizeId: 2,
-    value: 20,
+    value: 2,
     itemId: 7,
   },
   {
@@ -356,7 +356,7 @@ export const variation = [
     onSale: false,
     sale: 0,
     sizeId: 3,
-    value: 30,
+    value: 3,
     itemId: 7,
   },
   {
@@ -364,7 +364,7 @@ export const variation = [
     onSale: false,
     sale: 0,
     sizeId: 4,
-    value: 40,
+    value: 4,
     itemId: 7,
   },
 
@@ -374,7 +374,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 10,
+    value: 1,
     itemId: 8,
   },
   {
@@ -382,7 +382,7 @@ export const variation = [
     sale: 59,
     onSale: true,
     sizeId: 2,
-    value: 20,
+    value: 2,
     itemId: 8,
   },
   {
@@ -390,7 +390,7 @@ export const variation = [
     sale: 79,
     onSale: true,
     sizeId: 3,
-    value: 30,
+    value: 3,
     itemId: 8,
   },
   {
@@ -398,7 +398,7 @@ export const variation = [
     sale: 99,
     onSale: true,
     sizeId: 4,
-    value: 40,
+    value: 4,
     itemId: 8,
   },
 
@@ -408,7 +408,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 10,
+    value: 1,
     itemId: 9,
   },
   {
@@ -416,7 +416,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 20,
+    value: 2,
     itemId: 9,
   },
   {
@@ -424,7 +424,7 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 30,
+    value: 3,
     itemId: 9,
   },
   {
@@ -432,7 +432,7 @@ export const variation = [
     sale: 79,
     onSale: true,
     sizeId: 4,
-    value: 40,
+    value: 4,
     itemId: 9,
   },
 ];

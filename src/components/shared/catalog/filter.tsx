@@ -5,11 +5,11 @@ import FilterList from "./filter-list";
 
 const Filter: React.FC = () => {
   return (
-    <form className={Style.filter}>
+    <div className={Style.filter}>
       <FilterList />
 
       <Sort />
-    </form>
+    </div>
   );
 };
 

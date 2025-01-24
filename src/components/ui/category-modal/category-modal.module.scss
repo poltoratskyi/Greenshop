@@ -11,6 +11,7 @@
 }
 
 .category_modal {
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -41,5 +42,11 @@
 
   .content {
     padding: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .category_modal {
+    display: block;
   }
 }

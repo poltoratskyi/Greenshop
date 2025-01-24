@@ -1,13 +1,17 @@
-import Style from "./cart.module.scss";
+"use client";
 
+import Style from "./cart.module.scss";
 import ItemsList from "./items-list";
 import Review from "./review";
-import Slider from "./slider";
+import Slider from "../slider";
 import Pathname from "../pathname";
 import Inner from "./inner";
 import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
+import { getFilteredItemsCart } from "../../../hooks";
 
 const Cart: React.FC = () => {
+  const { cartItems, filteredItems, isEmpty } = getFilteredItemsCart();
+
   return (
     <>
       <Pathname second="Cart" />
@@ -20,7 +24,9 @@ const Cart: React.FC = () => {
             <Review />
           </Inner>
 
-          <Slider />
+          {cartItems.length > 0 && !isEmpty && (
+            <Slider filteredItems={filteredItems} />
+          )}
         </div>
       </section>
 

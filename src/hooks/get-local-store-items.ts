@@ -12,11 +12,7 @@ export const getLocalStoreItems = ({ id, name, imgUrl, variations }: Props) => {
 
   let items = JSON.parse(localStorage.getItem("viewed products") || "[]");
 
-  const isItem = items.filter((i: { id: number }) => i.id !== item.id);
-
-  if (isItem) {
-    items = items.filter((i: { id: number }) => i.id !== item.id);
-  }
+  items = items.filter((i: { id: number }) => i.id !== item.id);
 
   items.unshift(item);
 

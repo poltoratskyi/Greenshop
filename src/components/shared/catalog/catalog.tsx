@@ -12,6 +12,7 @@ import ItemsWrapper from "./items-wrapper";
 import ItemList from "./item-list";
 import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
 import Filter from "./filter";
+import CatalogWrapper from "./catalog-wrapper";
 
 const Catalog: React.FC = () => {
   const catalog = useCatalogStore((state) => state.catalog);
@@ -31,24 +32,24 @@ const Catalog: React.FC = () => {
               <Category />
             </aside>
 
-            <div style={{ width: "100%" }}>
+            <CatalogWrapper>
               <Filter />
 
-              <div className={Style.items}>
-                <ul className={Style.lists}>
-                  {isLoading &&
-                    [...new Array(9)].map((_, index: number) => (
-                      <Skeleton
-                        className={Style.loader}
-                        key={index}
-                        width={255}
-                        height={380}
-                        uniqueKey="1"
-                      />
-                    ))}
-                </ul>
-              </div>
-            </div>
+              <ItemsWrapper>
+                {isLoading &&
+                  [...new Array(9)].map((_, index: number) => (
+                    <Skeleton
+                      className={Style.loader}
+                      key={index}
+                      width={255}
+                      height={380}
+                      uniqueKey="1"
+                    />
+                  ))}
+              </ItemsWrapper>
+            </CatalogWrapper>
+
+            <ModalChooseItemSize />
           </div>
         </div>
       </section>
@@ -63,7 +64,7 @@ const Catalog: React.FC = () => {
             <Category />
           </aside>
 
-          <div style={{ width: "100%" }}>
+          <CatalogWrapper>
             <Filter />
 
             <ItemsWrapper>
@@ -73,7 +74,7 @@ const Catalog: React.FC = () => {
                 </li>
               ))}
             </ItemsWrapper>
-          </div>
+          </CatalogWrapper>
 
           <ModalChooseItemSize />
         </div>

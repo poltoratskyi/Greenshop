@@ -15,6 +15,10 @@ interface Props {
   descr: string;
 }
 
+const data = {
+  subtitle: "Welcome to GreenShop",
+};
+
 const Info: React.FC<Props> = ({
   className,
   value,
@@ -26,7 +30,7 @@ const Info: React.FC<Props> = ({
   return (
     <div className={Style.content}>
       <div className={Style.info}>
-        <span>Welcome to GreenShop</span>
+        <span>{data.subtitle}</span>
         <h1>
           Let’s Make a <br /> Better <mark>Planet</mark>
         </h1>

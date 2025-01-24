@@ -17,7 +17,6 @@ interface Props {
   linkValue?: string;
   className?: string;
   value?: string | JSX.Element;
-  svgCenter?: JSX.Element;
   svgLeft?: JSX.Element;
   svgRight?: JSX.Element;
 }
@@ -31,7 +30,6 @@ const Button: React.FC<Props> = ({
   linkValue,
   className,
   value,
-  svgCenter,
   svgLeft,
   svgRight,
 }) => {
@@ -46,7 +44,6 @@ const Button: React.FC<Props> = ({
       {button && (
         <button className={buttonClass}>
           {svgLeft}
-          {svgCenter}
           {value}
           {svgRight}
         </button>

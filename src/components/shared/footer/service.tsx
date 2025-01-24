@@ -6,19 +6,12 @@ import Style from "./footer.module.scss";
 
 import { serviceText } from "./static-data";
 
-interface Element {
-  title: string;
-  subtitle: string;
-  svg: JSX.Element;
-}
-[];
-
 const Service: React.FC = () => {
   return (
     <div className={Style.service}>
       <div className={Style.label}>
         <div className={Style.info}>
-          {serviceText.map((item: Element, index: number) => (
+          {serviceText.map((item, index: number) => (
             <div className={Style.inner} key={index}>
               <>{item.svg}</>
 

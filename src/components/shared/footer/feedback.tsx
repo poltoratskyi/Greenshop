@@ -1,54 +1,22 @@
-import Link from "next/link";
-
+// Feedback.tsx
+import React from "react";
 import Style from "./footer.module.scss";
-
 import Accept from "./accept";
+import NavList from "./nav-list";
 import { account, help, category } from "./static-data";
+
+const titles = {
+  account: "My Account",
+  help: "Help & Guide",
+  category: "Category",
+};
 
 const Feedback: React.FC = () => {
   return (
     <div className={Style.feedback}>
-      <nav className={Style.nav}>
-        <h3 className={Style.title}>My Account</h3>
-
-        <ul className={Style.lists}>
-          {account.map((item, index) => (
-            <li className={Style.list} key={index}>
-              <Link className={Style.link} href={item.link}>
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <nav className={Style.nav}>
-        <h3 className={Style.title}>Help & Guide</h3>
-
-        <ul className={Style.lists}>
-          {help.map((item, index) => (
-            <li className={Style.list} key={index}>
-              <Link className={Style.link} href={item.link}>
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <nav className={Style.nav}>
-        <h3 className={Style.title}>Category</h3>
-
-        <ul className={Style.lists}>
-          {category.map((item, index) => (
-            <li className={Style.list} key={index}>
-              <Link className={Style.link} href={item.link}>
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <NavList title={titles.account} items={account} />
+      <NavList title={titles.help} items={help} />
+      <NavList title={titles.category} items={category} />
 
       <Accept />
     </div>

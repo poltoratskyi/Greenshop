@@ -1,5 +1,8 @@
 "use client";
 
+import { useRef } from "react";
+import { useClickAway } from "react-use";
+
 import Style from "./modal-choose-item-size.module.scss";
 
 import { useUIStore, useItemStore } from "../../../store";
@@ -10,11 +13,19 @@ import ItemList from "./item-list";
 import Skeleton from "../../ui/skeleton/modal-item-size";
 
 const ModalChooseItemSize: React.FC = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
   const modalItem = useItemStore((state) => state.modalItem);
   const modalIsLoading = useItemStore((state) => state.modalIsLoading);
 
   const modalSize = useUIStore((state) => state.modalSize);
   const setOpenModalSize = useUIStore((state) => state.setOpenModalSize);
+
+  useClickAway(ref, () => {
+    if (modalSize) {
+      setOpenModalSize(false);
+    }
+  });
 
   if (modalIsLoading) {
     return (
@@ -26,6 +37,7 @@ const ModalChooseItemSize: React.FC = () => {
         ></div>
 
         <div
+          ref={ref}
           className={`${
             modalSize ? ` ${Style.modal} ${Style.active}` : `${Style.modal}`
           } `}
@@ -61,6 +73,7 @@ const ModalChooseItemSize: React.FC = () => {
       ></div>
 
       <div
+        ref={ref}
         className={`${
           modalSize ? ` ${Style.modal} ${Style.active}` : `${Style.modal}`
         } `}

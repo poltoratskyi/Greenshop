@@ -6,17 +6,22 @@ import CouponInput from "../../ui/coupon-input";
 
 import Summary from "./summary";
 
+const data = {
+  title: "Cart Totals",
+  continue: "Continue Shopping",
+};
+
 const Review: React.FC = () => {
   return (
     <div className={Style.review}>
-      <h2 className={Style.review_title}>Cart Totals</h2>
+      <h2 className={Style.review_title}>{data.title}</h2>
 
       <CouponInput />
 
       <Summary />
 
       <Link className={Style.continue} href="/#catalog">
-        Continue Shopping
+        {data.continue}
       </Link>
     </div>
   );

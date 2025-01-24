@@ -13,7 +13,7 @@ const SignUp: React.FC<Props> = ({ overflow }) => {
     <div className={`${Style.log_in} ${overflow && Style.overflow}`}>
       {overflow && <h2 className={Style.text_reg}>Sign Up</h2>}
 
-      <h5>Sign up to get started.</h5>
+      <h4>Sign up to get started.</h4>
 
       <form action="#" method="post">
         <input

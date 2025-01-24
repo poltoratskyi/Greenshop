@@ -1,17 +1,15 @@
 "use client";
 
 import React, { useEffect } from "react";
-
 import Style from "./single-item.module.scss";
-
 import ExtendedDescription from "./extended-description";
 import ItemList from "./item-list";
-import SingleItemWrapper from "./single-item-wrapper";
 import Pathname from "../pathname";
 import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
 import Loader from "../../../components/shared/loaders/default";
 import { useItemStore } from "../../../store";
-import Slider from "./slider";
+import Slider from "./slider-wrapper";
+import Title from "./title";
 
 interface Props {
   id: number;
@@ -49,11 +47,9 @@ const SingleItem: React.FC<Props> = ({ id }) => {
                 variations={item.variations}
               />
 
-              <SingleItemWrapper title="Product Description">
-                <ExtendedDescription
-                  extendedDescription={item.extendedDescription}
-                />
-              </SingleItemWrapper>
+              <Title title="Product Description" text>
+                {item.extendedDescription}
+              </Title>
 
               <Slider />
             </div>

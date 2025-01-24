@@ -30,10 +30,6 @@
             padding: 0px 0px 10px 0px;
             cursor: pointer;
 
-            &:hover {
-              color: v.$main;
-            }
-
             &.active {
               color: v.$main;
               border-bottom: 3px v.$main solid;
@@ -59,25 +55,72 @@
 
   .lists {
     .list {
-      @include m.subtitle($fz: 14px);
       display: flex;
       justify-content: space-between;
-      color: v.$text;
-      cursor: pointer;
+      align-items: center;
       padding: 0px 12px;
-      transition: all 0.2s ease;
       margin-bottom: 16px;
+
+      .checkbox {
+        position: relative;
+        cursor: pointer;
+
+        .input {
+          position: absolute;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+
+          &:checked + .label .check {
+            background-color: v.$main;
+            border-color: v.$main;
+
+            &::after {
+              content: "✓";
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              color: white;
+              font-size: 12px;
+            }
+          }
+        }
+
+        &:hover {
+          .check {
+            border-color: #b9b9b9;
+          }
+        }
+
+        .label {
+          display: inline-block;
+          height: 100%;
+          cursor: pointer;
+
+          .check {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border: 1px solid #ebebeb;
+            cursor: pointer;
+          }
+
+          .text {
+            @include m.subtitle($fz: 14px);
+
+            display: inline-block;
+            padding-left: 34px;
+          }
+        }
+      }
 
       &:last-child {
         margin-bottom: 0px;
       }
 
-      &:hover {
-        color: v.$main;
-      }
-
-      &.active {
-        color: v.$main;
+      &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
       }
     }
   }

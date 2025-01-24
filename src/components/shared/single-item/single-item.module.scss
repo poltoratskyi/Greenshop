@@ -149,29 +149,30 @@
       }
     }
   }
+}
 
-  .outline {
-    margin-bottom: 100px;
+.outline {
+  margin-bottom: 100px;
 
-    .wrapper {
-      border-bottom: 1px solid v.$line;
-      margin-bottom: 30px;
+  .wrapper {
+    border-bottom: 1px solid v.$line;
+    margin-bottom: 30px;
 
-      .title {
-        @include m.subtitle($c: v.$main);
-        display: inline-block;
-        padding-bottom: 15px;
-        border-bottom: 3px solid v.$main;
-      }
+    .title {
+      @include m.subtitle($c: v.$main);
+
+      display: inline-block;
+      padding-bottom: 15px;
+      border-bottom: 3px solid v.$main;
     }
+  }
 
-    .text {
-      @include m.description();
-    }
+  .text {
+    @include m.description();
+  }
 
-    &:last-child {
-      margin-bottom: 0px;
-    }
+  &:last-child {
+    margin-bottom: 0px;
   }
 }
 

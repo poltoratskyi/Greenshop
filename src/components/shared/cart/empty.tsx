@@ -7,6 +7,13 @@ import Style from "./cart.module.scss";
 
 import { useUIStore } from "../../../store";
 
+const data = {
+  title: "Your cart is empty",
+  subtitle: "To view your cart, please sign in to your account.",
+  login: "Log In",
+  continue: "Or continue shopping",
+};
+
 const Empty: React.FC = () => {
   const pathname = usePathname();
 
@@ -14,9 +21,9 @@ const Empty: React.FC = () => {
 
   return (
     <div className={Style.empty}>
-      <h4>Your cart is empty</h4>
+      <h4>{data.title}</h4>
 
-      <p>To view your cart, please sign in to your account.</p>
+      <p>{data.subtitle}</p>
 
       <Link
         style={{
@@ -29,11 +36,11 @@ const Empty: React.FC = () => {
         className={Style.login}
         href="/login"
       >
-        Log In
+        {data.login}
       </Link>
 
       <Link href="/#catalog">
-        <span>Or continue shopping</span>
+        <span>{data.continue}</span>
       </Link>
     </div>
   );

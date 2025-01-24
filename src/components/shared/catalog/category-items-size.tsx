@@ -1,17 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import { getQuantitySize } from "../../../hooks";
-
 import Style from "./catalog.module.scss";
-
 import Skeleton from "../../ui/skeleton/category";
-
 import { useSizeStore, useVariationStore } from "../../../store";
+import Checkbox from "./checkbox";
 
 const CategoryItemsSize: React.FC = () => {
-  const [activeSizeMenu, setActiveSizeMenu] = useState("");
+  const [selectedSizeName, setSelectedSizeName] = useState("");
+  const [selectedSizeId, setSelectedSizeId] = useState(Number);
 
   const isLoading = useSizeStore((state) => state.isLoading);
   const sizeMenu = useSizeStore((state) => state.sizeMenu);
@@ -56,22 +54,29 @@ const CategoryItemsSize: React.FC = () => {
       <h3 className={Style.title}>Size</h3>
 
       <ul className={Style.lists}>
-        {sizeMenu.map((item) => (
-          <li
-            className={
-              activeSizeMenu === item.fullName
-                ? `${Style.list} ${Style.active}`
-                : Style.list
-            }
-            onClick={() => setActiveSizeMenu(item.fullName)}
-            key={item.id}
-          >
-            {item.fullName}
-            <span>
-              <span>{getQuantitySize(variations, item.id)}</span>
-            </span>
-          </li>
-        ))}
+        {sizeMenu.map((item) => {
+          const quantityItemsSize = getQuantitySize(variations, item.id);
+          const isDisabled = quantityItemsSize <= 0;
+
+          return (
+            <li
+              className={`${
+                isDisabled ? `${Style.list} ${Style.disabled}` : `${Style.list}`
+              }`}
+              key={item.id}
+            >
+              <Checkbox
+                quantityItems={quantityItemsSize}
+                isDisabled={isDisabled}
+                onSelectedName={setSelectedSizeName}
+                onSelectedId={setSelectedSizeId}
+                id={item.id}
+                name={item.fullName}
+                inputId={`category-item-size-${item.id}`}
+              />
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
