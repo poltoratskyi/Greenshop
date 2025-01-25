@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useCartStore, useCatalogStore } from "../store";
 
-export const getFilteredItemsCart = () => {
+export const useCartFilteredCatalog = () => {
   const cartItems = useCartStore((state) => state.cartItems);
 
   const catalog = useCatalogStore((state) => state.catalog);

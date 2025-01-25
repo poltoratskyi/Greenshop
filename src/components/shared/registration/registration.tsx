@@ -1,5 +1,4 @@
 import Style from "./registration.module.scss";
-
 import ModalContent from "../modal-forms/modal-content";
 import SignUp from "../modal-forms/sign-up";
 import LogIn from "../modal-forms/log-in";

@@ -1,5 +1,4 @@
 import Style from "./search-items-result.module.scss";
-
 import TrendingList from "./trending-list";
 import ItemsList from "./items-list";
 

@@ -1,5 +1,4 @@
 import Style from "./modal-forms.module.scss";
-
 import ModalContent from "./modal-content";
 
 interface Props {

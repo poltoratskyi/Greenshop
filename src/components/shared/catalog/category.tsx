@@ -1,5 +1,4 @@
 import Button from "../button";
-
 import CategoryItemsList from "./category-items-list";
 import CategoryPriceInput from "./category-price-input";
 import CategoryItemsSize from "./category-items-size";

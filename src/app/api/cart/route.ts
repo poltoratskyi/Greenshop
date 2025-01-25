@@ -2,8 +2,8 @@ import crypto from "crypto";
 import { prisma } from "../../../prisma/prisma-client";
 import { NextResponse, NextRequest } from "next/server";
 
-import { getRandomUserToken } from "../../../hooks";
-import { getUpdatedTotalAmount } from "../../../hooks/get-update-total-prices";
+import { getOrCreateUserCart } from "../../../lib";
+import { updateCartTotalAmount } from "../../../lib/update-cart-total-amount";
 
 export async function GET(request: NextRequest) {
   try {
@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Update the total amounts
-    const updatedTotalAmounts = await getUpdatedTotalAmount(token);
+    const updatedTotalAmounts = await updateCartTotalAmount(token);
 
     if (!updatedTotalAmounts) {
       return NextResponse.json(
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create the new user cart
-    const createUserCartToken = await getRandomUserToken(token);
+    const createUserCartToken = await getOrCreateUserCart(token);
 
     // Get the data from the request
     const data = await request.json();
@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Update the total amounts
-    const updatedTotalAmounts = await getUpdatedTotalAmount(token);
+    const updatedTotalAmounts = await updateCartTotalAmount(token);
 
     // Return the updated total amounts
     const response = NextResponse.json(updatedTotalAmounts);

@@ -1,14 +1,11 @@
 "use client";
 
 import Style from "./single-item.module.scss";
-
 import { ItemVariation } from "../../../types";
-
-import { useUIStore, useCartStore } from "../../../store";
-
+import { useUIStore } from "../../../store";
 import Button from "../button";
-
 import { svgHeart } from "./static-data";
+import { useAddToCart } from "../../../hooks";
 
 interface Props {
   id: number;
@@ -22,20 +19,7 @@ const ItemInfo: React.FC<Props> = ({ id, shortDescription, variations }) => {
     (state) => state.setSelectedSizeIndex
   );
 
-  const addItemCart = useCartStore((state) => state.addItemCart);
-
-  const handleAddToCart = async () => {
-    try {
-      const variation = variations[selectedSizeIndex];
-
-      await addItemCart({
-        itemId: id,
-        variationId: variation.sizeId,
-      });
-    } catch (error) {
-      console.error("Error adding item to cart:", error);
-    }
-  };
+  const { handleAddToCart } = useAddToCart();
 
   return (
     <>
@@ -86,14 +70,18 @@ const ItemInfo: React.FC<Props> = ({ id, shortDescription, variations }) => {
       <div className={Style.action}>
         <Button
           buy
-          handleAddToCart={handleAddToCart}
+          handleAddToCart={() =>
+            handleAddToCart(id, selectedSizeIndex, variations)
+          }
           className="buy"
           value="Buy NOW"
         />
 
         <Button
           addToCart
-          handleAddToCart={handleAddToCart}
+          handleAddToCart={() =>
+            handleAddToCart(id, selectedSizeIndex, variations)
+          }
           className="add"
           value="Add to cart"
         />

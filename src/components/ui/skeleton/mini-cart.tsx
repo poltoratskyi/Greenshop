@@ -1,4 +1,3 @@
-import React from "react";
 import ContentLoader, { IContentLoaderProps } from "react-content-loader";
 
 const MiniCart: React.FC<IContentLoaderProps> = ({

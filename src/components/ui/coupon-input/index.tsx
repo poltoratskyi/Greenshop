@@ -1,6 +1,5 @@
 import Style from "./coupon.module.scss";
 import CartStyle from "../../shared/cart/cart.module.scss";
-
 import Button from "../../../components/shared/button";
 
 const CouponInput: React.FC = () => {

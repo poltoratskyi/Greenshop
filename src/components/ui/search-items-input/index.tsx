@@ -2,15 +2,11 @@
 
 import React, { useEffect, useRef } from "react";
 import { useClickAway, useDebounce } from "react-use";
-
 import Style from "./search-items-input.module.scss";
-
 import Results from "../search-items-result";
 import Loader from "../../shared/loaders/default";
 import SaleBanner from "../mobile-header/sale-banner";
-
 import { useSearchStore, useUIStore } from "../../../store";
-
 import { svgClose, svgSearch } from "./static-data";
 
 const SearchItemsInput: React.FC = () => {

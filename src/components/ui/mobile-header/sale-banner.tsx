@@ -1,5 +1,4 @@
 import Style from "./mobile-header.module.scss";
-
 import SaleInfo from "./sale-info";
 
 const SaleBanner: React.FC = () => {

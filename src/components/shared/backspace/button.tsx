@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-
 import { svgBackspace } from "./static-data";
 
 const Button: React.FC = () => {

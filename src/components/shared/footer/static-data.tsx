@@ -1,3 +1,9 @@
+export const titles = {
+  account: "My Account",
+  help: "Help & Guide",
+  category: "Category",
+};
+
 export const serviceText = [
   {
     title: "Garden Care",

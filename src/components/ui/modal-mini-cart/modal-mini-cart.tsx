@@ -1,11 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-
 import Style from "./modal-mini-cart.module.scss";
-
 import { CartItem } from "../../../types";
-
 import Skeleton from "../../ui/skeleton/mini-cart";
 import ItemsList from "./items-list";
 import { useCartStore } from "../../../store";

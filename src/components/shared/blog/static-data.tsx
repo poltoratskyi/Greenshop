@@ -1,3 +1,8 @@
+export const title = "Our Blog Posts";
+
+export const descr =
+  "We are an online plant shop offering a wide range of cheap and trendy plants.";
+
 export const blogData = [
   {
     id: 1,

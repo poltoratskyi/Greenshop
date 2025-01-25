@@ -1,5 +1,4 @@
 import Style from "./feedback.module.scss";
-
 import Button from "../../../components/shared/button";
 
 const FeedbackInput: React.FC = () => {

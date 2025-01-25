@@ -2,12 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-
 import { ItemVariation } from "../../../types";
-
 import Style from "./catalog.module.scss";
-
-import { getDiscountPercent, getLocalStoreItems } from "../../../hooks";
+import { calculateDiscountPercentage, saveViewedProduct } from "../../../lib";
 import { svgCart, svgHeart } from "./static-data";
 import { useItemStore, useSearchStore, useUIStore } from "../../../store";
 
@@ -41,7 +38,7 @@ const ItemList: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
                 clearResults();
               }
 
-              getLocalStoreItems({ id, name, imgUrl, variations });
+              saveViewedProduct({ id, name, imgUrl, variations });
 
               document.body.style.overflow = "auto";
             }}
@@ -90,7 +87,10 @@ const ItemList: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
 
           {variations[0].onSale && (
             <div className={Style.percent}>
-              {getDiscountPercent(variations[0].price, variations[0].sale)}
+              {calculateDiscountPercentage(
+                variations[0].price,
+                variations[0].sale
+              )}
               {"% OFF"}
             </div>
           )}
@@ -104,7 +104,7 @@ const ItemList: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
               clearResults();
             }
 
-            getLocalStoreItems({ id, name, imgUrl, variations });
+            saveViewedProduct({ id, name, imgUrl, variations });
 
             document.body.style.overflow = "auto";
           }}

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import qs from "qs";
-import { getQuantityItemsCategory } from "../../../hooks";
+import { getCategoryItemQuantity } from "../../../lib";
 import Style from "./catalog.module.scss";
 import Skeleton from "../../ui/skeleton/category";
 import { useCategoryStore } from "../../../store";
@@ -60,7 +60,7 @@ const CategoryItemsList: React.FC = () => {
 
       <ul className={Style.lists}>
         {category.map((item) => {
-          const quantityItems = getQuantityItemsCategory(category, item.id);
+          const quantityItems = getCategoryItemQuantity(category, item.id);
           const isDisabled = quantityItems <= 0;
 
           return (

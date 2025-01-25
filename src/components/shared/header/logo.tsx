@@ -1,9 +1,7 @@
 "use client";
 
 import Link from "next/link";
-
 import Style from "./header.module.scss";
-
 import { useUIStore } from "../../../store";
 
 interface Props {

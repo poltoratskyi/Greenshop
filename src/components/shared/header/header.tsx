@@ -1,5 +1,4 @@
 import Style from "./header.module.scss";
-
 import Logo from "./logo";
 import Links from "./links";
 import Actions from "./actions";

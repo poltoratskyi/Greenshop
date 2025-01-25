@@ -1,7 +1,5 @@
 import Link from "next/link";
-
 import Style from "./footer.module.scss";
-
 import { media, order } from "./static-data";
 
 interface Props {

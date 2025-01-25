@@ -1,5 +1,4 @@
 import Style from "./catalog.module.scss";
-
 import Sort from "../../../components/ui/sort-menu";
 import FilterList from "./filter-list";
 

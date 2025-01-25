@@ -1,11 +1,9 @@
 "use client";
 
 import Style from "./search-items-result.module.scss";
-
 import ItemList from "../../shared/catalog/item-list";
 import CatalogStyle from "../../shared/catalog/catalog.module.scss";
 import ItemsWrapper from "../../shared/catalog/items-wrapper";
-
 import { useSearchStore } from "../../../store";
 
 const ItemsList: React.FC = () => {

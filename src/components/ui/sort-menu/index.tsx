@@ -2,11 +2,8 @@
 
 import { useRef } from "react";
 import { useClickAway } from "react-use";
-
 import Style from "./sort.module.scss";
-
 import { useUIStore } from "../../../store";
-
 import { filterSort, svgRound } from "./static-data";
 
 const Sort: React.FC = () => {

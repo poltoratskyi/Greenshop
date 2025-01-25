@@ -1,7 +1,5 @@
 import Image from "next/image";
-
 import { CartItemVariation } from "../../../types";
-
 import Style from "./modal-mini-cart.module.scss";
 
 interface Props {

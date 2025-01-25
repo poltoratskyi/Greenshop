@@ -1,11 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-
 import Style from "./modal-forms.module.scss";
-
 import { svgClose } from "./static-data";
-
 import { useUIStore } from "../../../store";
 
 interface Props {

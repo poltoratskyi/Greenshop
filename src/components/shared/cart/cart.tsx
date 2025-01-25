@@ -7,10 +7,10 @@ import Slider from "../slider";
 import Pathname from "../pathname";
 import Inner from "./inner";
 import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
-import { getFilteredItemsCart } from "../../../hooks";
+import { useCartFilteredCatalog } from "../../../hooks/use-cart-filtered-catalog";
 
 const Cart: React.FC = () => {
-  const { cartItems, filteredItems, isEmpty } = getFilteredItemsCart();
+  const { cartItems, filteredItems, isEmpty } = useCartFilteredCatalog();
 
   return (
     <>

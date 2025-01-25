@@ -1,11 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-
 import Style from "./catalog.module.scss";
-
 import { useCatalogStore } from "../../../store";
-
 import Category from "./category";
 import Skeleton from "../../ui/skeleton/catalog";
 import ItemsWrapper from "./items-wrapper";

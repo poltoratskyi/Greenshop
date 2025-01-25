@@ -1,7 +1,6 @@
 "use client";
 
 import Style from "./cart.module.scss";
-
 import { useCartStore } from "../../../store";
 import Empty from "./empty";
 

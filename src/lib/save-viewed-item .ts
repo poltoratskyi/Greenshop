@@ -7,7 +7,7 @@ interface Props {
   variations: ItemVariation[];
 }
 
-export const getLocalStoreItems = ({ id, name, imgUrl, variations }: Props) => {
+export const saveViewedProduct = ({ id, name, imgUrl, variations }: Props) => {
   const item = { id, name, imgUrl, variations };
 
   let items = JSON.parse(localStorage.getItem("viewed products") || "[]");

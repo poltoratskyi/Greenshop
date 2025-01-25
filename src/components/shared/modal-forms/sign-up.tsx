@@ -1,7 +1,5 @@
 import Style from "./modal-forms.module.scss";
-
 import Social from "./social";
-
 import Button from "../button";
 
 interface Props {

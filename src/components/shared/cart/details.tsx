@@ -1,12 +1,10 @@
 "use strict";
 
 import { CartItemVariation } from "../../../types";
-
 import Style from "./cart.module.scss";
-
 import { useCartStore } from "../../../store";
-
 import { svgDecr, svgIncr, svgTrash } from "./static-data";
+import { useChangeQuantityItems } from "../../../hooks";
 
 interface Props {
   id: number;
@@ -16,8 +14,6 @@ interface Props {
   singleItemPrice: number;
 }
 
-type QuantityType = "decrement" | "increment";
-
 const Details: React.FC<Props> = ({
   id,
   quantity,
@@ -25,23 +21,9 @@ const Details: React.FC<Props> = ({
   variationId,
   singleItemPrice,
 }) => {
-  const updateCartItemQuantity = useCartStore(
-    (state) => state.updateCartItemQuantity
-  );
   const deleteCartItem = useCartStore((state) => state.deleteCartItem);
 
-  const changeQuantityItems = (
-    id: number,
-    quantity: number,
-    type: QuantityType
-  ) => {
-    if (type === "decrement" && quantity <= 1) {
-      return;
-    }
-
-    const newQuantity = type === "decrement" ? quantity - 1 : quantity + 1;
-    updateCartItemQuantity(id, newQuantity);
-  };
+  const { changeQuantityItems } = useChangeQuantityItems();
 
   return (
     <div className={Style.details}>

@@ -12,8 +12,8 @@ import ItemInfo from "./item-info";
 
 import { useUIStore, useCartStore } from "../../../store";
 import Loader from "../../../components/shared/button/loader";
-import { getLocalStoreItems, useAddItemCart } from "../../../hooks";
-
+import { saveViewedProduct } from "../../../lib";
+import { useAddToCart } from "../../../hooks";
 interface Props {
   variations: ItemVariation[];
   id: number;
@@ -38,7 +38,7 @@ const ItemList: React.FC<Props> = ({
   const selectedItemSizeId = useUIStore((state) => state.selectedItemSizeId);
   const setOpenModalSize = useUIStore((state) => state.setOpenModalSize);
 
-  const { handleAddToCart } = useAddItemCart();
+  const { handleAddToCart } = useAddToCart();
 
   return (
     <>
@@ -47,7 +47,7 @@ const ItemList: React.FC<Props> = ({
           className={Style.img}
           href={`/item/${id}`}
           onClick={() => {
-            getLocalStoreItems({ id, name, imgUrl, variations });
+            saveViewedProduct({ id, name, imgUrl, variations });
 
             setOpenModalSize(false);
           }}
@@ -70,7 +70,7 @@ const ItemList: React.FC<Props> = ({
             className={Style.name}
             href={`/item/${id}`}
             onClick={() => {
-              getLocalStoreItems({ id, name, imgUrl, variations });
+              saveViewedProduct({ id, name, imgUrl, variations });
               setOpenModalSize(false);
             }}
           >
@@ -99,7 +99,7 @@ const ItemList: React.FC<Props> = ({
             }}
             key={variation.id}
             onClick={() => {
-              handleAddToCart(id, variation.sizeId, variations);
+              handleAddToCart(id, variation.sizeId - 1, variations);
               setOpenModalSize(false);
               router.push("/cart");
             }}

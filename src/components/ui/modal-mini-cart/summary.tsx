@@ -2,11 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import Skeleton from "../../ui/skeleton/mini-cart-summary";
-
 import Style from "./modal-mini-cart.module.scss";
-
 import { useCartStore } from "../../../store";
 
 const Summary: React.FC = () => {

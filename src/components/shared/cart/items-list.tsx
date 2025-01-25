@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-
 import Style from "./cart.module.scss";
-
 import CartHeader from "./cart-header";
 import CartItem from "./cart-item";
 import Loader from "../../shared/loaders/default";

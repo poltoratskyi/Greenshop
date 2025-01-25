@@ -1,5 +1,4 @@
 import Style from "./category-modal.module.scss";
-
 import Category from "../../shared/catalog/category";
 import Controls from "./controls";
 

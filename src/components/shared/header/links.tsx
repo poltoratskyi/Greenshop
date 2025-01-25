@@ -1,11 +1,8 @@
 "use client";
 
 import Link from "next/link";
-
 import { usePathname } from "next/navigation";
-
 import Style from "./header.module.scss";
-
 import { pages } from "./static-data";
 
 interface Item {

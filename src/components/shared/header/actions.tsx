@@ -2,11 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import Style from "./header.module.scss";
-
 import { useCartStore, useUIStore } from "../../../store";
-
 import { svgCart, svgLogin, svgSearch } from "./static-data";
 import ItemsList from "../../../components/ui/modal-mini-cart";
 import Summary from "../../../components/ui/modal-mini-cart/summary";

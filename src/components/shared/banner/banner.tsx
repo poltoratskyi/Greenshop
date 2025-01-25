@@ -1,8 +1,6 @@
 import Style from "./banner.module.scss";
-
 import Info from "./info";
 import Mobile from "./mobile";
-
 import { descr } from "./static-data";
 
 const Banner: React.FC = () => {

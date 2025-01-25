@@ -1,5 +1,5 @@
 import { CartItem, CartResponse, CartItemVariation } from "../types";
-import { getSingleItemPrice } from "../hooks";
+import { getItemTotalPrice } from "../lib";
 
 interface CartDetails {
   subtotalAmount: number;
@@ -13,7 +13,7 @@ export const responseData = (data: CartResponse): CartDetails => {
     id: i.id,
 
     quantity: i.quantity,
-    singleItemPrice: getSingleItemPrice(i),
+    singleItemPrice: getItemTotalPrice(i),
     name: i.item.name,
     imgUrl: i.item.imgUrl,
     sku: i.item.sku,

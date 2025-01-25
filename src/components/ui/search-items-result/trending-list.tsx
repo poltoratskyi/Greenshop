@@ -1,7 +1,6 @@
 "use client";
 
 import Style from "./search-items-result.module.scss";
-
 import { useSearchStore } from "../../../store";
 
 const TrendingList: React.FC = () => {

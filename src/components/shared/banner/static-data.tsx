@@ -8,6 +8,10 @@ export const svgRight = (
   </svg>
 );
 
+export const subtitle = {
+  subtitle: "Welcome to GreenShop",
+};
+
 export const descr =
   "We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!";
 

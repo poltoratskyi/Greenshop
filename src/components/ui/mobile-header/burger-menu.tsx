@@ -4,15 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-
 import Style from "./mobile-header.module.scss";
-
 import Logo from "../../../components/shared/header/logo";
 import Contacts from "../../../components/shared/footer/contacts";
 import Accept from "../../../components/shared/footer/accept";
-
 import { useUIStore } from "../../../store";
-
 import { svgLogin, svgClose, links } from "./static-data";
 
 const BurgerMenu: React.FC = () => {

@@ -1,11 +1,8 @@
 "use client";
 
 import Style from "./single-item.module.scss";
-
 import { ItemVariation } from "../../../types";
-
-import { getDiscountPercent } from "../../../hooks";
-
+import { calculateDiscountPercentage } from "../../../lib";
 import { useUIStore } from "../../../store";
 
 interface Props {
@@ -19,7 +16,7 @@ const DiscountBadge: React.FC<Props> = ({ variations }) => {
     <>
       {variations[selectedSizeIndex].onSale && (
         <div className={Style.percent}>
-          {getDiscountPercent(
+          {calculateDiscountPercentage(
             variations[selectedSizeIndex].price,
             variations[selectedSizeIndex].sale
           )}

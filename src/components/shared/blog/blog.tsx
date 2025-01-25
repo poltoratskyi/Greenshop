@@ -1,12 +1,6 @@
 import Style from "./blog.module.scss";
-
 import BlogCard from "./blog-cart";
-
-import { blogData } from "./static-data";
-
-let title = "Our Blog Posts";
-let descr =
-  "We are an online plant shop offering a wide range of cheap and trendy plants.";
+import { title, descr, blogData } from "./static-data";
 
 const Blog: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import { QuantityItemsCategory } from "../types";
 
-export const getQuantityItemsCategory = (
+export const getCategoryItemQuantity = (
   arr: QuantityItemsCategory[],
   value: number
 ): number => {

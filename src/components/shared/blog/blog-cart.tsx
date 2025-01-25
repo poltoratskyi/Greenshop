@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
 import Style from "./blog.module.scss";
-
 import { svgRight } from "./static-data";
 
 interface Props {

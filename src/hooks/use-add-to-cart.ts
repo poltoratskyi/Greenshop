@@ -3,7 +3,7 @@
 import { ItemVariation } from "../types/item";
 import { useCartStore, useUIStore } from "../store";
 
-export const useAddItemCart = () => {
+export const useAddToCart = () => {
   const addItemCart = useCartStore((state) => state.addItemCart);
   const setSelectedItemSizeId = useUIStore(
     (state) => state.setSelectedItemSizeId
@@ -11,11 +11,11 @@ export const useAddItemCart = () => {
 
   const handleAddToCart = async (
     id: number,
-    sizeId: number,
+    sizeIndex: number,
     variations: ItemVariation[]
   ) => {
     try {
-      const variation = variations[sizeId - 1];
+      const variation = variations[sizeIndex];
 
       setSelectedItemSizeId(variation.sizeId);
 

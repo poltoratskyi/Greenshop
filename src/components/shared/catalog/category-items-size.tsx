@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getQuantitySize } from "../../../hooks";
+import { getSizeQuantity } from "../../../lib";
 import Style from "./catalog.module.scss";
 import Skeleton from "../../ui/skeleton/category";
 import { useSizeStore, useVariationStore } from "../../../store";
@@ -55,7 +55,7 @@ const CategoryItemsSize: React.FC = () => {
 
       <ul className={Style.lists}>
         {sizeMenu.map((item) => {
-          const quantityItemsSize = getQuantitySize(variations, item.id);
+          const quantityItemsSize = getSizeQuantity(variations, item.id);
           const isDisabled = quantityItemsSize <= 0;
 
           return (

@@ -1,12 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-
 import { CartItemVariation } from "../../../types";
-
 import Style from "./cart.module.scss";
-
 import Details from "./details";
-import { getLocalStoreItems } from "@/hooks";
+import { saveViewedProduct } from "../../../lib";
 
 interface Props {
   id: number;
@@ -38,7 +35,7 @@ const CartItem: React.FC<Props> = ({
           <Link
             className={Style.img}
             href={`/item/${itemId}`}
-            onClick={() => getLocalStoreItems({ id, name, imgUrl, variations })}
+            onClick={() => saveViewedProduct({ id, name, imgUrl, variations })}
           >
             <Image
               width={600}
@@ -57,7 +54,7 @@ const CartItem: React.FC<Props> = ({
             <Link
               href={`/item/${itemId}`}
               onClick={() =>
-                getLocalStoreItems({ id, name, imgUrl, variations })
+                saveViewedProduct({ id, name, imgUrl, variations })
               }
             >
               <h3 className={Style.title}>{name}</h3>

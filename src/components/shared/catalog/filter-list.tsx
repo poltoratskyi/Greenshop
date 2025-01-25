@@ -1,9 +1,7 @@
 "use client";
 
 import Style from "./catalog.module.scss";
-
 import { useUIStore } from "../../../store";
-
 import { filterMenu } from "./static-data";
 
 const FilterList: React.FC = () => {

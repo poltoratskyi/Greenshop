@@ -1,7 +1,5 @@
 import Image from "next/image";
-
 import Button from "../../shared/button";
-
 import { svgRight } from "./static-data";
 import Style from "./adv.module.scss";
 

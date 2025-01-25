@@ -2,11 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import Style from "./mobile-menu.module.scss";
-
 import { useCartStore, useUIStore } from "../../../store";
-
 import { pages } from "./static-data";
 
 const MobileMenu: React.FC = () => {

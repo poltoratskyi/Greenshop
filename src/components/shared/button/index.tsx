@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Style from "./button.module.scss";
 import { useCartStore } from "../../../store";
 import Loader from "./loader";
+import { ItemVariation } from "../../../types";
 
 interface Props {
   handleAddToCart?: () => void;

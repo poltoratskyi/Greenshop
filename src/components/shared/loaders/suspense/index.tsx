@@ -1,5 +1,3 @@
-// loaders/default/DefaultLoader.tsx
-import React from "react";
 import Style from "./suspense.module.scss";
 
 const Suspense: React.FC = () => {

@@ -1,9 +1,7 @@
 "use client";
 
 import Style from "./catalog.module.scss";
-
 import Skeleton from "../../ui/skeleton/category";
-
 import { useSizeStore } from "../../../store";
 
 const CategoryPriceInput: React.FC = () => {

@@ -1,5 +1,4 @@
 import Style from "./mobile-header.module.scss";
-
 import BurgerMenu from "./burger-menu";
 import Controls from "./controls";
 

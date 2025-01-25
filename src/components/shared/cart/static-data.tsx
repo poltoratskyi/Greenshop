@@ -1,3 +1,22 @@
+export const emptyData = {
+  title: "Your cart is empty",
+  subtitle: "To view your cart, please sign in to your account.",
+  login: "Log In",
+  continue: "Or continue shopping",
+};
+
+export const reviewData = {
+  title: "Cart Totals",
+  continue: "Continue Shopping",
+};
+
+export const headerData = {
+  title: "Products",
+  price: "Price",
+  quantity: "Quantity",
+  total: "Total",
+};
+
 export const svgDecr = (
   <svg
     height={10}

@@ -2,17 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import Style from "./cart.module.scss";
-
 import { useUIStore } from "../../../store";
-
-const data = {
-  title: "Your cart is empty",
-  subtitle: "To view your cart, please sign in to your account.",
-  login: "Log In",
-  continue: "Or continue shopping",
-};
+import { emptyData } from "./static-data";
 
 const Empty: React.FC = () => {
   const pathname = usePathname();
@@ -21,9 +13,9 @@ const Empty: React.FC = () => {
 
   return (
     <div className={Style.empty}>
-      <h4>{data.title}</h4>
+      <h4>{emptyData.title}</h4>
 
-      <p>{data.subtitle}</p>
+      <p>{emptyData.subtitle}</p>
 
       <Link
         style={{
@@ -36,11 +28,11 @@ const Empty: React.FC = () => {
         className={Style.login}
         href="/login"
       >
-        {data.login}
+        {emptyData.login}
       </Link>
 
       <Link href="/#catalog">
-        <span>{data.continue}</span>
+        <span>{emptyData.continue}</span>
       </Link>
     </div>
   );

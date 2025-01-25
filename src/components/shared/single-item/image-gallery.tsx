@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs, Zoom, Pagination, A11y } from "swiper/modules";
 import "swiper/scss";
@@ -11,15 +10,10 @@ import "swiper/scss/navigation";
 import "swiper/scss/zoom";
 import "swiper/scss/thumbs";
 import "swiper/scss/a11y";
-
 import "./slider.css";
-
 import { ItemVariation } from "../../../types";
-
 import Style from "./single-item.module.scss";
-
 import { useUIStore } from "../../../store";
-
 import DiscountBadge from "./discount-badge";
 
 interface Props {

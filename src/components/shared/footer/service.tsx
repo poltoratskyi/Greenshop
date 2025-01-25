@@ -1,9 +1,5 @@
-import { JSX } from "react";
-
 import FeedbackInput from "../../ui/feedback-input";
-
 import Style from "./footer.module.scss";
-
 import { serviceText } from "./static-data";
 
 const Service: React.FC = () => {

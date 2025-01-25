@@ -1,13 +1,9 @@
 "use client";
 
 import Link from "next/link";
-
 import Style from "./cart.module.scss";
-
 import Skeleton from "../../ui/skeleton/cart-summary";
-
 import { useCartStore } from "../../../store";
-
 import Button from "../button";
 
 const Summary: React.FC = () => {

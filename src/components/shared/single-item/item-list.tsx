@@ -1,12 +1,8 @@
 import Link from "next/link";
-
 import Style from "./single-item.module.scss";
-
 import { ItemVariation } from "../../../types";
 import { ItemCategory } from "../../../types/common";
-
 import { media } from "./static-data";
-
 import ItemInfo from "./item-info";
 import ImageGallery from "./image-gallery";
 

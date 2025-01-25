@@ -1,10 +1,8 @@
 import { JSX } from "react";
-
 import Img from "./image";
-
 import Style from "./banner.module.scss";
-
 import Button from "../../shared/button";
+import { subtitle } from "./static-data";
 
 interface Props {
   className?: string;
@@ -14,10 +12,6 @@ interface Props {
   svgRight?: JSX.Element;
   descr: string;
 }
-
-const data = {
-  subtitle: "Welcome to GreenShop",
-};
 
 const Info: React.FC<Props> = ({
   className,
@@ -30,7 +24,7 @@ const Info: React.FC<Props> = ({
   return (
     <div className={Style.content}>
       <div className={Style.info}>
-        <span>{data.subtitle}</span>
+        <span>{subtitle.subtitle}</span>
         <h1>
           Let’s Make a <br /> Better <mark>Planet</mark>
         </h1>

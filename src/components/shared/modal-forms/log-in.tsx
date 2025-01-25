@@ -1,7 +1,5 @@
 import Link from "next/link";
-
 import Style from "./modal-forms.module.scss";
-
 import Button from "../button";
 import Social from "./social";
 

@@ -1,8 +1,6 @@
 import { JSX } from "react";
-
 import Logo from "../header/logo";
 import Style from "./footer.module.scss";
-
 import { info } from "./static-data";
 
 interface Element {

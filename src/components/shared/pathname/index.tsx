@@ -1,9 +1,6 @@
 import Link from "next/link";
-
 import { ItemCategory } from "../../../types/common";
-
 import Style from "./pathname.module.scss";
-
 import Backspace from "../backspace";
 
 interface Props {

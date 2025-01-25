@@ -1,6 +1,6 @@
 import { prisma } from "../prisma/prisma-client";
 
-export const getRandomUserToken = async (token: string) => {
+export const getOrCreateUserCart = async (token: string) => {
   let userCart = await prisma.cart.findFirst({
     where: {
       token,

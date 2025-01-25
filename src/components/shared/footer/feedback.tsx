@@ -1,15 +1,8 @@
 // Feedback.tsx
-import React from "react";
 import Style from "./footer.module.scss";
 import Accept from "./accept";
 import NavList from "./nav-list";
-import { account, help, category } from "./static-data";
-
-const titles = {
-  account: "My Account",
-  help: "Help & Guide",
-  category: "Category",
-};
+import { account, help, category, titles } from "./static-data";
 
 const Feedback: React.FC = () => {
   return (

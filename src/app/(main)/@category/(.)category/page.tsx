@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 import MobileModalCategory from "../../../../components/ui/category-modal";
 
 import { useUIStore } from "../../../../store";

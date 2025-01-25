@@ -2,13 +2,9 @@
 
 import { useRef } from "react";
 import { useClickAway } from "react-use";
-
 import Style from "./modal-choose-item-size.module.scss";
-
 import { useUIStore, useItemStore } from "../../../store";
-
 import { svgClose } from "./static-data";
-
 import ItemList from "./item-list";
 import Skeleton from "../../ui/skeleton/modal-item-size";
 

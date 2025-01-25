@@ -7,9 +7,7 @@ import "swiper/scss";
 import "swiper/scss/autoplay";
 import "swiper/scss/a11y";
 import "./slider.css";
-
 import Style from "./banner.module.scss";
-
 import { slides } from "./static-data";
 
 const Mobile: React.FC = () => {

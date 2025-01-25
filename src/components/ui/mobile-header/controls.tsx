@@ -1,9 +1,7 @@
 "use client";
 
 import { useUIStore } from "../../../store";
-
 import { svgSearch, svgBurgerMenu } from "./static-data";
-
 import Logo from "../../shared/header/logo";
 
 const Controls: React.FC = () => {
