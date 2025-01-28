@@ -1,7 +1,5 @@
 import { create } from "zustand";
-
 import { Item } from "../types";
-
 import { fetchSingleItem } from "../service";
 
 interface ItemState {

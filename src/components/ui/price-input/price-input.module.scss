@@ -1,0 +1,29 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.column {
+  display: flex;
+  align-items: center;
+
+  .label {
+    margin-right: 10px;
+  }
+
+  .input {
+    @include m.description($fz: 16px, $c: v.$text);
+    width: 70px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .column {
+    .input {
+      text-align: center;
+      width: 100%;
+    }
+  }
+}

@@ -37,6 +37,26 @@
           @include m.description-clamp();
           margin-bottom: 15px;
         }
+
+        a {
+          @include m.button(
+            $d: inline-flex,
+            $p: 15px 30px,
+            $bc: v.$main,
+            $br: 6px,
+            $fz: 14px,
+            $fw: 400,
+            $lh: 24px,
+            $c: #fff,
+            $tt: unset
+          );
+
+          align-items: center;
+
+          svg {
+            margin-left: 5px;
+          }
+        }
       }
     }
   }

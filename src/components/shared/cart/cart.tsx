@@ -1,12 +1,12 @@
 "use client";
 
 import Style from "./cart.module.scss";
-import ItemsList from "./items-list";
+import Lists from "./list";
 import Review from "./review";
 import Slider from "../slider";
 import Pathname from "../pathname";
 import Inner from "./inner";
-import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
+import SizeSelectionModal from "../size-selection-modal";
 import { useCartFilteredCatalog } from "../../../hooks/use-cart-filtered-catalog";
 
 const Cart: React.FC = () => {
@@ -19,7 +19,7 @@ const Cart: React.FC = () => {
       <section className={Style.cart}>
         <div className="container">
           <Inner>
-            <ItemsList />
+            <Lists />
 
             <Review />
           </Inner>
@@ -30,7 +30,7 @@ const Cart: React.FC = () => {
         </div>
       </section>
 
-      <ModalChooseItemSize />
+      <SizeSelectionModal />
     </>
   );
 };

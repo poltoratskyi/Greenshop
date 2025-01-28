@@ -1,6 +1,6 @@
 import Style from "./modal-forms.module.scss";
 import Social from "./social";
-import Button from "../button";
+import Button from "../../ui/button";
 
 interface Props {
   overflow?: boolean;
@@ -52,6 +52,7 @@ const SignUp: React.FC<Props> = ({ overflow }) => {
 
         <Button button className="sign_up" value="Create an account" />
       </form>
+
       <Social
         location="Or sign up with"
         google="Continue with Google"

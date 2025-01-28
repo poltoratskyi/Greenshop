@@ -1,26 +1,16 @@
-import { JSX } from "react";
 import Img from "./image";
 import Style from "./banner.module.scss";
-import Button from "../../shared/button";
 import { subtitle } from "./static-data";
+import Link from "next/link";
 
 interface Props {
-  className?: string;
   value: string;
   width?: number;
   height?: number;
-  svgRight?: JSX.Element;
   descr: string;
 }
 
-const Info: React.FC<Props> = ({
-  className,
-  value,
-  width,
-  height,
-  svgRight,
-  descr,
-}) => {
+const Info: React.FC<Props> = ({ value, width, height, descr }) => {
   return (
     <div className={Style.content}>
       <div className={Style.info}>
@@ -30,13 +20,7 @@ const Info: React.FC<Props> = ({
         </h1>
         <p>{descr}</p>
 
-        <Button
-          link
-          linkValue="#"
-          svgRight={svgRight}
-          className={className}
-          value={value}
-        />
+        <Link href="#">{value}</Link>
       </div>
 
       {width && (

@@ -1,0 +1,55 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.checkbox {
+  position: relative;
+  cursor: pointer;
+
+  .input {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:checked + .label .check {
+      background-color: v.$main;
+      border-color: v.$main;
+
+      &::after {
+        content: "✓";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &:hover {
+    .check {
+      border-color: #b9b9b9;
+    }
+  }
+
+  .label {
+    display: inline-block;
+    height: 100%;
+    cursor: pointer;
+
+    .check {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border: 1px solid #ebebeb;
+      cursor: pointer;
+    }
+
+    .text {
+      @include m.subtitle($fz: 14px);
+
+      display: inline-block;
+      padding-left: 34px;
+    }
+  }
+}

@@ -3,13 +3,13 @@
 import { useEffect } from "react";
 import Style from "./catalog.module.scss";
 import { useCatalogStore } from "../../../store";
-import Category from "./category";
-import Skeleton from "../../ui/skeleton/catalog";
-import ItemsWrapper from "./items-wrapper";
-import ItemList from "./item-list";
-import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
-import Filter from "./filter";
-import CatalogWrapper from "./catalog-wrapper";
+import Category from "../category";
+import Skeleton from "../skeleton/catalog";
+import Wrapper from "./wrapper";
+import Card from "./card";
+import SizeSelectionModal from "../size-selection-modal";
+import Filter from "../filters/filters";
+import Container from "./container";
 
 const Catalog: React.FC = () => {
   const catalog = useCatalogStore((state) => state.catalog);
@@ -29,10 +29,10 @@ const Catalog: React.FC = () => {
               <Category />
             </aside>
 
-            <CatalogWrapper>
+            <Container>
               <Filter />
 
-              <ItemsWrapper>
+              <Wrapper>
                 {isLoading &&
                   [...new Array(9)].map((_, index: number) => (
                     <Skeleton
@@ -43,10 +43,10 @@ const Catalog: React.FC = () => {
                       uniqueKey="1"
                     />
                   ))}
-              </ItemsWrapper>
-            </CatalogWrapper>
+              </Wrapper>
+            </Container>
 
-            <ModalChooseItemSize />
+            <SizeSelectionModal />
           </div>
         </div>
       </section>
@@ -61,19 +61,19 @@ const Catalog: React.FC = () => {
             <Category />
           </aside>
 
-          <CatalogWrapper>
+          <Container>
             <Filter />
 
-            <ItemsWrapper>
+            <Wrapper>
               {catalog.map((item) => (
                 <li key={item.id} className={Style.list}>
-                  <ItemList {...item} />
+                  <Card {...item} />
                 </li>
               ))}
-            </ItemsWrapper>
-          </CatalogWrapper>
+            </Wrapper>
+          </Container>
 
-          <ModalChooseItemSize />
+          <SizeSelectionModal />
         </div>
       </div>
     </section>

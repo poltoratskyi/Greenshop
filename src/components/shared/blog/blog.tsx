@@ -1,5 +1,5 @@
 import Style from "./blog.module.scss";
-import BlogCard from "./blog-cart";
+import Card from "./card";
 import { title, descr, blogData } from "./static-data";
 
 const Blog: React.FC = () => {
@@ -11,7 +11,7 @@ const Blog: React.FC = () => {
 
         <div className={Style.content}>
           {blogData.map((item) => (
-            <BlogCard key={item.id} {...item} />
+            <Card key={item.id} {...item} />
           ))}
         </div>
       </div>

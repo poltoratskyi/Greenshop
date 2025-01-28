@@ -1,23 +1,19 @@
 import { JSX } from "react";
-
 import { create } from "zustand";
-
 import { Item } from "../types";
-
 import { fetchSearchItem } from "../service";
-
-import { svgTrend } from "../components/ui/search-items-result/static-data";
+import { svgTrend } from "../components/shared/search-results/static-data";
 
 interface SearchState {
   trending: { name: string; svg: JSX.Element; rate: number }[];
-  inputValue: string;
-  results: Item[];
+  searchQuery: string;
+  searchResults: Item[];
   isLoading: boolean;
   error: string | null;
 
-  setInputValue: (value: string) => void;
-  loadSearch: () => Promise<void>;
-  clearResults: () => void;
+  setSearchQuery: (value: string) => void;
+  fetchSearchResults: () => Promise<void>;
+  resetSearchResults: () => void;
 }
 
 export const useSearchStore = create<SearchState>((set, get) => ({
@@ -38,28 +34,28 @@ export const useSearchStore = create<SearchState>((set, get) => ({
       rate: 1,
     },
   ],
-  inputValue: "",
-  results: [],
+  searchQuery: "",
+  searchResults: [],
   isLoading: false,
   error: null,
 
-  setInputValue: (value: string) => {
-    set({ inputValue: value, error: null });
+  setSearchQuery: (value: string) => {
+    set({ searchQuery: value, error: null });
   },
 
-  clearResults: () => set({ results: [], error: null }),
+  resetSearchResults: () => set({ searchResults: [], error: null }),
 
-  loadSearch: async () => {
-    const { inputValue } = get();
+  fetchSearchResults: async () => {
+    const { searchQuery } = get();
 
     set({ isLoading: true, error: null });
 
     try {
-      const response = await fetchSearchItem(inputValue);
+      const response = await fetchSearchItem(searchQuery);
 
-      set({ results: response });
+      set({ searchResults: response });
     } catch (err) {
-      set({ error: "Failed to fetch search results", isLoading: false });
+      set({ error: "Failed to fetch search searchResults", isLoading: false });
 
       console.error("Error fetching items:", err);
     } finally {

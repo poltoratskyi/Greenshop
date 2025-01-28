@@ -1,6 +1,6 @@
 import Style from "./adv.module.scss";
 import { advData } from "./static-data";
-import AdvCard from "./adv-cart";
+import Card from "./card";
 
 const Adv: React.FC = () => {
   return (
@@ -8,7 +8,7 @@ const Adv: React.FC = () => {
       <div className="container">
         <div className={Style.content}>
           {advData.map((item) => (
-            <AdvCard key={item.id} {...item} />
+            <Card key={item.id} {...item} />
           ))}
         </div>
       </div>

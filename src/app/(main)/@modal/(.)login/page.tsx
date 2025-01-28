@@ -8,11 +8,11 @@ import LogIn from "../../../../components/shared/modal-forms/log-in";
 import { useUIStore } from "../../../../store";
 
 export default function Modal() {
-  const modalAction = useUIStore((state) => state.modalAction);
+  const isModalActionOpen = useUIStore((state) => state.isModalActionOpen);
 
   return (
     <ModalWrapper>
-      <ModalForm>{modalAction ? <LogIn /> : <SignUp />}</ModalForm>
+      <ModalForm>{isModalActionOpen ? <LogIn /> : <SignUp />}</ModalForm>
     </ModalWrapper>
   );
 }

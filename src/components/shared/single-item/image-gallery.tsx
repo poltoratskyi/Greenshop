@@ -14,7 +14,7 @@ import "./slider.css";
 import { ItemVariation } from "../../../types";
 import Style from "./single-item.module.scss";
 import { useUIStore } from "../../../store";
-import DiscountBadge from "./discount-badge";
+import DiscountIcon from "./discount-icon";
 
 interface Props {
   imgUrl: string;
@@ -27,14 +27,16 @@ const ImageGallery: React.FC<Props> = ({ imgUrl, name, variations }) => {
 
   const images = [imgUrl, imgUrl, imgUrl, "/catalog/3-min.png"];
 
-  const imageIndex = useUIStore((state) => state.imageIndex);
-  const setImageIndex = useUIStore((state) => state.setImageIndex);
-  const setResetSelectedVariation = useUIStore(
-    (state) => state.setResetSelectedVariation
+  const currentImageIndex = useUIStore((state) => state.currentImageIndex);
+  const setCurrentImageIndex = useUIStore(
+    (state) => state.setCurrentImageIndex
+  );
+  const resetVariationSelection = useUIStore(
+    (state) => state.resetVariationSelection
   );
 
   useEffect(() => {
-    setResetSelectedVariation();
+    resetVariationSelection();
   }, [pathname]);
 
   return (
@@ -47,11 +49,15 @@ const ImageGallery: React.FC<Props> = ({ imgUrl, name, variations }) => {
         spaceBetween={15}
         direction="vertical"
         modules={[Navigation, Zoom, Thumbs, Pagination, A11y]}
-        onSlideChange={(swiper) => setImageIndex(swiper.activeIndex)}
+        onSlideChange={(swiper) => setCurrentImageIndex(swiper.activeIndex)}
       >
         {images.map((imgUrl, index) => (
-          <SwiperSlide onClick={() => setImageIndex(index)} key={index}>
-            <div className={`${index === imageIndex ? "img active" : "img"}`}>
+          <SwiperSlide onClick={() => setCurrentImageIndex(index)} key={index}>
+            <div
+              className={`${
+                index === currentImageIndex ? "img active" : "img"
+              }`}
+            >
               <Image
                 priority
                 width={600}
@@ -89,7 +95,7 @@ const ImageGallery: React.FC<Props> = ({ imgUrl, name, variations }) => {
           prevEl: ".swiper-button-prev",
           nextEl: ".swiper-button-next",
         }}
-        onSlideChange={(swiper) => setImageIndex(swiper.activeIndex)}
+        onSlideChange={(swiper) => setCurrentImageIndex(swiper.activeIndex)}
         breakpoints={{
           320: {},
 
@@ -116,7 +122,7 @@ const ImageGallery: React.FC<Props> = ({ imgUrl, name, variations }) => {
               />
             </div>
 
-            <DiscountBadge variations={variations} />
+            <DiscountIcon variations={variations} />
           </SwiperSlide>
         ))}
 

@@ -13,14 +13,16 @@ interface Props {
 const ModalContent: React.FC<Props> = ({ title, children }) => {
   const router = useRouter();
 
-  const modalAction = useUIStore((state) => state.modalAction);
+  const isModalActionOpen = useUIStore((state) => state.isModalActionOpen);
 
-  const setToggleAction = useUIStore((state) => state.setToggleAction);
-  const setOpenModal = useUIStore((state) => state.setOpenModal);
+  const setIsModalActionOpen = useUIStore(
+    (state) => state.setIsModalActionOpen
+  );
+  const setIsModalOpen = useUIStore((state) => state.setIsModalOpen);
 
   const closeModal = () => {
     router.back();
-    setOpenModal(false);
+    setIsModalOpen(false);
   };
 
   return (
@@ -28,9 +30,9 @@ const ModalContent: React.FC<Props> = ({ title, children }) => {
       {title && (
         <div className={Style.header}>
           <h2
-            onClick={() => setToggleAction(true)}
+            onClick={() => setIsModalActionOpen(true)}
             className={
-              modalAction ? `${Style.title} ${Style.active}` : Style.title
+              isModalActionOpen ? `${Style.title} ${Style.active}` : Style.title
             }
           >
             Log In
@@ -39,9 +41,11 @@ const ModalContent: React.FC<Props> = ({ title, children }) => {
           <span className={Style.element}>I</span>
 
           <h2
-            onClick={() => setToggleAction(false)}
+            onClick={() => setIsModalActionOpen(false)}
             className={
-              !modalAction ? `${Style.title} ${Style.active}` : Style.title
+              !isModalActionOpen
+                ? `${Style.title} ${Style.active}`
+                : Style.title
             }
           >
             Sign Up

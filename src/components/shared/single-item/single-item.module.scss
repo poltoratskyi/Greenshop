@@ -96,6 +96,31 @@
         align-items: center;
         gap: 10px;
         margin-bottom: 25px;
+
+        a {
+          @include m.button(
+            $d: flex,
+            $p: 15px,
+            $bc: #fff,
+            $br: 6px,
+            $fz: 14px,
+            $fw: 400,
+            $lh: 24px,
+            $c: v.$main,
+            $tt: uppercase
+          );
+          justify-content: center;
+          align-items: center;
+          border: 1px solid v.$main;
+
+          &:hover {
+            color: #fff;
+
+            svg {
+              fill: #fff;
+            }
+          }
+        }
       }
 
       .sku,

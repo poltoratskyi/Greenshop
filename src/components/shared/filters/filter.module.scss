@@ -1,0 +1,101 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+
+  .timezone {
+    .lists {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+
+      .list {
+        .text {
+          @include m.subtitle($fz: 14px);
+          padding: 0px 0px 10px 0px;
+          cursor: pointer;
+
+          &.active {
+            color: v.$main;
+            border-bottom: 3px v.$main solid;
+          }
+        }
+
+        &:last-child {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+
+  .sort {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .descr {
+      @include m.description();
+      margin-right: 5px;
+
+      span {
+        color: v.$text;
+        font-weight: 500;
+      }
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .lists {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      background-color: #fff;
+      top: 30px;
+      right: 0;
+      padding: 12px 24px 24px 24px;
+      min-width: 200px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+      .list {
+        @include m.description($lh: 21px);
+        margin-bottom: 15px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+
+        &:hover {
+          color: v.$text;
+        }
+
+        &.active {
+          color: v.$text;
+          font-weight: 500;
+        }
+      }
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .filter {
+    .sort {
+      display: none;
+    }
+  }
+}

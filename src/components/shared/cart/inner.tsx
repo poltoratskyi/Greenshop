@@ -2,7 +2,7 @@
 
 import Style from "./cart.module.scss";
 import { useCartStore } from "../../../store";
-import Empty from "./empty";
+import Empty from "../empty";
 
 interface Props {
   children: React.ReactNode;

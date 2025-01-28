@@ -1,5 +1,5 @@
 import Style from "./modal-forms.module.scss";
-import Button from "../button";
+import Button from "../../ui/button";
 import { svgFacebook, svgGithub, svgGoogle } from "./static-data";
 
 interface Props {

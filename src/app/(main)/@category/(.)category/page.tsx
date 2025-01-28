@@ -1,11 +1,11 @@
 "use client";
 
-import MobileModalCategory from "../../../../components/ui/category-modal";
+import MobileModalCategory from "../../../../components/shared/category-modal";
 
 import { useUIStore } from "../../../../store";
 
 export default function MobModalCategory() {
-  const modalCategory = useUIStore((state) => state.modalCategory);
+  const isModalCategoryOpen = useUIStore((state) => state.isModalCategoryOpen);
 
-  return modalCategory && <MobileModalCategory />;
+  return isModalCategoryOpen && <MobileModalCategory />;
 }

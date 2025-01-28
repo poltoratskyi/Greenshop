@@ -33,6 +33,20 @@
         @include m.description();
         margin-bottom: 45px;
       }
+
+      a {
+        @include m.button(
+          $d: inline-block,
+          $p: 15px 35px,
+          $bc: v.$main,
+          $br: 6px,
+          $fz: 14px,
+          $fw: 400,
+          $lh: 24px,
+          $c: #fff,
+          $tt: uppercase
+        );
+      }
     }
   }
 

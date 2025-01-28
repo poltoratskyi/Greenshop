@@ -2,10 +2,9 @@
 
 import React, { useEffect } from "react";
 import Style from "./single-item.module.scss";
-import ExtendedDescription from "./extended-description";
-import ItemList from "./item-list";
+import List from "./list";
 import Pathname from "../pathname";
-import ModalChooseItemSize from "../../../components/ui/modal-choose-item-size";
+import SizeSelectionModal from "../size-selection-modal";
 import Loader from "../../../components/shared/loaders/default";
 import { useItemStore } from "../../../store";
 import Slider from "./slider-wrapper";
@@ -36,7 +35,7 @@ const SingleItem: React.FC<Props> = ({ id }) => {
 
           <section className={Style.single_item}>
             <div className="container">
-              <ItemList
+              <List
                 id={item.id}
                 name={item.name}
                 imgUrl={item.imgUrl}
@@ -57,7 +56,7 @@ const SingleItem: React.FC<Props> = ({ id }) => {
         </React.Fragment>
       ))}
 
-      <ModalChooseItemSize />
+      <SizeSelectionModal />
     </>
   );
 };

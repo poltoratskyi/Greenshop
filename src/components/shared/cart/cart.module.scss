@@ -170,6 +170,10 @@
               background-color: v.$background;
             }
           }
+
+          &:last-child {
+            margin-bottom: 0px;
+          }
         }
       }
     }
@@ -227,6 +231,32 @@
         }
       }
 
+      .checkout {
+        @include m.button(
+          $d: block,
+          $p: 15px 30px,
+          $bc: v.$main,
+          $br: 3px,
+          $fz: 14px,
+          $fw: 400,
+          $lh: 24px,
+          $c: #fff,
+          $tt: unset
+        );
+
+        text-align: center;
+        width: 100%;
+        margin-bottom: 15px;
+
+        &.disabled {
+          background-color: v.$border;
+          cursor: not-allowed;
+          opacity: 0.5;
+          pointer-events: none;
+          color: #000;
+        }
+      }
+
       .shipping {
         align-items: flex-start;
         span {
@@ -245,7 +275,6 @@
 
         display: inline-block;
         text-emphasis: center;
-        margin-top: 15px;
 
         &:hover {
           text-decoration: underline;
@@ -266,52 +295,6 @@
   }
 }
 
-.empty {
-  h4 {
-    @include m.description($c: v.$text, $fz: 12px);
-
-    margin-bottom: 5px;
-  }
-
-  p {
-    @include m.description($c: v.$text, $fz: 14px, $fw: 500);
-
-    margin-bottom: 15px;
-  }
-
-  .login {
-    @include m.button(
-      $d: block,
-      $p: 15px 25px,
-      $bc: v.$main,
-      $br: 6px,
-      $fz: 14px,
-      $fw: 400,
-      $lh: 24px,
-      $c: #fff,
-      $tt: capitalize
-    );
-
-    width: 100%;
-
-    margin-bottom: 30px;
-  }
-
-  a {
-    span {
-      @include m.description($c: v.$descr, $fz: 13px);
-
-      text-transform: uppercase;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  text-align: center;
-}
-
 @media (max-width: 575px) {
   .cart {
     margin: 25px 0px 50px 0px;
@@ -330,6 +313,7 @@
 
       .items {
         width: 100%;
+        min-height: 165px;
 
         .lists {
           .list {

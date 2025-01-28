@@ -2,82 +2,83 @@ import { create } from "zustand";
 
 interface UIState {
   // Search
-  search: boolean;
-  setOpenSearch: (isOpen: boolean) => void;
+  isSearchOpen: boolean;
+  setIsSearchOpen: (isOpen: boolean) => void;
 
   // Modal Login
-  modal: boolean;
-  modalAction: boolean;
-  modalCategory: boolean;
-  setOpenModal: (isOpen: boolean) => void;
-  setToggleAction: (isShown: boolean) => void;
-  setOpenModalCategory: (isOpen: boolean) => void;
+  isModalOpen: boolean;
+  isModalActionOpen: boolean;
+  isModalCategoryOpen: boolean;
+  setIsModalOpen: (isOpen: boolean) => void;
+  setIsModalActionOpen: (isShown: boolean) => void;
+  setIsModalCategoryOpen: (isOpen: boolean) => void;
 
   // Modal Size
-  modalSize: boolean;
-  selectedItemSizeId: number | null;
-  setOpenModalSize: (isOpen: boolean) => void;
+  isModalSizeOpen: boolean;
+  selectedSizeId: number | null;
+  setIsModalSizeOpen: (isOpen: boolean) => void;
   setSelectedItemSizeId: (id: number) => void;
 
   // Sort
-  sort: boolean;
-  activeSortMenuValue: string;
-  activeSortValue: string;
-  setOpenSort: (isOpen: boolean) => void;
-  setActiveSortMenuValue: (value: string) => void;
-  setActiveSortValue: (value: string) => void;
+  isSortOpen: boolean;
+  selectedSortOption: string;
+  selectedSortLabel: string;
+  setIsSortOpen: (isOpen: boolean) => void;
+  setSelectedSortOption: (value: string) => void;
+  setSelectedSortLabel: (value: string) => void;
 
   // Burger Menu
-  burger: boolean;
-  setOpenBurger: (isOpen: boolean) => void;
+  isBurgerOpen: boolean;
+  setIsBurgerOpen: (isOpen: boolean) => void;
 
   // Switch sizes
-  selectedSizeIndex: number;
-  setSelectedSizeIndex: (index: number) => void;
+  currentSizeIndex: number;
+  setCurrentSizeIndex: (index: number) => void;
 
   // Switch image
-  imageIndex: number;
-  setImageIndex: (index: number) => void;
-  setResetSelectedVariation: () => void;
+  currentImageIndex: number;
+  setCurrentImageIndex: (index: number) => void;
+  resetVariationSelection: () => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({
   // Search
-  search: false,
-  setOpenSearch: (isOpen) => set({ search: isOpen }),
+  isSearchOpen: false,
+  setIsSearchOpen: (isOpen) => set({ isSearchOpen: isOpen }),
 
   // Modal Login
-  modal: false,
-  modalAction: true,
-  modalCategory: false,
-  setOpenModal: (isOpen) => set({ modal: isOpen }),
-  setToggleAction: (isShown) => set({ modalAction: isShown }),
-  setOpenModalCategory: (isOpen) => set({ modalCategory: isOpen }),
+  isModalOpen: false,
+  isModalActionOpen: true,
+  isModalCategoryOpen: false,
+  setIsModalOpen: (isOpen) => set({ isModalOpen: isOpen }),
+  setIsModalActionOpen: (isShown) => set({ isModalActionOpen: isShown }),
+  setIsModalCategoryOpen: (isOpen) => set({ isModalCategoryOpen: isOpen }),
 
   // Modal Size
-  modalSize: false,
-  selectedItemSizeId: null,
-  setOpenModalSize: (isOpen) => set({ modalSize: isOpen }),
-  setSelectedItemSizeId: (id) => set({ selectedItemSizeId: id }),
+  isModalSizeOpen: false,
+  selectedSizeId: null,
+  setIsModalSizeOpen: (isOpen) => set({ isModalSizeOpen: isOpen }),
+  setSelectedItemSizeId: (id) => set({ selectedSizeId: id }),
 
   // Sort
-  sort: false,
-  activeSortMenuValue: "name",
-  activeSortValue: "All Plants",
-  setOpenSort: (isOpen) => set({ sort: isOpen }),
-  setActiveSortMenuValue: (value) => set({ activeSortMenuValue: value }),
-  setActiveSortValue: (value) => set({ activeSortValue: value }),
+  isSortOpen: false,
+  selectedSortOption: "name",
+  selectedSortLabel: "All Plants",
+  setIsSortOpen: (isOpen) => set({ isSortOpen: isOpen }),
+  setSelectedSortOption: (value) => set({ selectedSortOption: value }),
+  setSelectedSortLabel: (value) => set({ selectedSortLabel: value }),
 
   // Burger Menu
-  burger: false,
-  setOpenBurger: (isOpen) => set({ burger: isOpen }),
+  isBurgerOpen: false,
+  setIsBurgerOpen: (isOpen) => set({ isBurgerOpen: isOpen }),
 
   // Switch sizes
-  selectedSizeIndex: 0,
-  setSelectedSizeIndex: (index) => set({ selectedSizeIndex: index }),
+  currentSizeIndex: 0,
+  setCurrentSizeIndex: (index) => set({ currentSizeIndex: index }),
 
   // Switch image
-  imageIndex: 0,
-  setImageIndex: (index) => set({ imageIndex: index }),
-  setResetSelectedVariation: () => set({ imageIndex: 0, selectedSizeIndex: 0 }),
+  currentImageIndex: 0,
+  setCurrentImageIndex: (index) => set({ currentImageIndex: index }),
+  resetVariationSelection: () =>
+    set({ currentImageIndex: 0, currentSizeIndex: 0 }),
 }));

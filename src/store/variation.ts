@@ -1,7 +1,5 @@
 import { create } from "zustand";
-
 import { QuantityItemsSize } from "../types";
-
 import { fetchVariation } from "../service";
 
 interface VariationState {

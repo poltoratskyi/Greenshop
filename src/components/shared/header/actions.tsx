@@ -5,16 +5,16 @@ import { usePathname } from "next/navigation";
 import Style from "./header.module.scss";
 import { useCartStore, useUIStore } from "../../../store";
 import { svgCart, svgLogin, svgSearch } from "./static-data";
-import ItemsList from "../../../components/ui/modal-mini-cart";
-import Summary from "../../../components/ui/modal-mini-cart/summary";
+import MiniCart from "../mini-cart";
+import Summary from "../mini-cart/summary";
 
 const Actions: React.FC = () => {
   const pathname = usePathname();
 
   const cartItems = useCartStore((state) => state.cartItems);
 
-  const setOpenModal = useUIStore((state) => state.setOpenModal);
-  const setOpenSearch = useUIStore((state) => state.setOpenSearch);
+  const setIsModalOpen = useUIStore((state) => state.setIsModalOpen);
+  const setIsSearchOpen = useUIStore((state) => state.setIsSearchOpen);
 
   return (
     <div className={Style.actions}>
@@ -26,7 +26,7 @@ const Actions: React.FC = () => {
             behavior: "smooth",
           });
 
-          setOpenSearch(true);
+          setIsSearchOpen(true);
         }}
       >
         {svgSearch}
@@ -45,7 +45,7 @@ const Actions: React.FC = () => {
         </Link>
 
         <div className={Style.dropdown_cart}>
-          <ItemsList />
+          <MiniCart />
 
           <Summary />
         </div>
@@ -57,7 +57,7 @@ const Actions: React.FC = () => {
           opacity: pathname === "/login" ? 0.5 : 1,
         }}
         onClick={() => {
-          setOpenModal(true);
+          setIsModalOpen(true);
         }}
         className={Style.login}
         href="/login"

@@ -1,14 +1,11 @@
 import { create } from "zustand";
-
 import { CartItem, PostCartItem } from "../types";
-
 import {
   fetchUserCart,
   updateCartItemQuantity,
   deleteCartItem,
   addItemCart,
 } from "../service";
-
 import { responseData } from "../data";
 
 interface CartState {

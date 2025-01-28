@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import Style from "./cart.module.scss";
-import Skeleton from "../../ui/skeleton/cart-summary";
+import Skeleton from "../skeleton/cart-summary";
 import { useCartStore } from "../../../store";
-import Button from "../button";
 
 const Summary: React.FC = () => {
   const isLoading = useCartStore((state) => state.isLoading);
@@ -48,12 +47,9 @@ const Summary: React.FC = () => {
             ))}
         </div>
 
-        <Button
-          link
-          linkValue="#"
-          className="disabled"
-          value="Proceed To Checkout"
-        />
+        <Link className={`${Style.checkout} ${Style.disabled}`} href="#">
+          Proceed To Checkout
+        </Link>
       </>
     );
   }
@@ -83,12 +79,9 @@ const Summary: React.FC = () => {
         <b>${totalAmount.toFixed(2)} </b>
       </div>
 
-      <Button
-        link
-        linkValue="#"
-        className="checkout"
-        value="Proceed To Checkout"
-      />
+      <Link className={Style.checkout} href="#">
+        Proceed To Checkout
+      </Link>
     </>
   );
 };

@@ -2,10 +2,10 @@ import Style from "./header.module.scss";
 import Logo from "./logo";
 import Links from "./links";
 import Actions from "./actions";
-import MobileHeader from "../../ui/mobile-header/mobile-header";
-import MobileMenu from "../../ui/mobile-menu";
-import SearchItemsInput from "../../ui/search-items-input";
-import SaleBanner from "../../ui/mobile-header/sale-banner";
+import MobileHeader from "../mobile-header/mobile-header";
+import MobileMenu from "../mobile-menu";
+import SearchBar from "../../ui/search-bar";
+import SaleBanner from "../mobile-header/sale-banner";
 
 const Header: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
           <Actions />
         </div>
 
-        <SearchItemsInput />
+        <SearchBar />
 
         <MobileHeader />
       </div>

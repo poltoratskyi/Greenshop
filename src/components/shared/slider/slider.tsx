@@ -7,8 +7,8 @@ import "./slider.css";
 import { Item } from "../../../types";
 import CatalogStyle from "../../shared/catalog/catalog.module.scss";
 import Title from "../single-item/title";
-import ItemsWrapper from "../catalog/items-wrapper";
-import ItemList from "../catalog/item-list";
+import ItemsWrapper from "../catalog/wrapper";
+import ItemList from "../catalog/card";
 
 interface Props {
   storedItems?: Item[];
