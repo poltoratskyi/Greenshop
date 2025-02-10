@@ -2,6 +2,9 @@
 @use "../../../styles/mixins.scss" as m;
 
 .empty {
+  text-align: center;
+  margin: 0 auto;
+
   h4 {
     @include m.description($c: v.$text, $fz: 12px);
 
@@ -43,6 +46,4 @@
       }
     }
   }
-
-  text-align: center;
 }

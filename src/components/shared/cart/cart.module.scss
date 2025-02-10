@@ -4,284 +4,8 @@
 .cart {
   margin: 50px 0px 100px 0px;
 
-  .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .inner {
-    display: flex;
-    align-items: flex-start;
-    gap: 50px;
-    margin-bottom: 90px;
-
-    .items_title,
-    .review_title {
-      @include m.subtitle($fz: 16px);
-
-      display: flex;
-      text-align: left;
-      padding-bottom: 15px;
-      border-bottom: 1px solid rgba(v.$main, 0.5);
-      margin-bottom: 10px;
-    }
-
-    .items {
-      width: 850px;
-
-      .lists {
-        .list {
-          margin-bottom: 20px;
-
-          .layout {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            transition: all 0.2s ease;
-            padding: 10px;
-
-            .product {
-              display: flex;
-              align-items: center;
-
-              .img {
-                min-height: 100px;
-                min-width: 100px;
-                max-width: 100px;
-                max-height: 100px;
-              }
-
-              .driver {
-                width: 100%;
-
-                a {
-                  display: inline-block;
-                  .title {
-                    @include m.subtitle-clamp($fz: 16px, $lc: 1);
-
-                    transition: all 0.2s ease;
-
-                    cursor: pointer;
-
-                    &:hover {
-                      color: v.$main;
-                    }
-                  }
-                }
-
-                .sku,
-                .size {
-                  @include m.description();
-
-                  span {
-                    color: v.$text;
-                    margin-right: 5px;
-                  }
-                }
-              }
-
-              &:last-child {
-                margin-bottom: 0px;
-              }
-            }
-
-            .details {
-              display: grid;
-              grid-template-columns: repeat(4, 1fr);
-              align-items: center;
-
-              .info {
-                width: 130px;
-                margin-right: 30px;
-
-                .prices {
-                  .sale {
-                    @include m.sale();
-                  }
-
-                  .price {
-                    @include m.price($fw: 400);
-
-                    margin-left: 20px;
-                  }
-                }
-
-                .price {
-                  @include m.price($fw: 400);
-                }
-              }
-
-              .total {
-                @include m.price($c: v.$main, $fw: 500);
-
-                width: 150px;
-                margin-left: 70px;
-              }
-
-              .delete {
-                display: block;
-                margin: 0 auto;
-                svg {
-                  cursor: pointer;
-
-                  &:hover {
-                    fill: v.$text;
-                  }
-                }
-              }
-
-              .quantity {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100px;
-
-                button {
-                  font-size: 14px;
-                  line-height: 24px;
-                  color: #fff;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  height: 25px;
-                  width: 25px;
-                  background-color: #fff;
-                  border: 1px rgba(v.$main, 0.5) solid;
-                  transition: all 0.2s ease;
-
-                  &:hover {
-                    border: 1px rgba(v.$main, 1) solid;
-                  }
-                }
-
-                span {
-                  @include m.description($c: v.$text);
-
-                  text-align: center;
-                }
-              }
-
-              &:last-child {
-                margin-bottom: 0px;
-              }
-            }
-
-            &:hover {
-              background-color: v.$background;
-            }
-          }
-
-          &:last-child {
-            margin-bottom: 0px;
-          }
-        }
-      }
-    }
-
-    .review {
-      min-width: 300px;
-      text-align: center;
-
-      .subtitle {
-        @include m.description($c: v.$text);
-
-        text-align: left;
-        display: block;
-        margin-bottom: 10px;
-      }
-
-      .subtotal,
-      .coupon,
-      .shipping,
-      .total {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-
-        p {
-          @include m.description($c: v.$text);
-        }
-
-        mark {
-          color: v.$text;
-          font-size: 18px;
-          line-height: 24px;
-          font-weight: 600;
-          background-color: transparent;
-        }
-
-        span {
-          @include m.description($c: v.$text, $fw: 500);
-
-          a {
-            @include m.description($c: v.$main);
-
-            margin-top: 10px;
-
-            &:hover {
-              text-decoration: underline;
-              color: #2d763c;
-            }
-          }
-        }
-
-        b {
-          @include m.title($c: v.$main, $fz: 18px, $lh: 24px);
-        }
-      }
-
-      .checkout {
-        @include m.button(
-          $d: block,
-          $p: 15px 30px,
-          $bc: v.$main,
-          $br: 3px,
-          $fz: 14px,
-          $fw: 400,
-          $lh: 24px,
-          $c: #fff,
-          $tt: unset
-        );
-
-        text-align: center;
-        width: 100%;
-        margin-bottom: 15px;
-
-        &.disabled {
-          background-color: v.$border;
-          cursor: not-allowed;
-          opacity: 0.5;
-          pointer-events: none;
-          color: #000;
-        }
-      }
-
-      .shipping {
-        align-items: flex-start;
-        span {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-        }
-      }
-
-      .total {
-        margin-bottom: 30px;
-      }
-
-      .continue {
-        @include m.description($c: v.$main);
-
-        display: inline-block;
-        text-emphasis: center;
-
-        &:hover {
-          text-decoration: underline;
-          color: #2d763c;
-        }
-      }
-    }
+  .items {
+    display: none;
   }
 
   .slider {
@@ -290,7 +14,46 @@
 
       margin-bottom: 45px;
       padding-bottom: 15px;
-      border-bottom: 1px solid rgba(v.$main, 0.5);
+      border-bottom: 1px solid v.$main;
+    }
+  }
+
+  .checkout {
+    @include m.button(
+      $d: block,
+      $p: 15px 30px,
+      $bc: v.$main,
+      $br: 3px,
+      $fz: 14px,
+      $fw: 400,
+      $lh: 24px,
+      $c: #fff,
+      $tt: unset
+    );
+
+    text-align: center;
+    width: 100%;
+    margin-bottom: 15px;
+
+    &.disabled {
+      background-color: v.$border;
+      cursor: not-allowed;
+      opacity: 0.5;
+      pointer-events: none;
+      color: #000;
+    }
+  }
+
+  .continue {
+    @include m.description($c: v.$main);
+
+    display: table;
+    margin: 0 auto;
+    text-emphasis: center;
+
+    &:hover {
+      text-decoration: underline;
+      color: #2d763c;
     }
   }
 }
@@ -299,53 +62,30 @@
   .cart {
     margin: 25px 0px 50px 0px;
 
-    .wrapper {
-      margin-bottom: 20px;
-    }
+    .items {
+      display: block;
 
-    .inner {
-      flex-direction: column;
-      gap: 25px;
+      .item {
+        .layout {
+          display: flex;
+          flex-wrap: wrap;
+          transition: all 0.2s ease;
+          padding: 10px;
 
-      .items_title {
-        display: none;
-      }
+          .info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+          }
 
-      .items {
-        width: 100%;
-        min-height: 165px;
-
-        .lists {
-          .list {
-            .layout {
-              display: flex;
-              flex-wrap: wrap;
-
-              .product {
-                margin-bottom: 20px;
-                width: 100%;
-              }
-
-              .details {
-                grid-template-columns: repeat(3, 1fr);
-                width: 100%;
-
-                .info {
-                  display: none;
-                }
-
-                .total {
-                  width: auto;
-                  margin-left: 15px;
-                }
-              }
-            }
+          .actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+            width: 100%;
           }
         }
-      }
-
-      .review {
-        min-width: 100%;
       }
     }
   }

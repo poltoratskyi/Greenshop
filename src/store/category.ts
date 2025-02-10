@@ -11,7 +11,7 @@ interface CategoryState {
   error: string | null;
 
   loadCategory: () => Promise<void>;
-  itemFilter: (name: string, isSelected: boolean) => void;
+  selectedItem: (name: string, isSelected: boolean) => void;
 }
 
 export const useCategoryStore = create<CategoryState>((set) => ({
@@ -36,7 +36,7 @@ export const useCategoryStore = create<CategoryState>((set) => ({
     }
   },
 
-  itemFilter: (name: string, isSelected: boolean) => {
+  selectedItem: (name: string, isSelected: boolean) => {
     set((state) => ({
       selectedName: isSelected
         ? [...state.selectedName, name]

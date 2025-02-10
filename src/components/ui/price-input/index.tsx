@@ -7,12 +7,12 @@ interface Props {
   placeholder: string;
   autoComplete?: string;
   type?: string;
-  min?: number;
-  max?: number;
+  min: number;
+  max: number;
   value: string;
   showDollar?: boolean;
 
-  handlePriceChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handlePriceInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const PriceRange: React.FC<Props> = ({
@@ -27,26 +27,28 @@ const PriceRange: React.FC<Props> = ({
   value,
   showDollar = false,
 
-  handlePriceChange,
+  handlePriceInputChange,
 }) => {
   return (
     <div className={Style.column}>
-      <label className={Style.label} htmlFor={id}>
-        {label}
-      </label>
+      <div className={Style.content}>
+        <label className={Style.label} htmlFor={id}>
+          {label}
+        </label>
 
-      <input
-        className={Style.input}
-        id={id}
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        autoComplete={autoComplete}
-        value={value}
-        min={min}
-        max={max}
-        onChange={handlePriceChange}
-      />
+        <input
+          className={Style.input}
+          id={id}
+          name={name}
+          type={type}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+          value={value}
+          min={min}
+          max={max}
+          onChange={(e) => handlePriceInputChange(e)}
+        />
+      </div>
 
       {showDollar && <span className={Style.currency}>$</span>}
     </div>

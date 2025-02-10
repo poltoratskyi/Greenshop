@@ -13,7 +13,7 @@ export const useUpdateUrl = () => {
 
   useEffect(() => {
     const query = qs.stringify(
-      { category: selectedItemName, size: selectedSizeName },
+      { categories: selectedItemName, sizes: selectedSizeName },
       { arrayFormat: "comma" }
     );
 

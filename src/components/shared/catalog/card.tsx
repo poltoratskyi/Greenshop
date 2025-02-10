@@ -7,6 +7,7 @@ import Style from "./catalog.module.scss";
 import { calculateDiscountPercentage, saveViewedProduct } from "../../../lib";
 import { svgCart, svgHeart } from "./static-data";
 import { useItemStore, useSearchStore, useUIStore } from "../../../store";
+import Price from "../../ui/price";
 
 interface Props {
   id: number;
@@ -117,17 +118,7 @@ const Card: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
         </Link>
       </div>
 
-      {variations[0].onSale ? (
-        <div className={Style.info}>
-          <span className={Style.sale}>${variations[0].price.toFixed(2)}</span>
-
-          <span className={Style.price}>${variations[0].sale.toFixed(2)}</span>
-        </div>
-      ) : (
-        <div className={Style.info}>
-          <span className={Style.price}>${variations[0].price.toFixed(2)}</span>
-        </div>
-      )}
+      <Price className="catalog" variations={variations} variationId={0} />
     </>
   );
 };

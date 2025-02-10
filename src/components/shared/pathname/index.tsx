@@ -5,6 +5,7 @@ import Backspace from "../backspace";
 
 interface Props {
   name?: string;
+  secondLink?: string;
   category?: ItemCategory;
   second?: string;
   third?: string;
@@ -13,6 +14,7 @@ interface Props {
 
 const Pathname: React.FC<Props> = ({
   name,
+  secondLink,
   category,
   second,
   third,
@@ -28,15 +30,21 @@ const Pathname: React.FC<Props> = ({
             <li className={`${Style.list} ${Style.link}`}>Home /</li>
           </Link>
 
-          <li
-            style={!thirdPath ? { cursor: "auto" } : {}}
-            className={`${
-              thirdPath ? Style.list : `${Style.list} ${Style.active}`
-            }`}
-          >
-            {category ? category.name : second}
-            {thirdPath && <span style={{ marginLeft: "5px" }}>/</span>}
-          </li>
+          {secondLink ? (
+            <Link href={secondLink}>
+              <li className={Style.list}>{second} /</li>
+            </Link>
+          ) : (
+            <li
+              style={!thirdPath ? { cursor: "auto" } : {}}
+              className={`${
+                thirdPath ? Style.list : `${Style.list} ${Style.active}`
+              }`}
+            >
+              {category ? category.name : second}
+              {thirdPath && <span style={{ marginLeft: "5px" }}>/</span>}
+            </li>
+          )}
 
           {thirdPath && (
             <li className={`${Style.list} ${Style.active}`}>

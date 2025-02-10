@@ -1,0 +1,32 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.info {
+  text-align: left;
+
+  a {
+    display: inline-block;
+
+    .name {
+      @include m.subtitle-clamp($fz: 16px, $lc: 1);
+
+      transition: all 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        color: v.$main;
+      }
+    }
+  }
+
+  .sku,
+  .size,
+  .quantity {
+    @include m.description();
+
+    span {
+      color: v.$text;
+      margin-right: 5px;
+    }
+  }
+}

@@ -71,7 +71,6 @@ const SizeSelectionModal: React.FC = () => {
           isModalSizeOpen ? `${Style.overlay} ${Style.visible}` : Style.overlay
         }`}
       ></div>
-
       <div
         ref={ref}
         className={`${

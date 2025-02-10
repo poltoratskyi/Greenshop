@@ -4,93 +4,33 @@
 .items {
   @include m.scroll(3px);
 
-  height: 185px;
+  height: 165px;
   overflow-y: auto;
 
   .list {
     margin-bottom: 10px;
-  }
 
-  .content {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-
-    .img {
-      max-width: 100px;
-      max-height: 100px;
+    &:last-child {
+      margin-bottom: 0px;
     }
 
-    .driver {
-      width: 100%;
+    .content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
 
-      .title {
-        @include m.subtitle-clamp($fz: 16px);
+      .driver {
+        width: 100%;
 
-        display: inline-block;
-        transition: all 0.2s ease;
-      }
-
-      .size,
-      .sku,
-      .quantity {
-        @include m.description();
-
-        span {
-          color: v.$text;
-          margin-right: 5px;
-        }
-      }
-
-      .sku {
-        margin-bottom: 10px;
-      }
-
-      .info {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        span {
-          @include m.description();
-
-          color: v.$text;
-        }
-
-        .prices {
+        .info {
           display: flex;
-          justify-content: flex-end;
           align-items: center;
-          width: 100%;
+          justify-content: space-between;
 
-          .price {
-            @include m.price($c: v.$main, $fw: 400);
-
-            margin-left: 20px;
+          .text {
+            @include m.description($c: v.$text);
           }
-
-          .sale {
-            @include m.sale();
-          }
-        }
-
-        .price {
-          @include m.price($c: v.$main, $fw: 400);
-        }
-      }
-
-      .total {
-        @include m.price($c: v.$main, $fw: 500);
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        span {
-          @include m.description();
-
-          color: v.$text;
         }
       }
     }
@@ -99,42 +39,8 @@
 
 .summary {
   padding: 10px 14px;
-  border-top: 1px solid v.$line;
 
-  .subtotal,
-  .shipping,
-  .total,
-  .discount {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .subtotal,
-  .shipping,
-  .discount {
-    @include m.description($c: v.$text);
-
-    span {
-      @include m.description($c: v.$text, $fw: 500);
-    }
-
-    p {
-      @include m.description($c: v.$text, $fw: 400);
-    }
-  }
-
-  .total {
-    @include m.price($c: v.$main, $fw: 500);
-
-    p {
-      @include m.description($c: v.$text, $fw: 500);
-    }
-
-    margin-bottom: 20px;
-  }
-
-  .see_cart {
+  .seeCart {
     @include m.button(
       $d: block,
       $p: 15px 25px,
@@ -149,5 +55,6 @@
 
     text-align: center;
     width: 100%;
+    margin-top: 10px;
   }
 }

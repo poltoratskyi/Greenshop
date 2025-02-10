@@ -6,18 +6,15 @@ const metadata: Metadata = {
   description: "Online plant store",
 };
 
-const AuthLayout = ({
+export default function AuthLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) => {
+}) {
   return (
     <main>
       {children}
-
       <Footer />
     </main>
   );
-};
-
-export default AuthLayout;
+}

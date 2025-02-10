@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Style from "./cart.module.scss";
+import SummaryStyle from "../../ui/summary/summary.module.scss";
 import Skeleton from "../skeleton/cart-summary";
 import { useCartStore } from "../../../store";
+import Summary from "../../ui/summary";
 
-const Summary: React.FC = () => {
+const CartSummary: React.FC = () => {
   const isLoading = useCartStore((state) => state.isLoading);
   const subTotalAmount = useCartStore((state) => state.subtotalAmount);
   const totalAmount = useCartStore((state) => state.totalAmount);
@@ -13,7 +14,7 @@ const Summary: React.FC = () => {
   if (isLoading) {
     return (
       <>
-        <div className={Style.subtotal}>
+        <div className={`${SummaryStyle.subtotal} ${SummaryStyle.margin}`}>
           <p>Subtotal</p>
 
           {isLoading &&
@@ -22,12 +23,12 @@ const Summary: React.FC = () => {
             ))}
         </div>
 
-        <div className={Style.coupon}>
+        <div className={`${SummaryStyle.coupon} ${SummaryStyle.margin}`}>
           <p>Coupon Discount</p>
           <p>(-) 00.00</p>
         </div>
 
-        <div className={Style.shipping}>
+        <div className={`${SummaryStyle.shipping} ${SummaryStyle.margin}`}>
           <p>Shipping</p>
           <span>
             {isLoading &&
@@ -38,7 +39,7 @@ const Summary: React.FC = () => {
           </span>
         </div>
 
-        <div className={Style.total}>
+        <div className={`${SummaryStyle.amount} ${SummaryStyle.margin}`}>
           <mark>Total</mark>
 
           {isLoading &&
@@ -46,44 +47,17 @@ const Summary: React.FC = () => {
               <Skeleton key={index} width="60" height="100%" uniqueKey="7" />
             ))}
         </div>
-
-        <Link className={`${Style.checkout} ${Style.disabled}`} href="#">
-          Proceed To Checkout
-        </Link>
       </>
     );
   }
 
   return (
-    <>
-      <div className={Style.subtotal}>
-        <p>Subtotal</p>
-        <span>${subTotalAmount.toFixed(2)}</span>
-      </div>
-
-      <div className={Style.coupon}>
-        <p>Coupon Discount</p>
-        <p>(-) 00.00</p>
-      </div>
-
-      <div className={Style.shipping}>
-        <p>Shipping</p>
-        <span>
-          $16.00
-          <Link href="#">View shipping charge</Link>
-        </span>
-      </div>
-
-      <div className={Style.total}>
-        <mark>Total</mark>
-        <b>${totalAmount.toFixed(2)} </b>
-      </div>
-
-      <Link className={Style.checkout} href="#">
-        Proceed To Checkout
-      </Link>
-    </>
+    <Summary
+      showShipping
+      subTotalAmount={subTotalAmount}
+      totalAmount={totalAmount}
+    />
   );
 };
 
-export default Summary;
+export default CartSummary;

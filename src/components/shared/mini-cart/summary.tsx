@@ -5,8 +5,9 @@ import { usePathname } from "next/navigation";
 import Skeleton from "../skeleton/mini-cart-summary";
 import Style from "./mini-cart.module.scss";
 import { useCartStore } from "../../../store";
+import Summary from "../../ui/summary";
 
-const Summary: React.FC = () => {
+const MiniCartSummary: React.FC = () => {
   const pathname = usePathname();
 
   const isLoading = useCartStore((state) => state.isLoading);
@@ -31,32 +32,18 @@ const Summary: React.FC = () => {
 
   return (
     <div className={Style.summary}>
-      <div className={Style.subtotal}>
-        <p>Subtotal</p>
-        <span>${subTotalAmount.toFixed(2)}</span>
-      </div>
-
-      <div className={Style.discount}>
-        <p>Coupon Discount</p>
-        <p>(-) 00.00</p>
-      </div>
-
-      <div className={Style.shipping}>
-        <p>Shipping</p>
-        <span>$16.00</span>
-      </div>
-
-      <div className={Style.total}>
-        <p>Total</p>
-        <span>${totalAmount.toFixed(2)}</span>
-      </div>
+      <Summary
+        showShipping={false}
+        subTotalAmount={subTotalAmount}
+        totalAmount={totalAmount}
+      />
 
       <Link
         style={{
           pointerEvents: pathname === "/cart" ? "none" : "auto",
           opacity: pathname === "/cart" ? 0.5 : 1,
         }}
-        className={Style.see_cart}
+        className={Style.seeCart}
         href="/cart"
       >
         See Cart
@@ -65,4 +52,4 @@ const Summary: React.FC = () => {
   );
 };
 
-export default Summary;
+export default MiniCartSummary;

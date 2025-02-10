@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import { use, useEffect } from "react";
 import { getCategoryItemQuantity } from "../../../lib";
 import Style from "./category.module.scss";
 import Skeleton from "../skeleton/category";
-import { useCategoryStore } from "../../../store";
+import { useCatalogStore, useCategoryStore } from "../../../store";
 import Checkbox from "../../ui/checkbox";
 
 const ItemList: React.FC = () => {
@@ -12,7 +12,7 @@ const ItemList: React.FC = () => {
 
   const category = useCategoryStore((state) => state.category);
   const loadCategory = useCategoryStore((state) => state.loadCategory);
-  const itemFilter = useCategoryStore((state) => state.itemFilter);
+  const selectedItem = useCategoryStore((state) => state.selectedItem);
 
   useEffect(() => {
     loadCategory();
@@ -60,8 +60,8 @@ const ItemList: React.FC = () => {
               <Checkbox
                 quantityItems={quantityItems}
                 isDisabled={isDisabled}
-                onSelectedName={(name) => itemFilter(name, true)}
-                onUnselectedName={(name) => itemFilter(name, false)}
+                onSelectedName={() => selectedItem(item.name, true)}
+                onUnselectedName={() => selectedItem(item.name, false)}
                 name={item.name}
                 inputId={`category-item-list-${item.id}`}
               />

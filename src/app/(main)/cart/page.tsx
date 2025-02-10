@@ -1,14 +1,11 @@
 import { Suspense } from "react";
-
 import Cart from "../../../components/shared/cart";
 import Loader from "../../../components/shared/loaders/suspense";
 
-const CartPage: React.FC = () => {
+export default function CartPage() {
   return (
     <Suspense fallback={<Loader />}>
-      <Cart />;
+      <Cart />
     </Suspense>
   );
-};
-
-export default CartPage;
+}

@@ -1,11 +1,10 @@
 import Style from "./coupon.module.scss";
-import CartStyle from "../../shared/cart/cart.module.scss";
 import Button from "../button";
 
 const CouponInput: React.FC = () => {
   return (
-    <>
-      <label className={CartStyle.subtitle} htmlFor="couponCode">
+    <div className={Style.block}>
+      <label className={Style.subtitle} htmlFor="couponCode">
         Coupon Apply
       </label>
 
@@ -21,7 +20,7 @@ const CouponInput: React.FC = () => {
 
         <Button button className="coupon" value="Apply" />
       </div>
-    </>
+    </div>
   );
 };
 

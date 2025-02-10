@@ -3,7 +3,7 @@ import Adv from "../../components/shared/adv";
 import Banner from "../../components/shared/banner";
 import Catalog from "../../components/shared/catalog";
 
-const Home: React.FC = () => {
+export default function Home() {
   return (
     <>
       <Banner />
@@ -15,6 +15,4 @@ const Home: React.FC = () => {
       <Blog />
     </>
   );
-};
-
-export default Home;
+}

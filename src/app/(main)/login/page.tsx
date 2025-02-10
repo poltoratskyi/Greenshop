@@ -1,7 +1,5 @@
 import Registration from "../../../components/shared/registration";
 
-const RegistrationPage: React.FC = () => {
+export default function RegistrationPage() {
   return <Registration />;
-};
-
-export default RegistrationPage;
+}

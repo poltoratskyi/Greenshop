@@ -10,9 +10,9 @@ const Category: React.FC = () => {
     <>
       <ItemList />
 
-      <PriceFilter />
-
       <SizeFilter />
+
+      <PriceFilter />
     </>
   );
 };

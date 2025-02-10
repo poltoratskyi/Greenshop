@@ -26,8 +26,8 @@ const SizeFilter: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className={`${Style.category} ${Style.size}`}>
-        <h3 className={Style.title}>Size</h3>
+      <div className={Style.category}>
+        <h3 className={Style.title}>Sizes</h3>
 
         <ul className={Style.lists}>
           {isLoading &&
@@ -48,8 +48,8 @@ const SizeFilter: React.FC = () => {
   }
 
   return (
-    <div className={`${Style.category} ${Style.size}`}>
-      <h3 className={Style.title}>Size</h3>
+    <div className={Style.category}>
+      <h3 className={Style.title}>Sizes</h3>
 
       <ul className={Style.lists}>
         {sizeMenu.map((item) => {
@@ -66,12 +66,8 @@ const SizeFilter: React.FC = () => {
               <Checkbox
                 quantityItems={quantityItemsSize}
                 isDisabled={isDisabled}
-                onSelectedName={(name: string) => {
-                  selectedSize(name, true);
-                }}
-                onUnselectedName={(name: string) => {
-                  selectedSize(name, false);
-                }}
+                onSelectedName={() => selectedSize(item.fullName, true)}
+                onUnselectedName={() => selectedSize(item.fullName, false)}
                 name={item.fullName}
                 inputId={`category-item-size-${item.id}`}
               />

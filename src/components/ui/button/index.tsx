@@ -1,7 +1,6 @@
 "use client";
 
 import { JSX } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Style from "./button.module.scss";
 import { useCartStore } from "../../../store";

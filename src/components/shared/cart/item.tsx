@@ -1,9 +1,12 @@
-import Link from "next/link";
-import Image from "next/image";
 import { CartItemVariation } from "../../../types";
 import Style from "./cart.module.scss";
-import Details from "./details";
-import { saveViewedProduct } from "../../../lib";
+import IImage from "../../ui/image";
+import Info from "../../ui/info";
+import Price from "../../ui/price";
+import Quantity from "../../ui/quantity";
+import { QuantityType } from "../../../hooks/use-change-quantity-items ";
+import Total from "../../ui/total";
+import Delete from "../../ui/delete";
 
 interface Props {
   id: number;
@@ -29,56 +32,41 @@ const Item: React.FC<Props> = ({
   singleItemPrice,
 }) => {
   return (
-    <li className={Style.list}>
+    <li className={Style.item}>
       <div className={Style.layout}>
-        <div className={Style.product}>
-          <Link
-            className={Style.img}
-            href={`/item/${itemId}`}
-            onClick={() => saveViewedProduct({ id, name, imgUrl, variations })}
-          >
-            <Image
-              width={600}
-              height={600}
-              style={{
-                width: "100%",
-                height: "auto",
-                padding: "10px",
-              }}
-              src={imgUrl}
-              alt={name}
-            />
-          </Link>
+        <div className={Style.info}>
+          <IImage
+            itemId={itemId}
+            imgUrl={imgUrl}
+            name={name}
+            id={id}
+            variations={variations}
+          />
 
-          <div className={Style.driver}>
-            <Link
-              href={`/item/${itemId}`}
-              onClick={() =>
-                saveViewedProduct({ id, name, imgUrl, variations })
-              }
-            >
-              <h3 className={Style.title}>{name}</h3>
-            </Link>
-
-            <p className={Style.sku}>
-              <span>Sku:</span>
-              {sku}
-            </p>
-
-            <p className={Style.size}>
-              <span>Size:</span>
-              {variations[variationId].size.shortName}
-            </p>
-          </div>
+          <Info
+            itemId={itemId}
+            name={name}
+            id={id}
+            imgUrl={imgUrl}
+            variations={variations}
+            sku={sku}
+            variationId={variationId}
+            showQuantity={false}
+          />
         </div>
 
-        <Details
-          id={id}
-          quantity={quantity}
-          variations={variations}
-          variationId={variationId}
-          singleItemPrice={singleItemPrice}
-        />
+        <div className={Style.actions}>
+          <Price
+            className="cart"
+            variations={variations}
+            variationId={variationId}
+          />
+
+          <Quantity hiddenQtyBtns={false} id={id} quantity={quantity} />
+
+          <Total singleItemPrice={singleItemPrice} />
+          <Delete id={id} />
+        </div>
       </div>
     </li>
   );

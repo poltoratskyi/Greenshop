@@ -109,20 +109,6 @@
         @include m.percent();
       }
 
-      .info {
-        display: flex;
-        align-items: center;
-
-        .sale {
-          @include m.sale();
-          margin-right: 20px;
-        }
-
-        .price {
-          @include m.price($fw: 500, $lh: 24px, $fz: 14px, $c: v.$main);
-        }
-      }
-
       &:hover {
         border-top: 1px solid rgba(v.$main, 1);
       }

@@ -1,0 +1,12 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.checkout {
+  margin: 50px 0px 100px;
+}
+
+@media (max-width: 575px) {
+  .checkout {
+    margin: 25px 0px 50px 0px;
+  }
+}

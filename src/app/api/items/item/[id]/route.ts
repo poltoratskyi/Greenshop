@@ -22,6 +22,7 @@ export async function GET(request: NextRequest, { params }: Props) {
         extendedDescription: true,
         sku: true,
         tags: true,
+
         variations: {
           select: {
             id: true,

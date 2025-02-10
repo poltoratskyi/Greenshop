@@ -1,0 +1,53 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+
+  &.checkout {
+    margin-bottom: 15px;
+  }
+
+  .header {
+    border-bottom: 1px solid v.$main;
+
+    .title {
+      @include m.subtitle($fz: 16px);
+
+      text-align: center;
+      padding-bottom: 15px;
+
+      &.checkout {
+        @include m.description($c: v.$text);
+      }
+    }
+
+    &.checkout {
+      border-bottom: none;
+    }
+  }
+
+  .td {
+    text-align: center;
+
+    .info {
+      display: flex;
+      align-items: center;
+    }
+
+    &.checkout {
+      width: 200px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .table {
+    display: none;
+
+    &.checkout {
+      display: block;
+    }
+  }
+}

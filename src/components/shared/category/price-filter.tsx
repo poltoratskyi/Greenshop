@@ -1,30 +1,47 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Style from "./category.module.scss";
 import Skeleton from "../skeleton/category";
-import { useSizeStore } from "../../../store";
+import { useVariationStore, useSizeStore } from "../../../store";
 import PriceInput from "../../ui/price-input";
 
 const PriceFilter: React.FC = () => {
+  const variations = useVariationStore((state) => state.variations);
   const isLoading = useSizeStore((state) => state.isLoading);
-  const [priceFrom, setPriceFrom] = useState(0);
-  const [priceTo, setPriceTo] = useState(999);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(0);
 
-  const handlePriceFromChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setPriceFrom(Number(value));
-  };
+  useEffect(() => {
+    const prices = variations.map((item) => item.price);
+    const maxPrice = prices.sort((a, b) => b - a)[0];
+    const minPrice = prices.sort((a, b) => a - b)[0];
 
-  const handlePriceToChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setPriceTo(Number(value));
+    setMinPrice(minPrice || 0);
+    setMaxPrice(maxPrice || 0);
+  }, [variations]);
+
+  const handlePriceInputChange = (
+    field: "minPrice" | "maxPrice",
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const value = Number(e.target.value);
+
+    if (field === "minPrice") {
+      if (value >= 0 && value <= 10000) {
+        setMinPrice(value);
+      }
+    } else if (field === "maxPrice") {
+      if (value >= 0 && value <= 10000) {
+        setMaxPrice(value);
+      }
+    }
   };
 
   if (isLoading) {
     return (
-      <div className={Style.category}>
-        <h3 className={Style.title}>Price Range</h3>
+      <div className={`${Style.category} ${Style.price}`}>
+        <h3 className={Style.title}>Price</h3>
 
         {isLoading &&
           [...new Array(1)].map((_, index: number) => (
@@ -35,29 +52,31 @@ const PriceFilter: React.FC = () => {
   }
 
   return (
-    <div className={Style.category}>
-      <h3 className={Style.title}>Price Range</h3>
+    <div className={`${Style.category} ${Style.price}`}>
+      <h3 className={Style.title}>Price</h3>
 
       <div className={Style.range}>
         <PriceInput
           id="price-from"
           name="price-from"
           label="From"
-          placeholder="0"
+          placeholder={String(minPrice)}
           min={0}
-          value={String(priceFrom)}
-          handlePriceChange={handlePriceFromChange}
+          max={10000}
+          value={String(minPrice)}
+          handlePriceInputChange={(e) => handlePriceInputChange("minPrice", e)}
         />
 
         <PriceInput
           id="price-to"
           name="price-to"
           label="To"
-          placeholder="999"
-          max={999}
-          value={String(priceTo)}
+          placeholder={String(maxPrice)}
+          min={0}
+          max={10000}
+          value={String(maxPrice)}
           showDollar
-          handlePriceChange={handlePriceToChange}
+          handlePriceInputChange={(e) => handlePriceInputChange("maxPrice", e)}
         />
       </div>
     </div>

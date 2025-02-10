@@ -7,6 +7,7 @@ export async function GET() {
     const variations = await prisma.variation.findMany({
       select: {
         id: true,
+        price: true,
 
         value: true,
         sizeId: true,

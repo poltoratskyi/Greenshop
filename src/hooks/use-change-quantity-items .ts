@@ -2,7 +2,7 @@
 
 import { useCartStore } from "../store";
 
-type QuantityType = "decrement" | "increment";
+export type QuantityType = "decrement" | "increment";
 
 export const useChangeQuantityItems = () => {
   const updateCartItemQuantity = useCartStore(

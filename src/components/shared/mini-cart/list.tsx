@@ -1,8 +1,13 @@
-import Image from "next/image";
 import { CartItemVariation } from "../../../types";
 import Style from "./mini-cart.module.scss";
+import Total from "../../ui/total";
+import Price from "../../ui/price";
+import Info from "../../ui/info";
+import IImage from "../../ui/image";
 
 interface Props {
+  id: number;
+  itemId: number;
   singleItemPrice: number;
   quantity: number;
   name: string;
@@ -12,6 +17,8 @@ interface Props {
   variations: CartItemVariation[];
 }
 const List: React.FC<Props> = ({
+  id,
+  itemId,
   singleItemPrice,
   quantity,
   name,
@@ -22,65 +29,53 @@ const List: React.FC<Props> = ({
 }) => {
   return (
     <div className={Style.content}>
-      <div className={Style.img}>
-        <Image
-          priority
-          width={600}
-          height={600}
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
-          src={imgUrl}
-          alt={name}
-        />
-      </div>
+      <IImage
+        itemId={itemId}
+        imgUrl={imgUrl}
+        name={name}
+        id={id}
+        variations={variations}
+      />
 
       <div className={Style.driver}>
-        <h3 className={Style.title}>{name}</h3>
-
-        <p className={Style.size}>
-          <span>Size:</span>
-          {variations[variationId].size.shortName}
-        </p>
-
-        <p className={Style.quantity}>
-          <span>Quantity:</span>
-          {quantity}
-        </p>
-
-        <p className={Style.sku}>
-          <span>Sku:</span>
-          {sku}
-        </p>
+        <Info
+          id={id}
+          itemId={itemId}
+          name={name}
+          imgUrl={imgUrl}
+          sku={sku}
+          showQuantity
+          quantity={quantity}
+          variations={variations}
+          variationId={variationId}
+        />
 
         {variations[variationId].onSale ? (
           <div className={Style.info}>
-            <span>Price:</span>
+            <span className={Style.text}>Price:</span>
 
-            <div className={Style.prices}>
-              <span className={Style.sale}>
-                ${variations[variationId].price.toFixed(2)}
-              </span>
-
-              <span className={Style.price}>
-                ${variations[variationId].sale.toFixed(2)}
-              </span>
-            </div>
+            <Price
+              className="cart"
+              variations={variations}
+              variationId={variationId}
+            />
           </div>
         ) : (
           <div className={Style.info}>
-            <span>Price:</span>
+            <span className={Style.text}>Price:</span>
 
-            <span className={Style.price}>
-              ${variations[variationId].price.toFixed(2)}
-            </span>
+            <Price
+              className="cart"
+              variations={variations}
+              variationId={variationId}
+            />
           </div>
         )}
 
-        <p className={Style.total}>
-          <span>Total:</span>${singleItemPrice.toFixed(2)}
-        </p>
+        <div className={Style.info}>
+          <span className={Style.text}>Total:</span>
+          <Total singleItemPrice={singleItemPrice} />
+        </div>
       </div>
     </div>
   );

@@ -6,8 +6,8 @@ interface Props {
   isDisabled: boolean;
   inputId: string;
 
-  onSelectedName: (name: string) => void;
-  onUnselectedName: (name: string) => void;
+  onSelectedName: () => void;
+  onUnselectedName: () => void;
 }
 
 const Checkbox: React.FC<Props> = ({
@@ -28,9 +28,9 @@ const Checkbox: React.FC<Props> = ({
           type="checkbox"
           disabled={isDisabled}
           onChange={(e) => {
-            if (!isDisabled) {
-              e.target.checked ? onSelectedName(name) : onUnselectedName(name);
-            }
+            !isDisabled && e.target.checked
+              ? onSelectedName()
+              : onUnselectedName();
           }}
         ></input>
 

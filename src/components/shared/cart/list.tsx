@@ -2,10 +2,12 @@
 
 import { useEffect } from "react";
 import Style from "./cart.module.scss";
-import Header from "./header";
-import Item from "./item";
 import Loader from "../loaders/default";
 import { useCartStore } from "../../../store";
+import Item from "./item";
+import Review from "../../ui/cart-order-review";
+import { headerData } from "./static-data";
+import ItemTable from "../item-table";
 
 const List: React.FC = () => {
   const isLoading = useCartStore((state) => state.isLoading);
@@ -17,26 +19,32 @@ const List: React.FC = () => {
     loadUserCart();
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className={Style.items}>
-        <Header />
-
-        <Loader cart />
-      </div>
-    );
-  }
-
   return (
-    <div className={Style.items}>
-      <Header />
+    <>
+      {/* Desktop item list */}
+      <ItemTable
+        hiddenColumns={false}
+        hiddenQtyBtns={false}
+        headerData={headerData}
+      />
 
-      <ul className={Style.lists}>
-        {cartItems.map((item) => (
-          <Item key={item.id} {...item} />
-        ))}
-      </ul>
-    </div>
+      {/* Mobile item list */}
+      <div className={Style.items}>
+        {isLoading ? (
+          <Review title="Loading...">
+            <Loader cart />
+          </Review>
+        ) : (
+          <Review title="Products">
+            <ul>
+              {cartItems.map((item) => (
+                <Item key={item.id} {...item} />
+              ))}
+            </ul>
+          </Review>
+        )}
+      </div>
+    </>
   );
 };
 

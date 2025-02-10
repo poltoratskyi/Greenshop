@@ -17,7 +17,6 @@
         @include m.description();
 
         margin-left: 5px;
-        cursor: pointer;
 
         &.active {
           color: v.$text;

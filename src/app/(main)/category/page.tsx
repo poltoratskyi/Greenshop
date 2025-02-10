@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const ShopPage: React.FC = () => {
+export default function ShopPage() {
   const router = useRouter();
 
   useEffect(() => {
@@ -12,6 +12,4 @@ const ShopPage: React.FC = () => {
   }, [router]);
 
   return null;
-};
-
-export default ShopPage;
+}

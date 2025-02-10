@@ -9,7 +9,7 @@ const MiniCart: React.FC<IContentLoaderProps> = ({
     speed={2}
     width={width}
     height={height}
-    viewBox={`0 0 330 185`}
+    viewBox={`0 0 330 165`}
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
     {...props}
@@ -35,10 +35,6 @@ const MiniCart: React.FC<IContentLoaderProps> = ({
     {/* price */}
     <rect x="120" y="130" rx="5px" ry="5px" width="35" height="24" />
     <rect x="220" y="130" rx="5px" ry="5px" width="100" height="24" />
-
-    {/* total */}
-    <rect x="120" y="160" rx="5px" ry="5px" width="35" height="24" />
-    <rect x="270" y="160" rx="5px" ry="5px" width="50" height="24" />
   </ContentLoader>
 );
 
