@@ -1,3 +1,4 @@
+import ActionInput from "@/components/ui/action-input";
 import FeedbackInput from "../../ui/feedback-input";
 import Style from "./footer.module.scss";
 import { serviceText } from "./static-data";
@@ -19,9 +20,19 @@ const Service: React.FC = () => {
         </div>
 
         <div className={Style.newsletters}>
-          <h3 className={Style.title}>Would you like to join newsletters?</h3>
-
-          <FeedbackInput />
+          <ActionInput
+            id="email"
+            name="email"
+            type="email"
+            className="feedback"
+            labelClassName="feedback"
+            blockClassName="feedback"
+            inputClassName="feedback"
+            label="Would you like to join newsletters?"
+            placeholder="Enter your email address..."
+            buttonText="Join"
+            buttonClassName="feedback"
+          />
 
           <p className={Style.descr}>
             &quot;We usually post offers and challenges in newsletter.

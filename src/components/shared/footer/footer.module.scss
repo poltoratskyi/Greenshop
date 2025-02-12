@@ -40,15 +40,6 @@
         .newsletters {
           max-width: 350px;
 
-          .title {
-            @include m.subtitle();
-            margin-bottom: 10px;
-          }
-
-          form {
-            display: flex;
-          }
-
           .descr {
             @include m.description();
             margin-top: 20px;
@@ -252,11 +243,6 @@
 
           .newsletters {
             max-width: 100%;
-
-            .title {
-              font-size: 16px;
-              text-align: center;
-            }
           }
         }
       }

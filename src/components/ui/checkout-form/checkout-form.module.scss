@@ -2,21 +2,28 @@
 @use "../../../styles/mixins.scss" as m;
 
 .block {
-  .subtitle {
+  .label {
     @include m.description($c: v.$text);
 
-    text-align: left;
-    display: block;
+    display: inline-block;
     margin-bottom: 10px;
+
+    span {
+      font-size: 15px;
+      color: red;
+    }
   }
 
-  .coupon {
+  .input {
     @include m.description($fz: 16px, $c: v.$text);
+
     padding: 15px 10px;
     background-color: #fff;
-    border: 1px solid rgba(v.$main, 0.5);
+    border: 1px solid v.$border;
     border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
     border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
     width: 100%;
 
     &::placeholder {
@@ -28,4 +35,7 @@
       outline: none;
     }
   }
+}
+
+@media (max-width: 575px) {
 }

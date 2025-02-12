@@ -8,6 +8,7 @@ import Loader from "./loader";
 
 interface Props {
   buy?: boolean;
+  submit?: boolean;
   addToCart?: boolean;
   button?: boolean;
   className?: string;
@@ -20,6 +21,7 @@ interface Props {
 
 const Button: React.FC<Props> = ({
   buy,
+  submit,
   addToCart,
   button,
   className,
@@ -30,15 +32,21 @@ const Button: React.FC<Props> = ({
   handleAddToCart,
 }) => {
   const router = useRouter();
-
   const isLoadingItem = useCartStore((state) => state.isLoadingItem);
-
   const buttonClass = Style[className || ""];
 
   return (
     <>
       {button && (
         <button className={buttonClass}>
+          {svgLeft}
+          {value}
+          {svgRight}
+        </button>
+      )}
+
+      {submit && (
+        <button type="submit" className={buttonClass}>
           {svgLeft}
           {value}
           {svgRight}

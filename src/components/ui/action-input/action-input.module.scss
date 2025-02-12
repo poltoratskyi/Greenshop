@@ -1,0 +1,77 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.form {
+  &.coupon {
+    margin-bottom: 30px;
+  }
+
+  .label {
+    @include m.description($c: v.$text);
+
+    text-align: left;
+    display: block;
+    margin-bottom: 10px;
+
+    &.feedback {
+      @include m.subtitle();
+    }
+  }
+
+  .block {
+    display: flex;
+
+    .input {
+      @include m.description($fz: 16px, $c: v.$text);
+      padding: 15px 10px;
+      background-color: #fff;
+      border: 1px solid rgba(v.$main, 0.5);
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+      width: 100%;
+
+      &::placeholder {
+        color: v.$sale;
+      }
+
+      &:focus {
+        border-color: rgba(v.$main, 1);
+        outline: none;
+      }
+
+      &.feedback {
+        border: 1px solid v.$border;
+
+        &:focus {
+          border: 1px solid v.$main;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .form {
+    .label {
+      &.feedback {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+
+    .block {
+      &.feedback {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .input {
+        &.feedback {
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import Style from "./cart.module.scss";
 import Loader from "../loaders/default";
 import { useCartStore } from "../../../store";
@@ -12,12 +11,6 @@ import ItemTable from "../item-table";
 const List: React.FC = () => {
   const isLoading = useCartStore((state) => state.isLoading);
   const cartItems = useCartStore((state) => state.cartItems);
-
-  const loadUserCart = useCartStore((state) => state.loadUserCart);
-
-  useEffect(() => {
-    loadUserCart();
-  }, []);
 
   return (
     <>

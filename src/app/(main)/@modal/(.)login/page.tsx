@@ -1,6 +1,6 @@
 "use client";
 
-import ModalWrapper from "../../../../components/shared/modal-wrapper";
+import ModalWrapper from "../../../../components/ui/modal-wrapper";
 import ModalForm from "../../../../components/shared/modal-forms";
 import SignUp from "../../../../components/shared/modal-forms/sign-up";
 import LogIn from "../../../../components/shared/modal-forms/log-in";

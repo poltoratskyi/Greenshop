@@ -10,7 +10,7 @@ import SizeSelectionModal from "../size-selection-modal";
 import CartEmpty from "./cart-empty";
 import { useCartFilteredCatalog } from "../../../hooks/use-cart-filtered-catalog";
 import Links from "./links";
-import CouponInput from "../../ui/coupon-input";
+import ActionInput from "../../ui/action-input";
 import Summary from "./summary";
 import Wrapper from "../../ui/cart-order-wrapper";
 
@@ -30,7 +30,16 @@ const Cart: React.FC = () => {
               </Wrapper>
 
               <Review summaryWidth title="Cart Totals">
-                <CouponInput />
+                <ActionInput
+                  id="couponCode"
+                  name="couponCode"
+                  type="text"
+                  className="coupon"
+                  label="Coupon Apply"
+                  placeholder="Enter coupon code here"
+                  buttonText="Apply"
+                  buttonClassName="coupon"
+                />
                 <Summary />
                 <Links />
               </Review>
