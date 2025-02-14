@@ -23,29 +23,10 @@
 
     .input {
       @include m.description($fz: 16px, $c: v.$text);
-      padding: 15px 10px;
-      background-color: #fff;
-      border: 1px solid rgba(v.$main, 0.5);
+      @include m.input();
+
       border-top-left-radius: 6px;
       border-bottom-left-radius: 6px;
-      width: 100%;
-
-      &::placeholder {
-        color: v.$sale;
-      }
-
-      &:focus {
-        border-color: rgba(v.$main, 1);
-        outline: none;
-      }
-
-      &.feedback {
-        border: 1px solid v.$border;
-
-        &:focus {
-          border: 1px solid v.$main;
-        }
-      }
     }
   }
 }

@@ -163,15 +163,17 @@ model Order {
     id Int @id @default(autoincrement())
 
     // Ckeckout
-    userName String
-    lastName String
-    country  String
-    city     String
-    address  String
-    email    String
-    phone    String
-    token    String
-    notes    String?
+    firstName String
+    lastName  String
+    city      String
+    email     String
+    phone     String
+    address   String
+    zip       String
+    country   String
+    notes     String?
+    
+    token     String
 
     // List of Items in the Cart   
     items Json

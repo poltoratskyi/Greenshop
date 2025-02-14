@@ -18,19 +18,25 @@ export type OrderItem = Id &
 
 export type Order = Id &
   Token & {
-    userName: string;
+    firstName: string;
     lastName: string;
-    country: string;
     city: string;
-    address: string;
     email: string;
     phone: string;
+    address: string;
+    zip: string;
+    country: string;
     notes?: string;
+
     items: JSON;
+
     user: User;
     userId: UserId;
+
     order: OrderItem[];
+
     status: OrderStatus;
+
     paymentId?: string;
   };
 

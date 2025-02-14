@@ -14,26 +14,34 @@
     }
   }
 
-  .input {
+  .input,
+  .textarea {
     @include m.description($fz: 16px, $c: v.$text);
+    @include m.input();
 
-    padding: 15px 10px;
-    background-color: #fff;
-    border: 1px solid v.$border;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
-    width: 100%;
 
-    &::placeholder {
-      color: v.$sale;
-    }
+    &.false {
+      border-color: red;
 
-    &:focus {
-      border-color: rgba(v.$main, 1);
-      outline: none;
+      &:hover {
+        border-color: rgba(v.$main, 1);
+      }
     }
+  }
+
+  .textarea {
+    resize: none;
+  }
+
+  .error {
+    @include m.description($c: red, $fz: 12px);
+
+    display: inline-block;
+    margin-top: 10px;
   }
 }
 

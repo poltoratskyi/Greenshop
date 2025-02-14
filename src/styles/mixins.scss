@@ -192,3 +192,24 @@
   justify-content: center;
   height: 65px;
 }
+
+@mixin input() {
+  padding: 15px 10px;
+  background-color: #fff;
+  width: 100%;
+  transition: all 0.2s ease;
+  border: 1px solid v.$border;
+
+  &::placeholder {
+    color: v.$sale;
+  }
+
+  &:focus {
+    border: 1px solid v.$main;
+    outline: none;
+  }
+
+  &:hover {
+    border: 1px solid v.$main;
+  }
+}
