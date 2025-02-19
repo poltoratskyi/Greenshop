@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import Container from "../cart-order-container";
 import Wrapper from "../cart-order-wrapper";
-import InputFields from "./input-fields";
+import Inputs from "./inputs";
 import Review from "../cart-order-review";
 import ItemTable from "../item-table";
 import { headerData } from "./static-data";
@@ -47,7 +47,7 @@ const Form: React.FC = () => {
       <Container>
         <Wrapper>
           <Review title="Billing Address">
-            <InputFields register={register} control={control} error={errors} />
+            <Inputs register={register} control={control} error={errors} />
           </Review>
         </Wrapper>
 
