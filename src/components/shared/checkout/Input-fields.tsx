@@ -3,7 +3,7 @@ import Textarea from "../../ui/common-form-elements/textarea";
 import Input from "../../ui/common-form-elements/input";
 import Style from "./checkout.module.scss";
 import { CheckoutFormFields } from "../../../schemas/checkout-form-schema";
-import PhoneInput from "@/components/ui/phone-input";
+import PhoneInput from "../../../components/ui/phone-input";
 
 interface Props {
   control: Control<CheckoutFormFields>;

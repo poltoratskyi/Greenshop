@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { Control, UseFormRegister, FieldErrors } from "react-hook-form";
-import Input from "@/components/ui/common-form-elements/input";
+import Input from "../../../components/ui/common-form-elements/input";
 import Button from "../../ui/button";
 import Style from "./sing-up.module.scss";
 import { zodResolver } from "@hookform/resolvers/zod";

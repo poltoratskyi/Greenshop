@@ -4,7 +4,7 @@ import "./phone-input.css";
 import { Control, Controller, FieldErrors } from "react-hook-form";
 import Style from "../../ui/common-form-elements/common-form-elements.module.scss";
 import ErrorMessage from "../error-message";
-import { CheckoutFormFields } from "@/schemas/checkout-form-schema";
+import { CheckoutFormFields } from "../../../schemas/checkout-form-schema";
 
 interface Props {
   control: Control<CheckoutFormFields>;

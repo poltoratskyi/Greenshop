@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 import Header from "../../components/shared/header";
 import Footer from "../../components/shared/footer";
-import SaleBanner from "@/components/ui/sale-banner";
+import SaleBanner from "../../components/ui/sale-banner";
 
 const metadata: Metadata = {
   title: "GREENSHOP | Main Page",
