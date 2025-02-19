@@ -5,7 +5,7 @@ import { useClickAway, useDebounce } from "react-use";
 import Style from "./search-items-input.module.scss";
 import SearchResults from "../../shared/search-results";
 import Loader from "../../shared/loaders/default";
-import SaleBanner from "../../shared/mobile-header/sale-banner";
+import SaleBanner from "../sale-banner";
 import { useSearchStore, useUIStore } from "../../../store";
 import { svgClose, svgSearch } from "./static-data";
 

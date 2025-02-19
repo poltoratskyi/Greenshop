@@ -2,7 +2,7 @@
 @use "../../../styles/mixins.scss" as m;
 
 .banner {
-  margin-bottom: 45px;
+  margin: 25px 0px 45px;
 
   .content {
     display: flex;
@@ -57,7 +57,7 @@
 
 @media (max-width: 575px) {
   .banner {
-    margin-bottom: 20px;
+    margin: 0px 0px 20px 0px;
 
     .content {
       display: none;

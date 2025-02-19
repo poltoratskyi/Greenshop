@@ -1,4 +1,4 @@
-import ActionInput from "@/components/ui/action-input";
+import ActionInput from "@/components/ui/coupon-sender-input";
 import FeedbackInput from "../../ui/feedback-input";
 import Style from "./footer.module.scss";
 import { serviceText } from "./static-data";

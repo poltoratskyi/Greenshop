@@ -5,10 +5,6 @@
   border-collapse: collapse;
   width: 100%;
 
-  &.checkout {
-    margin-bottom: 15px;
-  }
-
   .header {
     border-bottom: 1px solid v.$main;
 
@@ -25,6 +21,7 @@
 
     &.checkout {
       border-bottom: none;
+      margin-bottom: 15px;
     }
   }
 

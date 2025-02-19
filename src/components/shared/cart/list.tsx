@@ -4,7 +4,7 @@ import Style from "./cart.module.scss";
 import Loader from "../loaders/default";
 import { useCartStore } from "../../../store";
 import Item from "./item";
-import Review from "../../ui/cart-order-review";
+import Review from "../cart-order-review";
 import { headerData } from "./static-data";
 import ItemTable from "../item-table";
 

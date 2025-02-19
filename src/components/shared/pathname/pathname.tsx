@@ -22,36 +22,38 @@ const Pathname: React.FC<Props> = ({
 }) => {
   return (
     <div className={Style.wrapper}>
-      <div className={Style.item_path}>
-        <Backspace />
+      <div className="container">
+        <div className={Style.item_path}>
+          <Backspace />
 
-        <ul className={Style.lists}>
-          <Link href="/">
-            <li className={`${Style.list} ${Style.link}`}>Home /</li>
-          </Link>
-
-          {secondLink ? (
-            <Link href={secondLink}>
-              <li className={Style.list}>{second} /</li>
+          <ul className={Style.lists}>
+            <Link href="/">
+              <li className={`${Style.list} ${Style.link}`}>Home /</li>
             </Link>
-          ) : (
-            <li
-              style={!thirdPath ? { cursor: "auto" } : {}}
-              className={`${
-                thirdPath ? Style.list : `${Style.list} ${Style.active}`
-              }`}
-            >
-              {category ? category.name : second}
-              {thirdPath && <span style={{ marginLeft: "5px" }}>/</span>}
-            </li>
-          )}
 
-          {thirdPath && (
-            <li className={`${Style.list} ${Style.active}`}>
-              {thirdPath ? name : third}
-            </li>
-          )}
-        </ul>
+            {secondLink ? (
+              <Link href={secondLink}>
+                <li className={Style.list}>{second} /</li>
+              </Link>
+            ) : (
+              <li
+                style={!thirdPath ? { cursor: "auto" } : {}}
+                className={`${
+                  thirdPath ? Style.list : `${Style.list} ${Style.active}`
+                }`}
+              >
+                {category ? category.name : second}
+                {thirdPath && <span style={{ marginLeft: "5px" }}>/</span>}
+              </li>
+            )}
+
+            {thirdPath && (
+              <li className={`${Style.list} ${Style.active}`}>
+                {thirdPath ? name : third}
+              </li>
+            )}
+          </ul>
+        </div>
       </div>
     </div>
   );

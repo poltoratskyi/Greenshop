@@ -2,17 +2,17 @@
 
 import Style from "./cart.module.scss";
 import List from "./list";
-import Review from "../../ui/cart-order-review";
+import Review from "../cart-order-review";
 import Slider from "../slider";
 import Pathname from "../pathname";
-import Container from "../../ui/cart-order-container";
+import Container from "../cart-order-container";
 import SizeSelectionModal from "../size-selection-modal";
 import CartEmpty from "./cart-empty";
 import { useCartFilteredCatalog } from "../../../hooks/use-cart-filtered-catalog";
 import Links from "./links";
-import ActionInput from "../../ui/action-input";
+import ActionInput from "../../ui/coupon-sender-input";
 import Summary from "./summary";
-import Wrapper from "../../ui/cart-order-wrapper";
+import Wrapper from "../cart-order-wrapper";
 
 const Cart: React.FC = () => {
   const { cartItems, filteredItems, isEmpty } = useCartFilteredCatalog();

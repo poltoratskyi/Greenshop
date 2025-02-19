@@ -4,7 +4,7 @@
 .registration {
   margin: 50px 0px 45px;
 
-  .registration_wrapper {
+  .wrapper {
     background-color: v.$background;
     text-align: center;
     overflow-y: auto;
@@ -40,25 +40,23 @@
   .registration {
     margin: 0px 0px 45px 0px;
 
-    .registration_wrapper {
-      .box {
-        flex-direction: column;
+    .box {
+      flex-direction: column;
+      height: auto;
+      gap: 30px;
+
+      .line {
+        flex-direction: unset;
+        width: 100%;
         height: auto;
-        gap: 30px;
 
-        .line {
-          flex-direction: unset;
+        span {
+          height: 1px;
           width: 100%;
-          height: auto;
+        }
 
-          span {
-            height: 1px;
-            width: 100%;
-          }
-
-          p {
-            margin: 0px 10px;
-          }
+        p {
+          margin: 0px 10px;
         }
       }
     }

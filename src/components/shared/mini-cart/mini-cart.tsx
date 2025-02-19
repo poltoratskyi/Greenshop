@@ -22,7 +22,7 @@ const MiniCart: React.FC = () => {
       <ul className={Style.items}>
         {isLoading &&
           [...new Array(1)].map((_, index: number) => (
-            <Skeleton key={index} width="100%" height="185" uniqueKey="5" />
+            <Skeleton key={index} width="100%" height="165" uniqueKey="5" />
           ))}
       </ul>
     );

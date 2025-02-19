@@ -1,14 +1,12 @@
-"use client";
-
 import { useForm } from "react-hook-form";
-import Container from "../../ui/cart-order-container";
-import Wrapper from "../../ui/cart-order-wrapper";
-import InputFields from "./Input-fields";
-import Review from "../../../components/ui/cart-order-review";
+import Container from "../cart-order-container";
+import Wrapper from "../cart-order-wrapper";
+import InputFields from "./input-fields";
+import Review from "../cart-order-review";
 import ItemTable from "../item-table";
 import { headerData } from "./static-data";
 import Summary from "../cart/summary";
-import Button from "../../../components/ui/button";
+import Button from "../../ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   CheckoutFormFields,
@@ -19,6 +17,7 @@ const Form: React.FC = () => {
   const {
     register,
     handleSubmit,
+    control,
     reset,
     formState: { errors },
   } = useForm<CheckoutFormFields>({
@@ -27,11 +26,12 @@ const Form: React.FC = () => {
     defaultValues: {
       firstName: "",
       lastName: "",
+      country: "",
       address: "",
       city: "",
       email: "",
       phone: "",
-      country: "",
+      state: "",
       zip: "",
       message: "",
     },
@@ -47,7 +47,7 @@ const Form: React.FC = () => {
       <Container>
         <Wrapper>
           <Review title="Billing Address">
-            <InputFields register={register} errors={errors} />
+            <InputFields register={register} control={control} error={errors} />
           </Review>
         </Wrapper>
 

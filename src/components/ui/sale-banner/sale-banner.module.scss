@@ -1,0 +1,23 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.top_info {
+  display: block;
+  background-color: #fff;
+
+  .text {
+    @include m.description($c: #fff);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    background-color: v.$main;
+
+    &.delivered {
+      height: 40px;
+      color: v.$text;
+      background-color: #fff;
+    }
+  }
+}

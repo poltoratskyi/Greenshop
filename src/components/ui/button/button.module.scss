@@ -157,8 +157,8 @@
   }
 }
 
-.log_in,
-.sign_up {
+.logIn,
+.signUp {
   @include m.button(
     $d: block,
     $p: 15px 30px,

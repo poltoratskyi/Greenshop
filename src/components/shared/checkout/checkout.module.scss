@@ -2,7 +2,7 @@
 @use "../../../styles/mixins.scss" as m;
 
 .checkout {
-  margin: 50px 0px 100px;
+  margin: 50px 0px 0px 0px;
 
   .content {
     display: grid;
@@ -11,13 +11,66 @@
   }
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid v.$border;
+  padding: 15px 0px;
+
+  .link {
+    @include m.description();
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    padding-left: 30px;
+
+    svg {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      left: 20px;
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      color: v.$main;
+
+      svg {
+        opacity: 1;
+        visibility: visible;
+        left: 0;
+      }
+    }
+  }
+
+  .phone {
+    @include m.description();
+  }
+}
+
 @media (max-width: 575px) {
   .checkout {
-    margin: 25px 0px 50px 0px;
+    margin: 25px 0px 0px 0px;
 
     .content {
       grid-template-columns: repeat(1, 1fr);
       gap: 20px;
+    }
+  }
+
+  .header {
+    padding: 20px 0px;
+
+    .link {
+      display: none;
+    }
+
+    .phone {
+      display: none;
     }
   }
 }

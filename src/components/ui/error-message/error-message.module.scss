@@ -1,0 +1,9 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.error {
+  @include m.description($c: red, $fz: 12px);
+
+  display: inline-block;
+  margin-top: 10px;
+}

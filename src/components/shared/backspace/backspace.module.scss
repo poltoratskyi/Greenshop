@@ -9,7 +9,8 @@
 
 @media (max-width: 575px) {
   .backspace {
-    display: flex;
+    display: block;
+    padding: 0px 15px;
 
     button {
       height: 100%;

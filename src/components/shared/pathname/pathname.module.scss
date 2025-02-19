@@ -2,8 +2,7 @@
 @use "../../../styles/mixins.scss" as m;
 
 .wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+  margin-top: 15px;
 
   .item_path {
     display: flex;
@@ -34,13 +33,13 @@
 
 @media (max-width: 575px) {
   .wrapper {
+    margin-top: 0px;
     max-width: 100%;
 
     .item_path {
       display: flex;
       align-items: center;
       height: 50px;
-      border-top: 1px solid v.$border;
       border-bottom: 1px solid v.$border;
 
       .lists {

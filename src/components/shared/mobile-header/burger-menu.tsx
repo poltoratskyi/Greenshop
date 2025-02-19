@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Style from "./mobile-header.module.scss";
-import Logo from "../header/logo";
+import Logo from "../logo";
 import Contacts from "../footer/contacts";
 import Accept from "../footer/accept";
 import { useUIStore } from "../../../store";
@@ -32,11 +32,6 @@ const BurgerMenu: React.FC = () => {
 
   return (
     <div
-      style={
-        pathname === "/" || pathname === "/login"
-          ? { marginTop: "41px" }
-          : { marginTop: "66px" }
-      }
       className={`${
         isBurgerOpen ? `${Style.burger} ${Style.visible}` : Style.burger
       }`}
@@ -60,14 +55,7 @@ const BurgerMenu: React.FC = () => {
         alt="burger"
       />
 
-      <div
-        style={
-          pathname === "/" || pathname === "/login"
-            ? { padding: "10px 10px 55px 10px" }
-            : { padding: "10px 10px 75px 10px" }
-        }
-        className={Style.menu}
-      >
+      <div className={Style.menu}>
         <ul className={Style.lists}>
           {links.map((link, index) => (
             <li key={index} className={Style.list}>

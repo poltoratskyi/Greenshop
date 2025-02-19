@@ -1,7 +1,7 @@
 export const svgBackspace = (
-  <svg width="50" height="35" viewBox="0 0 20 20" fill="none" cursor="pointer">
+  <svg width="25px" height="25px" viewBox="0 0 25 25" fill="none">
     <path
-      d="M12.917 15.8334C12.917 15.8334 7.08366 12.38 7.08366 10C7.08366 7.62085 12.917 4.16669 12.917 4.16669"
+      d="M4 12H20M4 12L8 8M4 12L8 16"
       stroke="#3D3D3D"
       strokeWidth="1.5"
       strokeLinecap="round"

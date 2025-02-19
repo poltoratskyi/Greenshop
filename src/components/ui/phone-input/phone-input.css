@@ -1,0 +1,105 @@
+.react-tel-input {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #3d3d3d;
+}
+
+.react-tel-input:hover {
+  .form-control {
+    border-color: #46a358;
+  }
+
+  .flag-dropdown {
+    border-color: #46a358;
+  }
+}
+
+.react-tel-input .form-control {
+  transition: all 0.2s ease;
+  height: 55px;
+  width: 100%;
+  line-height: 24px;
+  font-size: 16px;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  outline: none;
+}
+
+.react-tel-input .form-control::placeholder {
+  color: #a5a5a5;
+}
+
+.react-tel-input .form-control:focus {
+  border-color: #46a358 !important;
+  outline: none;
+}
+
+.react-tel-input:focus-within .flag-dropdown {
+  border-color: #46a358 !important;
+  outline: none;
+}
+
+.react-tel-input .flag-dropdown {
+  transition: all 0.2s ease;
+  border: 1px solid #eaeaea;
+  background-color: #fff;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.react-tel-input .flag-dropdown .selected-flag {
+  border-radius: 0px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.react-tel-input .flag-dropdown.open {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.react-tel-input .flag-dropdown.open .selected-flag {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.react-tel-input .country-list {
+  width: 300px;
+  border-radius: 0px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(70, 163, 88, 0.5);
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(70, 163, 88, 0.1);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(70, 163, 88, 1);
+    cursor: pointer;
+  }
+}
+
+.react-tel-input .country-list:hover {
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+}
+
+.react-tel-input .country-list .country {
+  padding: 16px 8px;
+}
+
+.error {
+  border-color: red !important;
+}
+
+@media (max-width: 575px) {
+}

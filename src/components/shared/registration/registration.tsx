@@ -1,7 +1,7 @@
 import Style from "./registration.module.scss";
-import ModalContent from "../modal-forms/modal-content";
-import SignUp from "../modal-forms/sign-up";
-import LogIn from "../modal-forms/log-in";
+import ModalContent from "../modal-content";
+import SignUp from "../sign-up";
+import Login from "../login";
 import Pathname from "../pathname";
 
 const Registration: React.FC = () => {
@@ -11,10 +11,10 @@ const Registration: React.FC = () => {
 
       <section className={Style.registration}>
         <div className="container">
-          <div className={Style.registration_wrapper}>
+          <div className={Style.wrapper}>
             <ModalContent>
               <div className={Style.box}>
-                <LogIn overflow />
+                <Login overflow />
 
                 <div className={Style.line}>
                   <span></span>
