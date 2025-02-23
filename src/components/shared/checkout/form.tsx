@@ -1,23 +1,22 @@
 import { useForm } from "react-hook-form";
 import Container from "../cart-order-container";
 import Wrapper from "../cart-order-wrapper";
-import Inputs from "./inputs";
+import InputFields from "./input-fields";
 import Review from "../cart-order-review";
 import ItemTable from "../item-table";
 import { headerData } from "./static-data";
 import Summary from "../cart/summary";
 import Button from "../../ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  CheckoutFormFields,
-  checkoutFormSchema,
-} from "../../../schemas/checkout-form-schema";
+import { CheckoutFormFields, checkoutFormSchema } from "../../../schemas";
 
 const Form: React.FC = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     control,
+    watch,
     reset,
     formState: { errors },
   } = useForm<CheckoutFormFields>({
@@ -47,7 +46,13 @@ const Form: React.FC = () => {
       <Container>
         <Wrapper>
           <Review title="Billing Address">
-            <Inputs register={register} control={control} error={errors} />
+            <InputFields
+              setValue={setValue}
+              register={register}
+              watch={watch}
+              control={control}
+              error={errors}
+            />
           </Review>
         </Wrapper>
 

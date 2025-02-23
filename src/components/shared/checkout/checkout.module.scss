@@ -12,9 +12,9 @@
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
   border-bottom: 1px solid v.$border;
   padding: 15px 0px;
 
@@ -49,6 +49,15 @@
 
   .phone {
     @include m.description();
+
+    a {
+      transition: all 0.2s ease;
+
+      &:hover {
+        text-decoration: underline;
+        color: v.$main;
+      }
+    }
   }
 }
 
@@ -63,6 +72,7 @@
   }
 
   .header {
+    grid-template-columns: repeat(1, 1fr);
     padding: 20px 0px;
 
     .link {

@@ -193,23 +193,25 @@
   height: 65px;
 }
 
-@mixin input() {
+@mixin input($f-hbr: 1px solid v.$main, $br: 1px solid v.$border) {
+  @include description($fz: 16px, $c: v.$text);
   padding: 15px 10px;
   background-color: #fff;
   width: 100%;
   transition: all 0.2s ease;
-  border: 1px solid v.$border;
+  border: $br;
 
   &::placeholder {
+    font-weight: 300;
     color: v.$sale;
   }
 
   &:focus {
-    border: 1px solid v.$main;
+    border: $f-hbr;
     outline: none;
   }
 
   &:hover {
-    border: 1px solid v.$main;
+    border: $f-hbr;
   }
 }

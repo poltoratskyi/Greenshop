@@ -28,8 +28,8 @@ const Service: React.FC = () => {
             blockClassName="feedback"
             inputClassName="feedback"
             label="Would you like to join newsletters?"
-            placeholder="Enter your email address..."
-            buttonText="Join"
+            placeholder="E-mail"
+            buttonText="Subscribe"
             buttonClassName="feedback"
           />
 

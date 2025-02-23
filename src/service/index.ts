@@ -10,8 +10,10 @@ import { fetchSingleItem } from "./item";
 import { fetchSearchItem } from "./search";
 import { fetchSize } from "./size";
 import { fetchVariation } from "./variation";
+import { fetchLocation } from "./nominatim";
 
 export {
+  fetchLocation,
   fetchUserCart,
   updateCartItemQuantity,
   deleteCartItem,

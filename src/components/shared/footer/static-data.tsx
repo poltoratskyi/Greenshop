@@ -1126,7 +1126,7 @@ export const info = [
     ),
   },
   {
-    descr: "contact@greenshop.com",
+    descr: <a href="mailto:contact@greenshop.com">contact@greenshop.com</a>,
     svg: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
         <path
@@ -1149,7 +1149,7 @@ export const info = [
     ),
   },
   {
-    descr: "+88 01911 717 490",
+    descr: <a href="tel:+8801911717490">+88 019 117 17 490</a>,
     svg: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
         <path

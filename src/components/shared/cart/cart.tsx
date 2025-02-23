@@ -36,7 +36,7 @@ const Cart: React.FC = () => {
                   type="text"
                   className="coupon"
                   label="Coupon Apply"
-                  placeholder="Enter coupon code here"
+                  placeholder="Coupon"
                   buttonText="Apply"
                   buttonClassName="coupon"
                 />

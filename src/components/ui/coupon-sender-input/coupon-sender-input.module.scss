@@ -22,7 +22,6 @@
     display: flex;
 
     .input {
-      @include m.description($fz: 16px, $c: v.$text);
       @include m.input();
 
       height: 55px;

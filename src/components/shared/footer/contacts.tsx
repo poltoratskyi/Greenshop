@@ -1,13 +1,6 @@
-import { JSX } from "react";
 import Logo from "../logo";
 import Style from "./footer.module.scss";
 import { info } from "./static-data";
-
-interface Element {
-  descr: string;
-  svg: JSX.Element;
-}
-[];
 
 interface Props {
   burger_menu?: boolean;
@@ -24,7 +17,7 @@ const Contacts: React.FC<Props> = ({ burger_menu }) => {
         <Logo />
 
         <ul className={Style.lists}>
-          {info.map((item: Element, index: number) => (
+          {info.map((item, index) => (
             <li className={Style.list} key={index}>
               <div className={Style.icon}>{item.svg}</div>
 

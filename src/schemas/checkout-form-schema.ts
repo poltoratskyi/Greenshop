@@ -1,7 +1,6 @@
 import zod from "zod";
 
 const nameRegex = /^[A-Za-zА-Яа-яЁё\s-]+$/;
-const zipRegex = /^\d{5}(-\d{4})?$/;
 
 const errorMessage = "Field is required";
 
@@ -25,7 +24,7 @@ export const checkoutFormSchema = zod.object({
   country: zod
     .string()
     .min(1, { message: errorMessage })
-    .max(100, { message: "Country name should not exceed 50 characters" }),
+    .max(50, { message: "Country name should not exceed 50 characters" }),
 
   city: zod
     .string()
@@ -61,13 +60,7 @@ export const checkoutFormSchema = zod.object({
     .min(1, { message: errorMessage })
     .max(100, { message: "State should not exceed 100 characters" }),
 
-  zip: zod
-    .string()
-    .max(5, { message: "Zip code should not exceed 5 characters" })
-    .refine((value) => value === "" || value.match(zipRegex), {
-      message: "Please provide a valid zip code.",
-    })
-    .optional(),
+  zip: zod.string().optional(),
 
   message: zod
     .string()

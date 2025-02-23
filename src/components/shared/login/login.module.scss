@@ -8,7 +8,6 @@
 
   .username,
   .password {
-    @include m.description($fz: 16px, $c: v.$text);
     @include m.input();
 
     border-radius: 6px;

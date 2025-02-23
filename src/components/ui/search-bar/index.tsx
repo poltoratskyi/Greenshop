@@ -1,65 +1,32 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { useClickAway, useDebounce } from "react-use";
+import React, { useRef } from "react";
+import { useClickAway } from "react-use";
 import Style from "./search-items-input.module.scss";
 import SearchResults from "../../shared/search-results";
 import Loader from "../../shared/loaders/default";
 import SaleBanner from "../sale-banner";
-import { useSearchStore, useUIStore } from "../../../store";
 import { svgClose, svgSearch } from "./static-data";
+import { useSearchBar } from "../../../hooks";
 
 const SearchBar: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const isSearchOpen = useUIStore((state) => state.isSearchOpen);
-  const setIsSearchOpen = useUIStore((state) => state.setIsSearchOpen);
+  const {
+    isSearchOpen,
+    searchQuery,
+    searchResults,
+    isLoading,
 
-  const searchQuery = useSearchStore((state) => state.searchQuery);
-  const searchResults = useSearchStore((state) => state.searchResults);
-  const isLoading = useSearchStore((state) => state.isLoading);
-  const setSearchQuery = useSearchStore((state) => state.setSearchQuery);
-  const fetchSearchResults = useSearchStore(
-    (state) => state.fetchSearchResults
-  );
-  const resetSearchResults = useSearchStore(
-    (state) => state.resetSearchResults
-  );
-
-  const onSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (isSearchOpen) {
-      const value = e.target.value.trimStart();
-      setSearchQuery(value);
-    }
-
-    return;
-  };
-
-  useDebounce(
-    () => {
-      searchQuery.length >= 2 ? fetchSearchResults() : resetSearchResults();
-    },
-    350,
-    [searchQuery]
-  );
+    onSearchInputChange,
+    clearSearch,
+  } = useSearchBar();
 
   useClickAway(ref, () => {
     if (isSearchOpen) {
-      setIsSearchOpen(false);
-      setSearchQuery("");
-      resetSearchResults();
+      clearSearch();
     }
   });
-
-  useEffect(() => {
-    searchQuery !== ""
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "auto");
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [searchQuery]);
 
   if (isLoading) {
     return (
@@ -95,9 +62,7 @@ const SearchBar: React.FC = () => {
             <span
               onClick={() => {
                 if (isSearchOpen) {
-                  setIsSearchOpen(false);
-                  setSearchQuery("");
-                  resetSearchResults();
+                  clearSearch();
                 }
               }}
               className={Style.svg_close}
@@ -146,9 +111,7 @@ const SearchBar: React.FC = () => {
           <span
             onClick={() => {
               if (isSearchOpen) {
-                setIsSearchOpen(false);
-                setSearchQuery("");
-                resetSearchResults();
+                clearSearch();
               }
             }}
             className={Style.svg_close}

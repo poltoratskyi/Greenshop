@@ -18,9 +18,9 @@
     position: fixed;
     right: 50%;
     top: 0;
-    transform: translate(50%, 0%);
+    transform: translate(50%);
     z-index: 3;
-    margin-top: 20px;
+    margin-top: 70px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease;
@@ -32,15 +32,11 @@
       padding: 10px 0px;
 
       .search {
-        @include m.description($fz: 16px, $c: v.$text);
+        @include m.input($f-hbr: unset, $br: unset);
         padding: 0px 10px;
         height: 50px;
         background-color: #fff;
         width: 100%;
-
-        &::placeholder {
-          color: v.$sale;
-        }
       }
     }
 
@@ -77,9 +73,10 @@
       top: 0;
       right: 0;
       width: 100%;
-      margin-top: 0;
+      margin-top: 0px;
       transform: none;
       transition: all 0.2s ease;
+      border-top: 1px solid v.$border;
     }
   }
 }

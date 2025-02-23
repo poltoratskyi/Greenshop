@@ -15,8 +15,13 @@ import {
 } from "./cart";
 import { User, UserRole } from "./user";
 import { Order, OrderItem, OrderStatus } from "./order";
+import { Place, ZipCodeData } from "./zip-code";
+import { NominatimLocation } from "./nominatim-location";
 
 export type {
+  NominatimLocation,
+  Place,
+  ZipCodeData,
   Item,
   ItemVariation,
   ItemSize,

@@ -27,6 +27,7 @@
 }
 
 .react-tel-input .form-control::placeholder {
+  font-weight: 300;
   color: #a5a5a5;
 }
 

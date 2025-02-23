@@ -16,7 +16,6 @@
 
   .input,
   .textarea {
-    @include m.description($fz: 16px, $c: v.$text);
     @include m.input();
 
     border-top-left-radius: 6px;
@@ -47,6 +46,13 @@
   .textarea {
     resize: none;
     height: auto;
+  }
+
+  .errorMessage {
+    @include m.description($c: red, $fz: 12px);
+
+    display: inline-block;
+    margin-top: 10px;
   }
 }
 

@@ -14,7 +14,8 @@ const Header: React.FC = () => {
         <Logo />
 
         <p className={Style.phone}>
-          You can reach us at: <br /> Mon - Fri: 8:00 AM - 2:00 PM EST
+          You may call us: <a href="tel:+8801911717490">+88 019 117 17 490</a>
+          <br /> Mon - Fri: 8:00 AM - 2:00 PM EST
         </p>
       </div>
     </div>
