@@ -29,7 +29,7 @@ export const useZipCode = (setValue: UseFormSetValue<CheckoutFormFields>) => {
     () => {
       if (zipCode.length === 5) {
         loadZipData(zipCode);
-        setIsAutoCompleteOpen(true);
+        setIsAutoCompleteOpen(false);
       }
     },
     500,
