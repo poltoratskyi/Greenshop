@@ -27,6 +27,7 @@ const Input: React.FC<Props> = ({
       type={type}
       name={name}
       autoComplete="off"
+      aria-invalid={error ? "true" : "false"}
       {...props}
     />
   );

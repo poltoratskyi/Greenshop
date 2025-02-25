@@ -37,8 +37,14 @@ const Form: React.FC = () => {
   });
 
   const onSubmit = (data: CheckoutFormFields) => {
-    console.log(data);
-    reset();
+    try {
+      console.log(data);
+      reset();
+      alert("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error during submission:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   return (

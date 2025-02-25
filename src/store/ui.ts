@@ -39,6 +39,10 @@ interface UIState {
   currentImageIndex: number;
   setCurrentImageIndex: (index: number) => void;
   resetVariationSelection: () => void;
+
+  // Checkout auto complete
+  isAutoCompleteOpen: boolean;
+  setIsAutoCompleteOpen: (isOpen: boolean) => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({
@@ -81,4 +85,8 @@ export const useUIStore = create<UIState>((set) => ({
   setCurrentImageIndex: (index) => set({ currentImageIndex: index }),
   resetVariationSelection: () =>
     set({ currentImageIndex: 0, currentSizeIndex: 0 }),
+
+  // Checkout auto complete
+  isAutoCompleteOpen: true,
+  setIsAutoCompleteOpen: (isOpen) => set({ isAutoCompleteOpen: isOpen }),
 }));

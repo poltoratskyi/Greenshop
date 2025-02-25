@@ -24,7 +24,7 @@ export const checkoutFormSchema = zod.object({
   country: zod
     .string()
     .min(1, { message: errorMessage })
-    .max(50, { message: "Country name should not exceed 50 characters" }),
+    .max(100, { message: "Country name should not exceed 100 characters" }),
 
   city: zod
     .string()

@@ -16,7 +16,7 @@ import {
   Label,
   Error,
 } from "../../ui/common-form-elements";
-import { useLocationStore, useZipCodeStore } from "../../../store";
+import { useLocationStore, useUIStore, useZipCodeStore } from "../../../store";
 import { AutoCompleteInput } from "../../../components/ui/checkout-inputs";
 
 interface Props {
@@ -38,10 +38,33 @@ const InputFields: React.FC<Props> = ({
 }) => {
   const requestError = useZipCodeStore((state) => state.error);
 
+  const countryData = useLocationStore((state) => state.countryData);
+  const cityData = useLocationStore((state) => state.cityData);
+  const addressData = useLocationStore((state) => state.addressData);
+  const stateData = useLocationStore((state) => state.stateData);
+
+  const isCountryDataLoading = useLocationStore(
+    (state) => state.isCountryDataLoading
+  );
+  const isCityDataLoading = useLocationStore(
+    (state) => state.isCityDataLoading
+  );
+  const isAddressDataLoading = useLocationStore(
+    (state) => state.isAddressDataLoading
+  );
+  const isStateDataLoading = useLocationStore(
+    (state) => state.isStateDataLoading
+  );
+
   const loadCountry = useLocationStore((state) => state.loadCountry);
   const loadCity = useLocationStore((state) => state.loadCity);
   const loadAddress = useLocationStore((state) => state.loadAddress);
   const loadState = useLocationStore((state) => state.loadState);
+
+  const resetCountryData = useLocationStore((state) => state.resetCountryData);
+  const resetCityData = useLocationStore((state) => state.resetCityData);
+  const resetAddressData = useLocationStore((state) => state.resetAddressData);
+  const resetStateData = useLocationStore((state) => state.resetStateData);
 
   return (
     <div className={Style.content}>
@@ -81,6 +104,9 @@ const InputFields: React.FC<Props> = ({
           name="country"
           placeholder="Select a country / region"
           type="text"
+          data={countryData}
+          isLoading={isCountryDataLoading}
+          resetData={resetCountryData}
           fetchLocation={loadCountry}
           setValue={setValue}
           watch={watch}
@@ -98,10 +124,13 @@ const InputFields: React.FC<Props> = ({
           name="city"
           placeholder="Select a city or town"
           type="text"
+          data={cityData}
+          isLoading={isCityDataLoading}
+          resetData={resetCityData}
           fetchLocation={loadCity}
           setValue={setValue}
           watch={watch}
-          error={error.country}
+          error={error.city}
         />
 
         <Error error={error.city} />
@@ -115,10 +144,13 @@ const InputFields: React.FC<Props> = ({
           name="address"
           placeholder="Street"
           type="text"
+          data={addressData}
+          isLoading={isAddressDataLoading}
+          resetData={resetAddressData}
           fetchLocation={loadAddress}
           setValue={setValue}
           watch={watch}
-          error={error.country}
+          error={error.address}
         />
 
         <Error error={error.address} />
@@ -146,10 +178,13 @@ const InputFields: React.FC<Props> = ({
           name="state"
           placeholder="Select a state / province"
           type="text"
+          data={stateData}
+          isLoading={isStateDataLoading}
+          resetData={resetStateData}
           fetchLocation={loadState}
           setValue={setValue}
           watch={watch}
-          error={error.country}
+          error={error.state}
         />
 
         <Error error={error.state} />
@@ -180,7 +215,7 @@ const InputFields: React.FC<Props> = ({
           error={error.email}
         />
 
-        <Error error={error.state} />
+        <Error error={error.email} />
       </Block>
 
       <Block>

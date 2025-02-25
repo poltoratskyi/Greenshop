@@ -8,11 +8,10 @@ export const fetchLocation = async (query: string, type: string) => {
       params: {
         q: query,
         format: "json",
-        addressdetails: 1,
-        limit: 3,
+        limit: 5,
         language: "en",
         accept_language: "en",
-        countrycodes: { onlyCountries },
+        countrycodes: onlyCountries.map((country) => country).join(","),
         type: type,
         userAgent: "my-pet-project (https://github.com/poltoratskyi/Greenshop)",
       },

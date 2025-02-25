@@ -1,0 +1,38 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.suggestion {
+  position: relative;
+
+  .lists {
+    @include m.scroll(3px);
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    z-index: 1;
+    background-color: #fff;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid v.$border;
+    max-height: 300px;
+    overflow: auto;
+
+    &:hover {
+      @include m.scroll(10px);
+    }
+
+    .list {
+      @include m.description($lh: 24px, $c: v.$text, $fw: 400);
+
+      padding: 16px 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+}

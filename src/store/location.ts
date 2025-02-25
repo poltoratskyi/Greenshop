@@ -8,13 +8,22 @@ interface Props {
   addressData: NominatimLocation[];
   stateData: NominatimLocation[];
 
-  isLoading: boolean;
+  isCountryDataLoading: boolean;
+  isCityDataLoading: boolean;
+  isAddressDataLoading: boolean;
+  isStateDataLoading: boolean;
+
   error: string | null;
 
   loadCountry: (query: string, type: string) => Promise<void>;
   loadCity: (query: string, type: string) => Promise<void>;
   loadAddress: (query: string, type: string) => Promise<void>;
   loadState: (query: string, type: string) => Promise<void>;
+
+  resetCountryData: () => void;
+  resetAddressData: () => void;
+  resetCityData: () => void;
+  resetStateData: () => void;
 }
 
 export const useLocationStore = create<Props>((set) => ({
@@ -23,11 +32,20 @@ export const useLocationStore = create<Props>((set) => ({
   addressData: [],
   stateData: [],
 
-  isLoading: false,
+  isCountryDataLoading: false,
+  isCityDataLoading: false,
+  isAddressDataLoading: false,
+  isStateDataLoading: false,
+
   error: null,
 
+  resetCountryData: () => set({ countryData: [], error: null }),
+  resetCityData: () => set({ cityData: [], error: null }),
+  resetAddressData: () => set({ addressData: [], error: null }),
+  resetStateData: () => set({ stateData: [], error: null }),
+
   loadCountry: async (query: string, type: string) => {
-    set({ isLoading: true, error: null });
+    set({ isCountryDataLoading: true, error: null });
 
     try {
       const response = await fetchLocation(query, type);
@@ -36,16 +54,16 @@ export const useLocationStore = create<Props>((set) => ({
     } catch (err) {
       set({
         error: "Location not found",
-        isLoading: false,
+        isCountryDataLoading: false,
       });
       console.error("Location not found", err);
     } finally {
-      set({ isLoading: false });
+      set({ isCountryDataLoading: false });
     }
   },
 
   loadCity: async (query: string, type: string) => {
-    set({ isLoading: true, error: null });
+    set({ isCityDataLoading: true, error: null });
 
     try {
       const response = await fetchLocation(query, type);
@@ -54,16 +72,16 @@ export const useLocationStore = create<Props>((set) => ({
     } catch (err) {
       set({
         error: "Location not found",
-        isLoading: false,
+        isCityDataLoading: false,
       });
       console.error("Location not found", err);
     } finally {
-      set({ isLoading: false });
+      set({ isCityDataLoading: false });
     }
   },
 
   loadAddress: async (query: string, type: string) => {
-    set({ isLoading: true, error: null });
+    set({ isAddressDataLoading: true, error: null });
 
     try {
       const response = await fetchLocation(query, type);
@@ -72,16 +90,16 @@ export const useLocationStore = create<Props>((set) => ({
     } catch (err) {
       set({
         error: "Location not found",
-        isLoading: false,
+        isAddressDataLoading: false,
       });
       console.error("Location not found", err);
     } finally {
-      set({ isLoading: false });
+      set({ isAddressDataLoading: false });
     }
   },
 
   loadState: async (query: string, type: string) => {
-    set({ isLoading: true, error: null });
+    set({ isStateDataLoading: true, error: null });
 
     try {
       const response = await fetchLocation(query, type);
@@ -90,11 +108,11 @@ export const useLocationStore = create<Props>((set) => ({
     } catch (err) {
       set({
         error: "Location not found",
-        isLoading: false,
+        isStateDataLoading: false,
       });
       console.error("Location not found", err);
     } finally {
-      set({ isLoading: false });
+      set({ isStateDataLoading: false });
     }
   },
 }));
