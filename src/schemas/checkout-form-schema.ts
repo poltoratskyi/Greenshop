@@ -1,6 +1,7 @@
 import zod from "zod";
 
 const nameRegex = /^[A-Za-zА-Яа-яЁё\s-]+$/;
+const zipCodeRegex = /^\d{5}(-\d{4})?$/;
 
 const errorMessage = "Field is required";
 
@@ -60,7 +61,12 @@ export const checkoutFormSchema = zod.object({
     .min(1, { message: errorMessage })
     .max(100, { message: "State should not exceed 100 characters" }),
 
-  zip: zod.string().optional(),
+  zip: zod
+    .string()
+    .refine((value) => value.match(zipCodeRegex), {
+      message: "Please provide a valid zip code. For example: 20500",
+    })
+    .optional(),
 
   message: zod
     .string()

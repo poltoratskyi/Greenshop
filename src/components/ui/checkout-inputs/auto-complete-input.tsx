@@ -67,7 +67,7 @@ const AutoCompleteInput: React.FC<Props> = ({
   });
 
   return (
-    <div ref={ref} className={Style.suggestion}>
+    <div ref={ref} className={Style.wrapper}>
       <CustomInput
         id={id}
         name={name}

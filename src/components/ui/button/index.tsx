@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Style from "./button.module.scss";
 import { useCartStore } from "../../../store";
 import Loader from "./loader";
+import { ZipCodeData } from "../../../types";
 
 interface Props {
   buy?: boolean;
@@ -15,8 +16,10 @@ interface Props {
   value?: string | JSX.Element;
   svgLeft?: JSX.Element;
   svgRight?: JSX.Element;
+  choose?: boolean;
 
   handleAddToCart?: () => void;
+  handleChangeResult?: () => void;
 }
 
 const Button: React.FC<Props> = ({
@@ -28,8 +31,10 @@ const Button: React.FC<Props> = ({
   value,
   svgLeft,
   svgRight,
+  choose,
 
   handleAddToCart,
+  handleChangeResult,
 }) => {
   const router = useRouter();
   const isLoadingItem = useCartStore((state) => state.isLoadingItem);
@@ -38,7 +43,7 @@ const Button: React.FC<Props> = ({
   return (
     <>
       {button && (
-        <button className={buttonClass}>
+        <button type="button" className={buttonClass}>
           {svgLeft}
           {value}
           {svgRight}
@@ -55,6 +60,7 @@ const Button: React.FC<Props> = ({
 
       {addToCart && (
         <button
+          type="button"
           style={{
             pointerEvents: isLoadingItem ? "none" : "auto",
             cursor: isLoadingItem ? "not-allowed" : "pointer",
@@ -75,10 +81,21 @@ const Button: React.FC<Props> = ({
 
       {buy && (
         <button
+          type="button"
           onClick={() => {
             handleAddToCart && handleAddToCart();
             router.push("/cart");
           }}
+          className={buttonClass}
+        >
+          {value}
+        </button>
+      )}
+
+      {choose && (
+        <button
+          type="button"
+          onClick={() => handleChangeResult && handleChangeResult()}
           className={buttonClass}
         >
           {value}

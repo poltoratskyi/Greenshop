@@ -8,8 +8,12 @@ interface Props {
   isLoading: boolean;
   error: string | null;
 
-  loadZipData: (code: string) => Promise<void>;
+  resetZipData: () => void;
+  resetZipCode: () => void;
+
   setZipCode: (value: string) => void;
+
+  loadZipData: (code: string) => Promise<void>;
 }
 
 export const useZipCodeStore = create<Props>((set) => ({
@@ -17,6 +21,13 @@ export const useZipCodeStore = create<Props>((set) => ({
   zipData: null,
   isLoading: false,
   error: null,
+
+  resetZipData: () => set({ zipData: null }),
+  resetZipCode: () => set({ zipCode: "" }),
+
+  setZipCode: (value: string) => {
+    set({ zipCode: value, error: null });
+  },
 
   loadZipData: async (code: string) => {
     set({ isLoading: true, error: null });
@@ -34,9 +45,5 @@ export const useZipCodeStore = create<Props>((set) => ({
     } finally {
       set({ isLoading: false });
     }
-  },
-
-  setZipCode: (value: string) => {
-    set({ zipCode: value, error: null });
   },
 }));

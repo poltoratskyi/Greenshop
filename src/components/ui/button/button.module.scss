@@ -3,7 +3,8 @@
 
 .buy,
 .add,
-.order {
+.order,
+.choose {
   @include m.button(
     $d: inline-block,
     $p: 15px 35px,
@@ -17,7 +18,8 @@
   );
 }
 
-.order {
+.order,
+.choose {
   width: 100%;
 }
 

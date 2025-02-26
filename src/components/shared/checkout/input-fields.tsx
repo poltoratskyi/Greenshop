@@ -142,7 +142,7 @@ const InputFields: React.FC<Props> = ({
         <AutoCompleteInput
           id="address"
           name="address"
-          placeholder="Street"
+          placeholder="Enter your street address"
           type="text"
           data={addressData}
           isLoading={isAddressDataLoading}
@@ -197,11 +197,13 @@ const InputFields: React.FC<Props> = ({
           id="zip"
           name="zip"
           type="text"
-          placeholder="20500"
+          placeholder="Enter your zip code"
           setValue={setValue}
+          error={error.zip}
         />
 
-        <Error requestError={requestError} />
+        {error.zip && <Error error={error.zip} />}
+        {requestError && <Error requestError={requestError} />}
       </Block>
 
       <Block>
