@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import Style from "./catalog.module.scss";
 import { useCatalogStore } from "../../../store";
 import Category from "../category";
-import Skeleton from "../skeleton/catalog";
+import Skeleton from "../../ui/skeleton/catalog";
 import Wrapper from "./wrapper";
 import Card from "./card";
-import SizeSelectionModal from "../size-selection-modal";
+import SizeSelectionModal from "../../ui/size-selection-modal";
 import Filter from "../filters/filters";
 import Container from "./container";
 

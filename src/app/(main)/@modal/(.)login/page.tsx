@@ -1,4 +1,4 @@
-import AuthModal from "../../../../components/shared/auth-modal-window";
+import AuthModal from "../../../../components/ui/auth-modal";
 
 export default function Modal() {
   return (

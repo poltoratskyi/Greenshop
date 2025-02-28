@@ -1,59 +1,57 @@
 @use "../../../styles/variables.scss" as v;
 @use "../../../styles/mixins.scss" as m;
 
-.block {
-  .label {
-    @include m.description($c: v.$text);
+.label {
+  @include m.description($c: v.$text);
 
-    display: inline-block;
-    margin-bottom: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
 
-    span {
-      font-size: 15px;
-      color: red;
+  span {
+    font-size: 15px;
+    color: red;
+  }
+}
+
+.input,
+.textarea {
+  @include m.input();
+
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  height: 55px;
+
+  &.error {
+    border-color: red;
+
+    &:hover {
+      border-color: v.$main;
+    }
+
+    &:focus {
+      border: 1px solid v.$main;
+      outline: none;
     }
   }
+}
 
-  .input,
-  .textarea {
-    @include m.input();
+.dropdown {
+  @include m.scroll(3px);
+  height: 100px;
+}
 
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    height: 55px;
+.textarea {
+  resize: none;
+  height: auto;
+}
 
-    &.error {
-      border-color: red;
+.errorMessage {
+  @include m.description($c: red, $fz: 12px);
 
-      &:hover {
-        border-color: v.$main;
-      }
-
-      &:focus {
-        border: 1px solid v.$main;
-        outline: none;
-      }
-    }
-  }
-
-  .dropdown {
-    @include m.scroll(3px);
-    height: 100px;
-  }
-
-  .textarea {
-    resize: none;
-    height: auto;
-  }
-
-  .errorMessage {
-    @include m.description($c: red, $fz: 12px);
-
-    display: inline-block;
-    margin-top: 10px;
-  }
+  display: inline-block;
+  margin-top: 10px;
 }
 
 @media (max-width: 575px) {

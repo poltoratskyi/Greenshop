@@ -63,7 +63,7 @@ export const checkoutFormSchema = zod.object({
 
   zip: zod
     .string()
-    .refine((value) => value.match(zipCodeRegex), {
+    .refine((value) => value === "" || value.match(zipCodeRegex), {
       message: "Please provide a valid zip code. For example: 20500",
     })
     .optional(),

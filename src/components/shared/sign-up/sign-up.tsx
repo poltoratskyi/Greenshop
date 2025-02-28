@@ -1,6 +1,6 @@
 import SocialAuth from "../../ui/social-auth";
 import SignUpForm from "./form";
-import FormCard from "../auth-form-card/auth-form-card";
+import FormCard from "../../ui/auth-form";
 
 interface Props {
   overflow?: boolean;

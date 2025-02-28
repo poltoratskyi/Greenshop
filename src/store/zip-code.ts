@@ -9,9 +9,6 @@ interface Props {
   error: string | null;
 
   resetZipData: () => void;
-  resetZipCode: () => void;
-
-  setZipCode: (value: string) => void;
 
   loadZipData: (code: string) => Promise<void>;
 }
@@ -23,11 +20,6 @@ export const useZipCodeStore = create<Props>((set) => ({
   error: null,
 
   resetZipData: () => set({ zipData: null }),
-  resetZipCode: () => set({ zipCode: "" }),
-
-  setZipCode: (value: string) => {
-    set({ zipCode: value, error: null });
-  },
 
   loadZipData: async (code: string) => {
     set({ isLoading: true, error: null });

@@ -3,7 +3,7 @@
 import { use, useEffect } from "react";
 import { getCategoryItemQuantity } from "../../../lib";
 import Style from "./category.module.scss";
-import Skeleton from "../skeleton/category";
+import Skeleton from "../../ui/skeleton/category";
 import { useCatalogStore, useCategoryStore } from "../../../store";
 import Checkbox from "../../ui/checkbox";
 

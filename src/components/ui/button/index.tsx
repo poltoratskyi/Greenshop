@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import Style from "./button.module.scss";
 import { useCartStore } from "../../../store";
 import Loader from "./loader";
-import { ZipCodeData } from "../../../types";
 
 interface Props {
   buy?: boolean;

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Style from "./mobile-header.module.scss";
-import Logo from "../logo";
+import Logo from "../../ui/logo";
 import Contacts from "../footer/contacts";
 import Accept from "../footer/accept";
 import { useUIStore } from "../../../store";

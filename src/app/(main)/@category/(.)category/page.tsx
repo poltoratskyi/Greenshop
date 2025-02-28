@@ -1,6 +1,6 @@
 "use client";
 
-import MobileModalCategory from "../../../../components/shared/category-modal";
+import MobileModalCategory from "../../../../components/ui/category-modal";
 
 import { useUIStore } from "../../../../store";
 

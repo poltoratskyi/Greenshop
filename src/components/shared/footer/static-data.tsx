@@ -1186,11 +1186,11 @@ export const account = [
     link: "#",
   },
   {
-    title: "Our stores",
+    title: "Our Stores",
     link: "#",
   },
   {
-    title: "Contact us",
+    title: "Contact Us",
     link: "#",
   },
   {

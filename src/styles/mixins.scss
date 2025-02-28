@@ -153,7 +153,7 @@
   z-index: 2;
 }
 
-@mixin button($d, $p, $bc, $br, $fz, $fw, $lh, $c, $tt) {
+@mixin button($d, $p, $bc, $br, $fz, $fw, $lh, $c) {
   display: $d;
   padding: $p;
   background-color: $bc;
@@ -162,7 +162,6 @@
   font-size: $fz;
   font-weight: $fw;
   line-height: $lh;
-  text-transform: $tt;
   transition: all 0.2s ease;
   height: 55px;
 

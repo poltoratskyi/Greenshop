@@ -13,8 +13,7 @@
     $fz: 14px,
     $fw: 400,
     $lh: 24px,
-    $c: #fff,
-    $tt: uppercase
+    $c: #fff
   );
 }
 
@@ -83,8 +82,7 @@
     $fz: 14px,
     $fw: 400,
     $lh: 24px,
-    $c: #fff,
-    $tt: unset
+    $c: #fff
   );
 
   border-top-right-radius: 5px;
@@ -116,8 +114,7 @@
     $fz: 14px,
     $fw: 400,
     $lh: 24px,
-    $c: #000,
-    $tt: unset
+    $c: #000
   );
 
   background-color: v.$border;
@@ -169,8 +166,7 @@
     $fz: 14px,
     $fw: 400,
     $lh: 24px,
-    $c: #fff,
-    $tt: unset
+    $c: #fff
   );
 }
 
@@ -185,8 +181,7 @@
     $fz: 14px,
     $fw: 400,
     $lh: 24px,
-    $c: v.$descr,
-    $tt: unset
+    $c: v.$descr
   );
 
   align-items: center;

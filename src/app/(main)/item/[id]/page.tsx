@@ -1,4 +1,4 @@
-import Loader from "../../../../components/shared/loaders/suspense";
+import Loader from "../../../../components/ui/loaders/suspense";
 import SingleItem from "../../../../components/shared/single-item";
 import { Suspense } from "react";
 

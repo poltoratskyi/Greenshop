@@ -169,7 +169,7 @@ model Order {
     email     String
     phone     String
     address   String
-    zip       String
+    zip       String?
     country   String
     notes     String?
     

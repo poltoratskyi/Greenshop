@@ -41,7 +41,7 @@ const Accept: React.FC<Props> = ({ burger_menu }) => {
       </div>
 
       <div>
-        <h3 className={Style.title}>We accept</h3>
+        <h3 className={Style.title}>We Accept</h3>
 
         <ul
           className={`${

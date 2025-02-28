@@ -2,7 +2,7 @@
 
 import { useUIStore } from "../../../store";
 import { svgSearch, svgBurgerMenu } from "./static-data";
-import Logo from "../logo";
+import Logo from "../../ui/logo";
 
 const Controls: React.FC = () => {
   const setIsSearchOpen = useUIStore((state) => state.setIsSearchOpen);

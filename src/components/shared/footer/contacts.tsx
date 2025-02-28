@@ -1,4 +1,4 @@
-import Logo from "../logo";
+import Logo from "../../ui/logo";
 import Style from "./footer.module.scss";
 import { info } from "./static-data";
 

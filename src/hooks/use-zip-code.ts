@@ -6,14 +6,16 @@ import { useZipCodeStore } from "../store/zip-code";
 import { useDebounce } from "react-use";
 import { useUIStore } from "../store";
 
-export const useZipCode = (setValue: UseFormSetValue<CheckoutFormFields>) => {
-  const zipCode = useZipCodeStore((state) => state.zipCode);
+export const useZipCode = (
+  setValue: UseFormSetValue<CheckoutFormFields>,
+  value: string | undefined,
+  name: keyof CheckoutFormFields
+) => {
   const zipData = useZipCodeStore((state) => state.zipData);
   const errorRequest = useZipCodeStore((state) => state.error);
 
   const resetZipData = useZipCodeStore((state) => state.resetZipData);
   const loadZipData = useZipCodeStore((state) => state.loadZipData);
-  const setZipCode = useZipCodeStore((state) => state.setZipCode);
 
   const setIsAutoCompleteOpen = useUIStore(
     (state) => state.setIsAutoCompleteOpen
@@ -22,19 +24,19 @@ export const useZipCode = (setValue: UseFormSetValue<CheckoutFormFields>) => {
   const searchInputCode = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trimStart();
     if (value.length <= 5) {
-      setZipCode(value);
+      setValue(name, value, { shouldValidate: true });
     }
   };
 
   useDebounce(
     () => {
-      if (zipCode.length === 5) {
-        loadZipData(zipCode);
+      if (value && value.length === 5) {
+        loadZipData(value);
         setIsAutoCompleteOpen(false);
       }
     },
     500,
-    [zipCode]
+    [value]
   );
 
   const handleChangeResult = () => {
@@ -49,7 +51,7 @@ export const useZipCode = (setValue: UseFormSetValue<CheckoutFormFields>) => {
         shouldValidate: true,
       });
 
-      setValue("zip", zipCode, { shouldValidate: true });
+      setValue("zip", value, { shouldValidate: true });
 
       resetZipData();
     }
@@ -57,7 +59,6 @@ export const useZipCode = (setValue: UseFormSetValue<CheckoutFormFields>) => {
 
   return {
     zipData,
-    zipCode,
     errorRequest,
 
     searchInputCode,

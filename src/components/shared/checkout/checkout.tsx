@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect } from "react";
-import Pathname from "../pathname";
+import Pathname from "../../ui/pathname";
 import Style from "./checkout.module.scss";
 import Form from "./form";
-import { useCartStore } from "../../../store";
+import { useCartStore, useUIStore } from "../../../store";
+import { Order, Error } from "../../ui/order";
 
 const Checkout: React.FC = () => {
   const loadUserCart = useCartStore((state) => state.loadUserCart);
+  const isOrderOpen = useUIStore((state) => state.isOrderOpen);
+  const isOrderSuccess = useUIStore((state) => state.isOrderSuccess);
 
   useEffect(() => {
     loadUserCart();
@@ -16,12 +19,13 @@ const Checkout: React.FC = () => {
   return (
     <>
       <Pathname second="Checkout" />
-
       <section className={Style.checkout}>
         <div className="container">
           <Form />
         </div>
       </section>
+
+      {isOrderSuccess ? isOrderOpen && <Order /> : isOrderOpen && <Error />}
     </>
   );
 };

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { getSizeQuantity } from "../../../lib";
 import Style from "./category.module.scss";
-import Skeleton from "../skeleton/category";
+import Skeleton from "../../ui/skeleton/category";
 import { useSizeStore, useVariationStore } from "../../../store";
 import Checkbox from "../../ui/checkbox";
 

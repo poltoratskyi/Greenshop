@@ -1,5 +1,5 @@
 import Style from "./checkout.module.scss";
-import Logo from "../logo";
+import Logo from "../../ui/logo";
 import Link from "next/link";
 import { svgBackspace } from "./static-data";
 
@@ -8,7 +8,7 @@ const Header: React.FC = () => {
     <div className="container">
       <div className={Style.header}>
         <Link className={Style.link} href="/">
-          {svgBackspace} Continue shopping
+          {svgBackspace} Continue Shopping
         </Link>
 
         <Logo />

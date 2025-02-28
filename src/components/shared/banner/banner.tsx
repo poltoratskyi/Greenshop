@@ -7,7 +7,7 @@ const Banner: React.FC = () => {
   return (
     <section id="banner" className={Style.banner}>
       <div className="container">
-        <Info descr={descr} value="shop now" width={600} height={600} />
+        <Info descr={descr} value="Shop Now" width={600} height={600} />
 
         {/* Media */}
         <BannerMobile />

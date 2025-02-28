@@ -73,7 +73,7 @@ const Info: React.FC<Props> = ({ id, shortDescription, variations }) => {
             handleAddToCart(id, currentSizeIndex, variations)
           }
           className="buy"
-          value="Buy NOW"
+          value="Buy Now"
         />
 
         <Button
@@ -82,7 +82,7 @@ const Info: React.FC<Props> = ({ id, shortDescription, variations }) => {
             handleAddToCart(id, currentSizeIndex, variations)
           }
           className="add"
-          value="Add to cart"
+          value="Add to Cart"
         />
 
         <Link href="/login">{svgHeart}</Link>

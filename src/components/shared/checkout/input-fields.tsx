@@ -9,15 +9,10 @@ import Style from "./checkout.module.scss";
 import { CheckoutFormFields } from "../../../schemas/checkout-form-schema";
 import { PhoneInput } from "../../ui/checkout-inputs";
 import { ZipCodeInput } from "../../ui/checkout-inputs";
-import {
-  Block,
-  Textarea,
-  Input,
-  Label,
-  Error,
-} from "../../ui/common-form-elements";
-import { useLocationStore, useUIStore, useZipCodeStore } from "../../../store";
+import { Textarea, Input, Label, Error } from "../../ui/common-form-elements";
+import { useLocationStore, useZipCodeStore } from "../../../store";
 import { AutoCompleteInput } from "../../../components/ui/checkout-inputs";
+import Container from "../../../components/ui/checkout-input-container";
 
 interface Props {
   control: Control<CheckoutFormFields>;
@@ -37,6 +32,8 @@ const InputFields: React.FC<Props> = ({
   setValue,
 }) => {
   const requestError = useZipCodeStore((state) => state.error);
+
+  const isZipCodeLoading = useZipCodeStore((state) => state.isLoading);
 
   const countryData = useLocationStore((state) => state.countryData);
   const cityData = useLocationStore((state) => state.cityData);
@@ -68,7 +65,7 @@ const InputFields: React.FC<Props> = ({
 
   return (
     <div className={Style.content}>
-      <Block>
+      <Container>
         <Label label="Full Name" name="firstName" />
 
         <Input
@@ -80,9 +77,9 @@ const InputFields: React.FC<Props> = ({
         />
 
         <Error error={error.firstName} />
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Label label="Last Name" name="lastName" />
 
         <Input
@@ -94,15 +91,15 @@ const InputFields: React.FC<Props> = ({
         />
 
         <Error error={error.lastName} />
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Label label="Country / Region" name="country" />
 
         <AutoCompleteInput
           id="country"
           name="country"
-          placeholder="Select a country / region"
+          placeholder="Select your country / region"
           type="text"
           data={countryData}
           isLoading={isCountryDataLoading}
@@ -114,15 +111,15 @@ const InputFields: React.FC<Props> = ({
         />
 
         <Error error={error.country} />
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Label label="Town / City" name="city" />
 
         <AutoCompleteInput
           id="city"
           name="city"
-          placeholder="Select a city or town"
+          placeholder="Select your city or town"
           type="text"
           data={cityData}
           isLoading={isCityDataLoading}
@@ -134,15 +131,15 @@ const InputFields: React.FC<Props> = ({
         />
 
         <Error error={error.city} />
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Label label="Street Address" name="address" />
 
         <AutoCompleteInput
           id="address"
           name="address"
-          placeholder="Enter your street address"
+          placeholder="Select your street address"
           type="text"
           data={addressData}
           isLoading={isAddressDataLoading}
@@ -154,9 +151,9 @@ const InputFields: React.FC<Props> = ({
         />
 
         <Error error={error.address} />
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Label label="Apartment (optional)" name="apartment" />
 
         <Input
@@ -168,9 +165,9 @@ const InputFields: React.FC<Props> = ({
         />
 
         <Error error={error.apartment} />
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Label label="State / Province" name="state" />
 
         <AutoCompleteInput
@@ -188,9 +185,9 @@ const InputFields: React.FC<Props> = ({
         />
 
         <Error error={error.state} />
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Label label="Zip Code (optional)" name="zip" />
 
         <ZipCodeInput
@@ -198,15 +195,17 @@ const InputFields: React.FC<Props> = ({
           name="zip"
           type="text"
           placeholder="Enter your zip code"
+          isLoading={isZipCodeLoading}
+          watch={watch}
           setValue={setValue}
           error={error.zip}
         />
 
         {error.zip && <Error error={error.zip} />}
         {requestError && <Error requestError={requestError} />}
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Label label="Email Address" name="email" />
 
         <Input
@@ -218,9 +217,9 @@ const InputFields: React.FC<Props> = ({
         />
 
         <Error error={error.email} />
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Label label="Phone Number" name="phone" />
 
         <PhoneInput
@@ -231,13 +230,13 @@ const InputFields: React.FC<Props> = ({
         />
 
         <Error error={error.phone} />
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Label label="Order notes (optional)" name="message" />
 
         <Textarea id="message" placeholder="Message" {...register("message")} />
-      </Block>
+      </Container>
     </div>
   );
 };

@@ -3,9 +3,9 @@
 import React, { useEffect } from "react";
 import Style from "./single-item.module.scss";
 import List from "./list";
-import Pathname from "../pathname";
-import SizeSelectionModal from "../size-selection-modal";
-import Loader from "../../../components/shared/loaders/default";
+import Pathname from "../../ui/pathname";
+import SizeSelectionModal from "../../ui/size-selection-modal";
+import Loader from "../../ui/loaders/default";
 import { useItemStore } from "../../../store";
 import Slider from "./slider-wrapper";
 import Title from "./title";

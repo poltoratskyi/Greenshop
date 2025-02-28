@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import Style from "./header.module.scss";
 import { useCartStore, useUIStore } from "../../../store";
 import { svgCart, svgLogin, svgSearch } from "./static-data";
-import MiniCart from "../mini-cart";
-import Summary from "../mini-cart/summary";
+import MiniCart from "../../ui/mini-cart";
+import Summary from "../../ui/mini-cart/summary";
 
 const Actions: React.FC = () => {
   const pathname = usePathname();

@@ -43,6 +43,12 @@ interface UIState {
   // Checkout auto complete
   isAutoCompleteOpen: boolean;
   setIsAutoCompleteOpen: (isOpen: boolean) => void;
+
+  // Modal order
+  isOrderOpen: boolean;
+  isOrderSuccess: boolean;
+  setIsOrderSuccess: (isOpen: boolean) => void;
+  setIsOrderOpen: (isOpen: boolean) => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({
@@ -89,4 +95,10 @@ export const useUIStore = create<UIState>((set) => ({
   // Checkout auto complete
   isAutoCompleteOpen: true,
   setIsAutoCompleteOpen: (isOpen) => set({ isAutoCompleteOpen: isOpen }),
+
+  // Modal order success
+  isOrderOpen: false,
+  isOrderSuccess: false,
+  setIsOrderSuccess: (isOpen) => set({ isOrderSuccess: isOpen }),
+  setIsOrderOpen: (isOpen) => set({ isOrderOpen: isOpen }),
 }));

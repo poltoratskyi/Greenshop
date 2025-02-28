@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import { useClickAway } from "react-use";
 import Style from "./search-items-input.module.scss";
 import SearchResults from "../../shared/search-results";
-import Loader from "../../shared/loaders/default";
+import Loader from "../../ui/loaders/default";
 import SaleBanner from "../sale-banner";
 import { svgClose, svgSearch } from "./static-data";
 import { useSearchBar } from "../../../hooks";

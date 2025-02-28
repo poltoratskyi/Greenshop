@@ -6,7 +6,7 @@ import Button from "../../ui/button";
 import Style from "./sing-up.module.scss";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpFormSchema, signUpFormFields } from "../../../schemas";
-import Block from "../../../components/ui/common-form-elements/block";
+import Container from "../../ui/checkout-input-container";
 import ErrorMessage from "../../ui/common-form-elements/error";
 const Form: React.FC = () => {
   const {
@@ -32,7 +32,7 @@ const Form: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={Style.signUp}>
-      <Block>
+      <Container>
         <Input
           id="firstName"
           type="text"
@@ -42,9 +42,9 @@ const Form: React.FC = () => {
         />
 
         <ErrorMessage error={errors.firstName} />
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Input
           id="email"
           type="email"
@@ -54,9 +54,9 @@ const Form: React.FC = () => {
         />
 
         <ErrorMessage error={errors.email} />
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Input
           id="password"
           type="password"
@@ -66,9 +66,9 @@ const Form: React.FC = () => {
         />
 
         <ErrorMessage error={errors.password} />
-      </Block>
+      </Container>
 
-      <Block>
+      <Container>
         <Input
           id="repeat-password"
           type="password"
@@ -78,7 +78,7 @@ const Form: React.FC = () => {
         />
 
         <ErrorMessage error={errors.repeatPassword} />
-      </Block>
+      </Container>
 
       <Button submit className="signUp" value="Register" />
     </form>

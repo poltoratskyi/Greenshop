@@ -1,5 +1,5 @@
 import Checkout from "../../../components/shared/checkout";
-import Loader from "../../../components/shared/loaders/suspense";
+import Loader from "../../../components/ui/loaders/suspense";
 import { Suspense } from "react";
 
 export default function CheckoutPage() {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import SummaryStyle from "../../ui/summary/summary.module.scss";
-import Skeleton from "../skeleton/cart-summary";
+import Skeleton from "../../ui/skeleton/cart-summary";
 import { useCartStore } from "../../../store";
 import Summary from "../../ui/summary";
 

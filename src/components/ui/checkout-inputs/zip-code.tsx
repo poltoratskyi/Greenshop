@@ -1,6 +1,6 @@
 "use client";
 
-import { FieldError, UseFormSetValue } from "react-hook-form";
+import { FieldError, UseFormSetValue, UseFormWatch } from "react-hook-form";
 import { CheckoutFormFields } from "../../../schemas/checkout-form-schema";
 import CustomInput from "../common-form-elements/custom-input ";
 import { useZipCode } from "../../../hooks";
@@ -12,11 +12,13 @@ import { useZipCodeStore } from "../../../store";
 
 interface Props {
   id: string;
-  name: string;
+  name: keyof CheckoutFormFields;
   placeholder: string;
   type: string;
   error?: FieldError;
+  isLoading: boolean;
 
+  watch: UseFormWatch<CheckoutFormFields>;
   setValue: UseFormSetValue<CheckoutFormFields>;
 }
 
@@ -26,24 +28,20 @@ const ZipCodeInput: React.FC<Props> = ({
   placeholder,
   type,
   error,
+  isLoading,
 
+  watch,
   setValue,
 }) => {
+  const value = watch(name);
   const ref = useRef<HTMLDivElement>(null);
   const resetZipData = useZipCodeStore((state) => state.resetZipData);
-  const resetZipCode = useZipCodeStore((state) => state.resetZipCode);
 
-  const {
-    zipData,
-    zipCode,
-    errorRequest,
-    searchInputCode,
-    handleChangeResult,
-  } = useZipCode(setValue);
+  const { zipData, errorRequest, searchInputCode, handleChangeResult } =
+    useZipCode(setValue, value, name);
 
   useClickAway(ref, () => {
     resetZipData();
-    resetZipCode();
   });
 
   return (
@@ -53,8 +51,9 @@ const ZipCodeInput: React.FC<Props> = ({
         name={name}
         placeholder={placeholder}
         type={type}
-        value={zipCode}
+        value={value}
         errorRequest={errorRequest}
+        isLoading={isLoading}
         onChangeHandler={searchInputCode}
         error={error}
       />

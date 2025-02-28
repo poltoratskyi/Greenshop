@@ -1,0 +1,60 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.items {
+  @include m.scroll(3px);
+
+  height: 165px;
+  overflow-y: auto;
+
+  .list {
+    margin-bottom: 10px;
+    background-color: v.$background;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+
+      .driver {
+        width: 100%;
+
+        .info {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .text {
+            @include m.description($c: v.$text);
+          }
+        }
+      }
+    }
+  }
+}
+
+.summary {
+  padding: 10px 14px;
+
+  .seeCart {
+    @include m.button(
+      $d: block,
+      $p: 15px 25px,
+      $bc: v.$main,
+      $br: 6px,
+      $fz: 14px,
+      $fw: 400,
+      $lh: 24px,
+      $c: #fff
+    );
+
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+}

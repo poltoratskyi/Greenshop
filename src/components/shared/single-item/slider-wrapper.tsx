@@ -1,7 +1,7 @@
 "use client";
 
 import { Item } from "../../../types";
-import Slider from "../slider";
+import Slider from "../../ui/slider";
 
 const SliderWrapper: React.FC = () => {
   const storedItems: Item[] = JSON.parse(

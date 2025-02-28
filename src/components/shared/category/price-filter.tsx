@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Style from "./category.module.scss";
-import Skeleton from "../skeleton/category";
+import Skeleton from "../../ui/skeleton/category";
 import { useVariationStore, useSizeStore } from "../../../store";
 import PriceInput from "../../ui/price-input";
 
