@@ -15,6 +15,10 @@
 
   p {
     @include m.description($c: v.$text);
+
+    span {
+      font-weight: 500;
+    }
   }
 
   mark {

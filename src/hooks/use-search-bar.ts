@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import { useDebounce } from "react-use";
 import { useSearchStore, useUIStore } from "../store";

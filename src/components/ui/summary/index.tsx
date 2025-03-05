@@ -29,7 +29,7 @@ const Summary: React.FC<Props> = ({
         }
       >
         <p>Coupon Discount</p>
-        <p>(-) 00.00</p>
+        <span>$00.00</span>
       </div>
 
       <div

@@ -80,7 +80,7 @@ const Form: React.FC = () => {
         <ErrorMessage error={errors.repeatPassword} />
       </Container>
 
-      <Button submit className="signUp" value="Register" />
+      <Button formSubmitted className="signUp" value="Register" />
     </form>
   );
 };

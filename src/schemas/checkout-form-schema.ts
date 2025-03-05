@@ -68,7 +68,7 @@ export const checkoutFormSchema = zod.object({
     })
     .optional(),
 
-  message: zod
+  notes: zod
     .string()
     .max(300, { message: "Message should not exceed 300 characters" })
     .optional(),

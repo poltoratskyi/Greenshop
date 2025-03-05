@@ -3,12 +3,11 @@
 import { JSX } from "react";
 import { useRouter } from "next/navigation";
 import Style from "./button.module.scss";
-import { useCartStore } from "../../../store";
 import Loader from "./loader";
 
 interface Props {
   buy?: boolean;
-  submit?: boolean;
+  formSubmitted?: boolean;
   addToCart?: boolean;
   button?: boolean;
   className?: string;
@@ -16,6 +15,7 @@ interface Props {
   svgLeft?: JSX.Element;
   svgRight?: JSX.Element;
   choose?: boolean;
+  isLoading?: boolean;
 
   handleAddToCart?: () => void;
   handleChangeResult?: () => void;
@@ -23,7 +23,7 @@ interface Props {
 
 const Button: React.FC<Props> = ({
   buy,
-  submit,
+  formSubmitted,
   addToCart,
   button,
   className,
@@ -31,12 +31,12 @@ const Button: React.FC<Props> = ({
   svgLeft,
   svgRight,
   choose,
+  isLoading,
 
   handleAddToCart,
   handleChangeResult,
 }) => {
   const router = useRouter();
-  const isLoadingItem = useCartStore((state) => state.isLoadingItem);
   const buttonClass = Style[className || ""];
 
   return (
@@ -49,11 +49,18 @@ const Button: React.FC<Props> = ({
         </button>
       )}
 
-      {submit && (
-        <button type="submit" className={buttonClass}>
-          {svgLeft}
-          {value}
-          {svgRight}
+      {formSubmitted && (
+        <button
+          style={{
+            pointerEvents: isLoading ? "none" : "auto",
+            cursor: isLoading ? "not-allowed" : "pointer",
+            backgroundColor: isLoading ? "#fff" : "#46a358",
+            border: isLoading ? "1px solid #46a358" : "none",
+          }}
+          type="submit"
+          className={buttonClass}
+        >
+          {isLoading ? <Loader modal /> : value}
         </button>
       )}
 
@@ -61,13 +68,13 @@ const Button: React.FC<Props> = ({
         <button
           type="button"
           style={{
-            pointerEvents: isLoadingItem ? "none" : "auto",
-            cursor: isLoadingItem ? "not-allowed" : "pointer",
+            pointerEvents: isLoading ? "none" : "auto",
+            cursor: isLoading ? "not-allowed" : "pointer",
           }}
           onClick={() => handleAddToCart && handleAddToCart()}
           className={buttonClass}
         >
-          {isLoadingItem ? (
+          {isLoading ? (
             <>
               {value}
               <Loader />

@@ -3,7 +3,7 @@ import { svgDecr, svgIncr } from "./static-data";
 import { useChangeQuantityItems } from "../../../hooks";
 
 interface Props {
-  id: number;
+  id?: number;
   quantity: number;
   hiddenQtyBtns: boolean;
 }
@@ -15,7 +15,9 @@ const Quantity: React.FC<Props> = ({ id, quantity, hiddenQtyBtns }) => {
     <div className={Style.quantity}>
       {!hiddenQtyBtns && (
         <button
-          onClick={() => changeQuantityItems(id, quantity, "decrement")}
+          onClick={() =>
+            changeQuantityItems(id as number, quantity, "decrement")
+          }
           aria-label="Decrease quantity"
         >
           {svgDecr}
@@ -26,7 +28,9 @@ const Quantity: React.FC<Props> = ({ id, quantity, hiddenQtyBtns }) => {
 
       {!hiddenQtyBtns && (
         <button
-          onClick={() => changeQuantityItems(id, quantity, "increment")}
+          onClick={() =>
+            changeQuantityItems(id as number, quantity, "increment")
+          }
           aria-label="Increase quantity"
         >
           {svgIncr}

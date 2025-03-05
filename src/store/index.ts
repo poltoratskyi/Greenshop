@@ -8,8 +8,10 @@ import { useVariationStore } from "./variation";
 import { useUIStore } from "./ui";
 import { useZipCodeStore } from "./zip-code";
 import { useLocationStore } from "./location";
+import { useOrderStore } from "./order";
 
 export {
+  useOrderStore,
   useZipCodeStore,
   useLocationStore,
   useCartStore,

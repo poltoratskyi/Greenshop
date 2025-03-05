@@ -235,7 +235,7 @@ const InputFields: React.FC<Props> = ({
       <Container>
         <Label label="Order notes (optional)" name="message" />
 
-        <Textarea id="message" placeholder="Message" {...register("message")} />
+        <Textarea id="message" placeholder="Message" {...register("notes")} />
       </Container>
     </div>
   );

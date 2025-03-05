@@ -23,7 +23,7 @@ interface Props {
 const Item: React.FC<Props> = ({ variations, id, imgUrl, name, tags, sku }) => {
   const router = useRouter();
 
-  const isLoadingItem = useCartStore((state) => state.isLoadingItem);
+  const isItemAdded = useCartStore((state) => state.isItemAdded);
 
   const selectedSizeId = useUIStore((state) => state.selectedSizeId);
   const setIsModalSizeOpen = useUIStore((state) => state.setIsModalSizeOpen);
@@ -84,8 +84,8 @@ const Item: React.FC<Props> = ({ variations, id, imgUrl, name, tags, sku }) => {
           <li
             style={{
               position: "relative",
-              pointerEvents: isLoadingItem ? "none" : "auto",
-              cursor: isLoadingItem ? "not-allowed" : "pointer",
+              pointerEvents: isItemAdded ? "none" : "auto",
+              cursor: isItemAdded ? "not-allowed" : "pointer",
             }}
             key={variation.id}
             onClick={() => {
@@ -94,9 +94,10 @@ const Item: React.FC<Props> = ({ variations, id, imgUrl, name, tags, sku }) => {
               router.push("/cart");
             }}
           >
-            {isLoadingItem ? (
+            {isItemAdded ? (
               <>
                 {selectedSizeId === variation.sizeId && <Loader modal />}
+
                 <Info {...variation} />
               </>
             ) : (

@@ -18,14 +18,19 @@
 }
 
 .order,
+.buy,
+.blog,
+.add {
+  position: relative;
+}
+
+.order,
 .choose {
   width: 100%;
 }
 
 .blog {
   @include m.description($fw: 500, $c: v.$text);
-
-  position: relative;
 
   svg {
     position: absolute;
@@ -49,7 +54,6 @@
 }
 
 .add {
-  position: relative;
   padding: 15px 40px;
 
   &:hover {
@@ -131,8 +135,9 @@
   margin-right: 8px;
 
   &.modal {
-    right: 50%;
-    margin-right: 0px;
+    right: auto;
+    left: 50%;
+    margin-right: 0;
   }
 
   .round {

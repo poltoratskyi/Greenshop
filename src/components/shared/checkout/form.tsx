@@ -9,11 +9,14 @@ import Summary from "../cart/summary";
 import Button from "../../ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckoutFormFields, checkoutFormSchema } from "../../../schemas";
-import { useUIStore } from "../../../store";
+import { useUIStore, useOrderStore } from "../../../store";
 
 const Form: React.FC = () => {
   const setIsOrderOpen = useUIStore((state) => state.setIsOrderOpen);
   const setIsOrderSuccess = useUIStore((state) => state.setIsOrderSuccess);
+
+  const addUserOrder = useOrderStore((state) => state.addUserOrder);
+  const isLoading = useOrderStore((state) => state.isLoading);
 
   const {
     control,
@@ -23,36 +26,49 @@ const Form: React.FC = () => {
     setValue,
     watch,
     reset,
-    resetField,
     formState: { errors },
   } = useForm<CheckoutFormFields>({
     resolver: zodResolver(checkoutFormSchema),
-    mode: "onBlur",
+    mode: "onChange",
     defaultValues: {
       firstName: "",
       lastName: "",
       country: "",
       address: "",
+      apartment: "",
       city: "",
       email: "",
       phone: "",
       state: "",
       zip: "",
-      message: "",
+      notes: "",
     },
   });
 
-  const onSubmit = (data: CheckoutFormFields) => {
+  const onSubmit = async (data: CheckoutFormFields) => {
+    const orderData = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      country: data.country,
+      address: data.address,
+      apartment: data.apartment,
+      city: data.city,
+      email: data.email,
+      phone: data.phone,
+      state: data.state,
+      zip: data.zip,
+      notes: data.notes,
+      items: JSON,
+    };
     try {
+      await addUserOrder(orderData);
+      reset();
+
       setIsOrderSuccess(true);
       setIsOrderOpen(true);
-      console.log(data);
-      reset();
-      resetField("zip");
     } catch (error) {
       setIsOrderSuccess(false);
       setIsOrderOpen(false);
-      console.error("Error during submission:", error);
     }
   };
 
@@ -74,7 +90,12 @@ const Form: React.FC = () => {
         <Review summaryWidth title="Your Order">
           <ItemTable hiddenColumns hiddenQtyBtns headerData={headerData} />
           <Summary />
-          <Button submit value="Place Order" className="order" />
+          <Button
+            isLoading={isLoading}
+            formSubmitted
+            value="Place Order"
+            className="order"
+          />
         </Review>
       </Container>
     </form>

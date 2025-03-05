@@ -1,4 +1,4 @@
-import { Id, ItemId, Quantity, Token, UserId } from "./common";
+import { Id, UserId } from "./common";
 import { User } from "./user";
 
 export enum OrderStatus {
@@ -8,37 +8,27 @@ export enum OrderStatus {
   FAILED = "FAILED",
 }
 
-export type OrderItem = Id &
-  Quantity &
-  ItemId & {
-    order: Order;
-    orderId: number;
-    price: number;
-  };
+export type Order = {
+  id?: number;
+  firstName: string;
+  lastName: string;
+  country: string;
+  address: string;
+  apartment?: string;
+  city: string;
+  email: string;
+  phone: string;
+  state: string;
+  zip?: string;
+  notes?: string;
 
-export type Order = Id &
-  Token & {
-    firstName: string;
-    lastName: string;
-    city: string;
-    email: string;
-    phone: string;
-    address: string;
-    zip: string;
-    country: string;
-    notes?: string;
+  items: JSON;
 
-    items: JSON;
+  user?: User;
+  userId?: UserId;
 
-    user: User;
-    userId: UserId;
-
-    order: OrderItem[];
-
-    status: OrderStatus;
-
-    paymentId?: string;
-  };
+  paymentId?: string;
+};
 
 export type VerificationCode = Id & {
   user: User;

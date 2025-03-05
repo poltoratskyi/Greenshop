@@ -2,7 +2,7 @@
 
 import Style from "./single-item.module.scss";
 import { ItemVariation } from "../../../types";
-import { useUIStore } from "../../../store";
+import { useCartStore, useUIStore } from "../../../store";
 import Button from "../../ui/button";
 import { svgHeart } from "./static-data";
 import { useAddToCart } from "../../../hooks";
@@ -15,6 +15,8 @@ interface Props {
 }
 
 const Info: React.FC<Props> = ({ id, shortDescription, variations }) => {
+  const isItemAdded = useCartStore((state) => state.isItemAdded);
+
   const currentSizeIndex = useUIStore((state) => state.currentSizeIndex);
   const setCurrentSizeIndex = useUIStore((state) => state.setCurrentSizeIndex);
 
@@ -77,6 +79,7 @@ const Info: React.FC<Props> = ({ id, shortDescription, variations }) => {
         />
 
         <Button
+          isLoading={isItemAdded}
           addToCart
           handleAddToCart={() =>
             handleAddToCart(id, currentSizeIndex, variations)

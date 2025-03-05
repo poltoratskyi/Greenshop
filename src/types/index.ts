@@ -14,11 +14,14 @@ import {
   CartResponse,
 } from "./cart";
 import { User, UserRole } from "./user";
-import { Order, OrderItem, OrderStatus } from "./order";
+import { Order, OrderStatus } from "./order";
 import { Place, ZipCodeData } from "./zip-code";
 import { NominatimLocation } from "./nominatim-location";
+import { Email, Template } from "./email";
 
 export type {
+  Email,
+  Template,
   NominatimLocation,
   Place,
   ZipCodeData,
@@ -36,6 +39,5 @@ export type {
   User,
   UserRole,
   Order,
-  OrderItem,
   OrderStatus,
 };

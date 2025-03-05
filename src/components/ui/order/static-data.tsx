@@ -45,30 +45,3 @@ export const svgThanks = (
     </defs>
   </svg>
 );
-
-export const successOrder = [
-  {
-    title: "Your order has been received",
-    descr: (
-      <p>
-        Your order #<b>[order number]</b> is currently being processed. You will
-        receive an order confirmation email shortly with the order creation
-        date:
-        <b>[order creation date]</b>, and the expected delivery date:
-        <b>[delivery date]</b>.
-      </p>
-    ),
-  },
-];
-
-export const errorOrder = [
-  {
-    title: "Oops! Something went wrong",
-    descr: (
-      <p>
-        There was an issue with your order. couldn&apos;t process it at this
-        time. Please try again later or contact support if the issue persists.
-      </p>
-    ),
-  },
-];

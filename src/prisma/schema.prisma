@@ -169,22 +169,21 @@ model Order {
     email     String
     phone     String
     address   String
+    apartment String?
     zip       String?
     country   String
+    state     String
     notes     String?
     
     token     String
-
-    // List of Items in the Cart   
-    items Json
 
     // Registered ?
     user   User? @relation(fields: [userId], references: [id])
     userId Int?
 
-    order OrderItem[]
+    items Json
 
-    status    OrderStatus
+    status    OrderStatus @default(PENDING)
     // Id Payment Service
     paymentId  String?
 
@@ -192,19 +191,6 @@ model Order {
     updatedAt DateTime @updatedAt
 }
 
-model OrderItem {
-    id       Int    @id @default(autoincrement())
-
-    order    Order  @relation(fields: [orderId], references: [id])
-
-    orderId  Int
-    itemId   Int    
-    quantity Int
-    price    Int
-
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-}
 
 enum UserRole {
     USER

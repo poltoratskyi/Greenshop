@@ -5,7 +5,7 @@ import Pathname from "../../ui/pathname";
 import Style from "./checkout.module.scss";
 import Form from "./form";
 import { useCartStore, useUIStore } from "../../../store";
-import { Order, Error } from "../../ui/order";
+import { Order } from "../../ui/order";
 
 const Checkout: React.FC = () => {
   const loadUserCart = useCartStore((state) => state.loadUserCart);
@@ -19,13 +19,14 @@ const Checkout: React.FC = () => {
   return (
     <>
       <Pathname second="Checkout" />
+
       <section className={Style.checkout}>
         <div className="container">
           <Form />
         </div>
       </section>
 
-      {isOrderSuccess ? isOrderOpen && <Order /> : isOrderOpen && <Error />}
+      {isOrderSuccess && isOrderOpen && <Order />}
     </>
   );
 };

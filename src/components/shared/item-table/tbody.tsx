@@ -93,7 +93,7 @@ const Tbody: React.FC<Props> = ({
           pathName === "/checkout" ? `${Style.td} ${Style.checkout}` : Style.td
         }`}
       >
-        <Total singleItemPrice={singleItemPrice} />
+        <Total pathName={pathName} singleItemPrice={singleItemPrice} />
       </td>
 
       {!hiddenColumns && (

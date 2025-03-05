@@ -38,7 +38,13 @@ const Table: React.FC<Props> = ({
           {headerData.map((item, index) => (
             <th
               key={index}
-              style={index === 0 ? { textAlign: "left" } : {}}
+              style={
+                item === "Products"
+                  ? { textAlign: "left" }
+                  : item === "Subtotal"
+                  ? { textAlign: "right" }
+                  : {}
+              }
               className={`${
                 pathName === "/checkout"
                   ? `${Style.title} ${Style.checkout}`
