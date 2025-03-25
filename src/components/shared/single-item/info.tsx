@@ -7,6 +7,7 @@ import Button from "../../ui/button";
 import { svgHeart } from "./static-data";
 import { useAddToCart } from "../../../hooks";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface Props {
   id: number;
@@ -15,6 +16,8 @@ interface Props {
 }
 
 const Info: React.FC<Props> = ({ id, shortDescription, variations }) => {
+  const router = useRouter();
+
   const isItemAdded = useCartStore((state) => state.isItemAdded);
 
   const currentSizeIndex = useUIStore((state) => state.currentSizeIndex);
@@ -70,22 +73,22 @@ const Info: React.FC<Props> = ({ id, shortDescription, variations }) => {
 
       <div className={Style.action}>
         <Button
-          buy
-          handleAddToCart={() =>
-            handleAddToCart(id, currentSizeIndex, variations)
-          }
+          isLoading={isItemAdded}
+          onClick={() => {
+            handleAddToCart(id, currentSizeIndex, variations);
+            router.push("/cart");
+          }}
           className="buy"
           value="Buy Now"
+          type="button"
         />
 
         <Button
           isLoading={isItemAdded}
-          addToCart
-          handleAddToCart={() =>
-            handleAddToCart(id, currentSizeIndex, variations)
-          }
+          onClick={() => handleAddToCart(id, currentSizeIndex, variations)}
           className="add"
           value="Add to Cart"
+          type="button"
         />
 
         <Link href="/login">{svgHeart}</Link>

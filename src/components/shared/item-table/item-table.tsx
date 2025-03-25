@@ -1,7 +1,7 @@
 "use client";
 
 import Style from "./item-table.module.scss";
-import LoaderItem from "../../ui/loaders/default";
+import LoaderItem from "../../ui/loader";
 import Table from "./table";
 import { useCartStore } from "../../../store";
 import { usePathname } from "next/navigation";

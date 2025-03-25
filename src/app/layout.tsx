@@ -1,6 +1,7 @@
 import { IBM_Plex_Sans } from "next/font/google";
 
 import "../styles/globals.scss";
+import Providers from "../components/shared/providers";
 
 const font = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -18,7 +19,9 @@ export default async function RootLayout({
         <link rel="icon" href="/logo.ico" />
       </head>
 
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

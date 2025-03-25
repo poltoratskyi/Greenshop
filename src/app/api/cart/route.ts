@@ -2,13 +2,14 @@ import crypto from "crypto";
 import { prisma } from "../../../prisma/prisma-client";
 import { NextResponse, NextRequest } from "next/server";
 
-import { getOrCreateUserCart } from "../../../lib";
-import { updateCartTotalAmount } from "../../../lib/update-cart-total-amount";
+import { getOrCreateUserCart } from "../../../lib/server";
+import { updateCartTotalAmount } from "../../../lib/server";
+import { cookies } from "next/headers";
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Get the token
-    const token = request.cookies.get("cartToken")?.value;
+    const token = (await cookies()).get("cartToken")?.value;
 
     if (!token) {
       return NextResponse.json(

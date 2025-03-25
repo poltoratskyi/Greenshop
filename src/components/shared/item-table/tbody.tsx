@@ -1,9 +1,5 @@
-import Delete from "../../ui/delete";
-import Total from "../../ui/total";
-import Price from "../../ui/price";
-import Info from "../../ui/info";
-import IImage from "../../ui/image";
-import Quantity from "../../ui/quantity";
+import { Delete, IImage, Price, Quantity, Total } from "../../ui/cart";
+import ItemInfo from "../../ui/item-info";
 import Style from "./item-table.module.scss";
 import { CartItemVariation } from "../../../types";
 
@@ -51,7 +47,8 @@ const Tbody: React.FC<Props> = ({
             id={id}
             variations={variations}
           />
-          <Info
+
+          <ItemInfo
             showQuantity={false}
             variations={variations}
             name={name}

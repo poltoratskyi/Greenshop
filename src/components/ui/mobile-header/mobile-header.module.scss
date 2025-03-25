@@ -1,0 +1,16 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.header {
+  display: none;
+}
+
+@media (max-width: 575px) {
+  .header {
+    @include m.header-container();
+
+    border-bottom: 1px solid v.$border;
+    border-top: 1px solid v.$border;
+    position: relative;
+  }
+}

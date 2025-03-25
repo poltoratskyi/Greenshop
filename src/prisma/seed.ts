@@ -1,28 +1,7 @@
 import { prisma } from "./prisma-client";
-import { hashSync } from "bcrypt";
 import { categoryMenu, catalog, variation, sizes } from "./constants";
 
 async function upload() {
-  await prisma.user.createMany({
-    data: [
-      {
-        role: "ADMIN",
-        fullName: "Alice",
-        email: "alice@prisma.io",
-        password: hashSync("12", 12),
-        verified: new Date(),
-      },
-
-      {
-        role: "USER",
-        fullName: "Bob",
-        email: "bob@prisma.io",
-        password: hashSync("21", 12),
-        verified: new Date(),
-      },
-    ],
-  });
-
   await prisma.category.createMany({
     data: categoryMenu,
   });
@@ -51,8 +30,6 @@ async function clear() {
   await prisma.$executeRaw`TRUNCATE TABLE "Category" RESTART IDENTITY CASCADE;`;
 
   await prisma.$executeRaw`TRUNCATE TABLE "Size" RESTART IDENTITY CASCADE;`;
-
-  await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE;`;
 }
 
 async function main() {

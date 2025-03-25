@@ -1,0 +1,39 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.formCard {
+  padding: 0px 50px;
+  height: 500px;
+  overflow-y: auto;
+  width: 100%;
+
+  @include m.scroll(3px);
+
+  .title {
+    @include m.subtitle($c: v.$main);
+
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .subtitle {
+    @include m.description($c: v.$text);
+
+    display: block;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  &.overflow {
+    height: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .formCard {
+    height: auto;
+    padding: 0px;
+
+    @include m.scroll(5px);
+  }
+}

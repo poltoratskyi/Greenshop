@@ -12,7 +12,8 @@
     gap: 60px;
 
     .category {
-      width: 25%;
+      min-width: 300px;
+      max-width: 300px;
 
       .title {
         @include m.subtitle($fz: 18px, $lh: 26px);
@@ -45,19 +46,20 @@
       }
     }
 
-    .result_items {
-      width: 75%;
-
-      .scrollbar {
-        overflow-y: auto;
-        height: 370px;
-
-        @include m.scroll(3px);
-      }
+    .container {
+      min-width: 800px;
+      max-width: 800px;
 
       .title {
         @include m.subtitle($fz: 18px, $lh: 26px);
         margin-bottom: 18px;
+      }
+
+      .items {
+        @include m.scroll(3px);
+
+        height: 370px;
+        overflow-y: auto;
       }
     }
   }
@@ -65,11 +67,8 @@
 
 @media (max-width: 575px) {
   .results {
-    padding: 15px 10px 110px 10px;
-    overflow-y: auto;
-    height: calc(100vh - 110px);
-
-    @include m.scroll(3px);
+    padding: 15px 10px;
+    border-top: unset;
 
     .content {
       flex-direction: column;
@@ -89,14 +88,13 @@
         }
       }
 
-      .result_items {
+      .container {
         min-width: 100%;
-
         .title {
           font-size: 16px;
         }
 
-        .scrollbar {
+        .items {
           overflow-y: unset;
           height: auto;
         }

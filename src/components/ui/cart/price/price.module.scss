@@ -1,0 +1,28 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.cart,
+.catalog,
+.table {
+  .cost {
+    .old {
+      @include m.sale();
+    }
+
+    .new {
+      @include m.price();
+
+      margin-left: 20px;
+    }
+  }
+
+  .new {
+    @include m.price();
+  }
+}
+
+@media (max-width: 575px) {
+  .cart {
+    display: none;
+  }
+}

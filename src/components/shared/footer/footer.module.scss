@@ -4,7 +4,7 @@
 .footer {
   .content {
     background-color: v.$background;
-    border-bottom: 1px solid v.$line;
+    border-bottom: 1px solid v.$transparent-line;
 
     .service {
       padding: 25px;
@@ -20,7 +20,7 @@
 
           .inner {
             padding-right: 35px;
-            border-right: 1px solid v.$line;
+            border-right: 1px solid v.$transparent-line;
 
             .title {
               @include m.subtitle();
@@ -39,6 +39,27 @@
 
         .newsletters {
           max-width: 350px;
+
+          .title {
+            @include m.subtitle($fz: 16px);
+
+            margin-bottom: 15px;
+          }
+
+          .form {
+            .wrapper {
+              display: grid;
+              grid-template-columns: repeat(1, 1fr);
+              gap: 15px;
+            }
+
+            .error {
+              @include m.error();
+
+              display: block;
+              margin-top: 10px;
+            }
+          }
 
           .descr {
             @include m.description();
@@ -100,7 +121,7 @@
     display: flex;
     gap: 60px;
     padding: 25px;
-    background-color: v.$line;
+    background-color: v.$transparent-line;
 
     .lists {
       display: grid;
@@ -167,7 +188,7 @@
       height: 30px;
       width: 30px;
       border-radius: 4px;
-      border: 1px v.$line solid;
+      border: 1px v.$transparent-line solid;
       cursor: pointer;
       margin-right: 10px;
       transition: all 0.2s ease;
@@ -219,10 +240,9 @@
 
         .label {
           flex-direction: column;
+          gap: 25px;
 
           .info {
-            margin-bottom: 25px;
-
             .inner {
               padding: unset;
               border-right: none;

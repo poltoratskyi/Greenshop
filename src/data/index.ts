@@ -1,5 +1,5 @@
 import { CartItem, CartResponse, CartItemVariation } from "../types";
-import { getItemTotalPrice } from "../lib";
+import { getItemTotalPrice } from "../lib/client";
 
 interface CartDetails {
   subtotalAmount: number;

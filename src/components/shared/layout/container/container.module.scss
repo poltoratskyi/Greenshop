@@ -1,0 +1,15 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+@media (max-width: 575px) {
+  .container {
+    flex-direction: column;
+    gap: 25px;
+  }
+}

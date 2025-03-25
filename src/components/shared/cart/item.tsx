@@ -1,12 +1,7 @@
 import { CartItemVariation } from "../../../types";
 import Style from "./cart.module.scss";
-import IImage from "../../ui/image";
-import Info from "../../ui/info";
-import Price from "../../ui/price";
-import Quantity from "../../ui/quantity";
-import { QuantityType } from "../../../hooks/use-change-quantity-items ";
-import Total from "../../ui/total";
-import Delete from "../../ui/delete";
+import { Delete, IImage, Price, Quantity, Total } from "../../ui/cart";
+import ItemInfo from "../../ui/item-info";
 
 interface Props {
   id: number;
@@ -43,7 +38,7 @@ const Item: React.FC<Props> = ({
             variations={variations}
           />
 
-          <Info
+          <ItemInfo
             itemId={itemId}
             name={name}
             id={id}

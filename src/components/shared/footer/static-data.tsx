@@ -8,7 +8,7 @@ export const serviceText = [
   {
     title: "Garden Care",
     subtitle:
-      "We are an online plant shop offering a wide range of cheap and trendy plants.",
+      "We are an online plant shop offering a wide range of cheap and trendy plants",
     svg: (
       <svg width="90" height="90" viewBox="0 0 77 95" fill="none">
         <circle cx="37" cy="58" r="37" fill="#46A358" fillOpacity="0.13" />
@@ -304,7 +304,7 @@ export const serviceText = [
   {
     title: "Plant Renovation",
     subtitle:
-      "We are an online plant shop offering a wide range of cheap and trendy plants.",
+      "We are an online plant shop offering a wide range of cheap and trendy plants",
     svg: (
       <svg width="90" height="90" viewBox="0 0 83 90" fill="none">
         <circle cx="37" cy="53" r="37" fill="#46A358" fillOpacity="0.13" />
@@ -548,7 +548,7 @@ export const serviceText = [
   {
     title: "Watering Graden",
     subtitle:
-      "We are an online plant shop offering a wide range of cheap and trendy plants.",
+      "We are an online plant shop offering a wide range of cheap and trendy plants",
     svg: (
       <svg width="90" height="90" viewBox="0 0 90 89" fill="none">
         <circle cx="37" cy="52" r="37" fill="#46A358" fillOpacity="0.13" />

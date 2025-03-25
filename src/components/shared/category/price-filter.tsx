@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Style from "./category.module.scss";
 import Skeleton from "../../ui/skeleton/category";
 import { useVariationStore, useSizeStore } from "../../../store";
-import PriceInput from "../../ui/price-input";
+import { PriceRange } from "../../ui/category";
 
 const PriceFilter: React.FC = () => {
   const variations = useVariationStore((state) => state.variations);
@@ -56,7 +56,7 @@ const PriceFilter: React.FC = () => {
       <h3 className={Style.title}>Price</h3>
 
       <div className={Style.range}>
-        <PriceInput
+        <PriceRange
           id="price-from"
           name="price-from"
           label="From"
@@ -67,7 +67,7 @@ const PriceFilter: React.FC = () => {
           handlePriceInputChange={(e) => handlePriceInputChange("minPrice", e)}
         />
 
-        <PriceInput
+        <PriceRange
           id="price-to"
           name="price-to"
           label="To"

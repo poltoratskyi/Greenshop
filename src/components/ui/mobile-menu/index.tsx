@@ -4,14 +4,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Style from "./mobile-menu.module.scss";
 import { useCartStore, useUIStore } from "../../../store";
-import { pages } from "./static-data";
+import {
+  svgCart,
+  svgCategory,
+  svgHeart,
+  svgHome,
+  svgProfile,
+  svgProfileIn,
+} from "./static-data";
+import { useSession } from "next-auth/react";
 
 const MobileMenu: React.FC = () => {
+  const { data: session, status } = useSession();
+
   const pathname = usePathname();
 
   const cartItems = useCartStore((state) => state.cartItems);
 
-  const setIsModalOpen = useUIStore((state) => state.setIsModalOpen);
+  const isModalCategoryOpen = useUIStore((state) => state.isModalCategoryOpen);
   const setIsModalCategoryOpen = useUIStore(
     (state) => state.setIsModalCategoryOpen
   );
@@ -19,34 +29,103 @@ const MobileMenu: React.FC = () => {
   return (
     <nav className={Style.menu}>
       <ul className={Style.lists}>
-        {pages.map((link, index) => (
-          <li
-            key={index}
-            onClick={() => {
-              if (link.href === "/login") {
-                setIsModalOpen(true);
-              } else if (link.href === "/category") {
-                setIsModalCategoryOpen(true);
-              }
-            }}
+        <li className={Style.list}>
+          <Link
             className={
-              pathname === link.href
-                ? `${Style.list} ${Style.active}`
-                : Style.list
+              pathname === "/" ? `${Style.link} ${Style.active}` : Style.link
             }
-            style={{
-              pointerEvents: pathname === link.href ? "none" : "auto",
-            }}
+            href="/"
           >
-            <Link href={link.href}>
-              {link.href === "/cart" && cartItems.length > 0 && (
-                <span>{cartItems.length}</span>
-              )}
+            {svgHome}
+          </Link>
+        </li>
 
-              {link.menu}
+        <li onClick={() => setIsModalCategoryOpen(true)} className={Style.list}>
+          <span
+            className={
+              isModalCategoryOpen
+                ? `${Style.category} ${Style.active}`
+                : Style.category
+            }
+          >
+            {svgCategory}
+          </span>
+        </li>
+
+        <li className={Style.list}>
+          {!session ? (
+            <Link
+              className={
+                pathname === "/login"
+                  ? `${Style.link} ${Style.active}`
+                  : status === "loading"
+                  ? `${Style.link} ${Style.loading}`
+                  : Style.link
+              }
+              href="/login"
+            >
+              {svgHeart}
             </Link>
-          </li>
-        ))}
+          ) : (
+            <Link
+              className={
+                pathname === "/profile"
+                  ? `${Style.link} ${Style.active}`
+                  : status === "authenticated"
+                  ? `${Style.link} ${Style.authenticated}`
+                  : Style.link
+              }
+              href="/profile"
+            >
+              {svgHeart}
+            </Link>
+          )}
+        </li>
+
+        <li className={Style.list}>
+          <Link
+            className={
+              pathname === "/cart"
+                ? `${Style.link} ${Style.active}`
+                : Style.link
+            }
+            href="/cart"
+          >
+            {cartItems.length > 0 && <span>{cartItems.length}</span>}
+
+            {svgCart}
+          </Link>
+        </li>
+
+        <li className={Style.list}>
+          {!session ? (
+            <Link
+              className={
+                pathname === "/login"
+                  ? `${Style.link} ${Style.active}`
+                  : status === "loading"
+                  ? `${Style.link} ${Style.loading}`
+                  : Style.link
+              }
+              href="/login"
+            >
+              {svgProfile}
+            </Link>
+          ) : (
+            <Link
+              className={
+                pathname === "/profile"
+                  ? `${Style.link} ${Style.active}`
+                  : status === "authenticated"
+                  ? `${Style.link} ${Style.authenticated}`
+                  : Style.link
+              }
+              href="/profile"
+            >
+              {svgProfileIn}
+            </Link>
+          )}
+        </li>
       </ul>
     </nav>
   );

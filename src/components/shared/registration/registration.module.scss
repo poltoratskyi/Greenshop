@@ -1,36 +1,94 @@
 @use "../../../styles/variables.scss" as v;
 @use "../../../styles/mixins.scss" as m;
 
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .registration {
   margin: 50px 0px 45px;
 
   .wrapper {
     background-color: v.$background;
-    text-align: center;
     overflow-y: auto;
-  }
 
-  .box {
-    display: flex;
-    align-items: flex-start;
-
-    .line {
+    .box {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      height: 500px;
-      margin: auto;
 
-      span {
-        display: block;
-        background-color: rgba(v.$main, 0.5);
-        height: 100%;
-        width: 1px;
+      .line {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 500px;
+
+        span {
+          display: block;
+          background-color: rgba(v.$main, 0.5);
+          height: 100%;
+          width: 1px;
+        }
+
+        p {
+          @include m.description($c: v.$text);
+          margin: 10px 0px;
+        }
       }
 
-      p {
-        @include m.description($c: v.$text);
-        margin: 10px 0px;
+      .authSection {
+        text-align: center;
+        width: 100%;
+        overflow: hidden;
+
+        .inner {
+          &.showLogin {
+            animation: slideInRight 0.3s ease forwards;
+          }
+
+          &.showSignUp {
+            animation: slideInLeft 0.3s ease forwards;
+          }
+        }
       }
     }
   }
@@ -40,23 +98,37 @@
   .registration {
     margin: 0px 0px 45px 0px;
 
-    .box {
-      flex-direction: column;
-      height: auto;
-      gap: 30px;
-
-      .line {
-        flex-direction: unset;
-        width: 100%;
+    .wrapper {
+      .box {
+        flex-direction: column;
         height: auto;
+        gap: 30px;
 
-        span {
-          height: 1px;
+        .line {
+          flex-direction: unset;
           width: 100%;
+          height: auto;
+
+          span {
+            height: 1px;
+            width: 100%;
+          }
+
+          p {
+            margin: 0px 10px;
+          }
         }
 
-        p {
-          margin: 0px 10px;
+        .authSection {
+          .inner {
+            &.showLogin {
+              animation: slideInBottom 0.3s ease forwards;
+            }
+
+            &.showSignUp {
+              animation: slideOutTop 0.3s ease forwards;
+            }
+          }
         }
       }
     }

@@ -1,0 +1,74 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.discount {
+  position: fixed;
+  z-index: 1;
+  background-color: #fff;
+  max-width: 400px;
+  right: 5%;
+  top: 45%;
+  transition: all 0.3s ease;
+  padding: 40px 30px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid v.$border;
+  visibility: visible;
+  opacity: 1;
+
+  &.active {
+    right: -400px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .content {
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+
+      .title {
+        @include m.title($fz: 18px, $lh: 24px);
+      }
+
+      .close {
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        svg {
+          transition: all 0.3s ease;
+          &:hover {
+            fill: red;
+          }
+        }
+      }
+    }
+
+    .description {
+      @include m.description($c: v.$text);
+    }
+  }
+
+  .form {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+
+    .error {
+      @include m.error();
+
+      display: block;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .discount {
+    z-index: 2;
+    padding: 30px 15px;
+    right: 0;
+  }
+}

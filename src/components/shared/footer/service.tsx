@@ -1,5 +1,5 @@
-import ActionInput from "../../../components/ui/coupon-sender-input";
 import Style from "./footer.module.scss";
+import Newsletter from "./newsletters";
 import { serviceText } from "./static-data";
 
 const Service: React.FC = () => {
@@ -18,28 +18,7 @@ const Service: React.FC = () => {
           ))}
         </div>
 
-        <div className={Style.newsletters}>
-          <ActionInput
-            id="email"
-            name="email"
-            type="email"
-            className="feedback"
-            labelClassName="feedback"
-            blockClassName="feedback"
-            inputClassName="feedback"
-            label="Would you like to join newsletters?"
-            placeholder="E-mail"
-            buttonText="Subscribe"
-            buttonClassName="feedback"
-          />
-
-          <p className={Style.descr}>
-            &quot;We usually post offers and challenges in newsletter.
-            We&rsquo;re your online houseplant destination. We offer a wide
-            range of houseplants and accessories shipped directly from our
-            (green)house to yours!&quot;
-          </p>
-        </div>
+        <Newsletter />
       </div>
     </div>
   );

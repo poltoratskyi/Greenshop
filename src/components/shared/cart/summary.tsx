@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import SummaryStyle from "../../ui/summary/summary.module.scss";
+import SummaryStyle from "../../ui/cart/summary/summary.module.scss";
 import Skeleton from "../../ui/skeleton/cart-summary";
 import { useCartStore } from "../../../store";
-import Summary from "../../ui/summary";
+import { Summary } from "../../ui/cart";
 
 const CartSummary: React.FC = () => {
   const isLoading = useCartStore((state) => state.isLoading);

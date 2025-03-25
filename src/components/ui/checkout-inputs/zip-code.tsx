@@ -74,8 +74,8 @@ const ZipCodeInput: React.FC<Props> = ({
           </div>
 
           <Button
-            choose
-            handleChangeResult={handleChangeResult}
+            type="button"
+            onClick={handleChangeResult}
             className="choose"
             value="Choose"
           />

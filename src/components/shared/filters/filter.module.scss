@@ -68,9 +68,10 @@
 
       .list {
         @include m.description($lh: 21px);
+
         margin-bottom: 15px;
-        cursor: pointer;
         transition: all 0.2s ease;
+        cursor: pointer;
 
         &:last-child {
           margin-bottom: 0px;

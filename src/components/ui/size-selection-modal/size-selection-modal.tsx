@@ -7,6 +7,7 @@ import { useUIStore, useItemStore } from "../../../store";
 import { svgClose } from "./static-data";
 import Item from "./item";
 import Skeleton from "../skeleton/modal-item-size";
+import Overlay from "@/components/ui/overlay";
 
 const SizeSelectionModal: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -26,13 +27,7 @@ const SizeSelectionModal: React.FC = () => {
   if (modalIsLoading) {
     return (
       <>
-        <div
-          className={`${
-            isModalSizeOpen
-              ? `${Style.overlay} ${Style.visible}`
-              : Style.overlay
-          }`}
-        ></div>
+        <Overlay isVisible={isModalSizeOpen} />
 
         <div
           ref={ref}
@@ -66,11 +61,8 @@ const SizeSelectionModal: React.FC = () => {
 
   return (
     <>
-      <div
-        className={`${
-          isModalSizeOpen ? `${Style.overlay} ${Style.visible}` : Style.overlay
-        }`}
-      ></div>
+      <Overlay isVisible={isModalSizeOpen} />
+
       <div
         ref={ref}
         className={`${

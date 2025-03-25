@@ -1,11 +1,11 @@
 "use client";
 
-import { use, useEffect } from "react";
-import { getCategoryItemQuantity } from "../../../lib";
+import { useEffect } from "react";
+import { getCategoryItemQuantity } from "../../../lib/client";
 import Style from "./category.module.scss";
 import Skeleton from "../../ui/skeleton/category";
-import { useCatalogStore, useCategoryStore } from "../../../store";
-import Checkbox from "../../ui/checkbox";
+import { useCategoryStore } from "../../../store";
+import { Checkbox } from "../../ui/category";
 
 const ItemList: React.FC = () => {
   const isLoading = useCategoryStore((state) => state.isLoading);

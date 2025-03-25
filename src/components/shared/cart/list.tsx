@@ -1,10 +1,10 @@
 "use client";
 
 import Style from "./cart.module.scss";
-import Loader from "../../ui/loaders/default";
+import Loader from "../../ui/loader";
 import { useCartStore } from "../../../store";
 import Item from "./item";
-import Review from "../../ui/cart-order-review";
+import { Review } from "../layout";
 import { headerData } from "./static-data";
 import ItemTable from "../item-table";
 

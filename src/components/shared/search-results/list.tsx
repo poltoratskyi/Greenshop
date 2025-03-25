@@ -10,12 +10,12 @@ const List: React.FC = () => {
   const searchResults = useSearchStore((state) => state.searchResults);
 
   return (
-    <div className={Style.result_items}>
+    <div className={Style.container}>
       <h2 className={Style.title}>
         {searchResults.length > 1 ? "Results" : "Result"}
       </h2>
 
-      <div className={Style.scrollbar}>
+      <div className={Style.items}>
         <Wrapper>
           {searchResults.map((item) => (
             <li key={item.id} className={CatalogStyle.list}>

@@ -1,19 +1,21 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Style from "./header.module.scss";
 import { useCartStore, useUIStore } from "../../../store";
-import { svgCart, svgLogin, svgSearch } from "./static-data";
-import MiniCart from "../../ui/mini-cart";
-import Summary from "../../ui/mini-cart/summary";
+import { svgCart, svgProfile, svgSearch, svgProfileIn } from "./static-data";
+import MiniCart from "../../ui/cart/mini-cart";
+import Summary from "../../ui/cart/mini-cart/summary";
 
 const Actions: React.FC = () => {
+  const { data: session, status } = useSession();
+
   const pathname = usePathname();
 
   const cartItems = useCartStore((state) => state.cartItems);
 
-  const setIsModalOpen = useUIStore((state) => state.setIsModalOpen);
   const setIsSearchOpen = useUIStore((state) => state.setIsSearchOpen);
 
   return (
@@ -23,7 +25,6 @@ const Actions: React.FC = () => {
         onClick={() => {
           window.scrollTo({
             top: 0,
-            behavior: "smooth",
           });
 
           setIsSearchOpen(true);
@@ -32,7 +33,7 @@ const Actions: React.FC = () => {
         {svgSearch}
       </span>
 
-      <div className={Style.cart_wrapper}>
+      <div className={Style.cartWrapper}>
         <Link
           className={
             pathname === "/cart" ? `${Style.cart} ${Style.active}` : Style.cart
@@ -44,27 +45,40 @@ const Actions: React.FC = () => {
           {svgCart}
         </Link>
 
-        <div className={Style.dropdown_cart}>
+        <div className={Style.dropdownCart}>
           <MiniCart />
 
           <Summary />
         </div>
       </div>
 
-      <Link
-        style={{
-          pointerEvents: pathname === "/login" ? "none" : "auto",
-          opacity: pathname === "/login" ? 0.5 : 1,
-        }}
-        onClick={() => {
-          setIsModalOpen(true);
-        }}
-        className={Style.login}
-        href="/login"
-      >
-        {svgLogin}
-        Log In
-      </Link>
+      {!session ? (
+        <Link
+          className={
+            pathname === "/login"
+              ? `${Style.link} ${Style.active}`
+              : status === "loading"
+              ? `${Style.link} ${Style.loading}`
+              : Style.link
+          }
+          href="/login"
+        >
+          {svgProfile}
+        </Link>
+      ) : (
+        <Link
+          className={
+            pathname === "/profile"
+              ? `${Style.link} ${Style.active}`
+              : status === "authenticated"
+              ? `${Style.link} ${Style.authenticated}`
+              : Style.link
+          }
+          href="/profile"
+        >
+          {svgProfileIn}
+        </Link>
+      )}
     </div>
   );
 };

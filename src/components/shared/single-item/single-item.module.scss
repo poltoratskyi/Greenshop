@@ -1,7 +1,7 @@
 @use "../../../styles/variables.scss" as v;
 @use "../../../styles/mixins.scss" as m;
 
-.single_item {
+.singleItem {
   margin: 50px 0px 100px;
 
   .content {
@@ -156,7 +156,7 @@
             height: 30px;
             width: 30px;
             border-radius: 4px;
-            border: 1px v.$line solid;
+            border: 1px v.$transparent-line solid;
             transition: all 0.2s ease;
 
             cursor: pointer;
@@ -179,7 +179,7 @@
   margin-bottom: 100px;
 
   .wrapper {
-    border-bottom: 1px solid v.$line;
+    border-bottom: 1px solid v.$transparent-line;
     margin-bottom: 30px;
 
     .title {
@@ -201,7 +201,7 @@
 }
 
 @media (max-width: 575px) {
-  .single_item {
+  .singleItem {
     margin-bottom: 50px;
 
     .content {

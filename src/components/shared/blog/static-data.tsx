@@ -1,7 +1,7 @@
 export const title = "Our Blog Posts";
 
 export const descr =
-  "We are an online plant shop offering a wide range of cheap and trendy plants.";
+  "We are an online plant shop offering a wide range of cheap and trendy plants";
 
 export const blogData = [
   {
@@ -11,7 +11,7 @@ export const blogData = [
     heading: "Read in 6 minutes",
     title: "Cactus & Succulent Care Tips",
     descr:
-      "Care tips for cacti and succulents: easy guidance for your home or patio.",
+      "Care tips for cacti and succulents: easy guidance for your home or patio",
     link: "#",
   },
   {
@@ -21,7 +21,7 @@ export const blogData = [
     heading: "Read in 2 minutes",
     title: "Top 10 Succulents for Your Home",
     descr:
-      "The best succulents for hanging baskets, thriving in medium to bright light.",
+      "The best succulents for hanging baskets, thriving in medium to bright light",
     link: "#",
   },
   {
@@ -31,7 +31,7 @@ export const blogData = [
     heading: "Read in 3 minutes",
     title: "Cacti & Succulent Care Tips",
     descr:
-      "Cacti and succulents thrive in containers, requiring minimal care for stunning results.",
+      "Cacti and succulents thrive in containers, requiring minimal care for stunning results",
     link: "#",
   },
   {
@@ -41,7 +41,7 @@ export const blogData = [
     heading: "Read in 2 minutes",
     title: "Best Houseplants Room by Room",
     descr:
-      "The benefits of houseplants are endless, improving air quality and adding warmth to your home.",
+      "The benefits of houseplants are endless, improving air quality and adding warmth to your home",
     link: "#",
   },
 ];

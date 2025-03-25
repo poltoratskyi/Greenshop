@@ -11,6 +11,10 @@
     font-size: 15px;
     color: red;
   }
+
+  &.feedback {
+    @include m.subtitle();
+  }
 }
 
 .input,
@@ -48,11 +52,16 @@
 }
 
 .errorMessage {
-  @include m.description($c: red, $fz: 12px);
+  @include m.error();
 
-  display: inline-block;
+  display: block;
   margin-top: 10px;
 }
 
 @media (max-width: 575px) {
+  .label {
+    &.feedback {
+      text-align: center;
+    }
+  }
 }

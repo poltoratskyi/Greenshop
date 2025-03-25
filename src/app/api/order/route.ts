@@ -1,13 +1,14 @@
 import { CartItemVariation } from "@/types";
-import { getUserCart } from "../../../lib";
-import { emailService } from "../../../lib/email-service";
+import { getUserCart } from "../../../lib/server";
+import { sendOrderEmail } from "../../../lib/server";
 import { prisma } from "../../../prisma/prisma-client";
 import { NextResponse, NextRequest } from "next/server";
+import { cookies } from "next/headers";
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Get the token
-    const token = request.cookies.get("cartToken")?.value;
+    const token = (await cookies()).get("cartToken")?.value;
 
     if (!token) {
       return NextResponse.json(
@@ -105,6 +106,46 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    if (!order) {
+      return NextResponse.json(
+        { error: "Error creating order" },
+        { status: 500 }
+      );
+    }
+
+    const findOrder = await prisma.order.findFirst({
+      where: { email: order.email },
+    });
+
+    if (!findOrder) {
+      return NextResponse.json(
+        { error: "Email not found in orders" },
+        { status: 404 }
+      );
+    }
+
+    const findUser = await prisma.user.findFirst({
+      where: { email: order.email },
+    });
+
+    if (findUser) {
+      await prisma.user.update({
+        where: { email: order.email },
+        data: {
+          phone: findUser.phone === null ? order.phone : findUser.phone,
+          lastName:
+            findUser.lastName === null ? order.lastName : findUser.lastName,
+        },
+      });
+    }
+
+    if (!findUser) {
+      return NextResponse.json(
+        { error: "Email not found in users" },
+        { status: 404 }
+      );
+    }
+
     await prisma.cart.update({
       where: { id: userCart.id },
       data: { totalAmount: 0, subTotalAmount: 0 },
@@ -114,7 +155,7 @@ export async function POST(request: NextRequest) {
       where: { cartId: userCart.id },
     });
 
-    await emailService(
+    await sendOrderEmail(
       order.email,
       order.firstName,
       order.lastName,

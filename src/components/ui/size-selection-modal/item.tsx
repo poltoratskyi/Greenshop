@@ -8,7 +8,7 @@ import { ItemVariation } from "../../../types";
 import Info from "./info";
 import { useUIStore, useCartStore } from "../../../store";
 import Loader from "../button/loader";
-import { saveViewedProduct } from "../../../lib";
+import { saveViewedProduct } from "../../../lib/client";
 import { useAddToCart } from "../../../hooks";
 
 interface Props {
@@ -40,6 +40,10 @@ const Item: React.FC<Props> = ({ variations, id, imgUrl, name, tags, sku }) => {
             saveViewedProduct({ id, name, imgUrl, variations });
 
             setIsModalSizeOpen(false);
+
+            window.scrollTo({
+              top: 0,
+            });
           }}
         >
           <Image
@@ -62,6 +66,10 @@ const Item: React.FC<Props> = ({ variations, id, imgUrl, name, tags, sku }) => {
             onClick={() => {
               saveViewedProduct({ id, name, imgUrl, variations });
               setIsModalSizeOpen(false);
+
+              window.scrollTo({
+                top: 0,
+              });
             }}
           >
             {name}
@@ -79,9 +87,10 @@ const Item: React.FC<Props> = ({ variations, id, imgUrl, name, tags, sku }) => {
         </div>
       </div>
 
-      <ul>
+      <ul className={Style.variations}>
         {variations.map((variation) => (
           <li
+            className={Style.variation}
             style={{
               position: "relative",
               pointerEvents: isItemAdded ? "none" : "auto",
@@ -92,6 +101,10 @@ const Item: React.FC<Props> = ({ variations, id, imgUrl, name, tags, sku }) => {
               handleAddToCart(id, variation.sizeId - 1, variations);
               setIsModalSizeOpen(false);
               router.push("/cart");
+
+              window.scrollTo({
+                top: 0,
+              });
             }}
           >
             {isItemAdded ? (

@@ -4,11 +4,19 @@ import { Item } from "../../../types";
 import Slider from "../../ui/slider";
 
 const SliderWrapper: React.FC = () => {
-  const storedItems: Item[] = JSON.parse(
-    localStorage.getItem("viewed products") || "[]"
-  );
+  const items: Item[] = [];
 
-  return <>{storedItems.length > 0 && <Slider storedItems={storedItems} />}</>;
+  try {
+    const storedItems = localStorage.getItem("viewedProducts");
+
+    if (storedItems) {
+      items.push(...JSON.parse(storedItems));
+    }
+  } catch (error) {
+    console.error("Error reading from localStorage:", error);
+  }
+
+  return <>{items.length > 0 && <Slider items={items} />}</>;
 };
 
 export default SliderWrapper;

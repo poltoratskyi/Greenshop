@@ -2,9 +2,10 @@ import Style from "./header.module.scss";
 import Logo from "../../ui/logo";
 import Links from "./links";
 import Actions from "./actions";
-import MobileHeader from "../mobile-header/mobile-header";
-import MobileMenu from "../../ui/mobile-menu";
+import MobileHeader from "../../ui/mobile-header";
 import SearchBar from "../../ui/search-bar";
+import MobileMenu from "../../../components/ui/mobile-menu";
+import Burger from "../../../components/ui/burger";
 
 const Header: React.FC = () => {
   return (
@@ -18,10 +19,12 @@ const Header: React.FC = () => {
 
         <SearchBar />
 
-        <MobileHeader />
-      </div>
+        <Burger />
 
-      <MobileMenu />
+        <MobileHeader />
+
+        <MobileMenu />
+      </div>
     </header>
   );
 };

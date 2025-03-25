@@ -15,7 +15,7 @@ export const advData = [
     title: "Summer Cactus",
     subTitle: "Succulents",
     descr:
-      "Explore our online plant shop for a diverse selection of affordable and trendy plants.",
+      "Explore our online plant shop for a diverse selection of affordable and trendy plants",
   },
 
   {
@@ -24,6 +24,6 @@ export const advData = [
     title: "Styling Trends",
     subTitle: "Much More",
     descr:
-      "Discover the latest trends in plant styling with our extensive range of budget friendly options.",
+      "Discover the latest trends in plant styling with our extensive range of budget friendly options",
   },
 ];

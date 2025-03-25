@@ -1,0 +1,16 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.overlay {
+  @include m.overlay();
+
+  transition: all 0.3s ease;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 3;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}

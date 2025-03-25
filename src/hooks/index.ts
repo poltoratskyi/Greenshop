@@ -5,8 +5,12 @@ import { useUpdateUrl } from "./use-update-url";
 import { useZipCode } from "./use-zip-code";
 import { useSearchBar } from "./use-search-bar";
 import { useAutoCompleteInput } from "./use-auto-complete-input";
+import { useCloseModalAuthentication } from "./use-close-modal-authentication";
+import { useDiscountStatus } from "./use-discount-status";
 
 export {
+  useDiscountStatus,
+  useCloseModalAuthentication,
   useAutoCompleteInput,
   useSearchBar,
   useZipCode,

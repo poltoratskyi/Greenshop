@@ -21,19 +21,43 @@
     justify-content: space-between;
 
     .list {
-      @include m.cart-quantity();
+      .link {
+        @include m.cart-quantity();
 
-      &.active {
-        svg {
-          fill: v.$main;
+        &.active {
+          pointer-events: none;
+
+          path {
+            stroke: v.$main;
+          }
+        }
+
+        &.loading {
+          pointer-events: none;
+          svg {
+            stroke: v.$sale-line;
+          }
+        }
+
+        &.authenticated {
+          svg {
+            stroke: v.$main;
+          }
+        }
+      }
+
+      .category {
+        display: block;
+
+        &.active {
+          pointer-events: none;
+
+          path {
+            stroke: v.$main;
+          }
         }
       }
     }
-  }
-
-  &.active {
-    opacity: 0;
-    visibility: hidden;
   }
 }
 

@@ -1,0 +1,12 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.status {
+  margin: 50px 0px 100px;
+
+  .content {
+    display: block;
+    margin: 0 auto;
+    max-width: 350px;
+  }
+}

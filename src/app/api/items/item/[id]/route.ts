@@ -10,6 +10,13 @@ export async function GET(request: NextRequest, { params }: Props) {
   try {
     const { id } = await params;
 
+    if (!id) {
+      return NextResponse.json(
+        { error: "Item ID is required" },
+        { status: 401 }
+      );
+    }
+
     const item = await prisma.item.findFirst({
       where: { id: Number(id) },
 

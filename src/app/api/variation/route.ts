@@ -14,6 +14,13 @@ export async function GET() {
       },
     });
 
+    if (!variations) {
+      return NextResponse.json(
+        { error: "Variations not found" },
+        { status: 404 }
+      );
+    }
+
     return NextResponse.json(variations);
   } catch (error) {
     console.error("Error fetching variations:", error);

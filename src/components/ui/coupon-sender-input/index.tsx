@@ -5,10 +5,10 @@ interface Props {
   id: string;
   name: string;
   type: string;
-  className?: string;
-  labelClassName?: string;
-  blockClassName?: string;
-  inputClassName?: string;
+  className: string;
+  labelClassName: string;
+  blockClassName: string;
+  inputClassName: string;
   label: string;
   placeholder: string;
   buttonText: string;
@@ -28,10 +28,10 @@ const ActionInput: React.FC<Props> = ({
   buttonText,
   buttonClassName,
 }) => {
-  const formClass = Style[className || ""];
-  const labelClass = Style[labelClassName || ""];
-  const blockClass = Style[blockClassName || ""];
-  const inputClass = Style[inputClassName || ""];
+  const formClass = Style[className];
+  const labelClass = Style[labelClassName];
+  const blockClass = Style[blockClassName];
+  const inputClass = Style[inputClassName];
 
   return (
     <form className={`${Style.form} ${formClass}`}>
@@ -49,7 +49,7 @@ const ActionInput: React.FC<Props> = ({
           autoComplete="off"
         />
 
-        <Button button className={buttonClassName} value={buttonText} />
+        <Button type="button" className={buttonClassName} value={buttonText} />
       </div>
     </form>
   );

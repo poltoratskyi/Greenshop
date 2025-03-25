@@ -46,7 +46,7 @@ model Item {
     sku                 String
 
     variations Variation[]
-    items CartItem[]
+    items      CartItem[]
 
     // category -> JavaScript | TypeScript
     // Find the categoryId "fields: [categoryId]" in the db and look for it "references: [id]" in the Category model
@@ -59,7 +59,7 @@ model Item {
 }
 
 model Size {
-    id   Int    @id @default(autoincrement())
+    id Int @id @default(autoincrement())
 
     shortName String @unique
     fullName  String @unique
@@ -71,12 +71,12 @@ model Size {
 }
 
 model Variation {
-    id        Int     @id @default(autoincrement())
+    id Int @id @default(autoincrement())
 
-    price     Int
-    sale      Int
-    value     Int
-    onSale    Boolean
+    price  Int
+    sale   Int
+    value  Int
+    onSale Boolean
 
     cartItems CartItem[]
 
@@ -94,21 +94,22 @@ model User {
     id Int @id @default(autoincrement())
 
     role     UserRole @default(USER)
-    fullName String
+    firstName String
+    lastName String?
     email    String   @unique
-    password String
-
+    password String?
+    phone String?
 
     verificationCode VerificationCode?
-    cart   Cart?
-    orders Order[]
+    cart             Cart?
+    orders           Order[]
 
     // Google | Facebook Authorization
     provider   String?
     // Id -> Google | Facebook
     providerId String?
 
-    verified         DateTime
+    verified DateTime?
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
@@ -128,9 +129,9 @@ model VerificationCode {
 model Cart {
     id Int @id @default(autoincrement())
 
-    subTotalAmount Int @default(0)
-    totalAmount Int    @default(0)
-    token       String @unique
+    subTotalAmount Int    @default(0)
+    totalAmount    Int    @default(0)
+    token          String @unique
 
     items CartItem[]
 
@@ -142,18 +143,18 @@ model Cart {
 }
 
 model CartItem {
-    id      Int    @id @default(autoincrement())
+    id Int @id @default(autoincrement())
 
-    quantity Int   @default(1)
+    quantity Int @default(1)
 
-    cart     Cart  @relation(fields: [cartId], references: [id])
-    cartId   Int 
+    cart   Cart @relation(fields: [cartId], references: [id])
+    cartId Int
 
-    variation Variation @relation(fields: [variationId], references: [id])
+    variation   Variation @relation(fields: [variationId], references: [id])
     variationId Int
 
-    item     Item  @relation(fields: [itemId], references: [id])
-    itemId   Int
+    item   Item @relation(fields: [itemId], references: [id])
+    itemId Int
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
@@ -174,8 +175,8 @@ model Order {
     country   String
     state     String
     notes     String?
-    
-    token     String
+
+    token String
 
     // Registered ?
     user   User? @relation(fields: [userId], references: [id])
@@ -185,12 +186,20 @@ model Order {
 
     status    OrderStatus @default(PENDING)
     // Id Payment Service
-    paymentId  String?
+    paymentId String?
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
 
+model EmailSubscription {
+    id Int @id @default(autoincrement())
+
+    email String @unique
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
 
 enum UserRole {
     USER
@@ -201,5 +210,5 @@ enum OrderStatus {
     PENDING
     SUCCEEDED
     CANCELLED
-    FAILED       
+    FAILED
 }

@@ -1,14 +1,14 @@
-export type Place = {
-  "place name": string;
-  "state abbreviation": string;
-  country: string;
-  state: string;
-  latitude: string;
-  longitude: string;
-};
+import { Country, State } from "./common";
 
-export type ZipCodeData = {
+export type Place = State &
+  Country & {
+    "place name": string;
+    "state abbreviation": string;
+    latitude: string;
+    longitude: string;
+  };
+
+export type ZipCodeData = Country & {
   "country abbreviation": string;
   places: Place[];
-  country: string;
 };

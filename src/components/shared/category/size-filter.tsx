@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-import { getSizeQuantity } from "../../../lib";
+import { getSizeQuantity } from "../../../lib/client";
 import Style from "./category.module.scss";
 import Skeleton from "../../ui/skeleton/category";
 import { useSizeStore, useVariationStore } from "../../../store";
-import Checkbox from "../../ui/checkbox";
+import Checkbox from "../../ui/category/checkbox";
 
 const SizeFilter: React.FC = () => {
   const sizeMenu = useSizeStore((state) => state.sizeMenu);

@@ -5,26 +5,41 @@ interface UIState {
   isSearchOpen: boolean;
   setIsSearchOpen: (isOpen: boolean) => void;
 
-  // Modal Login
-  isModalOpen: boolean;
+  // Auth Modal
   isModalActionOpen: boolean;
-  isModalCategoryOpen: boolean;
-  setIsModalOpen: (isOpen: boolean) => void;
   setIsModalActionOpen: (isShown: boolean) => void;
+
+  // Modal category
+  isModalCategoryOpen: boolean;
   setIsModalCategoryOpen: (isOpen: boolean) => void;
+
+  // Auth Error
+  isAuthErrorOpen: boolean;
+  setIsAuthErrorOpen: (isOpen: boolean) => void;
+
+  // Discount Popup
+  isDiscountPopupOpen: boolean;
+  setIsDiscountPopupOpen: (isOpen: boolean) => void;
+
+  // Is Discount success
+  isDiscountSuccess: boolean;
+  setIsDiscountSuccess: (isOpen: boolean) => void;
 
   // Modal Size
   isModalSizeOpen: boolean;
-  selectedSizeId: number | null;
   setIsModalSizeOpen: (isOpen: boolean) => void;
+
+  selectedSizeId: number | null;
   setSelectedItemSizeId: (id: number) => void;
 
   // Sort
   isSortOpen: boolean;
-  selectedSortOption: string;
-  selectedSortLabel: string;
   setIsSortOpen: (isOpen: boolean) => void;
+
+  selectedSortOption: string;
   setSelectedSortOption: (value: string) => void;
+
+  selectedSortLabel: string;
   setSelectedSortLabel: (value: string) => void;
 
   // Burger Menu
@@ -46,9 +61,10 @@ interface UIState {
 
   // Modal order
   isOrderOpen: boolean;
+  setIsOrderOpen: (isOpen: boolean) => void;
+
   isOrderSuccess: boolean;
   setIsOrderSuccess: (isOpen: boolean) => void;
-  setIsOrderOpen: (isOpen: boolean) => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({
@@ -56,26 +72,41 @@ export const useUIStore = create<UIState>((set) => ({
   isSearchOpen: false,
   setIsSearchOpen: (isOpen) => set({ isSearchOpen: isOpen }),
 
-  // Modal Login
-  isModalOpen: false,
+  // Auth Modal
   isModalActionOpen: true,
-  isModalCategoryOpen: false,
-  setIsModalOpen: (isOpen) => set({ isModalOpen: isOpen }),
   setIsModalActionOpen: (isShown) => set({ isModalActionOpen: isShown }),
+
+  // Modal category
+  isModalCategoryOpen: false,
   setIsModalCategoryOpen: (isOpen) => set({ isModalCategoryOpen: isOpen }),
+
+  // Auth Error
+  isAuthErrorOpen: false,
+  setIsAuthErrorOpen: (isOpen) => set({ isAuthErrorOpen: isOpen }),
+
+  // Discount Popup
+  isDiscountPopupOpen: false,
+  setIsDiscountPopupOpen: (isOpen) => set({ isDiscountPopupOpen: isOpen }),
+
+  // Is Discount success
+  isDiscountSuccess: false,
+  setIsDiscountSuccess: (isOpen) => set({ isDiscountSuccess: isOpen }),
 
   // Modal Size
   isModalSizeOpen: false,
-  selectedSizeId: null,
   setIsModalSizeOpen: (isOpen) => set({ isModalSizeOpen: isOpen }),
+
+  selectedSizeId: null,
   setSelectedItemSizeId: (id) => set({ selectedSizeId: id }),
 
   // Sort
   isSortOpen: false,
-  selectedSortOption: "name",
-  selectedSortLabel: "All Plants",
   setIsSortOpen: (isOpen) => set({ isSortOpen: isOpen }),
+
+  selectedSortOption: "name",
   setSelectedSortOption: (value) => set({ selectedSortOption: value }),
+
+  selectedSortLabel: "All Plants",
   setSelectedSortLabel: (value) => set({ selectedSortLabel: value }),
 
   // Burger Menu
@@ -98,7 +129,8 @@ export const useUIStore = create<UIState>((set) => ({
 
   // Modal order success
   isOrderOpen: false,
-  isOrderSuccess: false,
   setIsOrderSuccess: (isOpen) => set({ isOrderSuccess: isOpen }),
+
+  isOrderSuccess: false,
   setIsOrderOpen: (isOpen) => set({ isOrderOpen: isOpen }),
 }));

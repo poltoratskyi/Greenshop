@@ -1,10 +1,26 @@
+"use client";
+
 import Style from "./registration.module.scss";
-import ModalContent from "../../ui/modal-content";
-import SignUp from "../sign-up";
-import Login from "../login";
+import { Content, SignUp, Error, LogIn } from "../auth";
 import Pathname from "../../ui/pathname";
+import { useState } from "react";
+import Button from "@/components/ui/button";
+import { useUIStore } from "@/store";
 
 const Registration: React.FC = () => {
+  const [isLogin, setIsLogin] = useState(true);
+  const setIsAuthErrorOpen = useUIStore((state) => state.setIsAuthErrorOpen);
+
+  const onClick = (boolean: boolean) => {
+    setIsLogin(boolean);
+
+    setIsAuthErrorOpen(false);
+
+    window.scrollTo({
+      top: 0,
+    });
+  };
+
   return (
     <>
       <Pathname second="Account" />
@@ -12,9 +28,28 @@ const Registration: React.FC = () => {
       <section className={Style.registration}>
         <div className="container">
           <div className={Style.wrapper}>
-            <ModalContent>
+            <Content>
               <div className={Style.box}>
-                <Login overflow />
+                <div className={Style.authSection}>
+                  {isLogin ? (
+                    <div
+                      className={`${
+                        isLogin
+                          ? `${Style.inner} ${Style.showLogin}`
+                          : Style.inner
+                      }`}
+                    >
+                      <LogIn overflow />
+                    </div>
+                  ) : (
+                    <Button
+                      className="toggle"
+                      type="button"
+                      value="Log In"
+                      onClick={() => onClick(true)}
+                    />
+                  )}
+                </div>
 
                 <div className={Style.line}>
                   <span></span>
@@ -22,12 +57,33 @@ const Registration: React.FC = () => {
                   <span></span>
                 </div>
 
-                <SignUp overflow />
+                <div className={Style.authSection}>
+                  {!isLogin ? (
+                    <div
+                      className={`${
+                        !isLogin
+                          ? `${Style.inner} ${Style.showSignUp}`
+                          : Style.inner
+                      }`}
+                    >
+                      <SignUp overflow />
+                    </div>
+                  ) : (
+                    <Button
+                      className="toggle"
+                      type="button"
+                      value="Sign Up"
+                      onClick={() => onClick(false)}
+                    />
+                  )}
+                </div>
               </div>
-            </ModalContent>
+            </Content>
           </div>
         </div>
       </section>
+
+      <Error />
     </>
   );
 };

@@ -4,7 +4,12 @@
 .buy,
 .add,
 .order,
-.choose {
+.discountPopup,
+.choose,
+.signUp,
+.logIn,
+.saveChange,
+.toggle {
   @include m.button(
     $d: inline-block,
     $p: 15px 35px,
@@ -17,14 +22,96 @@
   );
 }
 
+.logOut {
+  @include m.description($lh: 55px, $c: v.$tag);
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0px 12px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+
+  &:hover {
+    background-color: #f5f5f5;
+    color: v.$main;
+  }
+
+  &.loading {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.google,
+.facebook,
+.github {
+  @include m.button(
+    $d: flex,
+    $p: 15px 30px,
+    $bc: #fff,
+    $br: 5px,
+    $fz: 14px,
+    $fw: 400,
+    $lh: 24px,
+    $c: v.$descr
+  );
+
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid v.$border;
+  margin-bottom: 15px;
+  position: relative;
+
+  svg {
+    margin-right: 10px;
+  }
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+
+  &:hover {
+    background-color: #fff;
+    border: 1px solid v.$main;
+  }
+
+  &.loading {
+    border: 1px solid v.$main;
+  }
+}
+
+.signUp,
+.logIn,
+.discountPopup,
 .order,
+.saveChange {
+  &.loading {
+    color: v.$main;
+    background-color: #fff;
+    border: 1px solid #46a358;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.order,
+.discountPopup,
 .buy,
 .blog,
-.add {
+.add,
+.logIn,
+.signUp,
+.saveChange,
+.logOut {
   position: relative;
 }
 
 .order,
+.discountPopup,
 .choose {
   width: 100%;
 }
@@ -53,14 +140,6 @@
   }
 }
 
-.add {
-  padding: 15px 40px;
-
-  &:hover {
-    color: #fff;
-  }
-}
-
 .addToCart {
   background-color: transparent;
   & > [data-type="cart"] {
@@ -75,6 +154,23 @@
   border: 1px solid v.$main;
   color: v.$main;
   background-color: #fff;
+  padding: 15px 40px;
+
+  &:hover {
+    color: #fff;
+  }
+
+  &.loading {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.buy {
+  &.loading {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 }
 
 .feedback {
@@ -161,54 +257,6 @@
   }
 }
 
-.logIn,
-.signUp {
-  @include m.button(
-    $d: block,
-    $p: 15px 30px,
-    $bc: v.$main,
-    $br: 6px,
-    $fz: 14px,
-    $fw: 400,
-    $lh: 24px,
-    $c: #fff
-  );
-}
-
-.google,
-.facebook,
-.github {
-  @include m.button(
-    $d: flex,
-    $p: 15px 30px,
-    $bc: #fff,
-    $br: 5px,
-    $fz: 14px,
-    $fw: 400,
-    $lh: 24px,
-    $c: v.$descr
-  );
-
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  border: 1px solid v.$border;
-  margin-bottom: 15px;
-
-  svg {
-    margin-right: 10px;
-  }
-
-  &:last-child {
-    margin-bottom: 0px;
-  }
-
-  &:hover {
-    background-color: #fff;
-    border: 1px solid v.$main;
-  }
-}
-
 @media (max-width: 575px) {
   .banner_mobile {
     font-size: 14px;
@@ -228,7 +276,8 @@
     display: none;
   }
 
-  .add {
+  .add,
+  .toggle {
     width: 100%;
   }
 

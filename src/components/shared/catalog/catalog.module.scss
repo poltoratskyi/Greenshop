@@ -69,21 +69,39 @@
           .favorite {
             display: inline-block;
             margin-right: 30px;
+
             & > [data-type="heart"] {
               cursor: pointer;
 
               &:hover {
-                fill: red;
+                path {
+                  stroke: v.$main;
+                }
+              }
+
+              &.loading {
+                pointer-events: none;
+                svg {
+                  stroke: v.$sale-line;
+                }
+              }
+
+              &.authenticated {
+                svg {
+                  stroke: v.$main;
+                }
               }
             }
           }
 
           .cart {
             background-color: transparent;
+
             & > [data-type="cart"] {
               cursor: pointer;
+
               &:hover {
-                fill: v.$main;
+                stroke: v.$main;
               }
             }
           }
@@ -178,7 +196,9 @@
             .favorite {
               margin-right: 0px;
               & > [data-type="heart"] {
-                fill: v.$main;
+                path {
+                  stroke: v.$main;
+                }
               }
             }
 

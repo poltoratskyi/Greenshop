@@ -53,3 +53,32 @@ export type Token = {
 export type UserId = {
   userId: number;
 };
+
+export type SubTotalAmount = {
+  subtotalAmount: number;
+};
+
+export type VariationId = {
+  variationId: number;
+};
+
+export type Email = {
+  email: string;
+};
+
+export type PersonName = {
+  firstName: string;
+  lastName: string;
+};
+
+export type TotalAmount = {
+  totalAmount: number;
+};
+
+export type State = {
+  state: string;
+};
+
+export type Country = {
+  country: string;
+};

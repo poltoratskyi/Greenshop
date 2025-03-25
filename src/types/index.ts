@@ -17,11 +17,11 @@ import { User, UserRole } from "./user";
 import { Order, OrderStatus } from "./order";
 import { Place, ZipCodeData } from "./zip-code";
 import { NominatimLocation } from "./nominatim-location";
-import { Email, Template } from "./email";
+import { OrderEmail, OrderTemplate } from "./order-email";
 
 export type {
-  Email,
-  Template,
+  OrderEmail,
+  OrderTemplate,
   NominatimLocation,
   Place,
   ZipCodeData,
@@ -37,7 +37,8 @@ export type {
   PostCartItem,
   CartResponse,
   User,
-  UserRole,
   Order,
   OrderStatus,
 };
+
+export { UserRole };

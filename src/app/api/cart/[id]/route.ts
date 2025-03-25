@@ -1,6 +1,7 @@
 import { prisma } from "../../../../prisma/prisma-client";
 import { NextResponse, NextRequest } from "next/server";
-import { updateCartTotalAmount } from "../../../../lib/update-cart-total-amount";
+import { updateCartTotalAmount } from "../../../../lib/server";
+import { cookies } from "next/headers";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -20,7 +21,7 @@ export async function PATCH(
     const { quantity } = data;
 
     // Get the token
-    const token = request.cookies.get("cartToken")?.value;
+    const token = (await cookies()).get("cartToken")?.value;
 
     if (!token) {
       return NextResponse.json(
@@ -76,8 +77,15 @@ export async function DELETE(
     // Get the params id
     const { id } = await params;
 
+    if (!id) {
+      return NextResponse.json(
+        { error: "Cart item ID is required" },
+        { status: 401 }
+      );
+    }
+
     // Get the token
-    const token = request.cookies.get("cartToken")?.value;
+    const token = (await cookies()).get("cartToken")?.value;
 
     if (!token) {
       return NextResponse.json(

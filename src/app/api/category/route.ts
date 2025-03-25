@@ -20,6 +20,13 @@ export async function GET() {
       },
     });
 
+    if (!category) {
+      return NextResponse.json(
+        { error: "Category not found" },
+        { status: 404 }
+      );
+    }
+
     return NextResponse.json(category);
   } catch (error) {
     console.error("Error fetching category:", error);

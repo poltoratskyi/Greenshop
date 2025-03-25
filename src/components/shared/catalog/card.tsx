@@ -4,10 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { ItemVariation } from "../../../types";
 import Style from "./catalog.module.scss";
-import { calculateDiscountPercentage, saveViewedProduct } from "../../../lib";
+import {
+  calculateDiscountPercentage,
+  saveViewedProduct,
+} from "../../../lib/client";
 import { svgCart, svgHeart } from "./static-data";
 import { useItemStore, useSearchStore, useUIStore } from "../../../store";
-import Price from "../../ui/price";
+import Price from "../../ui/cart/price";
+import { useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
 interface Props {
   id: number;
@@ -17,6 +22,10 @@ interface Props {
 }
 
 const Card: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
+  const { data: session, status } = useSession();
+
+  const pathname = usePathname();
+
   const isSearchOpen = useUIStore((state) => state.isSearchOpen);
   const setIsSearchOpen = useUIStore((state) => state.setIsSearchOpen);
   const setIsModalSizeOpen = useUIStore((state) => state.setIsModalSizeOpen);
@@ -43,6 +52,10 @@ const Card: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
 
               saveViewedProduct({ id, name, imgUrl, variations });
 
+              window.scrollTo({
+                top: 0,
+              });
+
               document.body.style.overflow = "auto";
             }}
             className={Style.img}
@@ -61,9 +74,33 @@ const Card: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
           </Link>
 
           <div className={Style.control}>
-            <Link className={Style.favorite} href="/login">
-              {svgHeart}
-            </Link>
+            {!session ? (
+              <Link
+                className={
+                  pathname === "/login"
+                    ? `${Style.favorite} ${Style.active}`
+                    : status === "loading"
+                    ? `${Style.favorite} ${Style.loading}`
+                    : Style.favorite
+                }
+                href="/login"
+              >
+                {svgHeart}
+              </Link>
+            ) : (
+              <Link
+                className={
+                  pathname === "/profile"
+                    ? `${Style.favorite} ${Style.active}`
+                    : status === "authenticated"
+                    ? `${Style.favorite} ${Style.authenticated}`
+                    : Style.favorite
+                }
+                href="/profile"
+              >
+                {svgHeart}
+              </Link>
+            )}
 
             <span
               onClick={() => {
@@ -106,6 +143,10 @@ const Card: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
               setSearchQuery("");
               resetSearchResults();
             }
+
+            window.scrollTo({
+              top: 0,
+            });
 
             saveViewedProduct({ id, name, imgUrl, variations });
 

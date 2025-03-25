@@ -6,8 +6,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    border-top: 1px solid v.$line;
-    border-bottom: 1px solid v.$line;
+    border-top: 1px solid v.$transparent-line;
+    border-bottom: 1px solid v.$transparent-line;
     padding: 15px 0px 15px 0px;
 
     .lists {
@@ -36,28 +36,32 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 30px;
+      gap: 20px;
 
-      .login {
-        @include m.description($c: #fff);
-        padding: 10px 20px;
-        background-color: v.$main;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        transition: all 0.2s ease;
-
-        svg {
-          margin-right: 5px;
+      .link {
+        &.active {
+          pointer-events: none;
+          svg {
+            stroke: v.$main;
+          }
         }
 
-        &:hover {
-          background-color: #2d763c;
+        &.loading {
+          pointer-events: none;
+          svg {
+            stroke: v.$sale-line;
+          }
+        }
+
+        &.authenticated {
+          svg {
+            stroke: v.$main;
+          }
         }
       }
 
       .search,
-      .cart_wrapper {
+      .cartWrapper {
         z-index: 2;
 
         &:hover {
@@ -67,16 +71,14 @@
         }
       }
 
-      .cart_wrapper {
+      .cartWrapper {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 30px;
-        height: 30px;
 
         &:hover {
-          .dropdown_cart {
+          .dropdownCart {
             opacity: 1;
             visibility: visible;
           }
@@ -87,12 +89,12 @@
 
           &.active {
             svg {
-              fill: v.$main;
+              stroke: v.$main;
             }
           }
         }
 
-        .dropdown_cart {
+        .dropdownCart {
           transition: all 0.2s ease;
           opacity: 0;
           visibility: hidden;
@@ -103,7 +105,8 @@
           background-color: #fff;
           width: 350px;
           border-radius: 6px;
-          padding: 10px;
+          padding: 25px 20px;
+          border: 1px solid v.$border;
         }
       }
     }

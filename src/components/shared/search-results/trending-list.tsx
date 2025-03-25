@@ -17,8 +17,8 @@ const TrendingList: React.FC = () => {
             key={index}
             className={Style.list}
           >
-            {item.name}
-            {item.svg}
+            <span>{item.name}</span>
+            <span>{item.svg}</span>
           </li>
         ))}
     </ul>

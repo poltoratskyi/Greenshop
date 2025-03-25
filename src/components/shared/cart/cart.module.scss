@@ -8,6 +8,12 @@
     display: none;
   }
 
+  .empty {
+    display: block;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
   .slider {
     .title {
       @include m.title($lh: 32px, $fz: 20px, $c: v.$main);

@@ -1,0 +1,71 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+@keyframes bounceIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.order {
+  width: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+  animation: bounceIn 0.3s ease forwards;
+  background-color: v.$background;
+
+  .content {
+    padding: 0px 20px;
+
+    .header {
+      .title {
+        @include m.description($c: v.$text, $fz: 16px);
+
+        margin-top: 15px;
+      }
+
+      margin-bottom: 15px;
+    }
+
+    .descr {
+      @include m.description($c: v.$text, $fz: 14px);
+
+      margin-bottom: 30px;
+
+      .mark {
+        @include m.subtitle($fz: 16px);
+
+        text-transform: capitalize;
+      }
+    }
+
+    .link {
+      @include m.button(
+        $d: inline-block,
+        $p: 15px 35px,
+        $bc: v.$main,
+        $br: 6px,
+        $fz: 14px,
+        $fw: 400,
+        $lh: 24px,
+        $c: #fff
+      );
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .order {
+    width: 90%;
+    .content {
+      padding: 0px;
+    }
+  }
+}

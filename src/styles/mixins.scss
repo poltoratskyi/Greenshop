@@ -110,7 +110,7 @@
   }
 
   &::-webkit-scrollbar-track {
-    background-color: v.$line;
+    background-color: v.$transparent-line;
   }
 
   &::-webkit-scrollbar-thumb:hover {
@@ -185,7 +185,7 @@
   }
 }
 
-@mixin mobile-header() {
+@mixin header-container() {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,4 +213,8 @@
   &:hover {
     border: $f-hbr;
   }
+}
+
+@mixin error() {
+  @include description($c: red, $fz: 12px);
 }

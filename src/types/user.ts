@@ -1,20 +1,25 @@
-import { Id } from "./common";
+import { UserRole as PrismaUserRole } from "@prisma/client";
+import { Email, Id } from "./common";
 import { Cart } from "./cart";
 import { VerificationCode } from "./order";
 import { Order } from "./order";
 
-export type User = Id & {
-  role: string;
-  fullName: string;
-  email: string;
-  password: string;
-  verificationCode?: VerificationCode;
-  cart?: Cart;
-  orders?: Order[];
-  provider?: string;
-  providerId?: string;
-  verified: Date;
-};
+export type User = Id &
+  Email & {
+    role: PrismaUserRole;
+    firstName: string;
+    lastName?: string | null;
+    phone?: string | null;
+    password?: string | null;
+    verificationCode?: VerificationCode;
+    cart?: Cart | null;
+    orders?: Order[] | null;
+    provider?: string | null;
+    providerId?: string | null;
+    verified?: Date | null;
+    createdAt: Date;
+    updatedAt: Date;
+  };
 
 export enum UserRole {
   USER = "USER",

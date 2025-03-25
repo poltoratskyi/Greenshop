@@ -2,7 +2,7 @@
 
 import Style from "./single-item.module.scss";
 import { ItemVariation } from "../../../types";
-import { calculateDiscountPercentage } from "../../../lib";
+import { calculateDiscountPercentage } from "../../../lib/client";
 import { useUIStore } from "../../../store";
 
 interface Props {

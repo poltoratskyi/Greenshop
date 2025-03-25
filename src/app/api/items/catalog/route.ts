@@ -44,6 +44,10 @@ export async function GET() {
       },
     });
 
+    if (!items) {
+      return NextResponse.json({ error: "Items not found" }, { status: 404 });
+    }
+
     return NextResponse.json(items);
   } catch (error) {
     console.error("Error fetching items:", error);

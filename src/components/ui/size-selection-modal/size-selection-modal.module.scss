@@ -1,19 +1,6 @@
 @use "../../../styles/variables.scss" as v;
 @use "../../../styles/mixins.scss" as m;
 
-.overlay {
-  @include m.overlay();
-  transition: all 0.3s ease;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 3;
-
-  &.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
 .modal {
   position: fixed;
   top: 0;
@@ -100,24 +87,24 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 20px;
+      padding: 0px 20px;
+      cursor: pointer;
 
       &:hover {
-        cursor: pointer;
         background-color: v.$background;
       }
 
       .size {
-        @include m.description($c: v.$descr);
+        @include m.description($c: v.$descr, $lh: 55px);
       }
 
       .price {
-        @include m.description($c: v.$main);
+        @include m.description($c: v.$main, $lh: 55px);
         font-weight: 500;
       }
 
       .sale {
-        @include m.sale();
+        @include m.sale($lh: 55px);
         margin-right: 20px;
       }
     }

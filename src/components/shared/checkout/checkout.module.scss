@@ -3,12 +3,6 @@
 
 .checkout {
   margin: 50px 0px 0px 0px;
-
-  .content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-  }
 }
 
 .header {
@@ -64,11 +58,6 @@
 @media (max-width: 575px) {
   .checkout {
     margin: 25px 0px 0px 0px;
-
-    .content {
-      grid-template-columns: repeat(1, 1fr);
-      gap: 20px;
-    }
   }
 
   .header {

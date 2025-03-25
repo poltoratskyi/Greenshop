@@ -1,0 +1,20 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.delete {
+  display: block;
+  text-align: center;
+  svg {
+    cursor: pointer;
+
+    &:hover {
+      fill: v.$text;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .delete {
+    text-align: right;
+  }
+}

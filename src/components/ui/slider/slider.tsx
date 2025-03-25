@@ -11,13 +11,10 @@ import ItemsWrapper from "../../shared/catalog/wrapper";
 import ItemList from "../../shared/catalog/card";
 
 interface Props {
-  storedItems?: Item[];
-  filteredItems?: Item[];
+  items?: Item[];
 }
 
-const Slider: React.FC<Props> = ({ storedItems, filteredItems }) => {
-  const items = storedItems || filteredItems || [];
-
+const Slider: React.FC<Props> = ({ items }) => {
   return (
     <Title title="Viewed Products">
       <Swiper
@@ -49,15 +46,16 @@ const Slider: React.FC<Props> = ({ storedItems, filteredItems }) => {
           },
         }}
       >
-        {items.map((item) => (
-          <SwiperSlide key={item.id}>
-            <ItemsWrapper gridUnset>
-              <div className={CatalogStyle.list}>
-                <ItemList {...item} />
-              </div>
-            </ItemsWrapper>
-          </SwiperSlide>
-        ))}
+        {items &&
+          items.map((item) => (
+            <SwiperSlide key={item.id}>
+              <ItemsWrapper gridUnset>
+                <div className={CatalogStyle.list}>
+                  <ItemList {...item} />
+                </div>
+              </ItemsWrapper>
+            </SwiperSlide>
+          ))}
 
         <div
           id="cart-button-prev"

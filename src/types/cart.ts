@@ -12,16 +12,11 @@ import {
   FullName,
   SizeId,
   ItemCategory,
+  SubTotalAmount,
+  VariationId,
+  TotalAmount,
 } from "./common";
 import { User } from "./user";
-
-export type VariationId = {
-  variationId: number;
-};
-
-export type TotalAmount = {
-  totalAmount: number;
-};
 
 export type CartItemSize = Id & ShortName & FullName & {};
 
@@ -78,8 +73,8 @@ export type CartResponse = Id &
 
 export type Cart = Id &
   TotalAmount &
-  Token & {
-    subtotalAmount: number;
+  Token &
+  SubTotalAmount & {
     items: CartItem[];
     user: User;
     userId?: number;

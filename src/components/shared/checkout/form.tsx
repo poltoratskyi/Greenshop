@@ -1,8 +1,6 @@
 import { useForm } from "react-hook-form";
-import Container from "../../ui/cart-order-container";
-import Wrapper from "../../ui/cart-order-wrapper";
+import { Container, Review, Wrapper } from "../layout";
 import InputFields from "./input-fields";
-import Review from "../../ui/cart-order-review";
 import ItemTable from "../item-table";
 import { headerData } from "./static-data";
 import Summary from "../cart/summary";
@@ -11,7 +9,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckoutFormFields, checkoutFormSchema } from "../../../schemas";
 import { useUIStore, useOrderStore } from "../../../store";
 
-const Form: React.FC = () => {
+interface Props {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  phone?: string;
+}
+
+const Form: React.FC<Props> = ({ firstName, lastName, email, phone }) => {
   const setIsOrderOpen = useUIStore((state) => state.setIsOrderOpen);
   const setIsOrderSuccess = useUIStore((state) => state.setIsOrderSuccess);
 
@@ -31,14 +36,14 @@ const Form: React.FC = () => {
     resolver: zodResolver(checkoutFormSchema),
     mode: "onChange",
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      firstName: firstName || "",
+      lastName: lastName || "",
       country: "",
       address: "",
       apartment: "",
       city: "",
-      email: "",
-      phone: "",
+      email: email || "",
+      phone: phone || "",
       state: "",
       zip: "",
       notes: "",
@@ -60,6 +65,7 @@ const Form: React.FC = () => {
       notes: data.notes,
       items: JSON,
     };
+
     try {
       await addUserOrder(orderData);
       reset();
@@ -91,8 +97,8 @@ const Form: React.FC = () => {
           <ItemTable hiddenColumns hiddenQtyBtns headerData={headerData} />
           <Summary />
           <Button
+            type="submit"
             isLoading={isLoading}
-            formSubmitted
             value="Place Order"
             className="order"
           />

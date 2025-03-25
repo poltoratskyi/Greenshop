@@ -4,15 +4,22 @@ import {
   Control,
   UseFormSetValue,
   UseFormWatch,
+  Controller,
 } from "react-hook-form";
 import Style from "./checkout.module.scss";
 import { CheckoutFormFields } from "../../../schemas/checkout-form-schema";
 import { PhoneInput } from "../../ui/checkout-inputs";
 import { ZipCodeInput } from "../../ui/checkout-inputs";
-import { Textarea, Input, Label, Error } from "../../ui/common-form-elements";
+import {
+  Textarea,
+  Input,
+  Label,
+  Error,
+  Container,
+} from "../../ui/common-form-elements";
 import { useLocationStore, useZipCodeStore } from "../../../store";
 import { AutoCompleteInput } from "../../../components/ui/checkout-inputs";
-import Container from "../../../components/ui/checkout-input-container";
+import { Content } from "../layout";
 
 interface Props {
   control: Control<CheckoutFormFields>;
@@ -64,40 +71,40 @@ const InputFields: React.FC<Props> = ({
   const resetStateData = useLocationStore((state) => state.resetStateData);
 
   return (
-    <div className={Style.content}>
+    <Content>
       <Container>
-        <Label label="Full Name" name="firstName" />
+        <Label label="Full Name" name="checkout-first-name" />
 
         <Input
-          id="firstName"
+          id="checkout-first-name"
           type="text"
           placeholder="Your first name"
           {...register("firstName")}
           error={error.firstName}
         />
 
-        <Error error={error.firstName} />
+        {error.firstName && <Error error={error.firstName} />}
       </Container>
 
       <Container>
-        <Label label="Last Name" name="lastName" />
+        <Label label="Last Name" name="checkout-last-name" />
 
         <Input
-          id="lastName"
+          id="checkout-last-name"
           type="text"
           placeholder="Your last name"
           {...register("lastName")}
           error={error.lastName}
         />
 
-        <Error error={error.lastName} />
+        {error.lastName && <Error error={error.lastName} />}
       </Container>
 
       <Container>
-        <Label label="Country / Region" name="country" />
+        <Label label="Country / Region" name="checkout-country" />
 
         <AutoCompleteInput
-          id="country"
+          id="checkout-country"
           name="country"
           placeholder="Select your country / region"
           type="text"
@@ -110,14 +117,14 @@ const InputFields: React.FC<Props> = ({
           error={error.country}
         />
 
-        <Error error={error.country} />
+        {error.country && <Error error={error.country} />}
       </Container>
 
       <Container>
-        <Label label="Town / City" name="city" />
+        <Label label="Town / City" name="checkout-city" />
 
         <AutoCompleteInput
-          id="city"
+          id="checkout-city"
           name="city"
           placeholder="Select your city or town"
           type="text"
@@ -130,14 +137,14 @@ const InputFields: React.FC<Props> = ({
           error={error.city}
         />
 
-        <Error error={error.city} />
+        {error.city && <Error error={error.city} />}
       </Container>
 
       <Container>
-        <Label label="Street Address" name="address" />
+        <Label label="Street Address" name="checkout-address" />
 
         <AutoCompleteInput
-          id="address"
+          id="checkout-address"
           name="address"
           placeholder="Select your street address"
           type="text"
@@ -150,28 +157,32 @@ const InputFields: React.FC<Props> = ({
           error={error.address}
         />
 
-        <Error error={error.address} />
+        {error.address && <Error error={error.address} />}
       </Container>
 
       <Container>
-        <Label label="Apartment (optional)" name="apartment" />
+        <Label
+          label="Apartment (optional)"
+          name="checkout-apartment"
+          mark="checkout-apartment"
+        />
 
         <Input
-          id="apartment"
+          id="checkout-apartment"
           type="text"
           placeholder="Apartment, suite, unit, etc"
           {...register("apartment")}
           error={error.apartment}
         />
 
-        <Error error={error.apartment} />
+        {error.apartment && <Error error={error.apartment} />}
       </Container>
 
       <Container>
-        <Label label="State / Province" name="state" />
+        <Label label="State / Province" name="checkout-state" />
 
         <AutoCompleteInput
-          id="state"
+          id="checkout-state"
           name="state"
           placeholder="Select a state / province"
           type="text"
@@ -184,14 +195,18 @@ const InputFields: React.FC<Props> = ({
           error={error.state}
         />
 
-        <Error error={error.state} />
+        {error.state && <Error error={error.state} />}
       </Container>
 
       <Container>
-        <Label label="Zip Code (optional)" name="zip" />
+        <Label
+          label="Zip Code (optional)"
+          name="checkout-zip"
+          mark="checkout-zip"
+        />
 
         <ZipCodeInput
-          id="zip"
+          id="checkout-zip"
           name="zip"
           type="text"
           placeholder="Enter your zip code"
@@ -206,38 +221,52 @@ const InputFields: React.FC<Props> = ({
       </Container>
 
       <Container>
-        <Label label="Email Address" name="email" />
+        <Label label="Email Address" name="checkout-email" />
 
         <Input
-          id="email"
+          id="checkout-email"
           type="email"
           placeholder="E-mail"
           {...register("email")}
           error={error.email}
         />
 
-        <Error error={error.email} />
+        {error.email && <Error error={error.email} />}
       </Container>
 
       <Container>
         <Label label="Phone Number" name="phone" />
 
-        <PhoneInput
-          country="us"
-          placeholder="Phone"
+        <Controller
+          name="phone"
           control={control}
-          error={error.phone}
+          render={({ field }) => (
+            <PhoneInput
+              country="us"
+              placeholder="Phone"
+              error={error.phone}
+              {...field}
+            />
+          )}
         />
 
-        <Error error={error.phone} />
+        {error.phone && <Error error={error.phone} />}
       </Container>
 
       <Container>
-        <Label label="Order notes (optional)" name="message" />
+        <Label
+          label="Order notes (optional)"
+          name="checkout-message"
+          mark="checkout-message"
+        />
 
-        <Textarea id="message" placeholder="Message" {...register("notes")} />
+        <Textarea
+          id="checkout-message"
+          placeholder="Message"
+          {...register("notes")}
+        />
       </Container>
-    </div>
+    </Content>
   );
 };
 

@@ -1,113 +1,53 @@
-"use client";
-
 import { JSX } from "react";
-import { useRouter } from "next/navigation";
 import Style from "./button.module.scss";
 import Loader from "./loader";
 
 interface Props {
-  buy?: boolean;
-  formSubmitted?: boolean;
-  addToCart?: boolean;
-  button?: boolean;
-  className?: string;
-  value?: string | JSX.Element;
+  type: "button" | "submit";
+  className: string;
+  value: string | JSX.Element;
   svgLeft?: JSX.Element;
   svgRight?: JSX.Element;
-  choose?: boolean;
   isLoading?: boolean;
 
-  handleAddToCart?: () => void;
-  handleChangeResult?: () => void;
+  onClick?: () => void;
 }
 
 const Button: React.FC<Props> = ({
-  buy,
-  formSubmitted,
-  addToCart,
-  button,
+  type,
   className,
   value,
   svgLeft,
   svgRight,
-  choose,
   isLoading,
 
-  handleAddToCart,
-  handleChangeResult,
+  onClick,
 }) => {
-  const router = useRouter();
-  const buttonClass = Style[className || ""];
+  const buttonClass = `${
+    isLoading ? `${Style[className]} ${Style.loading}` : `${Style[className]}`
+  }`;
 
   return (
-    <>
-      {button && (
-        <button type="button" className={buttonClass}>
-          {svgLeft}
+    <button
+      type={type}
+      disabled={isLoading}
+      className={buttonClass}
+      onClick={onClick}
+    >
+      {isLoading ? (
+        <>
+          {svgLeft && svgLeft}
           {value}
-          {svgRight}
-        </button>
-      )}
-
-      {formSubmitted && (
-        <button
-          style={{
-            pointerEvents: isLoading ? "none" : "auto",
-            cursor: isLoading ? "not-allowed" : "pointer",
-            backgroundColor: isLoading ? "#fff" : "#46a358",
-            border: isLoading ? "1px solid #46a358" : "none",
-          }}
-          type="submit"
-          className={buttonClass}
-        >
-          {isLoading ? <Loader modal /> : value}
-        </button>
-      )}
-
-      {addToCart && (
-        <button
-          type="button"
-          style={{
-            pointerEvents: isLoading ? "none" : "auto",
-            cursor: isLoading ? "not-allowed" : "pointer",
-          }}
-          onClick={() => handleAddToCart && handleAddToCart()}
-          className={buttonClass}
-        >
-          {isLoading ? (
-            <>
-              {value}
-              <Loader />
-            </>
-          ) : (
-            value
-          )}
-        </button>
-      )}
-
-      {buy && (
-        <button
-          type="button"
-          onClick={() => {
-            handleAddToCart && handleAddToCart();
-            router.push("/cart");
-          }}
-          className={buttonClass}
-        >
+          <Loader />
+        </>
+      ) : (
+        <>
+          {svgLeft && svgLeft}
           {value}
-        </button>
+          {svgRight && svgRight}
+        </>
       )}
-
-      {choose && (
-        <button
-          type="button"
-          onClick={() => handleChangeResult && handleChangeResult()}
-          className={buttonClass}
-        >
-          {value}
-        </button>
-      )}
-    </>
+    </button>
   );
 };
 
