@@ -1,5 +1,5 @@
 import { prisma } from "@/prisma/prisma-client";
-import Profile from "../../../components/shared/profile";
+import { AccountDetails } from "../../../components/shared/profile";
 import { getUserSession } from "../../../lib/server";
 import { redirect } from "next/navigation";
 
@@ -23,7 +23,7 @@ export default async function ProfilePage() {
       return redirect("/not-auth");
     }
 
-    return <Profile data={user} />;
+    return <AccountDetails data={user} />;
   } catch (error) {
     console.error("Error in ProfilePage:", error);
     return redirect("/not-auth");

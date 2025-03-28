@@ -10,19 +10,24 @@ import { LogInFormFields } from "./log-in-form-schema";
 import { discountPopupFormSchema } from "./discount-popup-form-schema";
 import { DiscountPopupFormFields } from "./discount-popup-form-schema";
 
-import { profileFormSchema } from "./profile-form-schema";
-import { ProfileFormFields } from "../schemas/profile-form-schema";
+import { profileAccountDetailsFormSchema } from "./profile-account-details-schema";
+import { ProfileAccountDetailsFormFields } from "./profile-account-details-schema";
+
+import { profileAddressFormSchema } from "./profile-address-schema";
+import { ProfileAddressFormFields } from "./profile-address-schema";
 
 export {
   checkoutFormSchema,
   signUpFormSchema,
   logInFormSchema,
   discountPopupFormSchema,
-  profileFormSchema,
+  profileAccountDetailsFormSchema,
+  profileAddressFormSchema,
 };
 
 export type { CheckoutFormFields };
 export type { SignUpFormFields };
 export type { LogInFormFields };
 export type { DiscountPopupFormFields };
-export type { ProfileFormFields };
+export type { ProfileAccountDetailsFormFields };
+export type { ProfileAddressFormFields };

@@ -1,10 +1,14 @@
 "use server";
 
-import { ProfileFormFields, SignUpFormFields } from "@/schemas";
+import {
+  ProfileAccountDetailsFormFields,
+  SignUpFormFields,
+  ProfileAddressFormFields,
+} from "@/schemas";
 import { getUserSession, subscribe } from "../lib/server";
 import { prisma } from "../prisma/prisma-client";
 import { Email } from "../types/common";
-import { hashSync } from "bcrypt";
+import { compare, hashSync } from "bcrypt";
 
 export const createSubscription = async (data: Email) => {
   try {
@@ -43,50 +47,6 @@ export const createSubscription = async (data: Email) => {
   }
 };
 
-export const updateUserProfile = async (data: ProfileFormFields) => {
-  try {
-    const currentUser = await getUserSession();
-
-    if (!currentUser) {
-      throw new Error("User not found");
-    }
-
-    const existingUser = await prisma.user.findFirst({
-      where: {
-        id: currentUser.id,
-      },
-    });
-
-    if (!existingUser) {
-      throw new Error("User not found");
-    }
-
-    let hashedPassword;
-
-    if (data?.newPassword) {
-      hashedPassword = hashSync(data.newPassword, 10);
-    }
-
-    await prisma.user.update({
-      where: { id: currentUser.id },
-
-      data: {
-        firstName: data?.firstName,
-        lastName: data?.lastName,
-        phone: data?.phone,
-        email: data?.email,
-        password: hashedPassword || existingUser.password,
-      },
-    });
-  } catch (error) {
-    console.error(error);
-    if (error instanceof Error) {
-      throw new Error(`Failed to update user: ${error.message}`);
-    }
-    throw new Error("An unexpected error occurred");
-  }
-};
-
 export const registerUser = async (data: SignUpFormFields) => {
   try {
     const { firstName, email, password, repeatPassword } = data;
@@ -120,5 +80,119 @@ export const registerUser = async (data: SignUpFormFields) => {
       throw new Error(`Failed to register user: ${error.message}`);
     }
     throw new Error("An unexpected error occurred");
+  }
+};
+
+export const updateUserProfile = async (
+  data: ProfileAccountDetailsFormFields
+) => {
+  try {
+    const currentUser = await getUserSession();
+
+    if (!currentUser) {
+      return {
+        success: false,
+        error: "User not found",
+      };
+    }
+
+    const existingUser = await prisma.user.findUnique({
+      where: {
+        id: currentUser.id,
+      },
+    });
+
+    if (!existingUser) {
+      return {
+        success: false,
+        error: "User not found",
+      };
+    }
+
+    let hashedPassword = existingUser.password;
+    let passwordUpdated = false;
+
+    if (data.newPassword) {
+      const isPasswordSame = await compare(
+        data.newPassword,
+        existingUser.password || ""
+      );
+
+      if (isPasswordSame) {
+        return {
+          success: false,
+          error: "New password must be different from current password",
+          passwordUpdated: false,
+        };
+      }
+
+      hashedPassword = hashSync(data.newPassword, 10);
+      passwordUpdated = true;
+    }
+
+    await prisma.user.update({
+      where: { id: currentUser.id },
+      data: {
+        firstName: data?.firstName,
+        lastName: data?.lastName,
+        phone: data?.phone,
+        email: data?.email,
+        password: hashedPassword,
+      },
+    });
+
+    return {
+      success: true,
+      error: null,
+      passwordUpdated,
+      message: passwordUpdated
+        ? "Profile and password updated successfully"
+        : "Profile updated successfully",
+    };
+  } catch (error) {
+    console.error("Update profile error:", error);
+    return {
+      success: false,
+      error:
+        error instanceof Error ? error.message : "An unexpected error occurred",
+      passwordUpdated: false,
+    };
+  }
+};
+
+export const updateUserAddress = async (data: ProfileAddressFormFields) => {
+  try {
+    const currentUser = await getUserSession();
+
+    if (!currentUser) {
+      return {
+        success: false,
+        error: "User not found",
+      };
+    }
+
+    await prisma.user.update({
+      where: { id: currentUser.id },
+      data: {
+        country: data?.country,
+        city: data?.city,
+        address: data?.address,
+        apartment: data?.apartment,
+        state: data?.state,
+      },
+    });
+
+    return {
+      success: true,
+      error: null,
+      message: "Address updated successfully",
+    };
+  } catch (error) {
+    console.error("Update address error:", error);
+    return {
+      success: false,
+      error:
+        error instanceof Error ? error.message : "An unexpected error occurred",
+    };
   }
 };

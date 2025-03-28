@@ -14,9 +14,24 @@ interface Props {
   lastName?: string;
   email?: string;
   phone?: string;
+  country?: string;
+  city?: string;
+  address?: string;
+  apartment?: string;
+  state?: string;
 }
 
-const Form: React.FC<Props> = ({ firstName, lastName, email, phone }) => {
+const Form: React.FC<Props> = ({
+  firstName,
+  lastName,
+  email,
+  phone,
+  country,
+  city,
+  address,
+  apartment,
+  state,
+}) => {
   const setIsOrderOpen = useUIStore((state) => state.setIsOrderOpen);
   const setIsOrderSuccess = useUIStore((state) => state.setIsOrderSuccess);
 
@@ -38,13 +53,13 @@ const Form: React.FC<Props> = ({ firstName, lastName, email, phone }) => {
     defaultValues: {
       firstName: firstName || "",
       lastName: lastName || "",
-      country: "",
-      address: "",
-      apartment: "",
-      city: "",
+      country: country || "",
+      address: address || "",
+      apartment: apartment || "",
+      city: city || "",
       email: email || "",
       phone: phone || "",
-      state: "",
+      state: state || "",
       zip: "",
       notes: "",
     },

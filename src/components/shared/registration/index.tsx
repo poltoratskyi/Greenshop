@@ -1,20 +1,22 @@
 "use client";
 
 import Style from "./registration.module.scss";
-import { Content, SignUp, Error, LogIn } from "../auth";
+import { Content, SignUp, LogIn } from "../auth";
 import Pathname from "../../ui/pathname";
 import { useState } from "react";
 import Button from "@/components/ui/button";
-import { useUIStore } from "@/store";
+import Toast from "../toast";
+import { useToastHandling } from "@/lib/client";
 
 const Registration: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const setIsAuthErrorOpen = useUIStore((state) => state.setIsAuthErrorOpen);
+
+  const { isToastOpen, toastType, setIsToastOpen, isSuccessToast } =
+    useToastHandling();
 
   const onClick = (boolean: boolean) => {
     setIsLogin(boolean);
-
-    setIsAuthErrorOpen(false);
+    setIsToastOpen(false);
 
     window.scrollTo({
       top: 0,
@@ -83,7 +85,12 @@ const Registration: React.FC = () => {
         </div>
       </section>
 
-      <Error />
+      <Toast
+        isSuccess={isSuccessToast}
+        isOpen={isToastOpen}
+        message={toastType}
+        onClick={setIsToastOpen}
+      />
     </>
   );
 };

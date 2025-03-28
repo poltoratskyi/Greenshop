@@ -1,0 +1,25 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.result {
+  position: absolute;
+  top: 100%;
+  margin-top: 10px;
+  z-index: 1;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border: 1px solid v.$border;
+
+  .address {
+    @include m.description($lh: 24px, $c: v.$text);
+
+    margin-bottom: 10px;
+
+    .info {
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+}

@@ -9,6 +9,7 @@ interface Props {
   svgLeft?: JSX.Element;
   svgRight?: JSX.Element;
   isLoading?: boolean;
+  disabled?: boolean;
 
   onClick?: () => void;
 }
@@ -20,17 +21,18 @@ const Button: React.FC<Props> = ({
   svgLeft,
   svgRight,
   isLoading,
+  disabled,
 
   onClick,
 }) => {
-  const buttonClass = `${
-    isLoading ? `${Style[className]} ${Style.loading}` : `${Style[className]}`
+  const buttonClass = `${Style[className]} ${isLoading ? Style.loading : ""} ${
+    disabled ? Style.disabled : ""
   }`;
 
   return (
     <button
       type={type}
-      disabled={isLoading}
+      disabled={isLoading || disabled}
       className={buttonClass}
       onClick={onClick}
     >

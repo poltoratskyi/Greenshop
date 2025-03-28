@@ -1,22 +1,30 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import Input from "../../../ui/common-form-elements/input";
+import Input from "../../../ui/common-form-elements/input/input";
 import Button from "../../../ui/button";
 import Style from "./sing-up.module.scss";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpFormSchema, SignUpFormFields } from "../../../../schemas";
-import Container from "../../../ui/common-form-elements/container";
-import Error from "../../../ui/common-form-elements/error";
+import Container from "../../../ui/common-form-elements/container/container";
+import Error from "../../../ui/common-form-elements/error/error";
 import { useState } from "react";
 import { registerUser } from "@/app/actions";
 import { useCloseModalAuthentication } from "@/hooks";
 import { useUIStore } from "@/store";
+import { useRouter } from "next/navigation";
+import { useToastHandling } from "@/lib/client";
 
 const Form: React.FC = () => {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const { closeModal } = useCloseModalAuthentication();
-  const setIsAuthErrorOpen = useUIStore((state) => state.setIsAuthErrorOpen);
+  const setToastType = useUIStore((state) => state.setToastType);
+  const setIsModalActionOpen = useUIStore(
+    (state) => state.setIsModalActionOpen
+  );
+
+  const { setIsSuccessToast, setIsToastOpen } = useToastHandling();
 
   const {
     register,
@@ -46,14 +54,29 @@ const Form: React.FC = () => {
       });
 
       if (!response?.success) {
-        setIsAuthErrorOpen(true);
+        setIsSuccessToast(false);
+        setToastType(
+          "The email you have provided is already associated with an account"
+        );
+        setIsToastOpen(true);
         setIsLoading(false);
         return;
       }
 
-      closeModal();
+      setIsSuccessToast(true);
+      setToastType("You have successfully created an account. Please log in");
+      setIsToastOpen(true);
 
       reset();
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      setIsToastOpen(false);
+      closeModal();
+      setIsModalActionOpen(false);
+
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      router.push("/");
     } catch (error) {
       setIsLoading(false);
       console.log("error sign up", error);

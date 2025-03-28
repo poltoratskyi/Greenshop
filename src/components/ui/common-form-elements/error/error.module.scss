@@ -1,0 +1,9 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.error {
+  @include m.error();
+
+  display: block;
+  margin-top: 10px;
+}

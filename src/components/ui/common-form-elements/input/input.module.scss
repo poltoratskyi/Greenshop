@@ -1,0 +1,25 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.input {
+  @include m.input();
+
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  height: 55px;
+
+  &.error {
+    border-color: red;
+
+    &:hover {
+      border-color: v.$main;
+    }
+
+    &:focus {
+      border: 1px solid v.$main;
+      outline: none;
+    }
+  }
+}

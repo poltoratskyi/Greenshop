@@ -32,6 +32,11 @@ const Checkout: React.FC<Props> = ({ user }) => {
             lastName={user?.lastName || ""}
             email={user?.email || ""}
             phone={user?.phone || ""}
+            address={user?.address || ""}
+            apartment={user?.apartment || ""}
+            city={user?.city || ""}
+            state={user?.state || ""}
+            country={user?.country || ""}
           />
         </div>
       </section>

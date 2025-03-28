@@ -6,9 +6,8 @@ import {
   UseFormWatch,
   Controller,
 } from "react-hook-form";
-import Style from "./checkout.module.scss";
 import { CheckoutFormFields } from "../../../schemas/checkout-form-schema";
-import { PhoneInput } from "../../ui/checkout-inputs";
+import PhoneInput from "../../ui/phone-input";
 import { ZipCodeInput } from "../../ui/checkout-inputs";
 import {
   Textarea,
@@ -17,9 +16,9 @@ import {
   Error,
   Container,
 } from "../../ui/common-form-elements";
-import { useLocationStore, useZipCodeStore } from "../../../store";
-import { AutoCompleteInput } from "../../../components/ui/checkout-inputs";
+import { Autocomplete } from "../../../components/ui/checkout-inputs";
 import { Content } from "../layout";
+import { useLocationData } from "@/hooks";
 
 interface Props {
   control: Control<CheckoutFormFields>;
@@ -38,37 +37,27 @@ const InputFields: React.FC<Props> = ({
   register,
   setValue,
 }) => {
-  const requestError = useZipCodeStore((state) => state.error);
+  const {
+    countryData,
+    cityData,
+    addressData,
+    stateData,
+    isCountryDataLoading,
+    isCityDataLoading,
+    isAddressDataLoading,
+    isStateDataLoading,
+    isZipCodeLoading,
+    requestError,
 
-  const isZipCodeLoading = useZipCodeStore((state) => state.isLoading);
-
-  const countryData = useLocationStore((state) => state.countryData);
-  const cityData = useLocationStore((state) => state.cityData);
-  const addressData = useLocationStore((state) => state.addressData);
-  const stateData = useLocationStore((state) => state.stateData);
-
-  const isCountryDataLoading = useLocationStore(
-    (state) => state.isCountryDataLoading
-  );
-  const isCityDataLoading = useLocationStore(
-    (state) => state.isCityDataLoading
-  );
-  const isAddressDataLoading = useLocationStore(
-    (state) => state.isAddressDataLoading
-  );
-  const isStateDataLoading = useLocationStore(
-    (state) => state.isStateDataLoading
-  );
-
-  const loadCountry = useLocationStore((state) => state.loadCountry);
-  const loadCity = useLocationStore((state) => state.loadCity);
-  const loadAddress = useLocationStore((state) => state.loadAddress);
-  const loadState = useLocationStore((state) => state.loadState);
-
-  const resetCountryData = useLocationStore((state) => state.resetCountryData);
-  const resetCityData = useLocationStore((state) => state.resetCityData);
-  const resetAddressData = useLocationStore((state) => state.resetAddressData);
-  const resetStateData = useLocationStore((state) => state.resetStateData);
+    resetStateData,
+    resetCityData,
+    resetAddressData,
+    resetCountryData,
+    loadCountry,
+    loadCity,
+    loadAddress,
+    loadState,
+  } = useLocationData();
 
   return (
     <Content>
@@ -103,7 +92,7 @@ const InputFields: React.FC<Props> = ({
       <Container>
         <Label label="Country / Region" name="checkout-country" />
 
-        <AutoCompleteInput
+        <Autocomplete
           id="checkout-country"
           name="country"
           placeholder="Select your country / region"
@@ -123,7 +112,7 @@ const InputFields: React.FC<Props> = ({
       <Container>
         <Label label="Town / City" name="checkout-city" />
 
-        <AutoCompleteInput
+        <Autocomplete
           id="checkout-city"
           name="city"
           placeholder="Select your city or town"
@@ -143,7 +132,7 @@ const InputFields: React.FC<Props> = ({
       <Container>
         <Label label="Street Address" name="checkout-address" />
 
-        <AutoCompleteInput
+        <Autocomplete
           id="checkout-address"
           name="address"
           placeholder="Select your street address"
@@ -181,7 +170,7 @@ const InputFields: React.FC<Props> = ({
       <Container>
         <Label label="State / Province" name="checkout-state" />
 
-        <AutoCompleteInput
+        <Autocomplete
           id="checkout-state"
           name="state"
           placeholder="Select a state / province"

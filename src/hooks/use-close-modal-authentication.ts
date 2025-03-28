@@ -6,11 +6,11 @@ import { useUIStore } from "../store";
 export const useCloseModalAuthentication = () => {
   const router = useRouter();
 
-  const setIsAuthErrorOpen = useUIStore((state) => state.setIsAuthErrorOpen);
+  const setIsToastOpen = useUIStore((state) => state.setIsToastOpen);
 
   const closeModal = () => {
     router.back();
-    setIsAuthErrorOpen(false);
+    setIsToastOpen(false);
   };
 
   return { closeModal };

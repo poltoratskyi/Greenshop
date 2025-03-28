@@ -32,7 +32,7 @@ const Info: React.FC = () => {
         {isOrderSuccess ? (
           <p>
             Hello, <span className={Style.mark}>{order?.firstName} </span>
-            Your order is currently being processed. You will receive an email
+            your order is currently being processed. You will receive an email
             shortly with the details of your order.
           </p>
         ) : (

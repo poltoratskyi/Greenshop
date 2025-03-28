@@ -9,7 +9,7 @@ import {
   DiscountPopupFormFields,
   discountPopupFormSchema,
 } from "../../../../schemas";
-import Container from "../../../ui/common-form-elements/container";
+import Container from "../../../ui/common-form-elements/container/container";
 import { createSubscription } from "../../../../app/actions";
 import { useUIStore } from "../../../../store";
 import { useDiscountStatus } from "../../../../hooks";

@@ -1,0 +1,26 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.textarea {
+  @include m.input();
+
+  resize: none;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  height: 100px;
+
+  &.error {
+    border-color: red;
+
+    &:hover {
+      border-color: v.$main;
+    }
+
+    &:focus {
+      border: 1px solid v.$main;
+      outline: none;
+    }
+  }
+}

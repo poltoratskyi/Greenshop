@@ -1,4 +1,4 @@
-import { onlyCountries } from "../components/ui/checkout-inputs/static-data";
+import { onlyCountries } from "../components/ui/phone-input/static-data";
 import axios from "axios";
 
 export const fetchLocation = async (query: string, type: string) => {

@@ -8,15 +8,18 @@ import Button from "../../../ui/button";
 import { logInFormSchema, LogInFormFields } from "../../../../schemas";
 import { Error, Container, Input } from "../../../ui/common-form-elements";
 import { signIn } from "next-auth/react";
-import { useUIStore } from "../../../../store";
 import { useCloseModalAuthentication } from "../../../../hooks";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useToastHandling } from "@/lib/client";
 
 const Form: React.FC = () => {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const { closeModal } = useCloseModalAuthentication();
 
-  const setIsAuthErrorOpen = useUIStore((state) => state.setIsAuthErrorOpen);
+  const { setIsSuccessToast, setToastType, setIsToastOpen } =
+    useToastHandling();
 
   const {
     register,
@@ -43,17 +46,31 @@ const Form: React.FC = () => {
       });
 
       if (!response?.ok) {
-        setIsAuthErrorOpen(true);
+        setIsSuccessToast(false);
+        setToastType("Invalid email or password");
+        setIsToastOpen(true);
         setIsLoading(false);
         return;
       }
 
+      setIsSuccessToast(true);
+      setToastType("You have successfully logged in");
+      setIsToastOpen(true);
+      reset();
+
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      setIsToastOpen(false);
       closeModal();
 
-      reset();
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      router.push("/");
     } catch (error) {
-      setIsLoading(false);
-      console.log("error login", error);
+      console.error("Login error:", error);
+      setIsSuccessToast(false);
+      setToastType("An unexpected error occurred");
+      setIsToastOpen(true);
     } finally {
       setIsLoading(false);
     }

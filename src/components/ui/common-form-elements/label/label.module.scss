@@ -1,0 +1,26 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.label {
+  @include m.description($c: v.$text);
+
+  display: inline-block;
+  margin-bottom: 10px;
+
+  span {
+    font-size: 15px;
+    color: red;
+  }
+
+  &.feedback {
+    @include m.subtitle();
+  }
+}
+
+@media (max-width: 575px) {
+  .label {
+    &.feedback {
+      text-align: center;
+    }
+  }
+}

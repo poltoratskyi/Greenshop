@@ -132,9 +132,19 @@ export async function POST(request: NextRequest) {
       await prisma.user.update({
         where: { email: order.email },
         data: {
-          phone: findUser.phone === null ? order.phone : findUser.phone,
+          firstName:
+            findUser.firstName === null ? order.firstName : findUser.firstName,
           lastName:
             findUser.lastName === null ? order.lastName : findUser.lastName,
+          email: findUser.email === null ? order.email : findUser.email,
+          city: findUser.city === null ? order.city : findUser.city,
+          address: findUser.address === null ? order.address : findUser.address,
+          apartment:
+            findUser.apartment === null ? order.apartment : findUser.apartment,
+          country: findUser.country === null ? order.country : findUser.country,
+          state: findUser.state === null ? order.state : findUser.state,
+          zip: findUser.zip === null ? order.zip : findUser.zip,
+          phone: findUser.phone === null ? order.phone : findUser.phone,
         },
       });
     }

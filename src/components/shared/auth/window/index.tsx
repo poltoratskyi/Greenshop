@@ -1,20 +1,35 @@
 "use client";
 
-import ModalContent from "../content";
+import Content from "../content";
 import { useUIStore } from "../../../../store";
 import SignUp from "../sign-up/sign-up";
 import Login from "../log-in";
-import ModalContainer from "../container";
+import Container from "../container";
+import Toast from "../../toast";
+import { useToastHandling } from "@/lib/client";
+import Overlay from "../../../ui/overlay";
 
 const Window: React.FC = () => {
   const isModalActionOpen = useUIStore((state) => state.isModalActionOpen);
 
+  const { isToastOpen, toastType, isSuccessToast, setIsToastOpen } =
+    useToastHandling();
+
   return (
-    <ModalContainer>
-      <ModalContent title>
-        {isModalActionOpen ? <Login /> : <SignUp />}
-      </ModalContent>
-    </ModalContainer>
+    <>
+      <Overlay isVisible={true} />
+
+      <Container>
+        <Content title>{isModalActionOpen ? <Login /> : <SignUp />}</Content>
+      </Container>
+
+      <Toast
+        isOpen={isToastOpen}
+        message={toastType}
+        isSuccess={isSuccessToast}
+        onClick={setIsToastOpen}
+      />
+    </>
   );
 };
 

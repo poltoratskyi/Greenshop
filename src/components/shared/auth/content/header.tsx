@@ -11,25 +11,25 @@ interface Props {
 
 const Header: React.FC<Props> = ({ title }) => {
   const isModalActionOpen = useUIStore((state) => state.isModalActionOpen);
+  const setIsToastOpen = useUIStore((state) => state.setIsToastOpen);
 
   const setIsModalActionOpen = useUIStore(
     (state) => state.setIsModalActionOpen
   );
 
-  const setIsAuthErrorOpen = useUIStore((state) => state.setIsAuthErrorOpen);
-
   const { closeModal } = useCloseModalAuthentication();
 
-  const onChangeModal = (boolean: boolean) => {
+  const onChangeWindow = (boolean: boolean) => {
     setIsModalActionOpen(boolean);
-    setIsAuthErrorOpen(false);
+    setIsToastOpen(false);
   };
+
   return (
     <>
       {title && (
         <div className={Style.header}>
           <h2
-            onClick={() => onChangeModal(true)}
+            onClick={() => onChangeWindow(true)}
             className={
               isModalActionOpen ? `${Style.title} ${Style.active}` : Style.title
             }
@@ -40,7 +40,7 @@ const Header: React.FC<Props> = ({ title }) => {
           <span className={Style.element}>I</span>
 
           <h2
-            onClick={() => onChangeModal(false)}
+            onClick={() => onChangeWindow(false)}
             className={
               !isModalActionOpen
                 ? `${Style.title} ${Style.active}`

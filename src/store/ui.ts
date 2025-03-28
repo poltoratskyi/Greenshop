@@ -13,9 +13,17 @@ interface UIState {
   isModalCategoryOpen: boolean;
   setIsModalCategoryOpen: (isOpen: boolean) => void;
 
-  // Auth Error
-  isAuthErrorOpen: boolean;
-  setIsAuthErrorOpen: (isOpen: boolean) => void;
+  // Toast
+  isToastOpen: boolean;
+  setIsToastOpen: (isOpen: boolean) => void;
+
+  // Toast text
+  toastType: string;
+  setToastType: (type: string) => void;
+
+  // Is success toast
+  isSuccessToast: boolean;
+  setIsSuccessToast: (isOpen: boolean) => void;
 
   // Discount Popup
   isDiscountPopupOpen: boolean;
@@ -56,8 +64,8 @@ interface UIState {
   resetVariationSelection: () => void;
 
   // Checkout auto complete
-  isAutoCompleteOpen: boolean;
-  setIsAutoCompleteOpen: (isOpen: boolean) => void;
+  isAutocompleteOpen: boolean;
+  setIsAutocompleteOpen: (isOpen: boolean) => void;
 
   // Modal order
   isOrderOpen: boolean;
@@ -80,9 +88,17 @@ export const useUIStore = create<UIState>((set) => ({
   isModalCategoryOpen: false,
   setIsModalCategoryOpen: (isOpen) => set({ isModalCategoryOpen: isOpen }),
 
-  // Auth Error
-  isAuthErrorOpen: false,
-  setIsAuthErrorOpen: (isOpen) => set({ isAuthErrorOpen: isOpen }),
+  // Toast
+  isToastOpen: false,
+  setIsToastOpen: (isOpen) => set({ isToastOpen: isOpen }),
+
+  // Toast text
+  toastType: "",
+  setToastType: (type) => set({ toastType: type }),
+
+  // Is success toast
+  isSuccessToast: false,
+  setIsSuccessToast: (isOpen) => set({ isSuccessToast: isOpen }),
 
   // Discount Popup
   isDiscountPopupOpen: false,
@@ -124,8 +140,8 @@ export const useUIStore = create<UIState>((set) => ({
     set({ currentImageIndex: 0, currentSizeIndex: 0 }),
 
   // Checkout auto complete
-  isAutoCompleteOpen: true,
-  setIsAutoCompleteOpen: (isOpen) => set({ isAutoCompleteOpen: isOpen }),
+  isAutocompleteOpen: true,
+  setIsAutocompleteOpen: (isOpen) => set({ isAutocompleteOpen: isOpen }),
 
   // Modal order success
   isOrderOpen: false,

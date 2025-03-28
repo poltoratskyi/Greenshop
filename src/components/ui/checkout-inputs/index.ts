@@ -1,5 +1,4 @@
-import PhoneInput from "./phone";
 import ZipCodeInput from "./zip-code";
-import AutoCompleteInput from "./auto-complete-input";
+import Autocomplete from "./autocomplete";
 
-export { PhoneInput, ZipCodeInput, AutoCompleteInput };
+export { ZipCodeInput, Autocomplete };

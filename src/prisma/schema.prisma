@@ -99,6 +99,12 @@ model User {
     email    String   @unique
     password String?
     phone String?
+    country String?
+    address String?
+    apartment String?
+    city String?
+    state String?
+    zip String?
 
     verificationCode VerificationCode?
     cart             Cart?

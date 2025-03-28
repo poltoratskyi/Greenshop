@@ -10,6 +10,12 @@ export type User = Id &
     firstName: string;
     lastName?: string | null;
     phone?: string | null;
+    country?: string | null;
+    address?: string | null;
+    apartment?: string | null;
+    city?: string | null;
+    state?: string | null;
+    zip?: string | null;
     password?: string | null;
     verificationCode?: VerificationCode;
     cart?: Cart | null;
