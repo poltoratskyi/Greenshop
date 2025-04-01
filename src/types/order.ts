@@ -1,4 +1,16 @@
-import { Country, Email, Id, PersonName, State, UserId } from "./common";
+import { $Enums } from "@prisma/client";
+import {
+  Country,
+  Email,
+  FullName,
+  Id,
+  PersonName,
+  Price,
+  ShortName,
+  SizeId,
+  State,
+  UserId,
+} from "./common";
 import { User } from "./user";
 
 export enum OrderStatus {
@@ -20,8 +32,6 @@ export type Order = Email &
     zip?: string | null;
     notes?: string | null;
 
-    items: JSON;
-
     user?: User | null;
     userId?: UserId | null;
 
@@ -32,4 +42,37 @@ export type VerificationCode = Id & {
   user: User;
   userId: UserId;
   code: string;
+};
+
+export type OrderItemSize = Id & ShortName & FullName & {};
+
+export type OrderItemVariation = Id &
+  Price &
+  SizeId & {
+    size: OrderItemSize;
+  };
+
+export type OrderItem = {
+  id: number;
+
+  variationId: number;
+  quantity: number;
+
+  item: {
+    id: number;
+
+    imgUrl: string;
+    name: string;
+
+    variations: OrderItemVariation[];
+  };
+};
+
+export type OrderItems = {
+  id: number;
+  createdAt: Date;
+  totalAmount: number;
+  status: $Enums.OrderStatus;
+
+  items: OrderItem[];
 };

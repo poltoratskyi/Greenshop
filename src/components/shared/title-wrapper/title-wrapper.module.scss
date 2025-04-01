@@ -1,0 +1,37 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.outline {
+  margin-bottom: 100px;
+
+  .wrapper {
+    border-bottom: 1px solid v.$transparent-line;
+    margin-bottom: 30px;
+
+    .title {
+      @include m.subtitle($c: v.$main);
+
+      display: inline-block;
+      padding-bottom: 15px;
+      border-bottom: 3px solid v.$main;
+    }
+  }
+
+  .text {
+    @include m.description();
+  }
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 575px) {
+  .outline {
+    margin-bottom: 50px;
+
+    .wrapper {
+      margin-bottom: 15px;
+    }
+  }
+}

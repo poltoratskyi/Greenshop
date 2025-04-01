@@ -16,7 +16,7 @@ const Window: React.FC = () => {
     useToastHandling();
 
   return (
-    <>
+    <div>
       <Overlay isVisible={true} />
 
       <Container>
@@ -29,7 +29,7 @@ const Window: React.FC = () => {
         isSuccess={isSuccessToast}
         onClick={setIsToastOpen}
       />
-    </>
+    </div>
   );
 };
 

@@ -19,9 +19,16 @@ interface Props {
   name: string;
   imgUrl: string;
   variations: ItemVariation[];
+  variationId?: number;
 }
 
-const Card: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
+const Card: React.FC<Props> = ({
+  id,
+  name,
+  imgUrl,
+  variations,
+  variationId,
+}) => {
   const { data: session, status } = useSession();
 
   const pathname = usePathname();
@@ -90,13 +97,13 @@ const Card: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
             ) : (
               <Link
                 className={
-                  pathname === "/profile"
+                  pathname === "/profile/wishlist"
                     ? `${Style.favorite} ${Style.active}`
                     : status === "authenticated"
                     ? `${Style.favorite} ${Style.authenticated}`
                     : Style.favorite
                 }
-                href="/profile"
+                href="/profile/wishlist"
               >
                 {svgHeart}
               </Link>
@@ -159,7 +166,11 @@ const Card: React.FC<Props> = ({ id, name, imgUrl, variations }) => {
         </Link>
       </div>
 
-      <Price className="catalog" variations={variations} variationId={0} />
+      <Price
+        className="catalog"
+        variations={variations}
+        variationId={variationId ? variationId : 0}
+      />
     </>
   );
 };

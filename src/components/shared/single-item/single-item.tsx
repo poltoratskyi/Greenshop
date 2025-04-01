@@ -8,7 +8,7 @@ import SizeSelectionModal from "../../ui/size-selection-modal";
 import Loader from "../../ui/loader";
 import { useItemStore } from "../../../store";
 import Slider from "./slider-wrapper";
-import Title from "./title";
+import Title from "../title-wrapper";
 import { Popup } from "../discount";
 import { useDiscountStatus } from "../../../hooks";
 

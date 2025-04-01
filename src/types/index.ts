@@ -12,14 +12,27 @@ import {
   CartItemVariation,
   PostCartItem,
   CartResponse,
+  ItemsResponse,
 } from "./cart";
 import { User, UserRole } from "./user";
-import { Order, OrderStatus } from "./order";
+import {
+  Order,
+  OrderStatus,
+  OrderItemVariation,
+  OrderItemSize,
+  OrderItem,
+  OrderItems,
+} from "./order";
 import { Place, ZipCodeData } from "./zip-code";
 import { NominatimLocation } from "./nominatim-location";
 import { OrderEmail, OrderTemplate } from "./order-email";
 
 export type {
+  OrderItem,
+  OrderItems,
+  OrderItemVariation,
+  OrderItemSize,
+  ItemsResponse,
   OrderEmail,
   OrderTemplate,
   NominatimLocation,

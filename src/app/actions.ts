@@ -5,10 +5,17 @@ import {
   SignUpFormFields,
   ProfileAddressFormFields,
 } from "@/schemas";
-import { getUserSession, subscribe } from "../lib/server";
+import {
+  getUserCart,
+  getUserSession,
+  sendOrderEmail,
+  subscribe,
+} from "../lib/server";
 import { prisma } from "../prisma/prisma-client";
 import { Email } from "../types/common";
 import { compare, hashSync } from "bcrypt";
+import { cookies } from "next/headers";
+import { CartItemVariation, Order } from "@/types";
 
 export const createSubscription = async (data: Email) => {
   try {
@@ -18,7 +25,7 @@ export const createSubscription = async (data: Email) => {
       throw new Error("Email is required");
     }
 
-    const existingSubscription = await prisma.emailSubscription.findFirst({
+    const existingSubscription = await prisma.emailSubscription.findUnique({
       where: {
         email: email,
       },
@@ -55,7 +62,7 @@ export const registerUser = async (data: SignUpFormFields) => {
       return { success: false, error: "Missing required fields" };
     }
 
-    const existingUser = await prisma.user.findFirst({
+    const existingUser = await prisma.user.findUnique({
       where: {
         email: data.email,
       },
@@ -98,7 +105,7 @@ export const updateUserProfile = async (
 
     const existingUser = await prisma.user.findUnique({
       where: {
-        id: currentUser.id,
+        email: currentUser.email as string,
       },
     });
 
@@ -172,7 +179,7 @@ export const updateUserAddress = async (data: ProfileAddressFormFields) => {
     }
 
     await prisma.user.update({
-      where: { id: currentUser.id },
+      where: { email: currentUser.email as string },
       data: {
         country: data?.country,
         city: data?.city,

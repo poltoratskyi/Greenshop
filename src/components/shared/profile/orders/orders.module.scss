@@ -1,0 +1,39 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.wrapper {
+  margin: 120px 0px;
+}
+
+.empty {
+  @include m.description($c: v.$descr);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.box {
+  @include m.description($c: v.$descr);
+
+  .text {
+    @include m.description($c: v.$text, $fw: 500);
+
+    &.status {
+      @include m.description($c: v.$main, $fw: 500);
+    }
+  }
+
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 575px) {
+  .wrapper {
+    margin: 0;
+  }
+}

@@ -5,8 +5,6 @@ export default function NotFoundPage() {
     <StatusPages
       title="Oops! We can not find that page"
       subtitle="Maybe you were looking for something else?"
-      link="/"
-      linkValue="Or Back to Home"
       page="Not Found"
     />
   );

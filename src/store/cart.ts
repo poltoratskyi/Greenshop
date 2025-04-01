@@ -6,7 +6,7 @@ import {
   deleteCartItem,
   addItemCart,
 } from "../service";
-import { responseData } from "../data";
+import { processCartItems } from "../data";
 
 interface CartState {
   cartItems: CartItem[];
@@ -40,7 +40,7 @@ export const useCartStore = create<CartState>((set) => ({
     try {
       const response = await fetchUserCart();
 
-      set(responseData(response));
+      set(processCartItems(response));
     } catch (err) {
       set({ error: "Error fetching items from user cart", isLoading: false });
     } finally {
@@ -54,7 +54,7 @@ export const useCartStore = create<CartState>((set) => ({
     try {
       const response = await updateCartItemQuantity(id, quantity);
 
-      set(responseData(response));
+      set(processCartItems(response));
     } catch (err) {
       set({
         error: "Error updating quantity from user cart",
@@ -70,7 +70,7 @@ export const useCartStore = create<CartState>((set) => ({
     try {
       const response = await deleteCartItem(id);
 
-      set(responseData(response));
+      set(processCartItems(response));
     } catch (err) {
       set({
         error: "Error deleting item from user cart",
@@ -87,7 +87,7 @@ export const useCartStore = create<CartState>((set) => ({
     try {
       const response = await addItemCart(item);
 
-      set(responseData(response));
+      set(processCartItems(response));
     } catch (err) {
       set({
         error: "Error adding item to user cart",

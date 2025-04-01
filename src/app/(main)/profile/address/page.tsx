@@ -23,7 +23,7 @@ export default async function AddressPage() {
       return redirect("/not-auth");
     }
 
-    return <Address user={user} />;
+    return <Address data={user} />;
   } catch (error) {
     console.error("Error in AddressPage:", error);
     return redirect("/not-auth");

@@ -4,18 +4,12 @@ import Link from "next/link";
 import Style from "./order-confirmation.module.scss";
 import { svgThanks } from "./static-data";
 import { useOrderStore, useUIStore } from "../../../store";
-import { useEffect } from "react";
 
 const Info: React.FC = () => {
+  const order = useOrderStore((state) => state.order);
+
   const setIsOrderOpen = useUIStore((state) => state.setIsOrderOpen);
   const isOrderSuccess = useUIStore((state) => state.isOrderSuccess);
-
-  const order = useOrderStore((state) => state.order);
-  const loadUserOrder = useOrderStore((state) => state.loadUserOrder);
-
-  useEffect(() => {
-    loadUserOrder();
-  }, []);
 
   return (
     <div className={Style.content}>
@@ -32,8 +26,9 @@ const Info: React.FC = () => {
         {isOrderSuccess ? (
           <p>
             Hello, <span className={Style.mark}>{order?.firstName} </span>
-            your order is currently being processed. You will receive an email
-            shortly with the details of your order.
+            your order <span className={Style.mark}>#{order?.id}</span> is
+            currently being processed. You will receive an email shortly with
+            the details of your order.
           </p>
         ) : (
           <p>

@@ -21,10 +21,10 @@ import { updateUserAddress } from "@/app/actions";
 import Toast from "../../toast";
 
 interface Props {
-  user: User;
+  data: User;
 }
 
-const Address: React.FC<Props> = ({ user }) => {
+const Address: React.FC<Props> = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -70,11 +70,11 @@ const Address: React.FC<Props> = ({ user }) => {
     resolver: zodResolver(profileAddressFormSchema),
     mode: "onChange",
     defaultValues: {
-      country: user.country || "",
-      city: user.city || "",
-      address: user.address || "",
-      apartment: user.apartment || "",
-      state: user.state || "",
+      country: data.country || "",
+      city: data.city || "",
+      address: data.address || "",
+      apartment: data.apartment || "",
+      state: data.state || "",
       zip: "",
     },
   });

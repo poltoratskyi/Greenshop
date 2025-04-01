@@ -62,9 +62,6 @@ const Form: React.FC = () => {
 
       setIsToastOpen(false);
       closeModal();
-
-      await new Promise((resolve) => setTimeout(resolve, 500));
-
       router.push("/");
     } catch (error) {
       console.error("Login error:", error);

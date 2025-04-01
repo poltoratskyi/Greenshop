@@ -1,4 +1,4 @@
-import Style from "./single-item.module.scss";
+import Style from "./title-wrapper.module.scss";
 
 interface Props {
   children: React.ReactNode;

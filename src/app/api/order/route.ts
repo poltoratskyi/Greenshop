@@ -1,11 +1,11 @@
-import { CartItemVariation } from "@/types";
-import { getUserCart } from "../../../lib/server";
+import { getUserCart, getUserSession } from "../../../lib/server";
 import { sendOrderEmail } from "../../../lib/server";
 import { prisma } from "../../../prisma/prisma-client";
 import { NextResponse, NextRequest } from "next/server";
 import { cookies } from "next/headers";
+import { processOrderItems } from "../../../data";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
     // Get the token
     const token = (await cookies()).get("cartToken")?.value;
@@ -17,8 +17,26 @@ export async function GET() {
       );
     }
 
-    const userOrder = await prisma.order.findFirst({
-      where: { token },
+    const session = await getUserSession();
+
+    if (!session) {
+      return NextResponse.json(
+        { error: "User session not found" },
+        { status: 400 }
+      );
+    }
+
+    // Get the email
+    const email = await req.json();
+
+    if (!email) {
+      return NextResponse.json({ error: "Email is required" }, { status: 400 });
+    }
+
+    const userOrder = await prisma.order.findMany({
+      where: {
+        email: email.email,
+      },
     });
 
     if (!userOrder) {
@@ -44,6 +62,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const session = await getUserSession();
+
+    if (!session) {
+      return NextResponse.json(
+        { error: "User session not found" },
+        { status: 400 }
+      );
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { email: session.email as string },
+    });
+
+    if (!user) {
+      return NextResponse.json({ error: "User not found" }, { status: 400 });
+    }
+
     const {
       id,
       firstName,
@@ -57,7 +92,6 @@ export async function POST(request: NextRequest) {
       state,
       zip,
       notes,
-      items,
     } = await request.json();
 
     if (
@@ -68,8 +102,7 @@ export async function POST(request: NextRequest) {
       !phone ||
       !address ||
       !country ||
-      !state ||
-      !items
+      !state
     ) {
       return NextResponse.json(
         { error: "Missing required fields" },
@@ -79,12 +112,8 @@ export async function POST(request: NextRequest) {
 
     const userCart = await getUserCart(token);
 
-    if (userCart?.totalAmount === 0) {
-      return NextResponse.json({ error: "Cart is empty" }, { status: 404 });
-    }
-
-    if (!userCart) {
-      return NextResponse.json({ error: "Cart not found" }, { status: 404 });
+    if (!userCart || userCart.totalAmount === 0) {
+      throw new Error("Cart is empty or not found.");
     }
 
     const order = await prisma.order.create({
@@ -102,7 +131,9 @@ export async function POST(request: NextRequest) {
         state,
         zip,
         notes,
-        items: JSON.stringify(userCart.items),
+        totalAmount: userCart.totalAmount,
+        userId: session?.id || null,
+        status: "SUCCEEDED",
       },
     });
 
@@ -113,16 +144,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const findOrder = await prisma.order.findFirst({
-      where: { email: order.email },
+    await prisma.orderItem.createMany({
+      data: userCart.items.map((item: any) => ({
+        orderId: order.id,
+        itemId: item.itemId,
+        variationId: item.variationId,
+        quantity: item.quantity,
+      })),
     });
-
-    if (!findOrder) {
-      return NextResponse.json(
-        { error: "Email not found in orders" },
-        { status: 404 }
-      );
-    }
 
     const findUser = await prisma.user.findFirst({
       where: { email: order.email },
@@ -149,13 +178,6 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    if (!findUser) {
-      return NextResponse.json(
-        { error: "Email not found in users" },
-        { status: 404 }
-      );
-    }
-
     await prisma.cart.update({
       where: { id: userCart.id },
       data: { totalAmount: 0, subTotalAmount: 0 },
@@ -165,39 +187,18 @@ export async function POST(request: NextRequest) {
       where: { cartId: userCart.id },
     });
 
+    const { orderItems, totalAmount, subtotalAmount } =
+      processOrderItems(userCart);
+
     await sendOrderEmail(
       order.email,
       order.firstName,
       order.lastName,
       order.id.toString(),
 
-      userCart.items.map((item) => ({
-        id: item.id,
-        itemId: item.itemId,
-        name: item.item.name,
-        sku: item.item.sku,
-        variationId: item.variationId - 1,
-        quantity: item.quantity,
-
-        variations: item.item.variations.map(
-          (variation: CartItemVariation) => ({
-            id: variation.id,
-            price: variation.price,
-            sale: variation.sale,
-            onSale: variation.onSale,
-            sizeId: variation.sizeId,
-
-            size: {
-              id: variation.size.id,
-              shortName: variation.size.shortName,
-              fullName: variation.size.fullName,
-            },
-          })
-        ),
-      })),
-
-      userCart.totalAmount + 16,
-      userCart.subTotalAmount
+      orderItems,
+      totalAmount,
+      subtotalAmount
     );
 
     return NextResponse.json(order);

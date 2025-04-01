@@ -35,8 +35,9 @@ const Form: React.FC<Props> = ({
   const setIsOrderOpen = useUIStore((state) => state.setIsOrderOpen);
   const setIsOrderSuccess = useUIStore((state) => state.setIsOrderSuccess);
 
-  const addUserOrder = useOrderStore((state) => state.addUserOrder);
   const isLoading = useOrderStore((state) => state.isLoading);
+  const addUserOrder = useOrderStore((state) => state.addUserOrder);
+  const loadUserOrder = useOrderStore((state) => state.loadUserOrder);
 
   const {
     control,
@@ -78,11 +79,11 @@ const Form: React.FC<Props> = ({
       state: data.state,
       zip: data.zip,
       notes: data.notes,
-      items: JSON,
     };
 
     try {
       await addUserOrder(orderData);
+      loadUserOrder(data.email);
       reset();
 
       setIsOrderSuccess(true);

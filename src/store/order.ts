@@ -8,8 +8,8 @@ interface OrderState {
   isLoading: boolean;
   error: string | null;
 
-  loadUserOrder: () => Promise<void>;
-  addUserOrder(orderData: Order): Promise<void>;
+  loadUserOrder: (email: string) => Promise<void>;
+  addUserOrder(order: Order): Promise<void>;
 }
 [];
 
@@ -19,11 +19,11 @@ export const useOrderStore = create<OrderState>((set) => ({
   isLoading: false,
   error: null,
 
-  loadUserOrder: async () => {
+  loadUserOrder: async (email) => {
     set({ isLoading: true, error: null });
 
     try {
-      const response = await fetchUserOrder();
+      const response = await fetchUserOrder(email);
 
       set({ order: response });
     } catch (err) {
@@ -33,11 +33,11 @@ export const useOrderStore = create<OrderState>((set) => ({
     }
   },
 
-  addUserOrder: async (orderData) => {
+  addUserOrder: async (order) => {
     set({ isLoading: true, error: null });
 
     try {
-      const response = await createOrder(orderData);
+      const response = await createOrder(order);
 
       set({ order: response });
     } catch (err) {

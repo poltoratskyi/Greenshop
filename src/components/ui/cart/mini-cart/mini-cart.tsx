@@ -6,7 +6,7 @@ import { CartItem } from "../../../../types";
 import Skeleton from "../../skeleton/mini-cart";
 import List from "./list";
 import { useCartStore } from "../../../../store";
-import Placeholder from "../../../shared/placeholder";
+import Empty from "../../../shared/empty";
 
 const MiniCart: React.FC = () => {
   const cartItems = useCartStore((state) => state.cartItems);
@@ -29,7 +29,7 @@ const MiniCart: React.FC = () => {
   }
 
   if (cartItems.length === 0) {
-    return <Placeholder />;
+    return <Empty />;
   }
 
   return (

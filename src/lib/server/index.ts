@@ -5,9 +5,11 @@ import { getOrCreateUserCart } from "./get-or-create-user-cart";
 import { getUserSession } from "./get-user-session";
 import { updateCartTotalAmount } from "./update-cart-total-amount";
 import { authOptions } from "./auth-options";
+import { getOrderItems } from "./order-items";
 
 export {
   authOptions,
+  getOrderItems,
   updateCartTotalAmount,
   subscribe,
   sendOrderEmail,

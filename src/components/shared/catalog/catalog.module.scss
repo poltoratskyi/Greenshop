@@ -40,12 +40,12 @@
 
       .block {
         position: relative;
-        padding: 15px 15px 45px 15px;
         background-color: v.$background;
         cursor: pointer;
 
         .img {
           display: block;
+          padding: 15px 15px 45px 15px;
         }
 
         &:hover {

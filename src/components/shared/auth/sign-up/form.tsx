@@ -66,13 +66,12 @@ const Form: React.FC = () => {
       setIsSuccessToast(true);
       setToastType("You have successfully created an account. Please log in");
       setIsToastOpen(true);
-
       reset();
+
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       setIsToastOpen(false);
-      closeModal();
-      setIsModalActionOpen(false);
+      setIsModalActionOpen(true);
 
       await new Promise((resolve) => setTimeout(resolve, 500));
 

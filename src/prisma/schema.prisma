@@ -47,6 +47,7 @@ model Item {
 
     variations Variation[]
     items      CartItem[]
+    orderItems OrderItem[]
 
     // category -> JavaScript | TypeScript
     // Find the categoryId "fields: [categoryId]" in the db and look for it "references: [id]" in the Category model
@@ -79,6 +80,7 @@ model Variation {
     onSale Boolean
 
     cartItems CartItem[]
+    orderItems OrderItem[]
 
     size   Size @relation(fields: [sizeId], references: [id])
     sizeId Int
@@ -184,11 +186,13 @@ model Order {
 
     token String
 
+    totalAmount Int
+
     // Registered ?
     user   User? @relation(fields: [userId], references: [id])
     userId Int?
 
-    items Json
+    items OrderItem[]
 
     status    OrderStatus @default(PENDING)
     // Id Payment Service
@@ -197,6 +201,26 @@ model Order {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
+
+model OrderItem {
+    id Int @id @default(autoincrement())
+
+    quantity Int @default(1)
+
+    order   Order @relation(fields: [orderId], references: [id])
+    orderId Int
+
+    variation   Variation @relation(fields: [variationId], references: [id])
+    variationId Int
+
+    item   Item @relation(fields: [itemId], references: [id])
+    itemId Int
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+    
 
 model EmailSubscription {
     id Int @id @default(autoincrement())

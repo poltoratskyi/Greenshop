@@ -10,7 +10,12 @@ import { useCartFilteredCatalog } from "../../../hooks/use-cart-filtered-catalog
 import Links from "./links";
 import ActionInput from "../../ui/coupon-sender-input";
 import Summary from "./summary";
-import Placeholder from "../placeholder";
+import Empty from "../empty";
+import { SwiperSlide } from "swiper/react";
+import ItemsWrapper from "../../shared/catalog/wrapper";
+import ItemList from "../../shared/catalog/card";
+import CatalogStyle from "../../shared/catalog/catalog.module.scss";
+import Title from "../title-wrapper";
 
 const Cart: React.FC = () => {
   const { cartItems, filteredItems, isEmpty } = useCartFilteredCatalog();
@@ -23,7 +28,7 @@ const Cart: React.FC = () => {
         <section className={Style.cart}>
           <div className="container">
             <div className={Style.empty}>
-              <Placeholder />
+              <Empty />
             </div>
           </div>
         </section>
@@ -63,7 +68,19 @@ const Cart: React.FC = () => {
 
           {cartItems.length > 0 && !isEmpty && (
             <div style={{ marginTop: "50px" }}>
-              <Slider items={filteredItems} />
+              <Title title="You may be interested in">
+                <Slider>
+                  {filteredItems.map((item) => (
+                    <SwiperSlide key={item.id}>
+                      <ItemsWrapper gridUnset>
+                        <div className={CatalogStyle.list}>
+                          <ItemList {...item} />
+                        </div>
+                      </ItemsWrapper>
+                    </SwiperSlide>
+                  ))}
+                </Slider>
+              </Title>
             </div>
           )}
         </div>

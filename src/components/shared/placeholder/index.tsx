@@ -3,41 +3,49 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Style from "./placeholder.module.scss";
-import { data } from "./static-data";
+import { useSession } from "next-auth/react";
 
 interface Props {
-  title?: string;
-  subtitle?: string;
+  title: string;
+  subtitle: string;
   link?: string;
   linkValue?: string;
 }
 
 const Placeholder: React.FC<Props> = ({
-  title = data.title,
-  subtitle = data.subtitle,
-  link = data.link,
-  linkValue = data.linkValue,
+  title,
+  subtitle,
+  link = "/",
+  linkValue = "Or Back to Home",
 }) => {
   const pathname = usePathname();
 
+  const { data: session } = useSession();
+
   return (
     <div className={Style.placeholder}>
-      <h4>{title}</h4>
+      <>
+        <h4 className={Style.title}>{title}</h4>
 
-      <p>{subtitle}</p>
+        <p>{subtitle}</p>
 
-      <Link
-        className={
-          pathname === "/login" ? `${Style.login} ${Style.active}` : Style.login
-        }
-        href="/login"
-      >
-        {data.login}
-      </Link>
+        {!session && (
+          <Link
+            className={
+              pathname === "/login"
+                ? `${Style.login} ${Style.active}`
+                : Style.login
+            }
+            href="/login"
+          >
+            Log In
+          </Link>
+        )}
 
-      <Link href={link}>
-        <span>{linkValue}</span>
-      </Link>
+        <Link href={link}>
+          <span>{linkValue}</span>
+        </Link>
+      </>
     </div>
   );
 };
