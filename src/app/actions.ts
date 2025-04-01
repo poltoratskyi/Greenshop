@@ -138,7 +138,7 @@ export const updateUserProfile = async (
     }
 
     await prisma.user.update({
-      where: { id: currentUser.id },
+      where: { email: currentUser.email as string },
       data: {
         firstName: data?.firstName,
         lastName: data?.lastName,

@@ -11,6 +11,8 @@ const Info: React.FC = () => {
   const setIsOrderOpen = useUIStore((state) => state.setIsOrderOpen);
   const isOrderSuccess = useUIStore((state) => state.isOrderSuccess);
 
+  console.log(order?.firstName);
+
   return (
     <div className={Style.content}>
       <div className={Style.header}>

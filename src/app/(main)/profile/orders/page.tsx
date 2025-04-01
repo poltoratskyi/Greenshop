@@ -1,7 +1,6 @@
 import { Orders } from "@/components/shared/profile";
 import { processProfileOrderItems } from "@/data/process-profile-order-items";
 import { getOrderItems, getUserSession } from "@/lib/server";
-import { prisma } from "@/prisma/prisma-client";
 import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";

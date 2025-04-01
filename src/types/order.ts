@@ -55,8 +55,9 @@ export type OrderItemVariation = Id &
 export type OrderItem = {
   id: number;
 
-  variationId: number;
   quantity: number;
+  orderId: number;
+  variationId: number;
 
   item: {
     id: number;

@@ -5,7 +5,7 @@ import { NextResponse, NextRequest } from "next/server";
 import { cookies } from "next/headers";
 import { processOrderItems } from "../../../data";
 
-export async function GET(req: NextRequest) {
+export async function GET(request: NextRequest) {
   try {
     // Get the token
     const token = (await cookies()).get("cartToken")?.value;
@@ -27,7 +27,8 @@ export async function GET(req: NextRequest) {
     }
 
     // Get the email
-    const email = await req.json();
+    const url = new URL(request.url);
+    const email = url.searchParams.get("email");
 
     if (!email) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
@@ -35,7 +36,7 @@ export async function GET(req: NextRequest) {
 
     const userOrder = await prisma.order.findMany({
       where: {
-        email: email.email,
+        email: email,
       },
     });
 

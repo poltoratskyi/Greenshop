@@ -44,6 +44,11 @@ const Orders: React.FC<Props> = ({ data }) => {
                     </div>
 
                     <div className={Style.box}>
+                      Order number:{" "}
+                      <span className={Style.text}>{product.orderId}</span>
+                    </div>
+
+                    <div className={Style.box}>
                       Date:{" "}
                       <span className={Style.text}>
                         {new Date(item.createdAt).toLocaleDateString("en-US", {

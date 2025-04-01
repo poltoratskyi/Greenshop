@@ -3,13 +3,16 @@ import { CartItemVariation, OrderItem, OrderItems } from "../types";
 export const processProfileOrderItems = (data: OrderItems[]) => {
   return data.map((i: OrderItems) => ({
     id: i.id,
+
     createdAt: i.createdAt,
     status: i.status,
     totalAmount: i.totalAmount,
 
     items: i.items.map((item: OrderItem) => ({
       id: item.id,
+
       quantity: item.quantity,
+      orderId: item.orderId,
       variationId: item.variationId - 1,
 
       item: {

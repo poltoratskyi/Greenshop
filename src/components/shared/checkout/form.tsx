@@ -81,9 +81,11 @@ const Form: React.FC<Props> = ({
       notes: data.notes,
     };
 
+    loadUserOrder(data.email);
+
     try {
       await addUserOrder(orderData);
-      loadUserOrder(data.email);
+
       reset();
 
       setIsOrderSuccess(true);

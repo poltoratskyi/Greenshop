@@ -14,6 +14,7 @@ export const getOrderItems = async (email: string) => {
 
     select: {
       id: true,
+
       createdAt: true,
       status: true,
       totalAmount: true,
@@ -22,6 +23,7 @@ export const getOrderItems = async (email: string) => {
         select: {
           id: true,
 
+          orderId: true,
           variationId: true,
           quantity: true,
 
