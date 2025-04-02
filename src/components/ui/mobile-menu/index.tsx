@@ -59,8 +59,8 @@ const MobileMenu: React.FC = () => {
                 pathname === "/login"
                   ? `${Style.link} ${Style.active}`
                   : status === "loading"
-                  ? `${Style.link} ${Style.loading}`
-                  : Style.link
+                    ? `${Style.link} ${Style.loading}`
+                    : Style.link
               }
               href="/login"
             >
@@ -69,13 +69,11 @@ const MobileMenu: React.FC = () => {
           ) : (
             <Link
               className={
-                pathname === "/profile"
+                pathname === "/profile/wishlist"
                   ? `${Style.link} ${Style.active}`
-                  : status === "authenticated"
-                  ? `${Style.link} ${Style.authenticated}`
                   : Style.link
               }
-              href="/profile"
+              href="/profile/wishlist"
             >
               {svgHeart}
             </Link>
@@ -104,8 +102,8 @@ const MobileMenu: React.FC = () => {
                 pathname === "/login"
                   ? `${Style.link} ${Style.active}`
                   : status === "loading"
-                  ? `${Style.link} ${Style.loading}`
-                  : Style.link
+                    ? `${Style.link} ${Style.loading}`
+                    : Style.link
               }
               href="/login"
             >
@@ -114,9 +112,7 @@ const MobileMenu: React.FC = () => {
           ) : (
             <Link
               className={
-                pathname === "/profile"
-                  ? `${Style.link} ${Style.active}`
-                  : status === "authenticated"
+                status === "authenticated"
                   ? `${Style.link} ${Style.authenticated}`
                   : Style.link
               }

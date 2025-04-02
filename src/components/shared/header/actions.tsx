@@ -58,8 +58,8 @@ const Actions: React.FC = () => {
             pathname === "/login"
               ? `${Style.link} ${Style.active}`
               : status === "loading"
-              ? `${Style.link} ${Style.loading}`
-              : Style.link
+                ? `${Style.link} ${Style.loading}`
+                : Style.link
           }
           href="/login"
         >
@@ -69,10 +69,10 @@ const Actions: React.FC = () => {
         <Link
           className={
             pathname === "/profile"
-              ? `${Style.link} ${Style.active}`
+              ? `${Style.link} ${Style.login}`
               : status === "authenticated"
-              ? `${Style.link} ${Style.authenticated}`
-              : Style.link
+                ? `${Style.link} ${Style.authenticated}`
+                : Style.link
           }
           href="/profile"
         >

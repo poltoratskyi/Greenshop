@@ -1,4 +1,4 @@
-import { getUserCart, getUserSession } from "../../../lib/server";
+import { getUserCart } from "../../../lib/server";
 import { sendOrderEmail } from "../../../lib/server";
 import { prisma } from "../../../prisma/prisma-client";
 import { NextResponse, NextRequest } from "next/server";
@@ -13,15 +13,6 @@ export async function GET(request: NextRequest) {
     if (!token) {
       return NextResponse.json(
         { error: "Cart token not found" },
-        { status: 400 }
-      );
-    }
-
-    const session = await getUserSession();
-
-    if (!session) {
-      return NextResponse.json(
-        { error: "User session not found" },
         { status: 400 }
       );
     }
@@ -63,23 +54,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const session = await getUserSession();
-
-    if (!session) {
-      return NextResponse.json(
-        { error: "User session not found" },
-        { status: 400 }
-      );
-    }
-
-    const user = await prisma.user.findUnique({
-      where: { email: session.email as string },
-    });
-
-    if (!user) {
-      return NextResponse.json({ error: "User not found" }, { status: 400 });
-    }
-
     const {
       id,
       firstName,
@@ -111,6 +85,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const user = await prisma.user.findUnique({
+      where: { email: email },
+    });
+
     const userCart = await getUserCart(token);
 
     if (!userCart || userCart.totalAmount === 0) {
@@ -133,7 +111,7 @@ export async function POST(request: NextRequest) {
         zip,
         notes,
         totalAmount: userCart.totalAmount,
-        userId: session?.id || null,
+        userId: user?.id || userCart.userId,
         status: "SUCCEEDED",
       },
     });
@@ -154,27 +132,20 @@ export async function POST(request: NextRequest) {
       })),
     });
 
-    const findUser = await prisma.user.findFirst({
-      where: { email: order.email },
-    });
-
-    if (findUser) {
+    if (user) {
       await prisma.user.update({
         where: { email: order.email },
         data: {
-          firstName:
-            findUser.firstName === null ? order.firstName : findUser.firstName,
-          lastName:
-            findUser.lastName === null ? order.lastName : findUser.lastName,
-          email: findUser.email === null ? order.email : findUser.email,
-          city: findUser.city === null ? order.city : findUser.city,
-          address: findUser.address === null ? order.address : findUser.address,
-          apartment:
-            findUser.apartment === null ? order.apartment : findUser.apartment,
-          country: findUser.country === null ? order.country : findUser.country,
-          state: findUser.state === null ? order.state : findUser.state,
-          zip: findUser.zip === null ? order.zip : findUser.zip,
-          phone: findUser.phone === null ? order.phone : findUser.phone,
+          firstName: user.firstName === null ? order.firstName : user.firstName,
+          lastName: user.lastName === null ? order.lastName : user.lastName,
+          email: user.email === null ? order.email : user.email,
+          city: user.city === null ? order.city : user.city,
+          address: user.address === null ? order.address : user.address,
+          apartment: user.apartment === null ? order.apartment : user.apartment,
+          country: user.country === null ? order.country : user.country,
+          state: user.state === null ? order.state : user.state,
+          zip: user.zip === null ? order.zip : user.zip,
+          phone: user.phone === null ? order.phone : user.phone,
         },
       });
     }

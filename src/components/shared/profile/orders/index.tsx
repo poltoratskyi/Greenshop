@@ -37,19 +37,19 @@ const Orders: React.FC<Props> = ({ data }) => {
                 {item.items.map((product: OrderItem) => (
                   <SwiperSlide key={product.id}>
                     <div className={Style.box}>
-                      Order status:{" "}
+                      Order Status:{" "}
                       <span className={`${Style.text} ${Style.status}`}>
                         {item.status}
                       </span>
                     </div>
 
                     <div className={Style.box}>
-                      Order number:{" "}
+                      Order Number:{" "}
                       <span className={Style.text}>{product.orderId}</span>
                     </div>
 
                     <div className={Style.box}>
-                      Date:{" "}
+                      Date Placed:{" "}
                       <span className={Style.text}>
                         {new Date(item.createdAt).toLocaleDateString("en-US", {
                           year: "numeric",
@@ -67,7 +67,7 @@ const Orders: React.FC<Props> = ({ data }) => {
                     </div>
 
                     <div className={Style.box}>
-                      Order total:{" "}
+                      Total:{" "}
                       <span className={Style.text}>
                         ${item.totalAmount.toFixed(2)}
                       </span>

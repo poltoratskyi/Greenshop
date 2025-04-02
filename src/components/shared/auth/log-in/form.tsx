@@ -58,9 +58,12 @@ const Form: React.FC = () => {
       setIsToastOpen(true);
       reset();
 
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 3000));
 
       setIsToastOpen(false);
+
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
       closeModal();
       router.push("/");
     } catch (error) {

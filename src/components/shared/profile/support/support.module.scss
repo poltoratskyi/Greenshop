@@ -1,0 +1,38 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.title {
+  @include m.subtitle();
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  @include m.description($c: v.$text);
+  margin-bottom: 10px;
+}
+
+.lists {
+  .list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
+    .descr {
+      @include m.description($c: v.$text);
+
+      a {
+        transition: all 0.2s ease;
+
+        &:hover {
+          text-decoration: underline;
+          color: v.$main;
+        }
+      }
+    }
+  }
+}

@@ -11,8 +11,6 @@ const Info: React.FC = () => {
   const setIsOrderOpen = useUIStore((state) => state.setIsOrderOpen);
   const isOrderSuccess = useUIStore((state) => state.isOrderSuccess);
 
-  console.log(order?.firstName);
-
   return (
     <div className={Style.content}>
       <div className={Style.header}>
@@ -28,7 +26,7 @@ const Info: React.FC = () => {
         {isOrderSuccess ? (
           <p>
             Hello, <span className={Style.mark}>{order?.firstName} </span>
-            your order <span className={Style.mark}>#{order?.id}</span> is
+            your order number <span className={Style.mark}>{order?.id}</span> is
             currently being processed. You will receive an email shortly with
             the details of your order.
           </p>

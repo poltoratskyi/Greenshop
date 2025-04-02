@@ -46,6 +46,14 @@
           }
         }
 
+        &.login {
+          pointer-events: none;
+          svg {
+            stroke: v.$main;
+            fill: v.$main;
+          }
+        }
+
         &.loading {
           pointer-events: none;
           svg {
@@ -56,6 +64,7 @@
         &.authenticated {
           svg {
             stroke: v.$main;
+            fill: v.$main;
           }
         }
       }
