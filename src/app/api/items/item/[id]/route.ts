@@ -6,7 +6,10 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
-export async function GET(request: NextRequest, { params }: Props) {
+export async function GET(
+  request: NextRequest,
+  { params }: Props
+): Promise<NextResponse> {
   try {
     const { id } = await params;
 

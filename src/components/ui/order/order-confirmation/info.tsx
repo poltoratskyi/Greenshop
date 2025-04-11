@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Style from "./order-confirmation.module.scss";
 import { svgThanks } from "./static-data";
-import { useOrderStore, useUIStore } from "../../../store";
+import { useOrderStore, useUIStore } from "../../../../store";
 
 const Info: React.FC = () => {
   const order = useOrderStore((state) => state.order);

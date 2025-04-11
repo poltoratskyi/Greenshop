@@ -1,5 +1,5 @@
-import Support from "@/components/shared/profile/support";
-import { getUserSession } from "@/lib/server";
+import Support from "../../../../components/shared/profile/support";
+import { getUserSession } from "../../../../lib/server";
 import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";

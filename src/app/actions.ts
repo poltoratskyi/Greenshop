@@ -4,18 +4,16 @@ import {
   ProfileAccountDetailsFormFields,
   SignUpFormFields,
   ProfileAddressFormFields,
-} from "@/schemas";
+} from "../schemas";
 import {
-  getUserCart,
+  getOrCreateUserWishlist,
   getUserSession,
-  sendOrderEmail,
   subscribe,
 } from "../lib/server";
 import { prisma } from "../prisma/prisma-client";
 import { Email } from "../types/common";
 import { compare, hashSync } from "bcrypt";
-import { cookies } from "next/headers";
-import { CartItemVariation, Order } from "@/types";
+import { PostCartItem } from "../types";
 
 export const createSubscription = async (data: Email) => {
   try {
@@ -193,6 +191,73 @@ export const updateUserAddress = async (data: ProfileAddressFormFields) => {
       success: true,
       error: null,
       message: "Address updated successfully",
+    };
+  } catch (error) {
+    console.error("Update address error:", error);
+    return {
+      success: false,
+      error:
+        error instanceof Error ? error.message : "An unexpected error occurred",
+    };
+  }
+};
+
+export const addWishlistItem = async (data: PostCartItem) => {
+  try {
+    const session = await getUserSession();
+
+    const user = await prisma.user.findUnique({
+      where: {
+        email: session?.email as string,
+      },
+    });
+
+    if (!session || !user) {
+      return {
+        success: false,
+        error: "User not found",
+      };
+    }
+
+    const { itemId, variationId } = data;
+
+    if (!itemId) {
+      return {
+        success: false,
+        error: "Item ID is required",
+      };
+    }
+
+    const userWishlist = await getOrCreateUserWishlist(user.id);
+
+    // Check if the wishlist item is already in the wishlist
+    const existingItem = await prisma.wishlistItem.findFirst({
+      where: {
+        wishlistId: userWishlist.id,
+        itemId: itemId,
+        variationId: variationId,
+      },
+    });
+
+    // If the wishlist item is already in the wishlist, update the quantity
+    if (existingItem) {
+      return {
+        success: false,
+        error: "Item already in wishlist",
+      };
+    }
+    // If the wishlist item is not in the wishlist, add it
+    await prisma.wishlistItem.create({
+      data: {
+        wishlistId: userWishlist.id,
+        itemId: itemId,
+        variationId: variationId,
+      },
+    });
+
+    return {
+      success: true,
+      message: "Item added to wishlist successfully",
     };
   } catch (error) {
     console.error("Update address error:", error);

@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { Window } from "../../../../components/shared/auth";
-import { getUserSession } from "@/lib/server";
+import { getUserSession } from "../../../../lib/server";
 
 export const dynamic = "force-dynamic";
 

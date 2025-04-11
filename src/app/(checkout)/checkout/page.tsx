@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
-import { prisma } from "@/prisma/prisma-client";
+import { prisma } from "../../../prisma/prisma-client";
 import Checkout from "../../../components/shared/checkout";
 import { redirect } from "next/navigation";
-import { getUserSession } from "@/lib/server";
+import { getUserSession } from "../../../lib/server";
 
 export const dynamic = "force-dynamic";
 

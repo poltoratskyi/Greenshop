@@ -58,6 +58,9 @@
         }
 
         .control {
+          display: flex;
+          align-items: center;
+          gap: 30px;
           position: absolute;
           bottom: 0;
           left: 50%;
@@ -68,7 +71,7 @@
 
           .favorite {
             display: inline-block;
-            margin-right: 30px;
+            background-color: transparent;
 
             & > [data-type="heart"] {
               cursor: pointer;
@@ -79,15 +82,8 @@
                 }
               }
 
-              &.loading {
-                pointer-events: none;
-                svg {
-                  stroke: v.$sale-line;
-                }
-              }
-
-              &.authenticated {
-                svg {
+              &.active {
+                path {
                   stroke: v.$main;
                 }
               }
@@ -95,6 +91,7 @@
           }
 
           .cart {
+            display: inline-block;
             background-color: transparent;
 
             & > [data-type="cart"] {
@@ -105,10 +102,19 @@
               }
             }
           }
-        }
 
-        .control_mobile {
-          display: none;
+          .delete {
+            display: inline-block;
+            background-color: transparent;
+
+            & > [data-type="delete"] {
+              cursor: pointer;
+
+              &:hover {
+                stroke: tomato;
+              }
+            }
+          }
         }
       }
 
@@ -178,47 +184,43 @@
           border-radius: 6px;
           padding: 15px;
 
-          .control,
-          .control_mobile {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 36px;
-            width: 36px;
-            transform: none;
-            opacity: 1;
+          .control {
+            display: block;
             visibility: visible;
-            bottom: auto;
-            background-color: #fff;
-            border-radius: 100%;
-            border: 1px solid #fff;
+            opacity: 1;
+            left: 0;
+            transform: none;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+
+            .favorite,
+            .cart,
+            .delete {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: absolute;
+              background-color: #fff;
+              border-radius: 50%;
+              height: 40px;
+              width: 40px;
+            }
 
             .favorite {
-              margin-right: 0px;
-              & > [data-type="heart"] {
-                path {
-                  stroke: v.$main;
-                }
-              }
+              right: 15px;
+              bottom: 15px;
             }
 
             .cart {
-              display: none;
+              left: 15px;
+              bottom: 15px;
             }
-          }
 
-          .control {
-            left: auto;
-            top: 0;
-            right: 0;
-            margin: 10px 10px 0px 0px;
-          }
-
-          .control_mobile {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            margin: 0px 0px 10px 10px;
+            .delete {
+              top: 15px;
+              right: 15px;
+            }
           }
         }
 

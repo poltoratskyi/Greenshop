@@ -6,8 +6,8 @@ import SignUp from "../sign-up/sign-up";
 import Login from "../log-in";
 import Container from "../container";
 import Toast from "../../toast";
-import { useToastHandling } from "@/lib/client";
 import Overlay from "../../../ui/overlay";
+import { useToastHandling } from "../../../../hooks";
 
 const Window: React.FC = () => {
   const isModalActionOpen = useUIStore((state) => state.isModalActionOpen);

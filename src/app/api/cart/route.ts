@@ -51,12 +51,21 @@ export async function POST(request: NextRequest) {
     // Get the data from the request
     const data = await request.json();
 
+    const { itemId, variationId } = data;
+
+    if (!itemId || !variationId) {
+      return NextResponse.json(
+        { error: "Item ID or Variation ID is required" },
+        { status: 400 }
+      );
+    }
+
     // Check if the cart item is already in the cart
     const searchCartItemInTheCart = await prisma.cartItem.findFirst({
       where: {
         cartId: createUserCartToken.id,
-        itemId: data.itemId,
-        variationId: data.variationId,
+        itemId: itemId,
+        variationId: variationId,
       },
     });
 
@@ -76,8 +85,8 @@ export async function POST(request: NextRequest) {
       await prisma.cartItem.create({
         data: {
           cartId: createUserCartToken.id,
-          itemId: data.itemId,
-          variationId: data.variationId,
+          itemId: itemId,
+          variationId: variationId,
         },
       });
     }

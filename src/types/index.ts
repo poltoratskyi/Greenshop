@@ -26,8 +26,11 @@ import {
 import { Place, ZipCodeData } from "./zip-code";
 import { NominatimLocation } from "./nominatim-location";
 import { OrderEmail, OrderTemplate } from "./order-email";
+import { WishlistResponse, WishlistItem } from "./wishlist";
 
 export type {
+  WishlistResponse,
+  WishlistItem,
   OrderItem,
   OrderItems,
   OrderItemVariation,

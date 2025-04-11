@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import Style from "./size-selection-modal.module.scss";
 import { ItemVariation } from "../../../types";
 import Info from "./info";
-import { useUIStore, useCartStore } from "../../../store";
+import { useUIStore, useCartStore, useWishlistStore } from "../../../store";
 import Loader from "../button/loader";
 import { saveViewedProduct } from "../../../lib/client";
-import { useAddToCart } from "../../../hooks";
+import { useAddToCartOrWishlist } from "../../../hooks";
 
 interface Props {
   variations: ItemVariation[];
@@ -21,14 +20,14 @@ interface Props {
 }
 
 const Item: React.FC<Props> = ({ variations, id, imgUrl, name, tags, sku }) => {
-  const router = useRouter();
-
   const isItemAdded = useCartStore((state) => state.isItemAdded);
 
+  const openedModalType = useUIStore((state) => state.openedModalType);
   const selectedSizeId = useUIStore((state) => state.selectedSizeId);
   const setIsModalSizeOpen = useUIStore((state) => state.setIsModalSizeOpen);
+  const isLoading = useUIStore((state) => state.isLoading);
 
-  const { handleAddToCart } = useAddToCart();
+  const { handleAdd } = useAddToCartOrWishlist();
 
   return (
     <>
@@ -93,21 +92,15 @@ const Item: React.FC<Props> = ({ variations, id, imgUrl, name, tags, sku }) => {
             className={Style.variation}
             style={{
               position: "relative",
-              pointerEvents: isItemAdded ? "none" : "auto",
-              cursor: isItemAdded ? "not-allowed" : "pointer",
+              pointerEvents: isItemAdded || isLoading ? "none" : "auto",
+              cursor: isItemAdded || isLoading ? "not-allowed" : "pointer",
             }}
             key={variation.id}
-            onClick={() => {
-              handleAddToCart(id, variation.sizeId - 1, variations);
-              setIsModalSizeOpen(false);
-              router.push("/cart");
-
-              window.scrollTo({
-                top: 0,
-              });
-            }}
+            onClick={() =>
+              handleAdd(id, variation.sizeId, variations, openedModalType)
+            }
           >
-            {isItemAdded ? (
+            {isItemAdded || isLoading ? (
               <>
                 {selectedSizeId === variation.sizeId && <Loader modal />}
 

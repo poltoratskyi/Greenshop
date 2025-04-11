@@ -1,6 +1,6 @@
-import { Address } from "@/components/shared/profile";
-import { getUserSession } from "@/lib/server";
-import { prisma } from "@/prisma/prisma-client";
+import { Address } from "../../../../components/shared/profile";
+import { getUserSession } from "../../../../lib/server";
+import { prisma } from "../../../../prisma/prisma-client";
 import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";

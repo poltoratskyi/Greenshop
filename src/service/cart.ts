@@ -22,7 +22,7 @@ export const deleteCartItem = async (id: number): Promise<CartResponse> => {
   return response.data;
 };
 
-export const addItemCart = async (
+export const addCartItem = async (
   item: PostCartItem
 ): Promise<CartResponse> => {
   const response = await AxiosInstance.post<CartResponse>(`/cart/`, item);

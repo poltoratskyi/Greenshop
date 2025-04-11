@@ -4,33 +4,34 @@
 .nav {
   .lists {
     .list {
-      .link {
-        @include m.description($lh: 55px, $c: v.$text, $fw: 500);
+      @include m.description($lh: 55px, $c: v.$text, $fw: 500);
 
-        padding: 0px 12px;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        transition: all 0.2s ease;
+      cursor: pointer;
+      transition: all 0.1s ease;
+
+      &:hover {
+        background-color: v.$background;
+        color: v.$main;
+      }
+
+      &.active {
+        color: v.$main;
+        background-color: v.$background;
+        border-left: 5px solid v.$main;
+
+        svg {
+          stroke: v.$main;
+        }
 
         &:hover {
           background-color: v.$background;
-          color: v.$main;
         }
+      }
 
-        &.active {
-          color: v.$main;
-          background-color: #fff;
-          border-left: 5px solid v.$main;
-
-          svg {
-            stroke: v.$main;
-          }
-
-          &:hover {
-            background-color: v.$background;
-          }
-        }
+      .link {
+        padding: 0px 12px;
+        display: flex;
+        align-items: center;
 
         .text {
           display: block;

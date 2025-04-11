@@ -9,8 +9,10 @@ import { useUIStore } from "./ui";
 import { useZipCodeStore } from "./zip-code";
 import { useLocationStore } from "./location";
 import { useOrderStore } from "./order";
+import { useWishlistStore } from "./wishlist";
 
 export {
+  useWishlistStore,
   useOrderStore,
   useZipCodeStore,
   useLocationStore,

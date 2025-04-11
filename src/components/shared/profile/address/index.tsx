@@ -5,27 +5,38 @@ import {
   Label,
   Error,
   Container,
-} from "@/components/ui/common-form-elements";
+} from "../../../../components/ui/common-form-elements";
 import { Content, Review, Wrapper } from "../../layout";
 import Autocomplete from "../../../ui/profile-inputs/autocomplete";
 import ZipCodeInput from "../../../ui/profile-inputs/zip-code";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
-import { ProfileAddressFormFields, profileAddressFormSchema } from "@/schemas";
-import { User } from "@/types";
-import { useLocationData } from "@/hooks";
-import Button from "@/components/ui/button";
-import { useToastHandling } from "@/lib/client";
-import { updateUserAddress } from "@/app/actions";
+import { useEffect, useState } from "react";
+import {
+  ProfileAddressFormFields,
+  profileAddressFormSchema,
+} from "../../../../schemas";
+import { User } from "../../../../types";
+import { useLocationData, useToast, useToastHandling } from "../../../../hooks";
+import Button from "../../../../components/ui/button";
+import { updateUserAddress } from "../../../../app/actions";
 import Toast from "../../toast";
+import Loader from "../../../../components/ui/loader";
 
 interface Props {
   data: User;
 }
 
 const Address: React.FC<Props> = ({ data }) => {
+  const [loading, setLoading] = useState(!data);
+
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+    }
+  }, [data]);
 
   const {
     isToastOpen,
@@ -59,6 +70,8 @@ const Address: React.FC<Props> = ({ data }) => {
     loadState,
   } = useLocationData();
 
+  const { showToast } = useToast();
+
   const {
     register,
     handleSubmit,
@@ -86,9 +99,7 @@ const Address: React.FC<Props> = ({ data }) => {
       const response = await updateUserAddress(data);
 
       if (!response.success) {
-        setIsSuccessToast(false);
-        setToastType(response.error || "Something went wrong");
-        setIsToastOpen(true);
+        await showToast(response.error || "Something went wrong", false);
         setIsLoading(false);
         return;
       }
@@ -102,23 +113,26 @@ const Address: React.FC<Props> = ({ data }) => {
         zip: "",
       });
 
-      setIsSuccessToast(true);
-      setToastType(response.message || "Something went wrong");
-      setIsToastOpen(true);
-
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
+      await showToast(response.message || "Something went wrong", true);
       setIsLoading(false);
-      setIsToastOpen(false);
     } catch (error) {
+      await showToast("Something went wrong", false);
+      setIsLoading(false);
       console.error("Login error:", error);
-      setIsSuccessToast(false);
-      setToastType("Something went wrong");
-      setIsToastOpen(true);
     } finally {
       setIsLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <Wrapper>
+        <Review title="Address">
+          <Loader />
+        </Review>
+      </Wrapper>
+    );
+  }
 
   return (
     <>

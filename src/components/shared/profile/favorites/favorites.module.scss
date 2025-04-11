@@ -1,0 +1,8 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.wrapper {
+  max-width: 350px;
+  display: block;
+  margin: 120px auto;
+}

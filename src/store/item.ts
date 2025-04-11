@@ -5,11 +5,11 @@ import { fetchSingleItem } from "../service";
 interface ItemState {
   item: Item[];
   isLoading: boolean;
-  loadItem: (id: number) => Promise<void>;
+  loadItem: (itemId: number) => Promise<void>;
 
   modalItem: Item[];
   modalIsLoading: boolean;
-  loadModalSingleItem: (id: number) => Promise<void>;
+  loadModalSingleItem: (itemId: number) => Promise<void>;
 
   error: string | null;
 }
@@ -23,11 +23,11 @@ export const useItemStore = create<ItemState>((set) => ({
 
   error: null,
 
-  loadItem: async (id: number) => {
+  loadItem: async (itemId: number) => {
     set({ isLoading: true, error: null });
 
     try {
-      const response = await fetchSingleItem(id);
+      const response = await fetchSingleItem(itemId);
       set({ item: response });
     } catch (err) {
       set({ error: "Failed to fetch item", isLoading: false });
@@ -37,11 +37,11 @@ export const useItemStore = create<ItemState>((set) => ({
     }
   },
 
-  loadModalSingleItem: async (id: number) => {
+  loadModalSingleItem: async (itemId: number) => {
     set({ modalIsLoading: true, error: null });
 
     try {
-      const response = await fetchSingleItem(id);
+      const response = await fetchSingleItem(itemId);
       set({ modalItem: response });
     } catch (err) {
       set({ error: "Failed to fetch item", modalIsLoading: false });

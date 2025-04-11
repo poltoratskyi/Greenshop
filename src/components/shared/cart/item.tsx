@@ -2,6 +2,7 @@ import { CartItemVariation } from "../../../types";
 import Style from "./cart.module.scss";
 import { Delete, IImage, Price, Quantity, Total } from "../../ui/cart";
 import ItemInfo from "../../ui/item-info";
+import { useCartStore } from "../../../store";
 
 interface Props {
   id: number;
@@ -26,6 +27,8 @@ const Item: React.FC<Props> = ({
   variationId,
   singleItemPrice,
 }) => {
+  const deleteCartItem = useCartStore((state) => state.deleteCartItem);
+
   return (
     <li className={Style.item}>
       <div className={Style.layout}>
@@ -60,7 +63,7 @@ const Item: React.FC<Props> = ({
           <Quantity hiddenQtyBtns={false} id={id} quantity={quantity} />
 
           <Total singleItemPrice={singleItemPrice} />
-          <Delete id={id} />
+          <Delete onClick={deleteCartItem} itemId={id} />
         </div>
       </div>
     </li>

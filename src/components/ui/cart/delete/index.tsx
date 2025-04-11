@@ -1,20 +1,18 @@
 "use client";
 
-import { useCartStore } from "../../../../store";
 import Style from "./delete.module.scss";
 import { svgTrash } from "./static-data";
 
 interface Props {
-  id: number;
+  itemId: number;
+  onClick: (itemId: number) => void;
 }
 
-const Delete: React.FC<Props> = ({ id }) => {
-  const deleteCartItem = useCartStore((state) => state.deleteCartItem);
-
+const Delete: React.FC<Props> = ({ itemId, onClick }) => {
   return (
     <span
       className={Style.delete}
-      onClick={() => deleteCartItem(id)}
+      onClick={() => onClick(itemId)}
       aria-label="Delete item"
     >
       {svgTrash}

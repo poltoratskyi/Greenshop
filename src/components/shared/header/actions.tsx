@@ -4,10 +4,17 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Style from "./header.module.scss";
-import { useCartStore, useUIStore } from "../../../store";
-import { svgCart, svgProfile, svgSearch, svgProfileIn } from "./static-data";
+import { useCartStore, useUIStore, useWishlistStore } from "../../../store";
+import {
+  svgCart,
+  svgProfile,
+  svgSearch,
+  svgProfileIn,
+  svgHeart,
+} from "./static-data";
 import MiniCart from "../../ui/cart/mini-cart";
 import Summary from "../../ui/cart/mini-cart/summary";
+import { useEffect } from "react";
 
 const Actions: React.FC = () => {
   const { data: session, status } = useSession();
@@ -17,6 +24,16 @@ const Actions: React.FC = () => {
   const cartItems = useCartStore((state) => state.cartItems);
 
   const setIsSearchOpen = useUIStore((state) => state.setIsSearchOpen);
+  const isLoading = useUIStore((state) => state.isLoading);
+
+  const wishlist = useWishlistStore((state) => state.wishlistItems);
+  const loadUserWishlist = useWishlistStore((state) => state.loadUserWishlist);
+
+  useEffect(() => {
+    if (status === "authenticated" || isLoading === true) {
+      loadUserWishlist();
+    }
+  }, [status, isLoading === true]);
 
   return (
     <div className={Style.actions}>
@@ -51,6 +68,21 @@ const Actions: React.FC = () => {
           <Summary />
         </div>
       </div>
+
+      {session && (
+        <Link
+          className={
+            pathname === "/profile/wishlist"
+              ? `${Style.link} ${Style.active}`
+              : Style.link
+          }
+          href="/profile/wishlist"
+        >
+          {wishlist.length > 0 && <span>{wishlist.length}</span>}
+
+          {svgHeart}
+        </Link>
+      )}
 
       {!session ? (
         <Link

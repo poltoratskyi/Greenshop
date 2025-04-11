@@ -1,4 +1,4 @@
-import { useUIStore } from "../../store";
+import { useUIStore } from "../store";
 
 export const useToastHandling = () => {
   const isToastOpen = useUIStore((state) => state.isToastOpen);

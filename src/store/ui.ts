@@ -37,6 +37,12 @@ interface UIState {
   isModalSizeOpen: boolean;
   setIsModalSizeOpen: (isOpen: boolean) => void;
 
+  openedModalType: boolean;
+  setOpenedModalType: (isOpen: boolean) => void;
+
+  isLoading: boolean;
+  setIsLoading: (isOpen: boolean) => void;
+
   selectedSizeId: number | null;
   setSelectedItemSizeId: (id: number) => void;
 
@@ -111,6 +117,12 @@ export const useUIStore = create<UIState>((set) => ({
   // Modal Size
   isModalSizeOpen: false,
   setIsModalSizeOpen: (isOpen) => set({ isModalSizeOpen: isOpen }),
+
+  isLoading: false,
+  setIsLoading: (isOpen) => set({ isLoading: isOpen }),
+
+  openedModalType: false,
+  setOpenedModalType: (isOpen) => set({ openedModalType: isOpen }),
 
   selectedSizeId: null,
   setSelectedItemSizeId: (id) => set({ selectedSizeId: id }),

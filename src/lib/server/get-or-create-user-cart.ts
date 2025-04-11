@@ -2,6 +2,10 @@ import { prisma } from "../../prisma/prisma-client";
 
 export const getOrCreateUserCart = async (token: string) => {
   try {
+    if (!token) {
+      throw new Error("Cart token is required");
+    }
+
     let userCart = await prisma.cart.findFirst({
       where: {
         token,

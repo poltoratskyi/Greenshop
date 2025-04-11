@@ -8,18 +8,16 @@ import Button from "../../../ui/button";
 import { logInFormSchema, LogInFormFields } from "../../../../schemas";
 import { Error, Container, Input } from "../../../ui/common-form-elements";
 import { signIn } from "next-auth/react";
-import { useCloseModalAuthentication } from "../../../../hooks";
+import { useCloseModalAuthentication, useToast } from "../../../../hooks";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useToastHandling } from "@/lib/client";
 
 const Form: React.FC = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const { closeModal } = useCloseModalAuthentication();
 
-  const { setIsSuccessToast, setToastType, setIsToastOpen } =
-    useToastHandling();
+  const { showToast } = useToast();
 
   const {
     register,
@@ -46,31 +44,19 @@ const Form: React.FC = () => {
       });
 
       if (!response?.ok) {
-        setIsSuccessToast(false);
-        setToastType("Invalid email or password");
-        setIsToastOpen(true);
+        await showToast("Invalid email or password", false);
         setIsLoading(false);
         return;
       }
 
-      setIsSuccessToast(true);
-      setToastType("You have successfully logged in");
-      setIsToastOpen(true);
-      reset();
-
-      await new Promise((resolve) => setTimeout(resolve, 3000));
-
-      setIsToastOpen(false);
-
-      await new Promise((resolve) => setTimeout(resolve, 500));
-
+      await showToast("You have successfully logged in", true);
       closeModal();
+      reset();
       router.push("/");
     } catch (error) {
+      await showToast("Login failed", false);
+      setIsLoading(false);
       console.error("Login error:", error);
-      setIsSuccessToast(false);
-      setToastType("An unexpected error occurred");
-      setIsToastOpen(true);
     } finally {
       setIsLoading(false);
     }

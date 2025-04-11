@@ -2,6 +2,7 @@ import { Delete, IImage, Price, Quantity, Total } from "../../ui/cart";
 import ItemInfo from "../../ui/item-info";
 import Style from "./item-table.module.scss";
 import { CartItemVariation } from "../../../types";
+import { useCartStore } from "../../../store";
 
 interface Props {
   hiddenColumns: boolean;
@@ -32,6 +33,8 @@ const Tbody: React.FC<Props> = ({
   variationId,
   variations,
 }) => {
+  const deleteCartItem = useCartStore((state) => state.deleteCartItem);
+
   return (
     <>
       <td
@@ -101,7 +104,7 @@ const Tbody: React.FC<Props> = ({
               : Style.td
           }`}
         >
-          <Delete id={id} />
+          <Delete itemId={id} onClick={deleteCartItem} />
         </td>
       )}
     </>

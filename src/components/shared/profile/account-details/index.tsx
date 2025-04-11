@@ -9,18 +9,19 @@ import {
   Label,
   Error,
   Container,
-} from "@/components/ui/common-form-elements";
+} from "../../../../components/ui/common-form-elements";
 import {
   ProfileAccountDetailsFormFields,
   profileAccountDetailsFormSchema,
-} from "@/schemas";
+} from "../../../../schemas";
 import PhoneInput from "../../../ui/phone-input";
 import { Content } from "../../layout";
-import Button from "@/components/ui/button";
-import { useState } from "react";
-import { updateUserProfile } from "@/app/actions";
-import { useToastHandling } from "@/lib/client";
+import Button from "../../../../components/ui/button";
+import { useEffect, useState } from "react";
+import { updateUserProfile } from "../../../../app/actions";
 import Toast from "../../toast";
+import Loader from "../../../../components/ui/loader";
+import { useToast, useToastHandling } from "../../../../hooks";
 
 interface Props {
   data: User;
@@ -29,7 +30,15 @@ interface Props {
 const AccountDetails: React.FC<Props> = ({ data }) => {
   const { firstName, lastName, email, phone } = data;
 
+  const [loading, setLoading] = useState(!data);
+
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+    }
+  }, [data]);
 
   const {
     isToastOpen,
@@ -37,9 +46,9 @@ const AccountDetails: React.FC<Props> = ({ data }) => {
     isSuccessToast,
 
     setIsToastOpen,
-    setIsSuccessToast,
-    setToastType,
   } = useToastHandling();
+
+  const { showToast } = useToast();
 
   const {
     control,
@@ -68,9 +77,7 @@ const AccountDetails: React.FC<Props> = ({ data }) => {
       const response = await updateUserProfile(data);
 
       if (!response.success) {
-        setIsSuccessToast(false);
-        setToastType(response.error || "Something went wrong");
-        setIsToastOpen(true);
+        await showToast(response.error || "Something went wrong", false);
         setIsLoading(false);
         return;
       }
@@ -87,23 +94,25 @@ const AccountDetails: React.FC<Props> = ({ data }) => {
       setValue("newPassword", "");
       setValue("repeatPassword", "");
 
-      setIsSuccessToast(true);
-      setToastType(response.message || "Something went wrong");
-      setIsToastOpen(true);
-
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      setIsLoading(false);
-      setIsToastOpen(false);
+      await showToast(response.message || "Something went wrong", true);
     } catch (error) {
+      await showToast("Something went wrong", false);
+      setIsLoading(false);
       console.error("Login error:", error);
-      setIsSuccessToast(false);
-      setToastType("Something went wrong");
-      setIsToastOpen(true);
     } finally {
       setIsLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <Wrapper>
+        <Review title="Address">
+          <Loader />
+        </Review>
+      </Wrapper>
+    );
+  }
 
   return (
     <>

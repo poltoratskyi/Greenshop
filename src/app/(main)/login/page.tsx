@@ -1,4 +1,4 @@
-import { getUserSession } from "@/lib/server";
+import { getUserSession } from "../../../lib/server";
 import Registration from "../../../components/shared/registration";
 import { redirect } from "next/navigation";
 

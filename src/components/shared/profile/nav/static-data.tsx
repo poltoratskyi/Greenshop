@@ -108,3 +108,11 @@ export const svgSupport = (
     />
   </svg>
 );
+
+export const navigation = [
+  { href: "/profile", svg: svgProfile, text: "Contact Info" },
+  { href: "/profile/address", svg: svgMap, text: "Address Book" },
+  { href: "/profile/orders", svg: svgCart, text: "Order History" },
+  { href: "/profile/wishlist", svg: svgHeart, text: "Wishlist" },
+  { href: "/profile/support", svg: svgSupport, text: "Support" },
+];

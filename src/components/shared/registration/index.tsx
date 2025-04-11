@@ -6,7 +6,7 @@ import Pathname from "../../ui/pathname";
 import { useState } from "react";
 import Button from "@/components/ui/button";
 import Toast from "../toast";
-import { useToastHandling } from "@/lib/client";
+import { useToastHandling } from "@/hooks";
 
 const Registration: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);

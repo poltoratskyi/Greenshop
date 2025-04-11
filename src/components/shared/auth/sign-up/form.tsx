@@ -9,22 +9,20 @@ import { signUpFormSchema, SignUpFormFields } from "../../../../schemas";
 import Container from "../../../ui/common-form-elements/container/container";
 import Error from "../../../ui/common-form-elements/error/error";
 import { useState } from "react";
-import { registerUser } from "@/app/actions";
-import { useCloseModalAuthentication } from "@/hooks";
-import { useUIStore } from "@/store";
+import { registerUser } from "../../../../app/actions";
+import { useCloseModalAuthentication, useToast } from "../../../../hooks";
+import { useUIStore } from "../../../../store";
 import { useRouter } from "next/navigation";
-import { useToastHandling } from "@/lib/client";
 
 const Form: React.FC = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const { closeModal } = useCloseModalAuthentication();
-  const setToastType = useUIStore((state) => state.setToastType);
   const setIsModalActionOpen = useUIStore(
     (state) => state.setIsModalActionOpen
   );
 
-  const { setIsSuccessToast, setIsToastOpen } = useToastHandling();
+  const { showToast } = useToast();
 
   const {
     register,
@@ -54,31 +52,19 @@ const Form: React.FC = () => {
       });
 
       if (!response?.success) {
-        setIsSuccessToast(false);
-        setToastType(
-          "The email you have provided is already associated with an account"
-        );
-        setIsToastOpen(true);
+        await showToast("Something went wrong", false);
         setIsLoading(false);
+
         return;
       }
 
-      setIsSuccessToast(true);
-      setToastType("You have successfully created an account. Please log in");
-      setIsToastOpen(true);
-      reset();
-
-      await new Promise((resolve) => setTimeout(resolve, 3000));
-
-      setIsToastOpen(false);
+      await showToast("You have successfully created an account", true);
       setIsModalActionOpen(true);
-
-      await new Promise((resolve) => setTimeout(resolve, 500));
-
       closeModal();
-
+      reset();
       router.push("/");
     } catch (error) {
+      await showToast("Something went wrong", false);
       setIsLoading(false);
       console.log("error sign up", error);
     } finally {

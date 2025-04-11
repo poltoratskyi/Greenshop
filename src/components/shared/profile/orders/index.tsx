@@ -10,11 +10,32 @@ import CatalogStyle from "../../../shared/catalog/catalog.module.scss";
 import { SwiperSlide } from "swiper/react";
 import SizeSelectionModal from "@/components/ui/size-selection-modal";
 import Empty from "../../empty";
+import { OrderDetailsItem } from "@/components/ui/order";
+import { useEffect, useState } from "react";
+import Loader from "@/components/ui/loader";
 interface Props {
   data: OrderItems[];
 }
 
 const Orders: React.FC<Props> = ({ data }) => {
+  const [loading, setLoading] = useState(!data);
+
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+    }
+  }, [data]);
+
+  if (loading) {
+    return (
+      <Wrapper>
+        <Review title="Orders">
+          <Loader />
+        </Review>
+      </Wrapper>
+    );
+  }
+
   if (data.length === 0) {
     return (
       <Wrapper>
@@ -36,42 +57,44 @@ const Orders: React.FC<Props> = ({ data }) => {
               <div key={item.id}>
                 {item.items.map((product: OrderItem) => (
                   <SwiperSlide key={product.id}>
-                    <div className={Style.box}>
-                      Order Status:{" "}
-                      <span className={`${Style.text} ${Style.status}`}>
-                        {item.status}
-                      </span>
-                    </div>
+                    <OrderDetailsItem
+                      className="status"
+                      label="Order Status"
+                      value={item.status}
+                    />
 
-                    <div className={Style.box}>
-                      Order Number:{" "}
-                      <span className={Style.text}>{product.orderId}</span>
-                    </div>
+                    <OrderDetailsItem
+                      className="text"
+                      label="Order Number"
+                      value={product.orderId}
+                    />
 
-                    <div className={Style.box}>
-                      Date Placed:{" "}
-                      <span className={Style.text}>
-                        {new Date(item.createdAt).toLocaleDateString("en-US", {
+                    <OrderDetailsItem
+                      className="text"
+                      label="Date Placed"
+                      value={new Date(item.createdAt).toLocaleDateString(
+                        "en-US",
+                        {
                           year: "numeric",
                           month: "long",
                           day: "numeric",
                           hour: "numeric",
                           minute: "numeric",
-                        })}
-                      </span>
-                    </div>
+                        }
+                      )}
+                    />
 
-                    <div className={Style.box}>
-                      Quantity:{" "}
-                      <span className={Style.text}>{product.quantity}</span>
-                    </div>
+                    <OrderDetailsItem
+                      className="text"
+                      label="Quantity"
+                      value={product.quantity}
+                    />
 
-                    <div className={Style.box}>
-                      Total:{" "}
-                      <span className={Style.text}>
-                        ${item.totalAmount.toFixed(2)}
-                      </span>
-                    </div>
+                    <OrderDetailsItem
+                      className="text"
+                      label="Total"
+                      value={"$" + item.totalAmount.toFixed(2)}
+                    />
 
                     <ItemsWrapper gridUnset>
                       <div className={CatalogStyle.list}>

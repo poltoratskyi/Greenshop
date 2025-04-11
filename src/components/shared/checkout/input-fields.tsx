@@ -18,7 +18,7 @@ import {
 } from "../../ui/common-form-elements";
 import { Autocomplete } from "../../../components/ui/checkout-inputs";
 import { Content } from "../layout";
-import { useLocationData } from "@/hooks";
+import { useLocationData } from "../../../hooks";
 
 interface Props {
   control: Control<CheckoutFormFields>;

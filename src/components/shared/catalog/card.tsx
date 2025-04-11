@@ -9,10 +9,17 @@ import {
   saveViewedProduct,
 } from "../../../lib/client";
 import { svgCart, svgHeart } from "./static-data";
-import { useItemStore, useSearchStore, useUIStore } from "../../../store";
+import {
+  useCartStore,
+  useItemStore,
+  useSearchStore,
+  useUIStore,
+  useWishlistStore,
+} from "../../../store";
 import Price from "../../ui/cart/price";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
+import { Delete } from "../../../components/ui/cart";
 
 interface Props {
   id: number;
@@ -29,13 +36,19 @@ const Card: React.FC<Props> = ({
   variations,
   variationId,
 }) => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   const pathname = usePathname();
+
+  const deleteWishlistItem = useWishlistStore(
+    (state) => state.deleteWishlistItem
+  );
 
   const isSearchOpen = useUIStore((state) => state.isSearchOpen);
   const setIsSearchOpen = useUIStore((state) => state.setIsSearchOpen);
   const setIsModalSizeOpen = useUIStore((state) => state.setIsModalSizeOpen);
+  const setOpenedModalType = useUIStore((state) => state.setOpenedModalType);
+
   const setSearchQuery = useSearchStore((state) => state.setSearchQuery);
   const resetSearchResults = useSearchStore(
     (state) => state.resetSearchResults
@@ -45,6 +58,18 @@ const Card: React.FC<Props> = ({
     (state) => state.loadModalSingleItem
   );
 
+  const openModalWithItem = (boolean: boolean, id: number) => {
+    setOpenedModalType(boolean);
+    loadModalSingleItem(id);
+    setIsModalSizeOpen(true);
+  };
+
+  const closeSearchPanel = () => {
+    setIsSearchOpen(false);
+    setSearchQuery("");
+    resetSearchResults();
+  };
+
   return (
     <>
       <div>
@@ -52,9 +77,7 @@ const Card: React.FC<Props> = ({
           <Link
             onClick={() => {
               if (isSearchOpen) {
-                setIsSearchOpen(false);
-                setSearchQuery("");
-                resetSearchResults();
+                closeSearchPanel();
               }
 
               saveViewedProduct({ id, name, imgUrl, variations });
@@ -86,8 +109,6 @@ const Card: React.FC<Props> = ({
                 className={
                   pathname === "/login"
                     ? `${Style.favorite} ${Style.active}`
-                    : status === "loading"
-                    ? `${Style.favorite} ${Style.loading}`
                     : Style.favorite
                 }
                 href="/login"
@@ -95,48 +116,33 @@ const Card: React.FC<Props> = ({
                 {svgHeart}
               </Link>
             ) : (
-              <Link
-                className={
-                  pathname === "/profile/wishlist"
-                    ? `${Style.favorite} ${Style.active}`
-                    : status === "authenticated"
-                    ? `${Style.favorite} ${Style.authenticated}`
-                    : Style.favorite
-                }
-                href="/profile/wishlist"
+              <span
+                className={Style.favorite}
+                onClick={() => openModalWithItem(false, id)}
               >
                 {svgHeart}
-              </Link>
+              </span>
             )}
 
             <span
-              onClick={() => {
-                loadModalSingleItem(id);
-                setIsModalSizeOpen(true);
-              }}
               className={Style.cart}
+              onClick={() => openModalWithItem(true, id)}
             >
               {svgCart}
             </span>
+
+            {pathname === "/profile/wishlist" && (
+              <div className={Style.delete}>
+                <Delete itemId={id} onClick={deleteWishlistItem} />
+              </div>
+            )}
           </div>
 
-          <div className={Style.control_mobile}>
-            <span
-              onClick={() => {
-                loadModalSingleItem(id);
-                setIsModalSizeOpen(true);
-              }}
-              className={Style.cart_mobile}
-            >
-              {svgCart}
-            </span>
-          </div>
-
-          {variations[0].onSale && (
+          {variations[variationId || 0].onSale && (
             <div className={Style.percent}>
               {calculateDiscountPercentage(
-                variations[0].price,
-                variations[0].sale
+                variations[variationId || 0].price,
+                variations[variationId || 0].sale
               )}
               {"% OFF"}
             </div>
@@ -146,9 +152,7 @@ const Card: React.FC<Props> = ({
         <Link
           onClick={() => {
             if (isSearchOpen) {
-              setIsSearchOpen(false);
-              setSearchQuery("");
-              resetSearchResults();
+              closeSearchPanel();
             }
 
             window.scrollTo({

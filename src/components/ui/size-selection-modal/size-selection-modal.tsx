@@ -8,6 +8,8 @@ import { svgClose } from "./static-data";
 import Item from "./item";
 import Skeleton from "../skeleton/modal-item-size";
 import Overlay from "@/components/ui/overlay";
+import Toast from "@/components/shared/toast";
+import { useToastHandling } from "@/hooks";
 
 const SizeSelectionModal: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,6 +25,9 @@ const SizeSelectionModal: React.FC = () => {
       setIsModalSizeOpen(false);
     }
   });
+
+  const { isToastOpen, toastType, isSuccessToast, setIsToastOpen } =
+    useToastHandling();
 
   if (modalIsLoading) {
     return (
@@ -88,6 +93,13 @@ const SizeSelectionModal: React.FC = () => {
           ))}
         </div>
       </div>
+
+      <Toast
+        isOpen={isToastOpen}
+        message={toastType}
+        isSuccess={isSuccessToast}
+        onClick={setIsToastOpen}
+      />
     </>
   );
 };

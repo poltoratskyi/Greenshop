@@ -2,7 +2,9 @@
 @use "../../../../styles/mixins.scss" as m;
 
 .wrapper {
-  margin: 120px 0px;
+  max-width: 350px;
+  display: block;
+  margin: 120px auto;
 }
 
 .empty {

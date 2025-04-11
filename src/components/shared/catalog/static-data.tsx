@@ -17,7 +17,7 @@ export const svgHeart = (
     height="25"
     viewBox="0 0 25 25"
     fill="none"
-    stroke="#333"
+    stroke="#000"
     strokeWidth="1"
     strokeLinecap="round"
     strokeLinejoin="round"
@@ -29,7 +29,6 @@ export const svgHeart = (
 export const svgCart = (
   <svg
     data-type="cart"
-    xmlns="http://www.w3.org/2000/svg"
     fill="none"
     height="25"
     width="25"
