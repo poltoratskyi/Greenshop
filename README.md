@@ -32,6 +32,9 @@ This project is a full-stack web application of an online flower store
 - Adding / removing items to or from the wishlist
 - Saving orders in the user profile
 
+✅ **Form Validation**
+- Validation of input fields
+
 🛒 **Shopping Cart**
 - Adding items to the cart
 - Updating quantities or removing items
