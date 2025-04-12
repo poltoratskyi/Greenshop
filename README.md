@@ -18,13 +18,13 @@
         <img src="https://img.shields.io/badge/License-MIT-3EA638" alt="License">
 </p>
 
-
-
-## Description
+### Description
 
 This project is a full-stack web application of an online flower store
 
-## Functionality
+---
+
+### Functionality
 
 ✅ **Authentication**
 - User registration and login (NextAuth)
@@ -44,13 +44,17 @@ This project is a full-stack web application of an online flower store
 - Product Search
 - View single item information
 
-## Requirements 
+---
+
+### Requirements 
 
 - Node.js (v18+ recommended)
 - npm or yarn
 - All other dependencies will be installed automatically `npm install`
 
-## Installation
+---
+
+### Installation
 
 ⚠️ Note: This project uses environment variables. The .env file is not added to the repository
 
@@ -58,20 +62,28 @@ This project is a full-stack web application of an online flower store
 2. Navigate to the project directory: `cd your-repository`
 3. Install dependencies: `npm install`
 4. Generate Prisma client: `npx prisma generate`
+
+---
    
-## Usage
+### Usage
 
 - Run the project: `npm run dev`
 
-## Questions and Discussions 
+---
+
+### Questions and Discussions 
 
 - Email: poltoratskyialexander@gmail.com
 - [SimpleX Chat](https://simplex.chat/contact#/?v=1-4&smp=smp%3A%2F%2FZKe4uxF4Z_aLJJOEsC-Y6hSkXgQS5-oc442JQGkyP8M%3D%40smp17.simplex.im%2FzBpStVueK_9NcNKGgWWZuAw4EuibJks7%23%2F%3Fv%3D1-2%26dh%3DMCowBQYDK2VuAyEAzFBHs6ZksFf4chVCsrjlbqNb1HoVra57zWxeCdnjMUI%253D%26srv%3Dogtwfxyi3h2h5weftjjpjmxclhb5ugufa5rcyrmg7j4xlch7qsr5nuqd.onion) - optional
+
+---
   
-## Developers
+### Developers
 
 - [poltoratskyi](https://github.com/poltoratskyi) - "Making magic with ❤️ and ☕"
 
-## License
+---
+
+### License
 
 This project is licensed under the MIT License.
