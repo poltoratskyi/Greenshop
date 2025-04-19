@@ -32,6 +32,7 @@ export async function getUserWishlist(id: number) {
                 imgUrl: true,
                 name: true,
                 sku: true,
+                popularity: true,
 
                 categoryId: true,
 
@@ -41,6 +42,9 @@ export async function getUserWishlist(id: number) {
                     price: true,
                     sale: true,
                     onSale: true,
+                    stock: true,
+                    isAvailable: true,
+
                     size: {
                       select: {
                         id: true,

@@ -3,40 +3,23 @@
 import Link from "next/link";
 import Style from "./order-confirmation.module.scss";
 import { svgThanks } from "./static-data";
-import { useOrderStore, useUIStore } from "../../../../store";
+import { useUIStore } from "../../../../store";
 
 const Info: React.FC = () => {
-  const order = useOrderStore((state) => state.order);
-
   const setIsOrderOpen = useUIStore((state) => state.setIsOrderOpen);
-  const isOrderSuccess = useUIStore((state) => state.isOrderSuccess);
 
   return (
     <div className={Style.content}>
       <div className={Style.header}>
         {svgThanks}
-        <h2 className={Style.title}>
-          {isOrderSuccess
-            ? "Your order has been received"
-            : "Oops! Something went wrong"}
-        </h2>
+        <h2 className={Style.title}>Your order has been received</h2>
       </div>
 
       <div className={Style.descr}>
-        {isOrderSuccess ? (
-          <p>
-            Hello, <span className={Style.mark}>{order?.firstName} </span>
-            your order number <span className={Style.mark}>{order?.id}</span> is
-            currently being processed. You will receive an email shortly with
-            the details of your order.
-          </p>
-        ) : (
-          <p>
-            There was an issue with your order. We could not process it at this
-            time. Please try again later or contact support if the issue
-            persists.
-          </p>
-        )}
+        <p>
+          Hello, your order is currently being processed. You will receive an
+          email shortly with the details of your order.
+        </p>
       </div>
 
       <Link

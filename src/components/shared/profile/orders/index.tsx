@@ -86,6 +86,15 @@ const Orders: React.FC<Props> = ({ data }) => {
 
                     <OrderDetailsItem
                       className="text"
+                      label="Size"
+                      value={
+                        product.item.variations[product.variationId].size
+                          .shortName
+                      }
+                    />
+
+                    <OrderDetailsItem
+                      className="text"
                       label="Quantity"
                       value={product.quantity}
                     />

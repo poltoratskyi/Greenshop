@@ -7,6 +7,7 @@ import {
   addCartItem,
 } from "../service";
 import { processCartItems } from "../data";
+import { AxiosError } from "axios";
 
 interface CartState {
   cartItems: CartItem[];
@@ -16,6 +17,7 @@ interface CartState {
   isLoading: boolean;
   isItemAdded: boolean;
 
+  patchError: { message: string; available: number } | null;
   error: string | null;
 
   loadUserCart: () => Promise<void>;
@@ -33,6 +35,7 @@ export const useCartStore = create<CartState>((set) => ({
   isItemAdded: false,
 
   error: null,
+  patchError: null,
 
   loadUserCart: async () => {
     set({ isLoading: true, error: null });
@@ -49,15 +52,18 @@ export const useCartStore = create<CartState>((set) => ({
   },
 
   updateCartItemQuantity: async (id: number, quantity: number) => {
-    set({ isLoading: true, error: null });
+    set({ isLoading: true, patchError: null });
 
     try {
       const response = await updateCartItemQuantity(id, quantity);
 
       set(processCartItems(response));
-    } catch (err) {
+    } catch (err: AxiosError | any) {
       set({
-        error: "Error updating quantity from user cart",
+        patchError: {
+          message: err.response.data.error,
+          available: err.response.data.available,
+        },
       });
     } finally {
       set({ isLoading: false });

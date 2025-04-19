@@ -55,6 +55,8 @@ export const updateCartTotalAmount = async (token: string) => {
                 name: true,
                 tags: true,
                 sku: true,
+                popularity: true,
+
                 categoryId: true,
 
                 variations: {
@@ -64,6 +66,8 @@ export const updateCartTotalAmount = async (token: string) => {
                     price: true,
                     sale: true,
                     onSale: true,
+                    stock: true,
+                    isAvailable: true,
 
                     size: {
                       select: {

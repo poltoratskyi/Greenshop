@@ -7,7 +7,12 @@ interface CatalogState {
   isLoading: boolean;
   error: string | null;
 
-  loadCatalog: () => Promise<void>;
+  loadCatalog: (params?: {
+    category?: number[];
+    size?: number[];
+    sort?: string;
+    direction?: string;
+  }) => Promise<void>;
 }
 
 export const useCatalogStore = create<CatalogState>((set) => ({
@@ -16,11 +21,13 @@ export const useCatalogStore = create<CatalogState>((set) => ({
   isLoading: false,
   error: null,
 
-  loadCatalog: async () => {
+  loadCatalog: async (
+    params = { category: [], size: [], sort: "", direction: "" }
+  ) => {
     set({ isLoading: true, error: null });
 
     try {
-      const response = await fetchCatalog();
+      const response = await fetchCatalog(params);
 
       set({ catalog: response });
     } catch (err) {

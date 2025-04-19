@@ -2,12 +2,12 @@ import { QuantityItemsSize } from "../../types";
 
 export const getSizeQuantity = (
   arr: QuantityItemsSize[],
-  value: number
+  stock: number
 ): number => {
-  const result = arr.filter((item) => item.sizeId === value);
+  const result = arr.filter((item) => item.sizeId === stock);
 
   const total = result.reduce((acc, item) => {
-    return acc + item.value;
+    return acc + item.stock;
   }, 0);
 
   return total;

@@ -5,9 +5,9 @@ interface Props {
   quantityItems: number;
   isDisabled: boolean;
   inputId: string;
+  checked: boolean;
 
-  onSelectedName: () => void;
-  onUnselectedName: () => void;
+  onToggle: () => void;
 }
 
 const Checkbox: React.FC<Props> = ({
@@ -15,9 +15,9 @@ const Checkbox: React.FC<Props> = ({
   quantityItems,
   isDisabled,
   inputId,
+  checked,
 
-  onSelectedName,
-  onUnselectedName,
+  onToggle,
 }) => {
   return (
     <>
@@ -26,11 +26,10 @@ const Checkbox: React.FC<Props> = ({
           className={Style.input}
           id={inputId}
           type="checkbox"
+          checked={checked}
           disabled={isDisabled}
-          onChange={(e) => {
-            !isDisabled && e.target.checked
-              ? onSelectedName()
-              : onUnselectedName();
+          onChange={() => {
+            if (!isDisabled) onToggle();
           }}
         ></input>
 

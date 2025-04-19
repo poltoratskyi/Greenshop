@@ -39,6 +39,8 @@ export async function getUserCart(token: string) {
                 name: true,
                 tags: true,
                 sku: true,
+                popularity: true,
+
                 categoryId: true,
 
                 variations: {
@@ -47,7 +49,9 @@ export async function getUserCart(token: string) {
 
                     price: true,
                     sale: true,
+                    stock: true,
                     onSale: true,
+                    isAvailable: true,
 
                     sizeId: true,
 

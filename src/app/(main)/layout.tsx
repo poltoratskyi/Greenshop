@@ -12,11 +12,9 @@ const metadata: Metadata = {
 export default async function MainLayout({
   children,
   modal,
-  category,
 }: Readonly<{
   children: React.ReactNode;
   modal: React.ReactNode;
-  category: React.ReactNode;
 }>) {
   return (
     <main>
@@ -25,8 +23,6 @@ export default async function MainLayout({
       <Header />
 
       {modal}
-
-      {category}
 
       {children}
 

@@ -7,6 +7,8 @@ import { useCartStore, useUIStore } from "../../../store";
 import { OrderConfirmation } from "../../ui/order";
 import { User } from "../../../types";
 import { useEffect } from "react";
+import Toast from "../toast";
+import { useToastHandling } from "@/hooks";
 
 interface Props {
   user?: User;
@@ -15,7 +17,9 @@ interface Props {
 const Checkout: React.FC<Props> = ({ user }) => {
   const loadUserCart = useCartStore((state) => state.loadUserCart);
   const isOrderOpen = useUIStore((state) => state.isOrderOpen);
-  const isOrderSuccess = useUIStore((state) => state.isOrderSuccess);
+
+  const { isToastOpen, toastType, isSuccessToast, setIsToastOpen } =
+    useToastHandling();
 
   useEffect(() => {
     loadUserCart();
@@ -41,7 +45,14 @@ const Checkout: React.FC<Props> = ({ user }) => {
         </div>
       </section>
 
-      {isOrderSuccess && isOrderOpen && <OrderConfirmation />}
+      <Toast
+        isOpen={isToastOpen}
+        message={toastType}
+        isSuccess={isSuccessToast}
+        onClick={setIsToastOpen}
+      />
+
+      {isOrderOpen && <OrderConfirmation />}
     </>
   );
 };

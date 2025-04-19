@@ -15,6 +15,7 @@ import {
   SubTotalAmount,
   VariationId,
   TotalAmount,
+  ItemStatus,
 } from "./common";
 import { User } from "./user";
 
@@ -22,7 +23,8 @@ export type CartItemSize = Id & ShortName & FullName & {};
 
 export type CartItemVariation = Id &
   Price &
-  SizeId & {
+  SizeId &
+  ItemStatus & {
     size: CartItemSize;
   };
 

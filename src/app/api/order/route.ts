@@ -2,45 +2,8 @@ import { getUserCart } from "../../../lib/server";
 import { sendOrderEmail } from "../../../lib/server";
 import { prisma } from "../../../prisma/prisma-client";
 import { NextResponse, NextRequest } from "next/server";
-import { cookies } from "next/headers";
 import { processOrderItems } from "../../../data";
-
-export async function GET(request: NextRequest) {
-  try {
-    // Get the token
-    const token = (await cookies()).get("cartToken")?.value;
-
-    if (!token) {
-      return NextResponse.json(
-        { error: "Cart token not found" },
-        { status: 400 }
-      );
-    }
-
-    // Get the email
-    const url = new URL(request.url);
-    const email = url.searchParams.get("email");
-
-    if (!email) {
-      return NextResponse.json({ error: "Email is required" }, { status: 400 });
-    }
-
-    const userOrder = await prisma.order.findMany({
-      where: {
-        email: email,
-      },
-    });
-
-    if (!userOrder) {
-      return NextResponse.json({ error: "Order not found" }, { status: 404 });
-    }
-
-    return NextResponse.json(userOrder);
-  } catch (error) {
-    console.error("Error getting order :", error);
-    return NextResponse.json({ error: "Error getting order" }, { status: 500 });
-  }
-}
+import { ItemsResponse } from "@/types";
 
 export async function POST(request: NextRequest) {
   try {
@@ -124,13 +87,19 @@ export async function POST(request: NextRequest) {
     }
 
     await prisma.orderItem.createMany({
-      data: userCart.items.map((item: any) => ({
+      data: userCart.items.map((item: ItemsResponse) => ({
         orderId: order.id,
         itemId: item.itemId,
         variationId: item.variationId,
         quantity: item.quantity,
       })),
     });
+
+    /* const items = userCart.items.map((item: ItemsResponse) => ({
+      itemId: item.itemId,
+      variationId: item.variationId,
+      quantity: item.quantity,
+    })); */
 
     if (user) {
       await prisma.user.update({

@@ -4,6 +4,7 @@ import {
   Image,
   ItemCategory,
   ItemId,
+  ItemStatus,
   Name,
   Price,
   ShortName,
@@ -22,13 +23,15 @@ export type Item = Id &
     variations: ItemVariation[];
     category: ItemCategory;
     categoryId: number;
+    popularity: number;
   };
 
 export type ItemSize = Id & ShortName & FullName & {};
 
 export type ItemVariation = Id &
   Price &
-  SizeId & {
+  SizeId &
+  ItemStatus & {
     size: ItemSize;
   };
 
@@ -39,5 +42,4 @@ export type QuantityItemsCategory = ItemCategory & {
 export type QuantityItemsSize = ItemVariation &
   ItemId & {
     item: Item;
-    value: number;
   };

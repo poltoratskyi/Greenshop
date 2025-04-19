@@ -1,46 +1,17 @@
-@use "../../../styles/variables.scss" as v;
-@use "../../../styles/mixins.scss" as m;
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
 
-.filter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-
-  .timezone {
-    .lists {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-
-      .list {
-        .text {
-          @include m.subtitle($fz: 14px);
-          padding: 0px 0px 10px 0px;
-          cursor: pointer;
-
-          &.active {
-            color: v.$main;
-            border-bottom: 3px v.$main solid;
-          }
-        }
-
-        &:last-child {
-          margin-right: 0px;
-        }
-      }
-    }
-  }
-
-  .sort {
+.sort {
+  .content {
     position: relative;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
 
     .descr {
       @include m.description();
-      margin-right: 5px;
 
+      margin-right: 5px;
       span {
         color: v.$text;
         font-weight: 500;
@@ -95,9 +66,15 @@
 }
 
 @media (max-width: 575px) {
-  .filter {
-    .sort {
-      display: none;
+  .sort {
+    .content {
+      .descr {
+        color: v.$text;
+        font-weight: 500;
+      }
+      .lists {
+        width: 100%;
+      }
     }
   }
 }

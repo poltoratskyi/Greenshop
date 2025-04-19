@@ -1,12 +1,45 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { prisma } from "../../../../prisma/prisma-client";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams;
+
+  const categoryParam = searchParams.get("category");
+  const sizeParam = searchParams.get("size");
+  const sortParam = searchParams.get("sort");
+  const directionParam = searchParams.get("direction");
+
+  const categoryIds = categoryParam?.split(",").map(Number);
+  const sizeIds = sizeParam?.split(",").map(Number);
+
+  let orderBy = {};
+
+  if (sortParam === "name") {
+    orderBy = { name: directionParam === "asc" ? "asc" : "desc" };
+  } else if (sortParam === "data") {
+    orderBy = { createdAt: directionParam === "asc" ? "asc" : "desc" };
+  } else if (sortParam === "popularity") {
+    orderBy = { popularity: directionParam === "asc" ? "asc" : "desc" };
+  } else {
+    orderBy = { createdAt: "asc" };
+  }
+
   try {
     const items = await prisma.item.findMany({
-      orderBy: {
-        name: "asc",
+      where: {
+        categoryId: categoryIds ? { in: categoryIds } : undefined,
+        variations: sizeIds
+          ? {
+              some: {
+                sizeId: {
+                  in: sizeIds,
+                },
+              },
+            }
+          : undefined,
       },
+
+      orderBy: orderBy,
 
       select: {
         id: true,
@@ -15,6 +48,7 @@ export async function GET() {
         imgUrl: true,
         tags: true,
         sku: true,
+        popularity: true,
 
         variations: {
           select: {
@@ -23,6 +57,8 @@ export async function GET() {
             price: true,
             sale: true,
             onSale: true,
+            stock: true,
+            isAvailable: true,
 
             sizeId: true,
 

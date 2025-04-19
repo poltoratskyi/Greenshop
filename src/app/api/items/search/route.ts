@@ -35,6 +35,7 @@ export async function GET(request: NextRequest) {
 
         name: true,
         imgUrl: true,
+        popularity: true,
 
         variations: {
           select: {
@@ -44,6 +45,8 @@ export async function GET(request: NextRequest) {
             price: true,
             sale: true,
             onSale: true,
+            stock: true,
+            isAvailable: true,
           },
         },
       },

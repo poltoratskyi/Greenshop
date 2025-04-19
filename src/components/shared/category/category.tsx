@@ -2,18 +2,29 @@ import ItemList from "./item-list";
 import PriceFilter from "./price-filter";
 import SizeFilter from "./size-filter";
 import { useUpdateUrl } from "../../../hooks";
+import MobileHeader from "./mobile-header";
+import { useUIStore } from "@/store";
+import Style from "./category.module.scss";
 
 const Category: React.FC = () => {
+  const isModalCategoryOpen = useUIStore((state) => state.isModalCategoryOpen);
+
   useUpdateUrl();
 
   return (
-    <>
-      <ItemList />
+    <aside
+      className={`${isModalCategoryOpen ? `${Style.aside} ${Style.visible}` : Style.aside}`}
+    >
+      {isModalCategoryOpen && <MobileHeader />}
 
-      <SizeFilter />
+      <div className={Style.content}>
+        <ItemList />
 
-      <PriceFilter />
-    </>
+        <SizeFilter />
+
+        <PriceFilter />
+      </div>
+    </aside>
   );
 };
 

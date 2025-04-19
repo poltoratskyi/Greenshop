@@ -12,7 +12,10 @@ const ItemList: React.FC = () => {
 
   const category = useCategoryStore((state) => state.category);
   const loadCategory = useCategoryStore((state) => state.loadCategory);
-  const selectedItem = useCategoryStore((state) => state.selectedItem);
+  const selectedNameIds = useCategoryStore((state) => state.selectedNameIds);
+  const onSelectedItemIds = useCategoryStore(
+    (state) => state.onSelectedItemIds
+  );
 
   useEffect(() => {
     loadCategory();
@@ -60,8 +63,8 @@ const ItemList: React.FC = () => {
               <Checkbox
                 quantityItems={quantityItems}
                 isDisabled={isDisabled}
-                onSelectedName={() => selectedItem(item.name, true)}
-                onUnselectedName={() => selectedItem(item.name, false)}
+                checked={selectedNameIds.includes(item.id)}
+                onToggle={() => onSelectedItemIds(item.id)}
                 name={item.name}
                 inputId={`category-item-list-${item.id}`}
               />

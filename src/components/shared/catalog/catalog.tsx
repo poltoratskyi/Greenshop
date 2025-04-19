@@ -1,20 +1,25 @@
 "use client";
 
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import Style from "./catalog.module.scss";
-import { useCatalogStore } from "../../../store";
+import { useCatalogStore, useUIStore } from "../../../store";
 import Category from "../category";
 import Skeleton from "../../ui/skeleton/catalog";
 import Wrapper from "./wrapper";
 import Card from "./card";
 import SizeSelectionModal from "../../ui/size-selection-modal";
-import Filter from "../filters/filters";
+import { Sort } from "../../ui/category";
 import Container from "./container";
+import { svgFilter } from "./static-data";
 
 const Catalog: React.FC = () => {
   const catalog = useCatalogStore((state) => state.catalog);
   const isLoading = useCatalogStore((state) => state.isLoading);
   const loadCatalog = useCatalogStore((state) => state.loadCatalog);
+
+  const setIsModalCategoryOpen = useUIStore(
+    (state) => state.setIsModalCategoryOpen
+  );
 
   useEffect(() => {
     loadCatalog();
@@ -25,12 +30,21 @@ const Catalog: React.FC = () => {
       <section className={Style.catalog}>
         <div className="container">
           <div className={Style.content}>
-            <aside className={Style.wrapper}>
-              <Category />
-            </aside>
+            <Category />
 
             <Container>
-              <Filter />
+              <div className={Style.filters}>
+                <Suspense fallback={null}>
+                  <button
+                    className={Style.button}
+                    onClick={() => setIsModalCategoryOpen(true)}
+                  >
+                    {svgFilter}
+                    <span className={Style.text}>Filters</span>
+                  </button>
+                  <Sort />
+                </Suspense>
+              </div>
 
               <Wrapper>
                 {isLoading &&
@@ -57,12 +71,21 @@ const Catalog: React.FC = () => {
     <section id="catalog" className={Style.catalog}>
       <div className="container">
         <div className={Style.content}>
-          <aside className={Style.wrapper}>
-            <Category />
-          </aside>
+          <Category />
 
           <Container>
-            <Filter />
+            <div className={Style.filters}>
+              <Suspense fallback={null}>
+                <button
+                  className={Style.button}
+                  onClick={() => setIsModalCategoryOpen(true)}
+                >
+                  {svgFilter}
+                  <span className={Style.text}>Filters</span>
+                </button>
+                <Sort />
+              </Suspense>
+            </div>
 
             <Wrapper>
               {catalog.map((item) => (

@@ -23,6 +23,8 @@ export const processOrderItems = (data: CartResponse): OrderDetails => {
       price: variation.price,
       sale: variation.sale,
       onSale: variation.onSale,
+      stock: variation.stock,
+      isAvailable: variation.isAvailable,
 
       sizeId: variation.size.id,
 

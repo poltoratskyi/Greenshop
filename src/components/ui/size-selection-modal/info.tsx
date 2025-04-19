@@ -4,18 +4,20 @@ interface Props {
   price: number;
   sale: number;
   onSale: boolean;
+  isAvailable: boolean;
+
   size: {
-    id: number;
     fullName: string;
   };
 }
-[];
 
-const Info: React.FC<Props> = ({ onSale, sale, price, size }) => {
+const Info: React.FC<Props> = ({ onSale, sale, price, size, isAvailable }) => {
   return (
     <>
       {onSale ? (
-        <div className={Style.item}>
+        <div
+          className={`${!isAvailable ? `${Style.item} ${Style.disabled}` : Style.item}`}
+        >
           <span className={Style.size}>{size.fullName}</span>
 
           <div>
@@ -24,7 +26,9 @@ const Info: React.FC<Props> = ({ onSale, sale, price, size }) => {
           </div>
         </div>
       ) : (
-        <div className={Style.item}>
+        <div
+          className={`${!isAvailable ? `${Style.item} ${Style.disabled}` : Style.item}`}
+        >
           <span className={Style.size}>{size.fullName}</span>
 
           <span className={Style.price}>${price.toFixed(2)}</span>

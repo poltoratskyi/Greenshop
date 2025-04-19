@@ -1,5 +1,5 @@
 import Checkbox from "./checkbox";
 import PriceRange from "./price-range";
-import Modal from "./modal";
+import Sort from "./sort";
 
-export { Checkbox, PriceRange, Modal };
+export { Checkbox, PriceRange, Sort };

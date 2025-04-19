@@ -7,7 +7,8 @@ import Summary from "../cart/summary";
 import Button from "../../ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckoutFormFields, checkoutFormSchema } from "../../../schemas";
-import { useUIStore, useOrderStore } from "../../../store";
+import { useUIStore, useOrderStore, useCartStore } from "../../../store";
+import { useToast } from "@/hooks";
 
 interface Props {
   firstName?: string;
@@ -19,6 +20,10 @@ interface Props {
   address?: string;
   apartment?: string;
   state?: string;
+}
+
+interface Error {
+  message: string;
 }
 
 const Form: React.FC<Props> = ({
@@ -33,11 +38,14 @@ const Form: React.FC<Props> = ({
   state,
 }) => {
   const setIsOrderOpen = useUIStore((state) => state.setIsOrderOpen);
-  const setIsOrderSuccess = useUIStore((state) => state.setIsOrderSuccess);
+
+  const isLoadingCart = useCartStore((state) => state.isLoading);
 
   const isLoading = useOrderStore((state) => state.isLoading);
-  const addUserOrder = useOrderStore((state) => state.addUserOrder);
-  const loadUserOrder = useOrderStore((state) => state.loadUserOrder);
+  const error = useOrderStore((state) => state.error);
+  const createOrder = useOrderStore((state) => state.createOrder);
+
+  const { showToast } = useToast();
 
   const {
     control,
@@ -81,18 +89,21 @@ const Form: React.FC<Props> = ({
       notes: data.notes,
     };
 
-    loadUserOrder(data.email);
-
     try {
-      await addUserOrder(orderData);
+      await createOrder(orderData);
+
+      if (error) {
+        const { message }: Error = error;
+
+        setIsOrderOpen(false);
+        showToast(message, false);
+        return;
+      }
 
       reset();
-
-      setIsOrderSuccess(true);
       setIsOrderOpen(true);
     } catch (error) {
-      setIsOrderSuccess(false);
-      setIsOrderOpen(false);
+      console.log("error", error);
     }
   };
 
@@ -116,6 +127,7 @@ const Form: React.FC<Props> = ({
           <Summary />
           <Button
             type="submit"
+            disabled={isLoadingCart}
             isLoading={isLoading}
             value="Place Order"
             className="order"

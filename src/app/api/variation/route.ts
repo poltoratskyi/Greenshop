@@ -9,7 +9,7 @@ export async function GET() {
         id: true,
         price: true,
 
-        value: true,
+        stock: true,
         sizeId: true,
       },
     });

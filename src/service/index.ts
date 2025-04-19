@@ -11,14 +11,13 @@ import { fetchSearchItem } from "./search";
 import { fetchSize } from "./size";
 import { fetchVariation } from "./variation";
 import { fetchLocation } from "./nominatim";
-import { fetchUserOrder, createOrder } from "./order";
+import { createOrder } from "./order";
 import { fetchUserWishlist, deleteWishlistItem } from "./wishlist";
 
 export {
   deleteWishlistItem,
   fetchUserWishlist,
   createOrder,
-  fetchUserOrder,
   fetchLocation,
   fetchUserCart,
   updateCartItemQuantity,

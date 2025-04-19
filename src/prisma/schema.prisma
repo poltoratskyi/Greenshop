@@ -44,6 +44,7 @@ model Item {
     extendedDescription String
     tags                String
     sku                 String
+    popularity          Int
 
     variations    Variation[]
     items         CartItem[]
@@ -77,8 +78,9 @@ model Variation {
 
     price  Int
     sale   Int
-    value  Int
+    stock  Int
     onSale Boolean
+    isAvailable Boolean
 
     cartItems     CartItem[]
     orderItems    OrderItem[]

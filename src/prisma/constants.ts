@@ -13,6 +13,8 @@ export const categoryMenu = [
 export const catalog = [
   // House Plants
   {
+    popularity: 3,
+
     categoryId: 1,
     imgUrl: "/catalog/daisy-min.png",
     name: "Barberton Daisy",
@@ -25,6 +27,8 @@ export const catalog = [
   },
 
   {
+    popularity: 3,
+
     categoryId: 1,
     imgUrl: "/catalog/begonia-min.png",
     name: "Angel Wing Begonia",
@@ -37,6 +41,8 @@ export const catalog = [
   },
 
   {
+    popularity: 2,
+
     categoryId: 1,
     imgUrl: "/catalog/violet-min.png",
     name: "African Violet",
@@ -49,6 +55,8 @@ export const catalog = [
   },
 
   {
+    popularity: 2,
+
     categoryId: 1,
     imgUrl: "/catalog/lily-min.png",
     name: "Beach Spider Lily",
@@ -61,6 +69,8 @@ export const catalog = [
   },
 
   {
+    popularity: 1,
+
     categoryId: 1,
     imgUrl: "/catalog/bromeliad-min.png",
     name: "Blushing Bromeliad",
@@ -73,6 +83,8 @@ export const catalog = [
   },
 
   {
+    popularity: 4,
+
     categoryId: 6,
     imgUrl: "/catalog/cactus-min.png",
     name: "Summer Cactus",
@@ -85,6 +97,8 @@ export const catalog = [
   },
 
   {
+    popularity: 6,
+
     categoryId: 1,
     imgUrl: "/catalog/plant-min.png",
     name: "Aluminum Plant",
@@ -97,6 +111,8 @@ export const catalog = [
   },
 
   {
+    popularity: 6,
+
     categoryId: 1,
     imgUrl: "/catalog/palm-min.png",
     name: "Broadleaf Lady Palm",
@@ -109,6 +125,8 @@ export const catalog = [
   },
 
   {
+    popularity: 7,
+
     categoryId: 1,
     imgUrl: "/catalog/evergreen-min.png",
     name: "Chinese Evergreen",
@@ -136,32 +154,36 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 1,
+    stock: 10,
     itemId: 1,
+    isAvailable: true,
   },
   {
     price: 139,
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 2,
+    stock: 15,
     itemId: 1,
+    isAvailable: false,
   },
   {
     price: 159,
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 3,
+    stock: 20,
     itemId: 1,
+    isAvailable: true,
   },
   {
     price: 179,
     sale: 0,
     onSale: false,
     sizeId: 4,
-    value: 4,
+    stock: 25,
     itemId: 1,
+    isAvailable: true,
   },
 
   // item 2
@@ -170,32 +192,36 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 1,
+    stock: 10,
     itemId: 2,
+    isAvailable: true,
   },
   {
     price: 189,
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 2,
+    stock: 15,
     itemId: 2,
+    isAvailable: true,
   },
   {
     price: 209,
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 3,
+    stock: 20,
     itemId: 2,
+    isAvailable: true,
   },
   {
     price: 229,
     sale: 209,
     onSale: true,
     sizeId: 4,
-    value: 4,
+    stock: 25,
     itemId: 2,
+    isAvailable: true,
   },
 
   // item 3
@@ -204,32 +230,36 @@ export const variation = [
     sale: 199,
     onSale: true,
     sizeId: 1,
-    value: 1,
+    stock: 10,
     itemId: 3,
+    isAvailable: true,
   },
   {
     price: 249,
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 2,
+    stock: 15,
     itemId: 3,
+    isAvailable: true,
   },
   {
     price: 269,
     sale: 249,
     onSale: true,
     sizeId: 3,
-    value: 3,
+    stock: 20,
     itemId: 3,
+    isAvailable: true,
   },
   {
     price: 289,
     sale: 0,
     onSale: false,
     sizeId: 4,
-    value: 4,
+    stock: 25,
     itemId: 3,
+    isAvailable: true,
   },
 
   // item 4
@@ -238,32 +268,36 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 1,
+    stock: 10,
     itemId: 4,
+    isAvailable: true,
   },
   {
     price: 149,
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 2,
+    stock: 15,
     itemId: 4,
+    isAvailable: true,
   },
   {
     price: 169,
     sale: 149,
     onSale: true,
     sizeId: 3,
-    value: 3,
+    stock: 20,
     itemId: 4,
+    isAvailable: true,
   },
   {
     price: 189,
     sale: 169,
     onSale: true,
     sizeId: 4,
-    value: 4,
+    stock: 25,
     itemId: 4,
+    isAvailable: true,
   },
 
   // item 5
@@ -272,32 +306,36 @@ export const variation = [
     sale: 129,
     onSale: true,
     sizeId: 1,
-    value: 1,
+    stock: 10,
     itemId: 5,
+    isAvailable: true,
   },
   {
     price: 159,
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 2,
+    stock: 15,
     itemId: 5,
+    isAvailable: true,
   },
   {
     price: 179,
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 3,
+    stock: 20,
     itemId: 5,
+    isAvailable: true,
   },
   {
     price: 199,
     sale: 0,
     onSale: false,
     sizeId: 4,
-    value: 4,
+    stock: 25,
     itemId: 5,
+    isAvailable: true,
   },
 
   // item 6
@@ -306,32 +344,36 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 1,
+    stock: 10,
     itemId: 6,
+    isAvailable: true,
   },
   {
     price: 199,
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 2,
+    stock: 15,
     itemId: 6,
+    isAvailable: true,
   },
   {
     price: 219,
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 3,
+    stock: 20,
     itemId: 6,
+    isAvailable: true,
   },
   {
     price: 239,
     sale: 0,
     onSale: false,
     sizeId: 4,
-    value: 4,
+    stock: 25,
     itemId: 6,
+    isAvailable: true,
   },
 
   // item 7
@@ -340,32 +382,36 @@ export const variation = [
     onSale: true,
     sale: 79,
     sizeId: 1,
-    value: 1,
+    stock: 10,
     itemId: 7,
+    isAvailable: true,
   },
   {
     price: 119,
     onSale: true,
     sale: 99,
     sizeId: 2,
-    value: 2,
+    stock: 15,
     itemId: 7,
+    isAvailable: true,
   },
   {
     price: 139,
     onSale: false,
     sale: 0,
     sizeId: 3,
-    value: 3,
+    stock: 20,
     itemId: 7,
+    isAvailable: true,
   },
   {
     price: 159,
     onSale: false,
     sale: 0,
     sizeId: 4,
-    value: 4,
+    stock: 25,
     itemId: 7,
+    isAvailable: true,
   },
 
   // item 8
@@ -374,32 +420,36 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 1,
+    stock: 10,
     itemId: 8,
+    isAvailable: true,
   },
   {
     price: 79,
     sale: 59,
     onSale: true,
     sizeId: 2,
-    value: 2,
+    stock: 15,
     itemId: 8,
+    isAvailable: true,
   },
   {
     price: 99,
     sale: 79,
     onSale: true,
     sizeId: 3,
-    value: 3,
+    stock: 20,
     itemId: 8,
+    isAvailable: true,
   },
   {
     price: 119,
     sale: 99,
     onSale: true,
     sizeId: 4,
-    value: 4,
+    stock: 25,
     itemId: 8,
+    isAvailable: true,
   },
 
   // item 9
@@ -408,31 +458,35 @@ export const variation = [
     sale: 0,
     onSale: false,
     sizeId: 1,
-    value: 1,
+    stock: 10,
     itemId: 9,
+    isAvailable: true,
   },
   {
     price: 59,
     sale: 0,
     onSale: false,
     sizeId: 2,
-    value: 2,
+    stock: 15,
     itemId: 9,
+    isAvailable: true,
   },
   {
     price: 79,
     sale: 0,
     onSale: false,
     sizeId: 3,
-    value: 3,
+    stock: 20,
     itemId: 9,
+    isAvailable: true,
   },
   {
     price: 99,
     sale: 79,
     onSale: true,
     sizeId: 4,
-    value: 4,
+    stock: 25,
     itemId: 9,
+    isAvailable: true,
   },
 ];

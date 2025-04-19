@@ -6,17 +6,17 @@ import { fetchCategory } from "../service";
 
 interface CategoryState {
   category: QuantityItemsCategory[];
-  selectedName: string[];
+  selectedNameIds: number[];
   isLoading: boolean;
   error: string | null;
 
   loadCategory: () => Promise<void>;
-  selectedItem: (name: string, isSelected: boolean) => void;
+  onSelectedItemIds: (id: number) => void;
 }
 
 export const useCategoryStore = create<CategoryState>((set) => ({
   category: [],
-  selectedName: [],
+  selectedNameIds: [],
   isLoading: false,
   error: null,
 
@@ -36,11 +36,14 @@ export const useCategoryStore = create<CategoryState>((set) => ({
     }
   },
 
-  selectedItem: (name: string, isSelected: boolean) => {
-    set((state) => ({
-      selectedName: isSelected
-        ? [...state.selectedName, name]
-        : state.selectedName.filter((categoryName) => categoryName !== name),
-    }));
-  },
+  onSelectedItemIds: async (id: number) =>
+    set((state) => {
+      const isSelected = state.selectedNameIds.includes(id);
+
+      return {
+        selectedNameIds: isSelected
+          ? state.selectedNameIds.filter((itemId) => itemId !== id)
+          : [...state.selectedNameIds, id],
+      };
+    }),
 }));

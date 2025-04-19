@@ -4,17 +4,17 @@ import { fetchSize } from "../service";
 
 interface SizeState {
   sizeMenu: ItemSize[];
-  selectedName: string[];
+  selectedNameIds: number[];
   isLoading: boolean;
   error: string | null;
 
   loadSize: () => Promise<void>;
-  selectedSize: (name: string, isSelected: boolean) => void;
+  onSelectedSizeIds: (id: number) => void;
 }
 
 export const useSizeStore = create<SizeState>((set) => ({
   sizeMenu: [],
-  selectedName: [],
+  selectedNameIds: [],
   isLoading: false,
   error: null,
 
@@ -34,11 +34,14 @@ export const useSizeStore = create<SizeState>((set) => ({
     }
   },
 
-  selectedSize: (name: string, isSelected: boolean) => {
-    set((state) => ({
-      selectedName: isSelected
-        ? [...state.selectedName, name]
-        : state.selectedName.filter((sizeName) => sizeName !== name),
-    }));
-  },
+  onSelectedSizeIds: async (id: number) =>
+    set((state) => {
+      const isSelected = state.selectedNameIds.includes(id);
+
+      return {
+        selectedNameIds: isSelected
+          ? state.selectedNameIds.filter((itemId) => itemId !== id)
+          : [...state.selectedNameIds, id],
+      };
+    }),
 }));

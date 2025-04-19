@@ -1,17 +1,16 @@
 import { create } from "zustand";
 import { Order } from "../types";
-import { fetchUserOrder, createOrder } from "../service";
+import { createOrder } from "../service";
+import { AxiosError } from "axios";
 
 interface OrderState {
   order: Order | null;
 
   isLoading: boolean;
-  error: string | null;
+  error: { message: string } | null;
 
-  loadUserOrder: (email: string) => Promise<void>;
-  addUserOrder(order: Order): Promise<void>;
+  createOrder(order: Order): Promise<void>;
 }
-[];
 
 export const useOrderStore = create<OrderState>((set) => ({
   order: null,
@@ -19,29 +18,19 @@ export const useOrderStore = create<OrderState>((set) => ({
   isLoading: false,
   error: null,
 
-  loadUserOrder: async (email) => {
-    set({ isLoading: true, error: null });
-
-    try {
-      const response = await fetchUserOrder(email);
-
-      set({ order: response });
-    } catch (err) {
-      set({ error: "Error fetching user order" });
-    } finally {
-      set({ isLoading: false });
-    }
-  },
-
-  addUserOrder: async (order) => {
+  createOrder: async (order) => {
     set({ isLoading: true, error: null });
 
     try {
       const response = await createOrder(order);
 
       set({ order: response });
-    } catch (err) {
-      set({ error: "Error adding user order", isLoading: false });
+    } catch (err: AxiosError | any) {
+      set({
+        error: {
+          message: err.response.data.error,
+        },
+      });
     } finally {
       set({ isLoading: false });
     }

@@ -11,7 +11,8 @@ const SizeFilter: React.FC = () => {
   const sizeMenu = useSizeStore((state) => state.sizeMenu);
   const isLoading = useSizeStore((state) => state.isLoading);
   const loadSize = useSizeStore((state) => state.loadSize);
-  const selectedSize = useSizeStore((state) => state.selectedSize);
+  const selectedNameIds = useSizeStore((state) => state.selectedNameIds);
+  const onSelectedSizeIds = useSizeStore((state) => state.onSelectedSizeIds);
 
   const variations = useVariationStore((state) => state.variations);
   const loadVariation = useVariationStore((state) => state.loadVariation);
@@ -66,8 +67,8 @@ const SizeFilter: React.FC = () => {
               <Checkbox
                 quantityItems={quantityItemsSize}
                 isDisabled={isDisabled}
-                onSelectedName={() => selectedSize(item.fullName, true)}
-                onUnselectedName={() => selectedSize(item.fullName, false)}
+                checked={selectedNameIds.includes(item.id)}
+                onToggle={() => onSelectedSizeIds(item.id)}
                 name={item.fullName}
                 inputId={`category-item-size-${item.id}`}
               />

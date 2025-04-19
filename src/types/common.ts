@@ -26,6 +26,11 @@ export type Price = {
   onSale: boolean;
 };
 
+export type ItemStatus = {
+  stock: number;
+  isAvailable: boolean;
+};
+
 export type Quantity = {
   quantity: number;
 };

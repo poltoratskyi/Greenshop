@@ -59,11 +59,9 @@ const Info: React.FC<Props> = ({ id, shortDescription, variations }) => {
         {variations.map((variation) => (
           <li
             onClick={() => setCurrentSizeIndex(variation.sizeId - 1)}
-            className={
-              currentSizeIndex === variation.sizeId - 1
-                ? `${Style.list} ${Style.selected}`
-                : Style.list
-            }
+            className={`
+            ${currentSizeIndex === variation.sizeId - 1 ? `${Style.list} ${Style.selected}` : Style.list}
+            `} /* ${!variation.isAvailable ? `${Style.list} ${Style.disabled}` : Style.list}`} */
             key={variation.size.id - 1}
           >
             {variation.size.shortName}

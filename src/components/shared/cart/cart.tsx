@@ -16,9 +16,31 @@ import ItemsWrapper from "../../shared/catalog/wrapper";
 import ItemList from "../../shared/catalog/card";
 import CatalogStyle from "../../shared/catalog/catalog.module.scss";
 import Title from "../title-wrapper";
+import { useCartStore } from "@/store";
+import { useToast } from "@/hooks";
+import { useEffect } from "react";
+
+interface Props {
+  message: string;
+  available: number;
+}
 
 const Cart: React.FC = () => {
   const { cartItems, filteredItems, isEmpty } = useCartFilteredCatalog();
+
+  const patchError = useCartStore((state) => state.patchError);
+
+  const { showToast } = useToast();
+
+  useEffect(() => {
+    if (patchError) {
+      const { message, available }: Props = patchError;
+
+      available > 1
+        ? showToast(message + ". Available: " + available + " items", false)
+        : showToast(message + ". Available: " + available + " item", false);
+    }
+  }, [patchError]);
 
   if (cartItems.length === 0) {
     return (

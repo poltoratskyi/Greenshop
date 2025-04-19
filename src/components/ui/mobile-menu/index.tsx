@@ -21,11 +21,6 @@ const MobileMenu: React.FC = () => {
 
   const cartItems = useCartStore((state) => state.cartItems);
 
-  const isModalCategoryOpen = useUIStore((state) => state.isModalCategoryOpen);
-  const setIsModalCategoryOpen = useUIStore(
-    (state) => state.setIsModalCategoryOpen
-  );
-
   return (
     <nav className={Style.menu}>
       <ul className={Style.lists}>
@@ -40,16 +35,8 @@ const MobileMenu: React.FC = () => {
           </Link>
         </li>
 
-        <li onClick={() => setIsModalCategoryOpen(true)} className={Style.list}>
-          <span
-            className={
-              isModalCategoryOpen
-                ? `${Style.category} ${Style.active}`
-                : Style.category
-            }
-          >
-            {svgCategory}
-          </span>
+        <li className={Style.list}>
+          <span className={Style.link}>{svgCategory}</span>
         </li>
 
         <li className={Style.list}>

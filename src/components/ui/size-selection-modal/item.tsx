@@ -5,7 +5,7 @@ import Image from "next/image";
 import Style from "./size-selection-modal.module.scss";
 import { ItemVariation } from "../../../types";
 import Info from "./info";
-import { useUIStore, useCartStore, useWishlistStore } from "../../../store";
+import { useUIStore, useCartStore } from "../../../store";
 import Loader from "../button/loader";
 import { saveViewedProduct } from "../../../lib/client";
 import { useAddToCartOrWishlist } from "../../../hooks";
@@ -89,12 +89,10 @@ const Item: React.FC<Props> = ({ variations, id, imgUrl, name, tags, sku }) => {
       <ul className={Style.variations}>
         {variations.map((variation) => (
           <li
-            className={Style.variation}
             style={{
               position: "relative",
-              pointerEvents: isItemAdded || isLoading ? "none" : "auto",
-              cursor: isItemAdded || isLoading ? "not-allowed" : "pointer",
             }}
+            className={`${isItemAdded || isLoading ? `${Style.variation} ${Style.disabled}` : `${Style.variation}`}`}
             key={variation.id}
             onClick={() =>
               handleAdd(id, variation.sizeId, variations, openedModalType)

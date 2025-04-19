@@ -33,6 +33,7 @@ export const getOrderItems = async (email: string) => {
 
               imgUrl: true,
               name: true,
+              popularity: true,
 
               variations: {
                 select: {
@@ -40,7 +41,9 @@ export const getOrderItems = async (email: string) => {
 
                   price: true,
                   sale: true,
+                  stock: true,
                   onSale: true,
+                  isAvailable: true,
 
                   sizeId: true,
 

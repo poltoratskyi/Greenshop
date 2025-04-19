@@ -1,5 +1,3 @@
-"use client";
-
 import Style from "./cart.module.scss";
 import Loader from "../../ui/loader";
 import { useCartStore } from "../../../store";

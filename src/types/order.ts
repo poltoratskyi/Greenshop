@@ -4,6 +4,7 @@ import {
   Email,
   FullName,
   Id,
+  ItemStatus,
   PersonName,
   Price,
   ShortName,
@@ -48,7 +49,8 @@ export type OrderItemSize = Id & ShortName & FullName & {};
 
 export type OrderItemVariation = Id &
   Price &
-  SizeId & {
+  SizeId &
+  ItemStatus & {
     size: OrderItemSize;
   };
 
@@ -56,6 +58,7 @@ export type OrderItem = {
   id: number;
 
   quantity: number;
+
   orderId: number;
   variationId: number;
 

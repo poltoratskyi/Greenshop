@@ -56,6 +56,12 @@ interface UIState {
   selectedSortLabel: string;
   setSelectedSortLabel: (value: string) => void;
 
+  selectedMainSortOption: string;
+  setSelectedMainSortOption: (value: string) => void;
+
+  selectedMainSortLabel: string;
+  setSelectedMainSortLabel: (value: string) => void;
+
   // Burger Menu
   isBurgerOpen: boolean;
   setIsBurgerOpen: (isOpen: boolean) => void;
@@ -76,9 +82,6 @@ interface UIState {
   // Modal order
   isOrderOpen: boolean;
   setIsOrderOpen: (isOpen: boolean) => void;
-
-  isOrderSuccess: boolean;
-  setIsOrderSuccess: (isOpen: boolean) => void;
 }
 
 export const useUIStore = create<UIState>((set) => ({
@@ -131,11 +134,17 @@ export const useUIStore = create<UIState>((set) => ({
   isSortOpen: false,
   setIsSortOpen: (isOpen) => set({ isSortOpen: isOpen }),
 
-  selectedSortOption: "name",
+  selectedSortOption: "",
   setSelectedSortOption: (value) => set({ selectedSortOption: value }),
 
-  selectedSortLabel: "All Plants",
+  selectedSortLabel: "",
   setSelectedSortLabel: (value) => set({ selectedSortLabel: value }),
+
+  selectedMainSortOption: "",
+  setSelectedMainSortOption: (value) => set({ selectedMainSortOption: value }),
+
+  selectedMainSortLabel: "",
+  setSelectedMainSortLabel: (value) => set({ selectedMainSortLabel: value }),
 
   // Burger Menu
   isBurgerOpen: false,
@@ -157,8 +166,5 @@ export const useUIStore = create<UIState>((set) => ({
 
   // Modal order success
   isOrderOpen: false,
-  setIsOrderSuccess: (isOpen) => set({ isOrderSuccess: isOpen }),
-
-  isOrderSuccess: false,
   setIsOrderOpen: (isOpen) => set({ isOrderOpen: isOpen }),
 }));

@@ -16,11 +16,10 @@ export async function PATCH(
     // Get the params id
     const { id } = await params;
 
-    // Get the cart item quantity
+    // Get the item quantity
     const data = await request.json();
     const { quantity } = data;
 
-    // Get the token
     const token = (await cookies()).get("cartToken")?.value;
 
     if (!token) {
@@ -30,9 +29,17 @@ export async function PATCH(
       );
     }
 
-    // Get the cart item from the database
-    const cartItem = await prisma.cartItem.findFirst({
+    /*  const cartItem = await prisma.cartItem.findFirst({
       where: { id: Number(id) },
+      include: {
+        variation: {
+          select: {
+            id: true,
+
+            stock: true,
+          },
+        },
+      },
     });
 
     if (!cartItem) {
@@ -42,13 +49,28 @@ export async function PATCH(
       );
     }
 
-    // Update the cart item quantity
+    if (!cartItem.variation) {
+      return NextResponse.json(
+        { error: "Variation not found for this cart item" },
+        { status: 404 }
+      );
+    }
+
+    if (quantity > cartItem.variation.stock) {
+      return NextResponse.json(
+        {
+          error: "Oops! Requested quantity exceeds available stock",
+          available: cartItem.variation.stock,
+        },
+        { status: 400 }
+      );
+    } */
+
     await prisma.cartItem.update({
       where: { id: Number(id) },
       data: { quantity },
     });
 
-    // Update the total amounts
     const updatedTotalAmounts = await updateCartTotalAmount(token);
 
     if (!updatedTotalAmounts) {

@@ -32,6 +32,7 @@ export async function GET(
         extendedDescription: true,
         sku: true,
         tags: true,
+        popularity: true,
 
         variations: {
           select: {
@@ -39,7 +40,9 @@ export async function GET(
 
             price: true,
             sale: true,
+            stock: true,
             onSale: true,
+            isAvailable: true,
 
             sizeId: true,
 
