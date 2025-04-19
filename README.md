@@ -3,15 +3,15 @@
 </p>
 
 <p align="center">
-        <img src="https://img.shields.io/badge/Next.js-v15.2.4-black" alt="Next.js">
+        <img src="https://img.shields.io/badge/Next.js-v15.3.1-black" alt="Next.js">
         <img src="https://img.shields.io/badge/React-v19.1.0-61DAFB" alt="React">
-        <img src="https://img.shields.io/badge/TypeScript-v5.8.2-3178C6" alt="TypeScript">
-        <img src="https://img.shields.io/badge/Sass-v1.86.1-CC6699" alt="Sass">
-        <img src="https://img.shields.io/badge/Prisma-v6.5.0-2D3748" alt="Prisma">
+        <img src="https://img.shields.io/badge/TypeScript-v5.8.3-3178C6" alt="TypeScript">
+        <img src="https://img.shields.io/badge/Sass-v1.86.3-CC6699" alt="Sass">
+        <img src="https://img.shields.io/badge/Prisma-v6.6.0-2D3748" alt="Prisma">
         <img src="https://img.shields.io/badge/NextAuth-v4.24.11-blue" alt="NextAuth">
         <img src="https://img.shields.io/badge/Zustand-v5.0.3-F7931E" alt="Zustand">
-        <img src="https://img.shields.io/badge/Resend-v4.2.0-black" alt="Resend">
-        <img src="https://img.shields.io/badge/Zod-v3.24.2-8D44AD" alt="Zod">
+        <img src="https://img.shields.io/badge/Resend-v4.3.0-black" alt="Resend">
+        <img src="https://img.shields.io/badge/Zod-v3.24.3-8D44AD" alt="Zod">
         <img src="https://img.shields.io/badge/ReactHookForm-v7.55.0-EC5990" alt="React Hook Form">
         <img src="https://img.shields.io/badge/Axios-v1.8.4-5A29E4" alt="Axios">
         <img src="https://img.shields.io/badge/Swiper-v11.2.6-0088CC" alt="Swiper">
@@ -45,6 +45,7 @@ This project is a full-stack web application of an online flower store
 
 🛍️ **Product Experience**
 - Product Search
+- Product Filtering
 - View single item information
 
 ---
