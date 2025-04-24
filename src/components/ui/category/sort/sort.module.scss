@@ -68,12 +68,10 @@
 @media (max-width: 575px) {
   .sort {
     .content {
+      position: unset;
       .descr {
         color: v.$text;
         font-weight: 500;
-      }
-      .lists {
-        width: 100%;
       }
     }
   }

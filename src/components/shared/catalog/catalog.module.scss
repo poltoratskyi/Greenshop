@@ -146,8 +146,9 @@
   .catalog {
     .content {
       .filters {
+        position: relative;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
 
         .button {

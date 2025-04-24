@@ -1,6 +1,6 @@
 import { IBM_Plex_Sans } from "next/font/google";
 
-import "../styles/globals.scss";
+import "../styles/globals.css";
 import Providers from "../components/shared/providers";
 
 const font = IBM_Plex_Sans({

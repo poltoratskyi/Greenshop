@@ -45,7 +45,7 @@ export const svgFilter = (
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth="1"
-    stroke="currentColor"
+    stroke="#000"
   >
     <path
       strokeLinecap="round"
