@@ -1,0 +1,26 @@
+@use "../../../../styles/variables.scss" as v;
+@use "../../../../styles/mixins.scss" as m;
+
+.filter {
+  display: none;
+}
+
+@media (max-width: 575px) {
+  .filter {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #000;
+
+    .button {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+
+      .text {
+        @include m.description($c: v.$text, $fw: 500);
+
+        margin-left: 5px;
+      }
+    }
+  }
+}

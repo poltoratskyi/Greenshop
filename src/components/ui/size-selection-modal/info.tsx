@@ -16,7 +16,8 @@ const Info: React.FC<Props> = ({ onSale, sale, price, size, isAvailable }) => {
     <>
       {onSale ? (
         <div
-          className={`${!isAvailable ? `${Style.item} ${Style.disabled}` : Style.item}`}
+          /* className={`${!isAvailable ? `${Style.item} ${Style.disabled}` : Style.item}`} */
+          className={Style.item}
         >
           <span className={Style.size}>{size.fullName}</span>
 
@@ -27,7 +28,8 @@ const Info: React.FC<Props> = ({ onSale, sale, price, size, isAvailable }) => {
         </div>
       ) : (
         <div
-          className={`${!isAvailable ? `${Style.item} ${Style.disabled}` : Style.item}`}
+          /* className={`${!isAvailable ? `${Style.item} ${Style.disabled}` : Style.item}`} */
+          className={Style.item}
         >
           <span className={Style.size}>{size.fullName}</span>
 

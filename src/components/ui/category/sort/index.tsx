@@ -43,32 +43,41 @@ const Sort: React.FC = () => {
     setIsSortOpen(false);
   };
 
+  const sortByValue = sortBy ? sortBy : "data";
+
   return (
-    <div className={Style.sort}>
+    <div
+      onClick={() => setIsSortOpen(!sort)}
+      ref={ref}
+      className={sort ? `${Style.sort} ${Style.active}` : Style.sort}
+    >
       <div className={Style.content}>
-        <span className={Style.descr}>
-          Sort by: <span>{sortBy}</span>
-        </span>
-
-        <div ref={ref}>
-          <span onClick={() => setIsSortOpen(!sort)}>{svgRound}</span>
-
-          <ul className={sort ? `${Style.active} ${Style.lists}` : Style.lists}>
-            {filterSort.map((item) => (
-              <li
-                className={
-                  sortBy === item.value
-                    ? `${Style.list} ${Style.active}`
-                    : Style.list
-                }
-                onClick={() => handleSort(item)}
-                key={item.id}
-              >
-                <span>{item.value}</span>
-              </li>
-            ))}
-          </ul>
+        <div className={Style.descr}>
+          Sort by:
+          <span>{" " + sortByValue}</span>
         </div>
+
+        {svgRound}
+
+        <ul className={sort ? `${Style.active} ${Style.lists}` : Style.lists}>
+          {filterSort.map((item) => (
+            <li
+              className={Style.list}
+              onClick={() => handleSort(item)}
+              key={item.id}
+            >
+              <span
+                className={
+                  item.value === sortByValue
+                    ? `${Style.text} ${Style.active}`
+                    : Style.text
+                }
+              >
+                {item.value}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

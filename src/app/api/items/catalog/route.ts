@@ -15,11 +15,11 @@ export async function GET(request: NextRequest) {
   let orderBy = {};
 
   if (sortParam === "name") {
-    orderBy = { name: directionParam === "asc" ? "asc" : "desc" };
+    orderBy = { name: directionParam === "asc" && "asc" };
   } else if (sortParam === "data") {
-    orderBy = { createdAt: directionParam === "asc" ? "asc" : "desc" };
+    orderBy = { createdAt: directionParam === "asc" && "asc" };
   } else if (sortParam === "popularity") {
-    orderBy = { popularity: directionParam === "asc" ? "asc" : "desc" };
+    orderBy = { popularity: directionParam === "asc" && "asc" };
   } else {
     orderBy = { createdAt: "asc" };
   }

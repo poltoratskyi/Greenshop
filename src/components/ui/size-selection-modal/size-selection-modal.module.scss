@@ -132,15 +132,5 @@
 @media (max-width: 575px) {
   .modal {
     width: 100%;
-    right: 0;
-    bottom: -50%;
-    height: 450px;
-    top: auto;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-
-    &.active {
-      bottom: 0;
-    }
   }
 }
