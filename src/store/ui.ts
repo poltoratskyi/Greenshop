@@ -62,6 +62,13 @@ interface UIState {
   selectedMainSortLabel: string;
   setSelectedMainSortLabel: (value: string) => void;
 
+  // Price
+  priceTo: number;
+  setPriceTo: (value: number) => void;
+
+  priceFrom: number;
+  setPriceFrom: (value: number) => void;
+
   // Burger Menu
   isBurgerOpen: boolean;
   setIsBurgerOpen: (isOpen: boolean) => void;
@@ -145,6 +152,13 @@ export const useUIStore = create<UIState>((set) => ({
 
   selectedMainSortLabel: "",
   setSelectedMainSortLabel: (value) => set({ selectedMainSortLabel: value }),
+
+  // Price
+  priceTo: 0,
+  setPriceTo: (value: number) => set({ priceTo: value }),
+
+  priceFrom: 0,
+  setPriceFrom: (value: number) => set({ priceFrom: value }),
 
   // Burger Menu
   isBurgerOpen: false,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import qs from "qs";
 import {
@@ -9,7 +9,6 @@ import {
   useSizeStore,
   useUIStore,
 } from "../store";
-import { useDebounce } from "react-use";
 
 export const useUpdateUrl = () => {
   const selectedCategoryNameIds = useCategoryStore(
@@ -21,37 +20,49 @@ export const useUpdateUrl = () => {
   const selectedSortOption = useUIStore((state) => state.selectedSortOption);
   const selectedSortLabel = useUIStore((state) => state.selectedSortLabel);
 
+  const priceFrom = useUIStore((state) => state.priceFrom);
+  const priceTo = useUIStore((state) => state.priceTo);
+
   const router = useRouter();
 
-  useEffect(() => {
-    const query = qs.stringify(
-      {
-        category: selectedCategoryNameIds,
-        size: selectedSizeNameIds,
-        sort: selectedSortOption !== "" ? selectedSortOption : undefined,
-        direction: selectedSortLabel !== "" ? selectedSortLabel : undefined,
-      },
-      { arrayFormat: "comma" }
-    );
-
-    router.push(`?${query}`, { scroll: false });
-  }, [
-    selectedCategoryNameIds,
-    selectedSizeNameIds,
-    selectedSortLabel,
-    selectedSortOption,
-  ]);
-
-  useDebounce(
-    () => {
-      loadCatalog({
-        category: selectedCategoryNameIds,
-        size: selectedSizeNameIds,
-        sort: selectedSortOption,
-        direction: selectedSortLabel,
-      });
-    },
-    200,
-    [selectedCategoryNameIds, selectedSizeNameIds, selectedSortOption]
+  const queryParams = useMemo(
+    () => ({
+      category: selectedCategoryNameIds,
+      size: selectedSizeNameIds,
+      price_from: priceFrom !== 0 ? priceFrom : undefined,
+      price_to: priceTo !== 0 ? priceTo : undefined,
+      sort: selectedSortOption !== "" ? selectedSortOption : undefined,
+      direction: selectedSortLabel !== "" ? selectedSortLabel : undefined,
+    }),
+    [
+      selectedCategoryNameIds,
+      selectedSizeNameIds,
+      priceFrom,
+      priceTo,
+      selectedSortOption,
+      selectedSortLabel,
+    ]
   );
+
+  const loadCatalogMemoized = useCallback(() => {
+    loadCatalog({
+      category: selectedCategoryNameIds,
+      price_from: priceFrom,
+      price_to: priceTo,
+      size: selectedSizeNameIds,
+      sort: selectedSortOption,
+      direction: selectedSortLabel,
+    });
+  }, [queryParams]);
+
+  useEffect(() => {
+    const queryString = qs.stringify(queryParams, {
+      arrayFormat: "comma",
+      skipNulls: true,
+    });
+
+    router.push(`?${queryString}`, { scroll: false });
+
+    loadCatalogMemoized();
+  }, [queryParams]);
 };

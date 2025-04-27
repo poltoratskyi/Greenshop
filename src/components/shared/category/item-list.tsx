@@ -4,18 +4,19 @@ import { useEffect } from "react";
 import { getCategoryItemQuantity } from "../../../lib/client";
 import Style from "./category.module.scss";
 import Skeleton from "../../ui/skeleton/category";
-import { useCategoryStore } from "../../../store";
+import { useCatalogStore, useCategoryStore } from "../../../store";
 import { Checkbox } from "../../ui/category";
 
 const ItemList: React.FC = () => {
   const isLoading = useCategoryStore((state) => state.isLoading);
-
   const category = useCategoryStore((state) => state.category);
-  const loadCategory = useCategoryStore((state) => state.loadCategory);
   const selectedNameIds = useCategoryStore((state) => state.selectedNameIds);
+  const loadCategory = useCategoryStore((state) => state.loadCategory);
   const onSelectedItemIds = useCategoryStore(
     (state) => state.onSelectedItemIds
   );
+
+  const catalog = useCatalogStore((state) => state.catalog);
 
   useEffect(() => {
     loadCategory();

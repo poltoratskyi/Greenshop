@@ -2,11 +2,11 @@ import { QuantityItemsCategory } from "../../types";
 
 export const getCategoryItemQuantity = (
   arr: QuantityItemsCategory[],
-  stock: number
+  id: number
 ): number => {
   const result = arr.reduce((acc, e) => {
     const itemQuantity = e.items.filter(
-      (item) => item.categoryId === stock
+      (item) => item.categoryId === id
     ).length;
 
     return acc + itemQuantity;

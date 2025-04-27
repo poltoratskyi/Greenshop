@@ -9,6 +9,8 @@ interface CatalogState {
 
   loadCatalog: (params?: {
     category?: number[];
+    price_from?: number;
+    price_to?: number;
     size?: number[];
     sort?: string;
     direction?: string;
@@ -22,7 +24,14 @@ export const useCatalogStore = create<CatalogState>((set) => ({
   error: null,
 
   loadCatalog: async (
-    params = { category: [], size: [], sort: "", direction: "" }
+    params = {
+      category: [],
+      price_from: 0,
+      price_to: 0,
+      size: [],
+      sort: "",
+      direction: "",
+    }
   ) => {
     set({ isLoading: true, error: null });
 

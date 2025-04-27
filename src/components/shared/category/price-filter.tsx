@@ -3,22 +3,29 @@
 import { useEffect, useState } from "react";
 import Style from "./category.module.scss";
 import Skeleton from "../../ui/skeleton/category";
-import { useVariationStore, useSizeStore } from "../../../store";
+import { useVariationStore, useSizeStore, useUIStore } from "../../../store";
 import { PriceRange } from "../../ui/category";
 
 const PriceFilter: React.FC = () => {
   const variations = useVariationStore((state) => state.variations);
   const isLoading = useSizeStore((state) => state.isLoading);
+
+  const priceFrom = useUIStore((state) => state.priceFrom);
+  const priceTo = useUIStore((state) => state.priceTo);
+
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
 
+  const setPriceFrom = useUIStore((state) => state.setPriceFrom);
+  const setPriceTo = useUIStore((state) => state.setPriceTo);
+
   useEffect(() => {
     const prices = variations.map((item) => item.price);
-    const maxPrice = prices.sort((a, b) => b - a)[0];
-    const minPrice = prices.sort((a, b) => a - b)[0];
+    const max = prices.sort((a, b) => b - a)[0];
+    const min = prices.sort((a, b) => a - b)[0];
 
-    setMinPrice(minPrice || 0);
-    setMaxPrice(maxPrice || 0);
+    setMinPrice(min || 0);
+    setMaxPrice(max || 0);
   }, [variations]);
 
   const handlePriceInputChange = (
@@ -29,11 +36,11 @@ const PriceFilter: React.FC = () => {
 
     if (field === "minPrice") {
       if (value >= 0 && value <= 10000) {
-        setMinPrice(value);
+        setPriceFrom(value);
       }
     } else if (field === "maxPrice") {
       if (value >= 0 && value <= 10000) {
-        setMaxPrice(value);
+        setPriceTo(value);
       }
     }
   };
@@ -63,7 +70,7 @@ const PriceFilter: React.FC = () => {
           placeholder={String(minPrice)}
           min={0}
           max={10000}
-          value={String(minPrice)}
+          value={priceFrom === 0 ? "" : priceFrom.toString()}
           handlePriceInputChange={(e) => handlePriceInputChange("minPrice", e)}
         />
 
@@ -74,7 +81,7 @@ const PriceFilter: React.FC = () => {
           placeholder={String(maxPrice)}
           min={0}
           max={10000}
-          value={String(maxPrice)}
+          value={priceTo === 0 ? "" : priceTo.toString()}
           showDollar
           handlePriceInputChange={(e) => handlePriceInputChange("maxPrice", e)}
         />

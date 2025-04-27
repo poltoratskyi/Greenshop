@@ -1,16 +1,24 @@
 import { NextResponse, NextRequest } from "next/server";
 import { prisma } from "../../../../prisma/prisma-client";
 
+const MIN_PRICE = 0;
+const MAX_PRICE = 1000;
+
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
 
   const categoryParam = searchParams.get("category");
+  const priceFromParam = searchParams.get("price_from");
+  const priceToParam = searchParams.get("price_to");
   const sizeParam = searchParams.get("size");
   const sortParam = searchParams.get("sort");
   const directionParam = searchParams.get("direction");
 
   const categoryIds = categoryParam?.split(",").map(Number);
   const sizeIds = sizeParam?.split(",").map(Number);
+
+  const priceFrom = priceFromParam ? Number(priceFromParam) : MIN_PRICE;
+  const priceTo = priceToParam ? Number(priceToParam) : MAX_PRICE;
 
   let orderBy = {};
 
@@ -28,15 +36,25 @@ export async function GET(request: NextRequest) {
     const items = await prisma.item.findMany({
       where: {
         categoryId: categoryIds ? { in: categoryIds } : undefined,
-        variations: sizeIds
-          ? {
-              some: {
-                sizeId: {
-                  in: sizeIds,
+        variations: {
+          some: {
+            AND: [
+              sizeIds
+                ? {
+                    sizeId: {
+                      in: sizeIds,
+                    },
+                  }
+                : {},
+              {
+                price: {
+                  gte: priceFrom,
+                  lte: priceTo,
                 },
               },
-            }
-          : undefined,
+            ],
+          },
+        },
       },
 
       orderBy: orderBy,
