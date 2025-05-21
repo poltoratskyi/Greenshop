@@ -42,7 +42,6 @@ export const fetchCatalog = async (params: {
     requestParams.price_to = params.price_to;
   }
 
-  console.log(requestParams);
   const response = await AxiosInstance.get<Item[]>("/items/catalog", {
     params: requestParams,
   });

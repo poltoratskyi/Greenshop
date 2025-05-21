@@ -68,10 +68,14 @@
           opacity: 0;
           margin-bottom: 5%;
 
-          .favorite {
+          .favorite,
+          .cart,
+          .delete {
             display: inline-block;
             background-color: transparent;
+          }
 
+          .favorite {
             & > [data-type="heart"] {
               cursor: pointer;
 
@@ -90,9 +94,6 @@
           }
 
           .cart {
-            display: inline-block;
-            background-color: transparent;
-
             & > [data-type="cart"] {
               cursor: pointer;
 
@@ -103,9 +104,6 @@
           }
 
           .delete {
-            display: inline-block;
-            background-color: transparent;
-
             & > [data-type="delete"] {
               cursor: pointer;
 
@@ -192,6 +190,7 @@
             left: 0;
             transform: none;
             width: 100%;
+            height: 100%;
             margin: 0;
 
             .favorite,

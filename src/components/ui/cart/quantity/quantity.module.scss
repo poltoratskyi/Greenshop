@@ -19,6 +19,7 @@
     background-color: #fff;
     border: 1px rgba(v.$main, 0.5) solid;
     transition: all 0.2s ease;
+    cursor: pointer;
 
     &:hover {
       border: 1px rgba(v.$main, 1) solid;

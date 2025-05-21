@@ -1,7 +1,7 @@
 "use client";
 
 import Style from "./delete.module.scss";
-import { svgTrash } from "./static-data";
+import { svgDelete } from "./static-data";
 
 interface Props {
   itemId: number;
@@ -15,7 +15,7 @@ const Delete: React.FC<Props> = ({ itemId, onClick }) => {
       onClick={() => onClick(itemId)}
       aria-label="Delete item"
     >
-      {svgTrash}
+      {svgDelete}
     </span>
   );
 };

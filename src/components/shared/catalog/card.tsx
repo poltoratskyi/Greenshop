@@ -19,7 +19,7 @@ import {
 import Price from "../../ui/cart/price";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import { Delete } from "../../../components/ui/cart";
+import { svgDelete } from "./static-data";
 
 interface Props {
   id: number;
@@ -132,9 +132,13 @@ const Card: React.FC<Props> = ({
             </span>
 
             {pathname === "/profile/wishlist" && (
-              <div className={Style.delete}>
-                <Delete itemId={id} onClick={deleteWishlistItem} />
-              </div>
+              <span
+                className={Style.delete}
+                onClick={() => deleteWishlistItem(id)}
+                aria-label="Delete item"
+              >
+                {svgDelete}
+              </span>
             )}
           </div>
 

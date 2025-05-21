@@ -30,6 +30,12 @@ async function clear() {
   await prisma.$executeRaw`TRUNCATE TABLE "Category" RESTART IDENTITY CASCADE;`;
 
   await prisma.$executeRaw`TRUNCATE TABLE "Size" RESTART IDENTITY CASCADE;`;
+
+  await prisma.$executeRaw`TRUNCATE TABLE "Order" RESTART IDENTITY CASCADE;`;
+
+  await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE;`;
+
+  await prisma.$executeRaw`TRUNCATE TABLE "Wishlist" RESTART IDENTITY CASCADE;`;
 }
 
 async function main() {

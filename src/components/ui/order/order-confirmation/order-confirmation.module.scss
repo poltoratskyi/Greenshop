@@ -25,6 +25,9 @@
     padding: 0px 20px;
 
     .header {
+      svg {
+        margin: 0 auto;
+      }
       .title {
         @include m.description($c: v.$text, $fz: 16px);
 

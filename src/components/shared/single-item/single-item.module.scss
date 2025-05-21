@@ -103,7 +103,7 @@
         gap: 10px;
         margin-bottom: 25px;
 
-        a {
+        .favorite {
           @include m.button(
             $d: flex,
             $p: 15px,

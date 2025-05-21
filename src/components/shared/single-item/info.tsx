@@ -2,12 +2,13 @@
 
 import Style from "./single-item.module.scss";
 import { ItemVariation } from "../../../types";
-import { useCartStore, useUIStore } from "../../../store";
+import { useCartStore, useItemStore, useUIStore } from "../../../store";
 import Button from "../../ui/button";
 import { svgHeart } from "./static-data";
 import { useAddToCart } from "../../../hooks";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 interface Props {
   id: number;
@@ -16,14 +17,27 @@ interface Props {
 }
 
 const Info: React.FC<Props> = ({ id, shortDescription, variations }) => {
+  const { data: session } = useSession();
   const router = useRouter();
 
   const isItemAdded = useCartStore((state) => state.isItemAdded);
 
   const currentSizeIndex = useUIStore((state) => state.currentSizeIndex);
   const setCurrentSizeIndex = useUIStore((state) => state.setCurrentSizeIndex);
+  const setOpenedModalType = useUIStore((state) => state.setOpenedModalType);
+  const setIsModalSizeOpen = useUIStore((state) => state.setIsModalSizeOpen);
 
   const { handleAddToCart } = useAddToCart();
+
+  const loadModalSingleItem = useItemStore(
+    (state) => state.loadModalSingleItem
+  );
+
+  const openModalWithItem = (boolean: boolean, id: number) => {
+    setOpenedModalType(boolean);
+    loadModalSingleItem(id);
+    setIsModalSizeOpen(true);
+  };
 
   return (
     <>
@@ -89,7 +103,18 @@ const Info: React.FC<Props> = ({ id, shortDescription, variations }) => {
           type="button"
         />
 
-        <Link href="/login">{svgHeart}</Link>
+        {!session ? (
+          <Link className={Style.favorite} href="/login">
+            {svgHeart}
+          </Link>
+        ) : (
+          <span
+            className={Style.favorite}
+            onClick={() => openModalWithItem(false, id)}
+          >
+            {svgHeart}
+          </span>
+        )}
       </div>
     </>
   );

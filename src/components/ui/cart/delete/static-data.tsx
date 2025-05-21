@@ -1,4 +1,4 @@
-export const svgTrash = (
+export const svgDelete = (
   <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
     <path
       d="M18.8892 9.55408C18.8892 17.5731 20.0435 21.1979 12.2797 21.1979C4.5149 21.1979 5.693 17.5731 5.693 9.55408"
