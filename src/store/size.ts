@@ -10,6 +10,7 @@ interface SizeState {
 
   loadSize: () => Promise<void>;
   onSelectedSizeIds: (id: number) => void;
+  resetFilters: () => void;
 }
 
 export const useSizeStore = create<SizeState>((set) => ({
@@ -44,4 +45,6 @@ export const useSizeStore = create<SizeState>((set) => ({
           : [...state.selectedNameIds, id],
       };
     }),
+
+  resetFilters: () => set({ selectedNameIds: [] }),
 }));

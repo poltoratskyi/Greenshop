@@ -12,6 +12,7 @@ interface CategoryState {
 
   loadCategory: () => Promise<void>;
   onSelectedItemIds: (id: number) => void;
+  resetFilters: () => void;
 }
 
 export const useCategoryStore = create<CategoryState>((set) => ({
@@ -46,4 +47,6 @@ export const useCategoryStore = create<CategoryState>((set) => ({
           : [...state.selectedNameIds, id],
       };
     }),
+
+  resetFilters: () => set({ selectedNameIds: [] }),
 }));

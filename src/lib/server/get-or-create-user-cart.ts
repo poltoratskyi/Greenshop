@@ -1,6 +1,6 @@
 import { prisma } from "../../prisma/prisma-client";
 
-export const getOrCreateUserCart = async (token: string) => {
+export const getOrCreateUserCart = async (token: string, userId?: number) => {
   try {
     if (!token) {
       throw new Error("Cart token is required");
@@ -8,7 +8,7 @@ export const getOrCreateUserCart = async (token: string) => {
 
     let userCart = await prisma.cart.findFirst({
       where: {
-        token,
+        OR: [{ token }, { userId }],
       },
     });
 
@@ -16,6 +16,7 @@ export const getOrCreateUserCart = async (token: string) => {
       userCart = await prisma.cart.create({
         data: {
           token,
+          userId,
         },
       });
     }

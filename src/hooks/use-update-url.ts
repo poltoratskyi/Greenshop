@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import qs from "qs";
 import {
@@ -9,6 +9,7 @@ import {
   useSizeStore,
   useUIStore,
 } from "../store";
+import { useDebounce } from "react-use";
 
 export const useUpdateUrl = () => {
   const selectedCategoryNameIds = useCategoryStore(
@@ -55,14 +56,18 @@ export const useUpdateUrl = () => {
     });
   }, [queryParams]);
 
-  useEffect(() => {
-    const queryString = qs.stringify(queryParams, {
-      arrayFormat: "comma",
-      skipNulls: true,
-    });
+  useDebounce(
+    () => {
+      const queryString = qs.stringify(queryParams, {
+        arrayFormat: "comma",
+        skipNulls: true,
+      });
 
-    router.push(`?${queryString}`, { scroll: false });
+      router.push(`?${queryString}`, { scroll: false });
 
-    loadCatalogMemoized();
-  }, [queryParams]);
+      loadCatalogMemoized();
+    },
+    1000,
+    [queryParams]
+  );
 };

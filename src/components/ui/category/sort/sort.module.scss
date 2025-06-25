@@ -75,6 +75,7 @@
 
     .content {
       position: unset;
+
       .descr {
         color: v.$text;
         font-weight: 500;
@@ -86,9 +87,14 @@
         bottom: 0;
         left: 0;
         z-index: 2;
+        padding: 20px 20px 40px;
 
         .list {
           margin-bottom: 30px;
+
+          .text {
+            @include m.description($fz: 16px);
+          }
         }
       }
     }

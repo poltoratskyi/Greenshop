@@ -5,6 +5,7 @@
 .add,
 .order,
 .discountPopup,
+.resetFilters,
 .choose,
 .signUp,
 .logIn,
@@ -20,6 +21,10 @@
     $lh: 24px,
     $c: #fff
   );
+}
+
+.resetFilters {
+  margin-top: 35px;
 }
 
 .logOut {
@@ -112,6 +117,7 @@
 
 .order,
 .discountPopup,
+.resetFilters,
 .choose {
   width: 100%;
 }

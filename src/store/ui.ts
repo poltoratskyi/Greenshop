@@ -69,6 +69,9 @@ interface UIState {
   priceFrom: number;
   setPriceFrom: (value: number) => void;
 
+  // Reset filters
+  resetFilters: () => void;
+
   // Burger Menu
   isBurgerOpen: boolean;
   setIsBurgerOpen: (isOpen: boolean) => void;
@@ -159,6 +162,13 @@ export const useUIStore = create<UIState>((set) => ({
 
   priceFrom: 0,
   setPriceFrom: (value: number) => set({ priceFrom: value }),
+
+  // Reset filters
+  resetFilters: () =>
+    set({
+      priceFrom: 0,
+      priceTo: 0,
+    }),
 
   // Burger Menu
   isBurgerOpen: false,

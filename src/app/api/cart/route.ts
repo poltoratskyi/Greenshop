@@ -2,24 +2,40 @@ import crypto from "crypto";
 import { prisma } from "../../../prisma/prisma-client";
 import { NextResponse, NextRequest } from "next/server";
 
-import { getOrCreateUserCart } from "../../../lib/server";
+import { getOrCreateUserCart, getUserSession } from "../../../lib/server";
 import { updateCartTotalAmount } from "../../../lib/server";
 import { cookies } from "next/headers";
 
 export async function GET() {
   try {
+    const session = await getUserSession();
+
+    if (!session?.email) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const user = await prisma.user.findUnique({
+      where: {
+        email: session.email as string,
+      },
+    });
+
+    if (!user) {
+      return NextResponse.json({ error: "User not found" }, { status: 404 });
+    }
+
     // Get the token
     const token = (await cookies()).get("cartToken")?.value;
 
     if (!token) {
       return NextResponse.json(
         { error: "Cart token not found" },
-        { status: 400 }
+        { status: 404 }
       );
     }
 
     // Update the total amounts
-    const updatedTotalAmounts = await updateCartTotalAmount(token);
+    const updatedTotalAmounts = await updateCartTotalAmount(token, user.id);
 
     if (!updatedTotalAmounts) {
       return NextResponse.json(
@@ -37,6 +53,22 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
+    const session = await getUserSession();
+
+    if (!session?.email) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const user = await prisma.user.findUnique({
+      where: {
+        email: session.email as string,
+      },
+    });
+
+    if (!user) {
+      return NextResponse.json({ error: "User not found" }, { status: 404 });
+    }
+
     // Get the token
     let token = request.cookies.get("cartToken")?.value;
 
@@ -46,7 +78,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create the new user cart
-    const createUserCartToken = await getOrCreateUserCart(token);
+    const createUserCartToken = await getOrCreateUserCart(token, user?.id);
 
     // Get the data from the request
     const data = await request.json();
