@@ -1,7 +1,7 @@
 node_modules/
 
 .next/
-
+.vscode
 .env
 .env.prod
 next-env.d.ts

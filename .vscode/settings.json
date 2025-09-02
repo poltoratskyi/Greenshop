@@ -13,5 +13,6 @@
     "tailwindcss",
     "toploader",
     "turbopack"
-  ]
+  ],
+  "postman.settings.dotenv-detection-notification-visibility": false
 }

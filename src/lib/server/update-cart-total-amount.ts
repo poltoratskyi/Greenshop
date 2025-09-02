@@ -1,9 +1,9 @@
 import { prisma } from "../../prisma/prisma-client";
 import { getUserCart } from "./get-user-cart";
 
-export const updateCartTotalAmount = async (token: string, userId?: number) => {
+export const updateCartTotalAmount = async (token: string) => {
   try {
-    const userCart = await getUserCart(token, userId);
+    const userCart = await getUserCart(token);
 
     if (!userCart) {
       return;

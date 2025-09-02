@@ -24,12 +24,11 @@ async function clear() {
   // "TRUNCATE TABLE" - delete all users,
   // "RESTART IDENTITY" - reset ID to 1
   await prisma.$executeRaw`TRUNCATE TABLE "Variation" RESTART IDENTITY CASCADE;`;
-
   await prisma.$executeRaw`TRUNCATE TABLE "Item" RESTART IDENTITY CASCADE;`;
-
   await prisma.$executeRaw`TRUNCATE TABLE "Category" RESTART IDENTITY CASCADE;`;
-
   await prisma.$executeRaw`TRUNCATE TABLE "Size" RESTART IDENTITY CASCADE;`;
+  await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE;`;
+  await prisma.$executeRaw`TRUNCATE TABLE "Cart" RESTART IDENTITY CASCADE;`;
 }
 
 async function main() {
