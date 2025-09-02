@@ -3,7 +3,7 @@ import { prisma } from "../../../../prisma/prisma-client";
 import { NextRequest, NextResponse } from "next/server";
 
 interface Props {
-  params: Promise<{ itemId: string }>;
+  params: Promise<{ id: string }>;
 }
 
 export async function DELETE(
@@ -17,9 +17,9 @@ export async function DELETE(
       return NextResponse.redirect("/not-auth");
     }
 
-    const { itemId } = await params;
+    const { id } = await params;
 
-    if (!itemId) {
+    if (!id) {
       return NextResponse.json(
         { error: "Wishlist item ID is required" },
         { status: 400 }
@@ -48,7 +48,7 @@ export async function DELETE(
     const item = await prisma.wishlistItem.findFirst({
       where: {
         wishlistId: wishlist.id,
-        itemId: Number(itemId),
+        itemId: Number(id),
       },
     });
 

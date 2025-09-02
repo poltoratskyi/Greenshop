@@ -15,11 +15,12 @@ export default async function OrdersPage() {
     const orders = await getOrderItems(session.email as string);
 
     if (!orders) {
-      return console.error("No orders found");
+      console.log("No orders found");
     }
 
     return <Orders data={orders} />;
   } catch (error) {
     console.error("Error in OrdersPage:", error);
+    return redirect("/not-auth");
   }
 }
