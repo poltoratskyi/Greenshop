@@ -1,4 +1,94 @@
-export const categoryMenu = [
+export const blog = [
+  {
+    imgUrl: "/blog/blog-1-min.png",
+    date: "September 12",
+    year: "2025",
+    heading: "Read in 6 minutes",
+    title: "Cacti & Succulent Care Tips",
+    subtitle:
+      "Cacti and succulents thrive in containers, requiring minimal care for stunning results",
+    descr:
+      "Cacti and succulents are among the easiest plants to care for, but they still have their unique needs. In this article, we will look at how to choose the right soil, ensure proper drainage, and water your plants without overdoing it. You will also learn about sunlight requirements and common mistakes beginners often make",
+  },
+  {
+    imgUrl: "/blog/blog-2-min.png",
+    date: "September 13",
+    year: "2025",
+    heading: "Read in 2 minutes",
+    title: "Top 10 Succulents for Your Home",
+    subtitle:
+      "A curated list of low-maintenance succulents perfect for indoor living",
+    descr:
+      "Not sure which succulents to add to your collection? Here is a list of ten beautiful, easy-to-grow varieties that thrive indoors. From the popular jade plant to colorful echeverias, each one brings a unique look to your home. We will cover their care needs, growth habits, and the best spots to place them",
+  },
+  {
+    imgUrl: "/blog/blog-3-min.png",
+    date: "September 15",
+    year: "2025",
+    heading: "Read in 3 minutes",
+    title: "Seasonal Care for Cacti & Succulents",
+    subtitle:
+      "Simple seasonal tips to keep your cacti and succulents healthy year-round",
+    descr:
+      "Caring for succulents is not the same in summer and winter. During the growing season, they need more water and sunlight, while in colder months they often go dormant. This article explains how to adjust your routine with the seasons, protect plants from frost, and prepare them for active growth again in spring",
+  },
+  {
+    imgUrl: "/blog/blog-4-min.png",
+    date: "September 23",
+    year: "2025",
+    heading: "Read in 2 minutes",
+    title: "Best Houseplants Room by Room",
+    subtitle:
+      "Which houseplants work best in each room, based on light and humidity",
+    descr:
+      "Every room in your home has different conditions, from bright kitchens to low-light bedrooms. The key to happy plants is matching the right type with the right spot. This guide gives you simple suggestions for each space, including humidity-loving ferns for bathrooms and hardy snake plants for darker corners",
+  },
+  {
+    imgUrl: "/blog/blog-5-min.png",
+    date: "September 25",
+    year: "2025",
+    heading: "Read in 4 minutes",
+    title: "How to Create a Zen Garden",
+    subtitle:
+      "Design and maintenance tips to create a calming Zen garden at home",
+    descr:
+      "A Zen garden is more than just sand and stones — it is a place to pause, reflect, and find calm. We will go over the essentials of design, from choosing rocks and raking patterns to adding minimal greenery. With just a few simple tools and regular care, you can create your own peaceful retreat at home",
+  },
+  {
+    imgUrl: "/blog/blog-6-min.png",
+    date: "September 27",
+    year: "2025",
+    heading: "Read in 5 minutes",
+    title: "Indoor Plants for Beginners",
+    subtitle: "Easy-care indoor plants and practical tips for beginners",
+    descr:
+      "Starting with houseplants can feel overwhelming, but the truth is some plants practically care for themselves. In this guide, you will meet beginner-friendly favorites like pothos, peace lilies, and ZZ plants. We will also share simple tips on watering, repotting, and avoiding the most common mistakes new plant parents make",
+  },
+  {
+    imgUrl: "/blog/blog-7-min.png",
+    date: "September 29",
+    year: "2025",
+    heading: "Read in 3 minutes",
+    title: "The Benefits of Vertical Gardening",
+    subtitle:
+      "Vertical gardening is an efficient way to grow plants upward — ideal for small spaces",
+    descr:
+      "If you are short on space but love greenery, vertical gardening is the solution. By growing upwards, you can turn walls, fences, or balconies into lush displays. This article covers plant options, watering solutions, and design inspiration to help you transform even the smallest corner into a green sanctuary",
+  },
+  {
+    imgUrl: "/blog/blog-8-min.png",
+    date: "October 1",
+    year: "2025",
+    heading: "Read in 6 minutes",
+    title: "Herbs You Can Grow Indoors",
+    subtitle:
+      "Practical herbs to grow on a windowsill and how to care for them",
+    descr:
+      "Fresh herbs do not just taste better, they also make your home feel alive. Luckily, many popular herbs like basil, mint, and parsley thrive indoors with the right care. In this article, you will learn how to choose containers, manage watering, and maximize light for healthy growth, plus a few ideas for using them in your cooking",
+  },
+];
+
+export const category = [
   { name: "House Plants" },
   { name: "Potter Plants" },
   { name: "Seeds" },
@@ -10,7 +100,7 @@ export const categoryMenu = [
   { name: "Accessories" },
 ];
 
-export const catalog = [
+export const item = [
   // House Plants
   {
     popularity: 3,
@@ -139,7 +229,7 @@ export const catalog = [
   },
 ];
 
-export const sizes = [
+export const size = [
   { shortName: "S", fullName: "Small" },
   { shortName: "M", fullName: "Medium" },
   { shortName: "L", fullName: "Large" },

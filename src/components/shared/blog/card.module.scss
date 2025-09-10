@@ -1,0 +1,35 @@
+@use "../../../styles/variables.scss" as v;
+@use "../../../styles/mixins.scss" as m;
+
+.link {
+  @include m.description($fw: 500, $c: v.$text);
+
+  position: relative;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    margin-top: 15px;
+    transition: all 0.2s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &:hover {
+    color: v.$main;
+
+    svg {
+      opacity: 1;
+      visibility: visible;
+      margin-top: 0px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .img {
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+  }
+}

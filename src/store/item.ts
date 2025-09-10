@@ -44,8 +44,8 @@ export const useItemStore = create<ItemState>((set) => ({
       const response = await fetchSingleItem(itemId);
       set({ modalItem: response });
     } catch (err) {
-      set({ error: "Failed to fetch item", modalIsLoading: false });
-      console.error("Error fetching item:", err);
+      set({ error: "Failed to fetch single item", modalIsLoading: false });
+      console.error("Error fetching single item:", err);
     } finally {
       set({ modalIsLoading: false });
     }

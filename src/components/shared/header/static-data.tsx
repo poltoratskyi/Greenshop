@@ -20,7 +20,7 @@ export const pages = [
   { menu: "Home", href: "/" },
   { menu: "Shop", href: "#" },
   { menu: "Plant Care", href: "#" },
-  { menu: "Blogs", href: "#" },
+  { menu: "Blogs", href: "/blog" },
 ];
 
 export const svgLogo = (

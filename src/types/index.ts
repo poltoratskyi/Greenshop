@@ -27,8 +27,10 @@ import { Place, ZipCodeData } from "./zip-code";
 import { NominatimLocation } from "./nominatim-location";
 import { OrderEmail, OrderTemplate } from "./order-email";
 import { WishlistResponse, WishlistItem } from "./wishlist";
+import { Blog } from "./blog";
 
 export type {
+  Blog,
   WishlistResponse,
   WishlistItem,
   OrderItem,

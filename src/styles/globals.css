@@ -8,13 +8,13 @@
   -webkit-line-clamp: 2;
 }
 
+/* breakpoint */
 @theme {
   --breakpoint-xs: 575px;
   --breakpoint--xs: 470px;
 }
 
 /* reset styles */
-
 :focus,
 :active {
   outline: none;

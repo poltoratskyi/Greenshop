@@ -8,7 +8,7 @@ const SaleBanner: React.FC = () => {
 
       <div className="container">
         <p className={`${Style.text} ${Style.delivered}`}>
-          Fresh flowers delivered to your door!
+          Your moments, our flowers{" "}
         </p>
       </div>
     </div>

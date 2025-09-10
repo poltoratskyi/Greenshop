@@ -13,8 +13,11 @@ import { fetchVariation } from "./variation";
 import { fetchLocation } from "./nominatim";
 import { createOrder } from "./order";
 import { fetchUserWishlist, deleteWishlistItem } from "./wishlist";
+import { fetchBlog, fetchSingleBlog } from "./blog";
 
 export {
+  fetchBlog,
+  fetchSingleBlog,
   deleteWishlistItem,
   fetchUserWishlist,
   createOrder,

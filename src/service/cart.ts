@@ -13,7 +13,6 @@ export const updateCartItemQuantity = async (
   const response = await AxiosInstance.patch<CartResponse>(`/cart/` + id, {
     quantity,
   });
-
   return response.data;
 };
 

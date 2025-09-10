@@ -10,7 +10,10 @@
     "postinstall": "prisma generate --schema=./src/prisma/schema.prisma",
     "prisma:push": "prisma db push --schema=./src/prisma/schema.prisma",
     "prisma:studio": "prisma studio --schema=./src/prisma/schema.prisma",
-    "prisma:seed": "prisma db seed --schema=./src/prisma/schema.prisma"
+    "prisma:seed": "prisma db seed"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seed.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

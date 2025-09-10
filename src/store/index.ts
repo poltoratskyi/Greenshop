@@ -10,8 +10,10 @@ import { useZipCodeStore } from "./zip-code";
 import { useLocationStore } from "./location";
 import { useOrderStore } from "./order";
 import { useWishlistStore } from "./wishlist";
+import { useBlogStore } from "./blog";
 
 export {
+  useBlogStore,
   useWishlistStore,
   useOrderStore,
   useZipCodeStore,

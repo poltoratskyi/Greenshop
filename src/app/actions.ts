@@ -23,7 +23,7 @@ export const createSubscription = async (data: Email) => {
       throw new Error("Email is required");
     }
 
-    const existingSubscription = await prisma.emailSubscription.findUnique({
+    const existingSubscription = await prisma.subscription.findUnique({
       where: {
         email: email,
       },
@@ -35,7 +35,7 @@ export const createSubscription = async (data: Email) => {
       };
     }
 
-    await prisma.emailSubscription.create({
+    await prisma.subscription.create({
       data: {
         email: email,
       },

@@ -32,15 +32,15 @@ const SingleItem: React.FC<Props> = ({ id }) => {
       <>
         <Pathname />
 
-        <section className={Style.singleItem}>
+        <>
           <Loader item />;
-        </section>
+        </>
       </>
     );
   }
 
   return (
-    <div>
+    <>
       {item.map((item) => (
         <React.Fragment key={item.id}>
           <Pathname name={item.name} category={item.category} thirdPath />
@@ -71,7 +71,7 @@ const SingleItem: React.FC<Props> = ({ id }) => {
       <SizeSelectionModal />
 
       {!discountStatus && <Popup />}
-    </div>
+    </>
   );
 };
 
