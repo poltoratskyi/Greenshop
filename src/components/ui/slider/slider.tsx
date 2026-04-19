@@ -1,8 +1,11 @@
 import { Swiper } from "swiper/react";
 import { Pagination, Navigation, A11y } from "swiper/modules";
-import "swiper/scss";
-import "swiper/scss/navigation";
-import "swiper/scss/a11y";
+// @ts-ignore
+import "swiper/css";
+// @ts-ignore
+import "swiper/css/navigation";
+// @ts-ignore
+import "swiper/css/a11y";
 import "./slider.css";
 
 interface Props {

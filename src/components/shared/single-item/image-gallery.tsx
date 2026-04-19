@@ -5,11 +5,16 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs, Zoom, Pagination, A11y } from "swiper/modules";
-import "swiper/scss";
-import "swiper/scss/navigation";
-import "swiper/scss/zoom";
-import "swiper/scss/thumbs";
-import "swiper/scss/a11y";
+// @ts-ignore
+import "swiper/css";
+// @ts-ignore
+import "swiper/css/navigation";
+// @ts-ignore
+import "swiper/css/zoom";
+// @ts-ignore
+import "swiper/css/thumbs";
+// @ts-ignore
+import "swiper/css/a11y";
 import "./slider.css";
 import { ItemVariation } from "../../../types";
 import Style from "./single-item.module.scss";
@@ -29,10 +34,10 @@ const ImageGallery: React.FC<Props> = ({ imgUrl, name, variations }) => {
 
   const currentImageIndex = useUIStore((state) => state.currentImageIndex);
   const setCurrentImageIndex = useUIStore(
-    (state) => state.setCurrentImageIndex
+    (state) => state.setCurrentImageIndex,
   );
   const resetVariationSelection = useUIStore(
-    (state) => state.resetVariationSelection
+    (state) => state.resetVariationSelection,
   );
 
   useEffect(() => {

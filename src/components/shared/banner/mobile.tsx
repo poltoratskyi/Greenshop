@@ -3,9 +3,12 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, A11y } from "swiper/modules";
-import "swiper/scss";
-import "swiper/scss/autoplay";
-import "swiper/scss/a11y";
+// @ts-ignore
+import "swiper/css";
+// @ts-ignore
+import "swiper/css/autoplay";
+// @ts-ignore
+import "swiper/css/a11y";
 import "./slider.css";
 import Style from "./banner.module.scss";
 import { slides } from "./static-data";
