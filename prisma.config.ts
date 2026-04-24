@@ -10,7 +10,7 @@ export default defineConfig({
     // url - Multi Connection (Recommended)
 
     // Url link -> Database
-    url: env("DATABASE_URL"),
+    url: env("POSTGRES_URL"),
 
     shadowDatabaseUrl: env("POSTGRES_URL_NON_POOLING"),
   },
