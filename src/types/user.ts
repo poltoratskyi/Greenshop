@@ -1,4 +1,4 @@
-import { UserRole as PrismaUserRole } from "@prisma/client";
+import { UserRole as PrismaUserRole } from "../prisma/generated/prisma";
 import { Email, Id } from "./common";
 import { Cart } from "./cart";
 import { VerificationCode } from "./order";
