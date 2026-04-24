@@ -40,6 +40,12 @@
   transition: all 0.2s ease;
 }
 
+.swiper-button-prev svg,
+.swiper-button-next svg {
+  width: 20px;
+  height: 20px;
+}
+
 #item-button-prev,
 #item-button-next {
   visibility: hidden;

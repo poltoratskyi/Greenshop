@@ -12,6 +12,6 @@ export default defineConfig({
     // Url link -> Database
     url: env("DATABASE_URL"),
 
-    shadowDatabaseUrl: env("SHADOW_DATABASE_URL_NON_POOLING"),
+    shadowDatabaseUrl: env("POSTGRES_URL_NON_POOLING"),
   },
 });
