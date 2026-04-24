@@ -2,19 +2,13 @@
 generator client {
     // Prisma Client -> JavaScript | TypeScript
     provider = "prisma-client-js"
+    output   = "../prisma/generated/prisma"
 }
 
 // Database Connection Config
 datasource db {
     // Data Type -> PostgreSQL
     provider = "postgresql"
-
-    // url - Multi Connection (Recommended) 
-    // directUrl - Single Connection (Not Recommended)
-
-    // Url link -> Database
-    url       = env("POSTGRES_URL")
-    directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model Category {

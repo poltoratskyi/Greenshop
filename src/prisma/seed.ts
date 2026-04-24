@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { prisma } from "./prisma-client";
 import { category, item, variation, size, blog } from "./constants";
 

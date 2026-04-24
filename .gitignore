@@ -5,3 +5,4 @@ node_modules/
 .env
 .env.prod
 next-env.d.ts
+src/prisma/generated
